@@ -52,6 +52,8 @@ namespace PedidosSSCC.Controllers
             var errores = new List<LogEntryViewModel>();
             var fechasDisponibles = new List<string>();
             bool lecturaCompletada = false;
+            var errores = new List<string>();
+            var fechasDisponibles = new List<string>();
 
             try
             {
@@ -63,6 +65,7 @@ namespace PedidosSSCC.Controllers
                 var archivos = Directory.GetFiles(logPath, "log_*.txt")
                     .OrderByDescending(path => Path.GetFileNameWithoutExtension(path))
                     .ToList();
+                var archivos = Directory.GetFiles(logPath, "log_*.txt");
 
                 // Obtener lista de fechas disponibles desde los nombres de archivo
                 fechasDisponibles = archivos
@@ -77,6 +80,11 @@ namespace PedidosSSCC.Controllers
                     {
                         AgregarEntradasDesdeArchivo(archivo, errores);
                     }
+                    // Si no se ha seleccionado fecha, mostrar todos
+                    errores = archivos
+                        .SelectMany(path => System.IO.File.ReadAllLines(path, Encoding.UTF8))
+                        .Reverse()
+                        .ToList();
                 }
                 else
                 {
@@ -105,6 +113,25 @@ namespace PedidosSSCC.Controllers
             if (lecturaCompletada && errores.Count == 0)
             {
                 ViewBag.SinLogs = true;
+                    errores = System.IO.File.Exists(archivoSeleccionado)
+                        ? System.IO.File.ReadAllLines(archivoSeleccionado, Encoding.UTF8).Reverse().ToList()
+                        : new List<string>();
+                }
+
+                if (errores.Count == 0)
+                {
+                    ViewBag.SinLogs = true;
+                }
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                log.Error("No se pudo acceder a la carpeta de logs.", ex);
+                ViewBag.ErrorLecturaLogs = "No se pudo acceder a la carpeta de registros por permisos insuficientes.";
+            }
+            catch (IOException ex)
+            {
+                log.Error("Error al leer los archivos de log.", ex);
+                ViewBag.ErrorLecturaLogs = "Ocurrió un problema al leer los archivos de registro.";
             }
 
             ViewBag.Fechas = fechasDisponibles;

@@ -3,6 +3,8 @@
 @using System
 @using System.Globalization
 
+@model List<string>
+
 @{
     var fechasDisponibles = ViewBag.Fechas as List<string> ?? new List<string>();
     string fechaSeleccionada = ViewBag.FechaSeleccionada as string;
@@ -70,6 +72,7 @@
                 </thead>
                 <tbody>
                     @foreach (var log in Model)
+                    @foreach (var error in Model)
                     {
                         bool mostrarUrl = !string.IsNullOrWhiteSpace(log.Url) && log.Url != "-";
                         Uri urlResultado;
