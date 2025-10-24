@@ -1,0 +1,582 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Licencias";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">@Resources.Titulo_Licencias</h1>
+        <div class="title-btn-group">
+            <button id="btnPrevisulizarConceptos" type="button" class="btn btn-lg btn-warning">
+                <i class="bi bi-eye"></i> @Resources.Etiqueta_GenerarConceptos
+            </button>
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary btn-ico-agregar">Añadir Licencia</button>
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="sReader">Menú de acciones</span>
+                    <i class="bi bi-three-dots-vertical" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <button id="btnAbrirModalProcesar" type="button" class="dropdown-item" data-bs-toggle="modal" data-target="#modalImportar">
+                            Procesar Excel Licencias
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default">
+                <div class="buscador">
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+            </div>
+            <div class="form-advance">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-xxl-4">
+                        <div class="form-group">
+                            <label class="form-label" for="filterNombre">@Resources.Etiqueta_Nombre</label>
+                            <input type="text" id="filterNombre" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xxl-4">
+                        <div class="form-group">
+                            <label class="form-label" for="filterGrupo">@Resources.Etqueta_MaximoGrupo</label>
+                            <input type="text" id="filterGrupo" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xxl-4">
+                        <div class="form-group">
+                            <label class="form-label" for="filterPadre">Licencia Padre</label>
+                            <input type="text" id="filterPadre" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-btn-group">
+                <button type="button" id="btnBuscar" class="btn btn-primary">@Resources.Boton_Buscar</button>
+                <button type="button" id="btnLimpiar" class="btn btn-outline-secondary" style="display: none;">@Resources.Boton_Limpiar</button>
+                <button type="button" id="btnAvanzado" class="btn btn-link">@Resources.Boton_BusquedaAvanzada</button>
+            </div>
+        </form>
+        <table id="table" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Máximo Grupo</th>
+                    <th>Licencia Padre</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal de Edición -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalEditarLabel">Editar Licencia</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="idLicencia">
+                <form class="form-wrapper">
+                    <div class="form-group">
+                        <label for="nombre" class="form-label">@Resources.Etiqueta_NombreObligatorio</label>
+                        <input type="text" class="form-control" id="nombre" maxlength="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombreMS" class="form-label">@Resources.Etiqueta_NombreMS</label>
+                        <input type="text" class="form-control" id="nombreMS" maxlength="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="grupo" class="form-label">Máximo Grupo</label>
+                        <input type="number" class="form-control" id="grupo">
+                    </div>
+                    <div class="form-group">
+                        <label for="padre" class="form-label">Licencia Padre</label>
+                        <select id="padre" class="styled-select form-control"></select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Tareas asociadas</label>
+                        <div class="row gx-2">
+                            <div class="col-4">
+                                <label for="tareaSW" class="form-label small">Software</label>
+                                <select id="tareaSW" class="styled-select form-control"></select>
+
+                            </div>
+                            <div class="col-4">
+                                <label for="tareaAntivirus" class="form-label small">Antivirus</label>
+                                <select id="tareaAntivirus" class="styled-select form-control"></select>
+
+                            </div>
+                            <div class="col-4">
+                                <label for="tareaBackup" class="form-label small">Backup</label>
+                                <select id="tareaBackup" class="styled-select form-control"></select>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tiposEnte" class="form-label">Tipos de entidad permitidos</label>
+                        <select id="tiposEnte" class="styled-select form-control" multiple></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="licenciasIncompatibles" class="form-label">Licencias incompatibles</label>
+                        <select id="licenciasIncompatibles" class="styled-select form-control" multiple></select>
+                    </div>
+                    <div class="form-group form-check mt-2">
+                        <input type="checkbox" class="form-check-input" id="gestionado">
+                        <label class="form-check-label" for="gestionado">Gestionado</label>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" onclick="guardarLicencia()">@Resources.Boton_Guardar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de gestión de tarifas -->
+<div class="modal fade" id="modalTarifas" tabindex="-1" aria-labelledby="modalTarifasLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <!-- más ancho si quieres que quepa bien -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTarifasLabel">Tarifas de la licencia</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formTarifas" class="mb-3">
+                    <input type="hidden" id="idLicenciaTarifas" />
+                    <!-- 1ª fila: fechas -->
+                    <div class="row g-2 align-items-end">
+                        <div class="col-md-4">
+                            <label for="fechaInicio" class="form-label">@Resources.Etiqueta_FechaInicio *</label>
+                            <input type="date" class="form-control form-control-sm" id="fechaInicio" required />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="fechaFin" class="form-label">@Resources.Etiqueta_FechaFin</label>
+                            <input type="date" class="form-control form-control-sm" id="fechaFin" />
+                        </div>
+                    </div>
+                    <!-- 2ª fila: precios -->
+                    <div class="row g-2 align-items-end mt-2">
+                        <div class="col-md-4">
+                            <label for="precioUnitarioSW" class="form-label small">Precio SW *</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control form-control-sm" id="precioUnitarioSW" name="precioUnitarioSW" required />
+                                <span class="input-group-text">€</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="precioUnitarioAntivirus" class="form-label small">Precio AV *</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control form-control-sm" id="precioUnitarioAntivirus" name="precioUnitarioAntivirus" required />
+                                <span class="input-group-text">€</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="precioUnitarioBackup" class="form-label small">Precio BK *</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control form-control-sm" id="precioUnitarioBackup" name="precioUnitarioBackup" required />
+                                <span class="input-group-text">€</span>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button id="btnNuevaTarifa" class="btn btn-sm btn-secondary" style="display:none;">Nueva tarifa</button>
+                <button id="btnCancelarTarifa" type="button" class="btn btn-outline-secondary" onclick="cancelarTarifa()" style="display:none;">@Resources.Modal_Boton_Cancelar</button>
+                <button id="btnGuardarTarifa" type="button" class="btn btn-primary">@Resources.Boton_Guardar</button>
+            </div>
+            <div class="modal-body">
+                <table id="tableTarifas" class="table table-striped nowrap">
+                    <thead>
+                        <tr>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th>Precio SW</th>
+                            <th>Precio AV</th>
+                            <th>Precio BK</th>
+                            <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">@Resources.Boton_Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de gestión de excepciones -->
+<div class="modal fade" id="modalExcepciones" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-xxl">
+        <!-- más ancho si quieres que quepa bien -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalExcepcionesLabel">Excepciones de la licencia</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formExcepciones" class="mb-3">
+                    <input type="hidden" id="idLicenciaExcepciones" />
+                    <div class="row g-2 align-items-end">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <input type="hidden" id="idEmpresaOriginal" />
+                                <label for="empresa">@Resources.Etiqueta_Empresa *</label>
+                                <select id="empresa" class="styled-select form-control">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="correcion" class="form-label">@Resources.Etiqueta_CorrecionFacturacion *</label>
+                            <input type="text" id="correcion" class="form-control" name="correcion" value="" oninput="validarNumero(this)" required />
+                        </div>
+                        <div class="form-group">
+                            <label for="licenciasReemplazo" class="form-label">@Resources.Etiqueta_LicenciasReemplazo</label>
+                            <select id="licenciasReemplazo" class="styled-select form-control" multiple></select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-primary" onclick="guardarExcepcion()">@Resources.Boton_Guardar</button>
+            </div>
+            <div class="modal-body">
+                <table id="tableExcepciones" class="table table-striped nowrap">
+                    <thead>
+                        <tr>
+                            <th>Empresa</th>
+                            <th>Correción Facturación</th>
+                            <th>Licencias Reemplazo</th>
+                            <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para importar Excel -->
+<div class="modal fade" id="modalImportar" tabindex="-1" aria-labelledby="modalImportarLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalEditarLabel">Importar Archivo Excel de Licencias</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-wrapper">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="archivoLicencias">@Resources.Etiqueta_SeleccionarArchivoExcel</label>
+                                <input type="file" id="archivoLicencias" name="archivoExcel" class="form-control" accept=".xlsx, .xls" required />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" id="btnProcesarExcelLicencias">Subir y Procesar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de gestión de Mínimos por Licencia -->
+<div class="modal fade" id="modalMinimos" tabindex="-1" aria-labelledby="modalMinimosLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content">
+            <!-- Header -->
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalMinimosLabel">Mínimos por Licencia</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+
+            <!-- Body: Formulario -->
+            <div class="modal-body" style="height: 200px; overflow-y: hidden;">
+                <form id="formMinimos" class="mb-3">
+                    <!-- Guardamos el ID de la licencia actual -->
+                    <input type="hidden" id="idLicenciaMinimos" />
+
+                    <div class="row g-2 align-items-end">
+                        <!-- Seleccionar Empresa -->
+                        <div class="col-md-6">
+                            <label for="empresaMinimo" class="form-label">Empresa *</label>
+                            <select id="empresaMinimo" class="form-control form-control-sm" required>
+                                <!-- Se llenará vía JS -->
+                            </select>
+                        </div>
+                        <!-- Input: Mínimo a Facturar -->
+                        <div class="col-md-6">
+                            <label for="minimoFacturar" class="form-label">Mínimo a facturar *</label>
+                            <input type="number" id="minimoFacturar" class="form-control form-control-sm" min="1" step="1" required />
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Footer (botones) -->
+            <div class="modal-footer justify-content-end sticky-footer">
+                <!-- Botón “Nueva entrada” oculto por defecto (se mostrará cuando se cierre la edición) -->
+                <button id="btnNuevoMinimo" class="btn btn-sm btn-secondary" style="display: none;">Nueva entrada</button>
+                <button id="btnCancelarMinimo" type="button" class="btn btn-outline-secondary btn-sm" onclick="cancelarMinimo()" style="display: none;">Cancelar</button>
+                <button id="btnGuardarMinimo" type="button" class="btn btn-primary btn-sm">Guardar</button>
+            </div>
+
+            <!-- Tabla de mínimos -->
+            <div class="modal-body">
+                <table id="tableMinimos" class="table table-striped nowrap">
+                    <thead>
+                        <tr>
+                            <th class="col-empresa">Empresa</th>
+                            <th>Mínimo</th>
+                            <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+            <!-- Footer final para cerrar modal -->
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Entes por Licencia -->
+<div class="modal fade" id="modalEntesLicencias" tabindex="-1" aria-labelledby="modalEntesLicenciasLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-xl modal-90w modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalEntesLicenciasLabel">
+                    Entidades asociadas a la licencia
+                </h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <button id="btnNuevoEnte" class="btn btn-sm btn-secondary mb-3">
+                    Nuevo
+                </button>
+                <button id="btnCancelarEnte" class="btn btn-sm btn-outline-secondary mb-3" style="display:none;">
+                    Cancelar
+                </button>
+                <!-- Formulario oculto por defecto -->
+                <form id="formEntesLicencias" class="mb-3" style="display:none;">
+                    <input type="hidden" id="idLicenciaEntes" />
+                    <div class="row g-2 align-items-end">
+                        <div class="col-md-6">
+                            <label for="selectEnte" class="form-label">Entidad *</label>
+                            <select id="selectEnte" class="form-select form-select-sm" required></select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="fechaInicioEnte" class="form-label">Fecha Inicio *</label>
+                            <input type="date" id="fechaInicioEnte" class="form-control form-control-sm" required />
+                        </div>
+                        <div class="col-md-3">
+                            <label for="fechaFinEnte" class="form-label">Fecha Fin</label>
+                            <input type="date" id="fechaFinEnte" class="form-control form-control-sm" />
+                        </div>
+                    </div>
+                </form>
+                <div id="toolbarEntes"
+                     class="d-flex align-items-center justify-content-between gap-2 flex-wrap mb-2">
+                    <div id="toolbarEntesButtons" class="d-flex"></div>
+                </div>
+                <table id="tableEntesLicencias" class="table table-striped nowrap">
+                    <thead>
+                        <tr>
+                            <th>Entidad</th>
+                            <th>Empresa</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <!-- Guardar oculto por defecto -->
+                <button id="btnGuardarEnteLicencia" class="btn btn-primary btn-sm" style="display:none;">
+                    Guardar
+                </button>
+                <button type="button" class="btn btn-outline-secondary btn-sm"
+                        data-bs-dismiss="modal">
+                    Cerrar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        /* Hace que solo el cuerpo del modal haga scroll */
+        #modalMinimos .modal-body {
+            overflow-y: auto;
+            max-height: 70vh; /* puedes ajustar */
+            padding-top: 0.5rem;
+        }
+
+        /* Fija el formulario al principio del modal */
+        #modalMinimos #formMinimos {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            background-color: #fff;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        /* Evita que se desplace la toolbar de botones al hacer scroll */
+        #modalMinimos .modal-footer.sticky-footer {
+            position: sticky;
+            bottom: 0;
+            z-index: 5;
+            background-color: #fff;
+            border-top: 1px solid #dee2e6;
+        }
+
+        /* ==== Scroll solo en el cuerpo del modal de Entes por Licencia ==== */
+        #modalEntesLicencias .modal-body {
+            overflow-y: auto;
+            max-height: 70vh; /* altura máxima visible */
+            padding-top: 0.5rem;
+        }
+
+        /* Fija el formulario de alta al principio del modal */
+        #modalEntesLicencias #formEntesLicencias {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            background-color: #fff;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        /* Fija la barra de botones inferior */
+        #modalEntesLicencias .modal-footer.sticky-footer {
+            position: sticky;
+            bottom: 0;
+            z-index: 5;
+            background-color: #fff;
+            border-top: 1px solid #dee2e6;
+        }
+
+        th.th-action, td.td-btn {
+            min-width: 300px;
+            white-space: nowrap;
+        }
+
+        .modal-lineas-esfuerzo {
+            max-width: 80vw !important;
+        }
+
+        .btn-disabled {
+            opacity: 0.4 !important;
+            cursor: not-allowed !important;
+            pointer-events: none !important;
+            background-color: black !important;
+        }
+
+        #tableExcepciones th, #tableExcepciones td {
+            white-space: nowrap;
+        }
+
+        #modalExcepciones .modal-dialog {
+            max-width: 1200px;
+            width: 90%;
+        }
+
+        #tableExcepciones th:nth-child(3),
+        #tableExcepciones td:nth-child(3) {
+            white-space: normal !important;
+            word-wrap: break-word; /* para compatibilidad */
+        }
+
+        .modal-90w {
+            max-width: 90% !important; /* ocupa el 90% de la pantalla */
+        }
+
+        .tabla-conceptos th,
+        .tabla-conceptos td {
+            padding: 6px;
+            border: 1px solid #ddd;
+        }
+
+            .tabla-conceptos th:nth-child(1),
+            .tabla-conceptos td:nth-child(1) {
+                width: 20%;
+            }
+            /* Tarea */
+            .tabla-conceptos th:nth-child(2),
+            .tabla-conceptos td:nth-child(2) {
+                width: 10%;
+            }
+            /* Periodo */
+            .tabla-conceptos th:nth-child(3),
+            .tabla-conceptos td:nth-child(3) {
+                width: 50%;
+            }
+            /* Licencias */
+            .tabla-conceptos th:nth-child(4),
+            .tabla-conceptos td:nth-child(4) {
+                width: 20%;
+            }
+        /* Importe */
+
+    </style>
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                eliminarLicencia: '@Url.Action("EliminarLicencia", "Licencias")',
+                guardarLicencia: '@Url.Action("GuardarLicencia", "Licencias")',
+                obtenerLicencias: '@Url.Action("ObtenerLicencias", "Licencias")',
+                ObtenerTarifas: '@Url.Action("ObtenerTarifas", "Licencias")',
+                GuardarTarifa: '@Url.Action("GuardarTarifa", "Licencias")',
+                EliminarTarifa: '@Url.Action("EliminarTarifa", "Licencias")',
+                ObtenerExcepciones: '@Url.Action("ObtenerExcepciones", "Licencias")',
+                GuardarExcepcion: '@Url.Action("GuardarExcepcion", "Licencias")',
+                EliminarExcepcion: '@Url.Action("EliminarExcepcion", "Licencias")',
+                ProcesarLicenciasDesdeExcel: '@Url.Action("ProcesarLicenciasDesdeExcel", "Licencias")',
+                obtenerTareasCombo: '@Url.Action("ObtenerTareasCombo", "Mantenimiento")',
+                ObtenerComboTiposEnte: '@Url.Action("ObtenerComboTiposEnte", "Licencias")',
+                ObtenerComboLicenciasReemplazo: '@Url.Action("ObtenerComboLicenciasReemplazo", "Licencias")',
+                ObtenerLicenciasIncompatiblesCombo: '@Url.Action("ObtenerLicenciasIncompatiblesCombo", "Licencias")',
+                obtenerLicenciasCombo: '@Url.Action("ObtenerLicenciasCombo", "Licencias")',
+                ObtenerComboEmpresas: '@Url.Action("ObtenerComboEmpresas", "Mantenimiento")',
+                ObtenerMinimos: '@Url.Action("ObtenerMinimos", "Licencias")',
+                GuardarMinimo: '@Url.Action("GuardarMinimo", "Licencias")',
+                EliminarMinimo: '@Url.Action("EliminarMinimo", "Licencias")',
+                ObtenerEntesLicencias: '@Url.Action("ObtenerEntesPorLicencia", "Mantenimiento")',
+                GuardarEnteLicencia: '@Url.Action("GuardarEnteLicencia", "Mantenimiento")',
+                EliminarEnteLicencia: '@Url.Action("EliminarEnteLicencia", "Mantenimiento")',
+                ObtenerEntidadesCombo: '@Url.Action("ObtenerEntidadesCombo", "Mantenimiento")',
+                PrevisualizarConceptos: '@Url.Action("PrevisualizarConceptos", "Licencias")',
+                GenerarTodosConceptos: '@Url.Action("GenerarTodosConceptos", "Licencias")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Mantenimiento/Licencias.js?v=@DateTime.Now.Ticks"></script>
+    <script src="~/Scripts/Vistas/Mantenimiento/LicenciasInit.js?v=@DateTime.Now.Ticks"></script>
+}

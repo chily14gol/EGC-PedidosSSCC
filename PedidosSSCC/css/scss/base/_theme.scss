@@ -1,0 +1,164 @@
+// Elementos cómunes
+
+// Parrafos
+@mixin default-p {
+    font-family: $ff;
+    font-size: rem(16);
+    line-height: lh(24,16);
+    font-weight: 400;
+    color: $secondary;
+}
+// Hipervinculos
+@mixin default-a {
+    font-family: $ff;
+    color: $secondary900;
+    text-decoration: underline;
+    &:hover,
+    &:focus-visible {
+        color: $main;
+        text-decoration: underline;
+    }
+}
+// Encabezados
+@mixin default-h {
+    font-family: $ffAlt;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $secondary900;
+}
+@mixin default-h1 {
+    font-size: rem(28);
+    line-height: em(34,28);
+}
+@mixin default-h2 {
+    font-size: rem(22);
+    line-height: lh(32,22);
+}
+@mixin default-h3 {
+    font-size: rem(20);
+    line-height: lh(32,20);
+}
+@mixin default-h4 {
+    font-size: rem(20);
+    line-height: lh(32,20);
+    font-weight: 500;
+    color: $secondary700;
+}
+@mixin default-h5 {
+    font-size: rem(16);
+    line-height: lh(24,16);
+}
+@mixin default-h6 {
+    font-size: rem(16);
+    font-weight: 500;
+    line-height: lh(24,16);
+    color: $secondary700;
+}
+
+// ******************************************************** //
+
+p {
+    @include default-p;
+    // margin-bottom: em(16,16);
+}
+
+// strong, 
+// .strong {
+//     font-weight: 700;
+// }
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+    @include default-h;
+}
+
+h1, .h1 {
+    @include default-h1;
+}
+h2, .h2 {
+    @include default-h2;
+}
+h3, .h3 {
+    @include default-h3;
+}
+h4, .h4 {
+    @include default-h4;
+}
+h5, .h5 {
+    @include default-h5;
+}
+h6, .h6 {
+    @include default-h6;
+}
+
+a,
+.link {
+    @include default-a;   
+}
+
+ol, ul {
+    // list-style: none;
+    // padding-left: rem(20);
+    // margin: 0;
+}
+ul {
+    li {
+        @include default-p;
+        // margin-bottom: em(16,16);
+        // &:before {
+        //     content: "\ea3c";
+        //     color: $main;
+        //     font-weight: 500;
+        //     line-height: 1.8;
+        //     font-size: rem(10);
+        //     font-family: $ficon;
+        //     margin-left: em(-15,10);
+        //     width: em(15,10);
+        //     display: inline-block;
+        //     float: left;
+        //     margin-top: em(4,10);
+        // }
+    }
+}
+
+
+// SCROLLBAR
+@mixin scrollbar {
+    // llamar dentro del contenedor que general el scrollbar
+    overflow-y: auto;
+    scrollbar-color: rgba($main, .4) $w;
+    scrollbar-width: thin;
+    &:hover {
+        scrollbar-color: $main $w;
+    }
+
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+    &::-webkit-scrollbar-track {
+        border-radius: rem($br_sm);
+        background: $w;
+    }
+    &::-webkit-scrollbar-track:window-inactive {
+        border-radius: rem($br_sm);
+        background: $w;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 999rem;
+        background: rgba($main, .4);
+    }
+    &::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba($main, .4);
+    }
+    &:hover {
+        &::-webkit-scrollbar-track {
+            background: $w;
+        }
+        &::-webkit-scrollbar-thumb {
+            background: $main;
+        }
+    }
+}

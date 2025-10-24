@@ -1,0 +1,391 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Entes";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Entidades</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary btn-ico-agregar">Nueva Entidad</button>
+            <div class="dropdown">
+                <ul class="dropdown-menu">
+                    <li id="btnExportarContainer"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default">
+                <div class="buscador">
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+            </div>
+            <div class="form-advance">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-xxl-4">
+                        <div class="form-group">
+                            <label class="form-label" for="filterNombre">@Resources.Etiqueta_Nombre</label>
+                            <input type="text" id="filterNombre" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xxl-4">
+                        <div class="form-group">
+                            <label class="form-label" for="filterEmail">@Resources.Etiqueta_Email</label>
+                            <input type="text" id="filterEmail" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xxl-4">
+                        <div class="form-group">
+                            <label class="form-label" for="filterTipoEntidad">@Resources.Etiqueta_TipoEntidad</label>
+                            <input type="text" id="filterTipoEntidad" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xxl-4">
+                        <div class="form-group">
+                            <label class="form-label" for="filterEmpresa">@Resources.Etiqueta_Empresa</label>
+                            <input type="text" id="filterEmpresa" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xxl-4">
+                        <div class="form-group">
+                            <label class="form-label" for="filterOficina">@Resources.Etiqueta_Oficina</label>
+                            <input type="text" id="filterOficina" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xxl-4">
+                        <div class="form-check mt-4">
+                            <input type="checkbox" class="form-check-input" id="filterSinEmpresa">
+                            <label class="form-check-label" for="filterSinEmpresa">
+                                Sin empresa asociada
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-btn-group">
+                <button type="button" id="btnBuscar" class="btn btn-primary">@Resources.Boton_Buscar</button>
+                <button type="button" id="btnLimpiar" class="btn btn-outline-secondary" style="display: none;">@Resources.Boton_Limpiar</button>
+                <button type="button" id="btnAvanzado" class="btn btn-link">@Resources.Boton_BusquedaAvanzada</button>
+            </div>
+        </form>
+        <table id="table" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Tipo de Ente</th>
+                    <th>Empresa</th>
+                    <th>Oficina</th>
+                    <th class="th-action">Acciones</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal de Edición -->
+<div class="modal fade" id="modalEditar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog xxl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalEditarLabel">Editar Entidad</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formEntes" class="row g-2 align-items-end mb-3">
+                    <input type="hidden" id="idEnte">
+                    <div class="col-md-6">
+                        <label for="nombre">@Resources.Etiqueta_Nombre *</label>
+                        <input type="text" class="form-control" id="nombre" maxlength="100">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="email">@Resources.Etiqueta_Email *</label>
+                        <input type="email" class="form-control" id="email" maxlength="100" oninput="validarEmail(this)">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="tipoEnte">Tipo de Entidad *</label>
+                        <select id="tipoEnte" class="form-control styled-select"></select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="empresa">Empresa</label>
+                        <select id="empresa" class="form-control styled-select"></select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="oficina">Oficina</label>
+                        <select id="oficina" class="form-control styled-select"></select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="departamento">Departamento</label>
+                        <select id="departamento" class="form-control styled-select"></select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="guardarEnte()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 🟦 Modal Entidad ↔ Aplicaciones -->
+<div class="modal fade" id="modalAplicaciones" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Aplicaciones por Entidad</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <!-- CABECERA FIJA -->
+                <div class="sticky-controls">
+                    <form id="formEntesAplicacion" class="mb-3">
+                        <input type="hidden" id="idEnteAplicacion" />
+                        <div class="row g-2 align-items-end">
+                            <div class="form-group col-md-4">
+                                <input type="hidden" id="idAplicacionOriginal" />
+                                <label for="aplicaciones">Aplicación *</label>
+                                <select id="aplicaciones" class="form-control styled-select"></select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="fechaInicioApp">Fecha Inicio *</label>
+                                <input type="date" class="form-control form-control-sm" id="fechaInicioApp" required />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="fechaFinApp">Fecha Fin</label>
+                                <input type="date" class="form-control form-control-sm" id="fechaFinApp" />
+                            </div>
+                            <div class="col-12 text-end mt-2">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="guardarAplicacion()">
+                                    @Resources.Boton_Guardar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TABLA CON SCROLL -->
+                <div class="table-responsive modal-table-scroll">
+                    <table id="tableAplicaciones" class="table table-striped nowrap mb-0">
+                        <thead class="table-light" style="position: sticky; top: 0; z-index: 2;">
+                            <tr>
+                                <th>Aplicación</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th class="th-action"><span class="sReader">Acción</span></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">
+                    @Resources.Modal_Boton_Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 🟩 Modal Entidad ↔ Licencias -->
+<div class="modal fade" id="modalLicencias" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Licencias de la entidad</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="sticky-controls">
+                    <form id="formLicencias" class="mb-3">
+                        <input type="hidden" id="idEnteLicencias" />
+                        <div class="row g-2 align-items-end">
+                            <div class="form-group col-md-4">
+                                <input type="hidden" id="idLicenciaOriginal" />
+                                <label for="licencias">Licencia *</label>
+                                <select id="licencias" class="form-control styled-select"></select>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="hidden" id="fechaInicioOriginal" />
+                                <label for="fechaInicio" class="form-label">Fecha Inicio *</label>
+                                <input type="date" class="form-control form-control-sm" id="fechaInicio" required />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="fechaFin" class="form-label">Fecha Fin</label>
+                                <input type="date" class="form-control form-control-sm" id="fechaFin" />
+                            </div>
+                            <div class="col-12 text-end mt-2">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="guardarLicencia()">
+                                    @Resources.Boton_Guardar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="table-responsive modal-table-scroll">
+                    <table id="tableLicencias" class="table table-striped nowrap mb-0">
+                        <thead class="table-light" style="position: sticky; top: 0; z-index: 2;">
+                            <tr>
+                                <th>Licencia</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th class="th-action"><span class="sReader">Acción</span></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">
+                    @Resources.Modal_Boton_Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 🟨 Modal Entidad ↔ Licencias Anuales -->
+<div class="modal fade" id="modalLicenciasAnuales" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Licencias Anuales de esta Entidad</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <!-- CABECERA FIJA -->
+                <div class="sticky-controls">
+                    <form id="formEntesLicAnual" class="mb-3">
+                        <input type="hidden" id="idEnteLicenciasAnuales" />
+                        <div class="row g-2 align-items-end">
+                            <div class="form-group col-md-4">
+                                <input type="hidden" id="idLicenciaAnualOriginal" />
+                                <label for="licenciasAnual">Licencia Anual *</label>
+                                <select id="licenciasAnual" class="form-control styled-select"></select>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="hidden" id="fechaInicioAnualOriginal" />
+                                <label for="fechaInicioAnual" class="form-label">Fecha Inicio *</label>
+                                <input type="date" class="form-control form-control-sm" id="fechaInicioAnual" required />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="fechaFinAnual" class="form-label">Fecha Fin *</label>
+                                <input type="date" class="form-control form-control-sm" id="fechaFinAnual" />
+                            </div>
+                            <div class="form-group col-md-5">
+                                <label for="contrato">Contrato *</label>
+                                <select id="contrato" class="form-control styled-select"></select>
+                            </div>
+                            <div class="col-12 text-end mt-2">
+                                <button type="button" class="btn btn-primary btn-sm" onclick="guardarLicenciaAnual()">
+                                    @Resources.Boton_Guardar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TABLA CON SCROLL -->
+                <div class="table-responsive modal-table-scroll">
+                    <table id="tableEntesLicAnual" class="table table-striped nowrap mb-0">
+                        <thead class="table-light" style="position: sticky; top: 0; z-index: 2;">
+                            <tr>
+                                <th>Entidad</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th class="th-action"><span class="sReader">Acción</span></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">
+                    @Resources.Modal_Boton_Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        th.th-action, td.td-btn {
+            min-width: 300px;
+            white-space: nowrap;
+        }
+
+        #tableLicencias td:first-child,
+        #tableLicencias th:first-child {
+            max-width: 200px; /* o el valor que quieras */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        #tableLicencias td:nth-child(2),
+        #tableLicencias td:nth-child(3),
+        #tableLicencias th:nth-child(2),
+        #tableLicencias th:nth-child(3) {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        /* Cabecera fija en los modales con tabla */
+        .sticky-controls {
+            position: sticky;
+            top: 0;
+            z-index: 1025;
+            background: var(--bs-body-bg);
+            padding: .5rem .25rem;
+            border-bottom: 1px solid var(--bs-border-color);
+        }
+
+        /* Scroll solo en la tabla */
+        .modal-table-scroll {
+            max-height: 400px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+            /* Evitar scroll horizontal en DataTables */
+            .modal-table-scroll table {
+                width: 100% !important;
+                table-layout: auto;
+            }
+
+    </style>
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                ObtenerEntes: '@Url.Action("ObtenerEntes", "Mantenimiento")',
+                GuardarEnte: '@Url.Action("GuardarEnte", "Mantenimiento")',
+                EliminarEnte: '@Url.Action("EliminarEnte", "Mantenimiento")',
+                ObtenerTiposEnte: '@Url.Action("ObtenerTiposEnte", "Mantenimiento")',
+                ObtenerOficinas: '@Url.Action("ObtenerOficinas", "Mantenimiento")',
+                ObtenerComboEmpresas: '@Url.Action("ObtenerComboEmpresas", "Mantenimiento")',
+                ObtenerAplicacionesPorEntidad: '@Url.Action("ObtenerAplicacionesPorEntidad", "Aplicaciones")',
+                GuardarAplicacionEnte: '@Url.Action("GuardarAplicacionEnte", "Aplicaciones")',
+                ObtenerAplicaciones: '@Url.Action("ObtenerAplicaciones", "Aplicaciones")',
+                EliminarAplicacionEnte: '@Url.Action("EliminarAplicacionEnte", "Aplicaciones")',
+                ObtenerComboLicencias: '@Url.Action("ObtenerLicencias", "Licencias")',
+                ObtenerLicenciasPorEnte: '@Url.Action("ObtenerLicenciasPorEnte", "Mantenimiento")',
+                GuardarLicencia: '@Url.Action("GuardarEnteLicencia", "Mantenimiento")',
+                EliminarLicencia: '@Url.Action("EliminarEnteLicencia", "Mantenimiento")',
+                ObtenerComboLicenciasAnual: '@Url.Action("ObtenerLicenciasAnuales", "LicenciasAnuales")',
+                ObtenerLicenciasAnualPorEnte: '@Url.Action("ObtenerLicenciasAnualPorEnte", "Mantenimiento")',
+                GuardarLicenciaAnual:         '@Url.Action("GuardarEnteLicenciaAnual", "LicenciasAnuales")',
+                EliminarLicenciaAnual: '@Url.Action("EliminarEnteLicenciaAnual", "Mantenimiento")',
+                ObtenerContratosLicenciasAnuales: '@Url.Action("ObtenerContratosLicenciasAnuales", "LicenciasAnualesContratos")',
+                ObtenerDepartamentosEmpresa: '@Url.Action("ObtenerDepartamentosEmpresa", "Mantenimiento")',
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Mantenimiento/Entes.js?v=@DateTime.Now.Ticks"></script>
+}

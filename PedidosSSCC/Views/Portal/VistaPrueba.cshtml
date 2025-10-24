@@ -1,0 +1,165 @@
+﻿
+@{
+    ViewBag.Title = "VistaPrueba";
+}
+
+<h2>VistaPrueba</h2>
+<div class="container-fluid">
+    <table id="pruebas" class="table table-striped nowrap" style="width: 100%;">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th data-priority="1">Nombre</th>
+                <th>Sección</th>
+                <th>Tipo</th>
+                <th>Importe Unitario</th>
+                <th>Producto D365</th>
+                <th>Item Number</th>
+                <th>Activo</th>
+                <th data-priority="2">Acciones</th>
+            </tr>
+        </thead>
+    </table>
+
+    <table id="pruebasSelect" class="table table-hover nowrap" style="width: 100%;">
+        <thead>
+            <tr>
+                <th data-priority="1"></th>
+                <th>ID</th>
+                <th data-priority="1">Nombre</th>
+                <th>Sección</th>
+                <th>Tipo</th>
+                <th>Importe Unitario</th>
+                <th>Producto D365</th>
+                <th>Item Number</th>
+                <th>Activo</th>
+                <th data-priority="2">Acciones</th>
+                <th data-priority="2"></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts {
+    <style>
+        .dataTable.dtr-column .dtr-control:has(.more):before {
+            content: none;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            ocultarDivCargando();
+        });
+        let tableData = {
+    "data": [{"TAR_Id":1,"TAR_Nombre":"Nóminas 336","TAR_Seccion":"Proyectos","TAR_Tipo":"Por unidades","TAR_ImporteUnitario":"10","TAR_PrioductoD365":"SSCC_PROYECTOS","TAR_ItemNumberD365":"SER065","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":2,"TAR_Nombre":"Tarea DEP 1","TAR_Seccion":"Direrción PER","TAR_Tipo":"Por unidades","TAR_ImporteUnitario":"10","TAR_PrioductoD365":"ASESORIA_CONSULTORIA_SSCC_4","TAR_ItemNumberD365":"SER038","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":3,"TAR_Nombre":"Tarea DEP 5","TAR_Seccion":"Comunicación y MK","TAR_Tipo":"Por unidades","TAR_ImporteUnitario":"11","TAR_PrioductoD365":"ASESORIA_CONSULTORIA_SSCC_4","TAR_ItemNumberD365":"SER038","TAR_Activo":"FALSE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":4,"TAR_Nombre":"aaa","TAR_Seccion":"Direrción PER","TAR_Tipo":"Por horas","TAR_ImporteUnitario":"10,23","TAR_PrioductoD365":"ASESORIA_CONSULTORIA_SSCC_4","TAR_ItemNumberD365":"SER038","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":5,"TAR_Nombre":"Tarea cantidad fija","TAR_Seccion":"Direrción PER","TAR_Tipo":"Cantidad fija","TAR_ImporteUnitario":"","TAR_PrioductoD365":"ASESORIA_CONSULTORIA_SSCC_4","TAR_ItemNumberD365":"SER038","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":6,"TAR_Nombre":"Tarea - Asesoria fiscal - IVA 21","TAR_Seccion":"Proyectos","TAR_Tipo":"Por unidades","TAR_ImporteUnitario":"10","TAR_PrioductoD365":"ASESORIA_CONSULTORIA_SSCC_4","TAR_ItemNumberD365":"SER038","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":7,"TAR_Nombre":"Tarea - Por horas PER - IVA 10","TAR_Seccion":"Direrción PER","TAR_Tipo":"Por horas","TAR_ImporteUnitario":"12","TAR_PrioductoD365":"ASESORIA_CONSULTORIA_SSCC_4","TAR_ItemNumberD365":"SER038","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":8,"TAR_Nombre":"Tarea - Asesoria fiscal - IVA 10","TAR_Seccion":"Direrción PER","TAR_Tipo":"Cantidad fija","TAR_ImporteUnitario":"","TAR_PrioductoD365":"ASESORIA_CONSULTORIA_SSCC_4","TAR_ItemNumberD365":"SER038","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":9,"TAR_Nombre":"Tarea por horas","TAR_Seccion":"Gestión Demanda","TAR_Tipo":"Por horas","TAR_ImporteUnitario":"23,48","TAR_PrioductoD365":"ASESORIA_CONSULTORIA_SSCC_4","TAR_ItemNumberD365":"SER038","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":10,"TAR_Nombre":"Tarea por horas 2","TAR_Seccion":"Dirección DOS","TAR_Tipo":"Por horas","TAR_ImporteUnitario":"30","TAR_PrioductoD365":"ASESORIA_CONSULTORIA_SSCC_4","TAR_ItemNumberD365":"SER038","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":11,"TAR_Nombre":"Tarea por horas 3","TAR_Seccion":"Gestión Demanda","TAR_Tipo":"Por horas","TAR_ImporteUnitario":"24,34","TAR_PrioductoD365":"ASESORIA_CONSULTORIA_SSCC_4","TAR_ItemNumberD365":"SER038","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":12,"TAR_Nombre":"Tarea por unidades (concepto horas)","TAR_Seccion":"Organización","TAR_Tipo":"Por unidades","TAR_ImporteUnitario":"12","TAR_PrioductoD365":"ASESORIA_CONSULTORIA_SSCC_4","TAR_ItemNumberD365":"SER038","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":13,"TAR_Nombre":"Tarea QHSE Calidad","TAR_Seccion":"Calidad","TAR_Tipo":"Por unidades","TAR_ImporteUnitario":"30","TAR_PrioductoD365":"ASESORIA_CONSULTORIA_SSCC_4","TAR_ItemNumberD365":"SER038","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":14,"TAR_Nombre":"Tarea asesoria","TAR_Seccion":"Administración","TAR_Tipo":"Cantidad fija","TAR_ImporteUnitario":"","TAR_PrioductoD365":"ASESORIA_CONSULTORIA_SSCC_4","TAR_ItemNumberD365":"SER038","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":15,"TAR_Nombre":"Test david","TAR_Seccion":"Seguridad y Salud","TAR_Tipo":"Por horas","TAR_ImporteUnitario":"100","TAR_PrioductoD365":"SSCC_HORAS","TAR_ItemNumberD365":"SER016","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":16,"TAR_Nombre":"TEST AQUITANIA","TAR_Seccion":"Gestión Demanda","TAR_Tipo":"Por unidades","TAR_ImporteUnitario":"345","TAR_PrioductoD365":"MTO_HARDWARE_SSCC","TAR_ItemNumberD365":"SER003","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"},
+{"TAR_Id":17,"TAR_Nombre":"TEST","TAR_Seccion":"Dirección DOS","TAR_Tipo":"Por horas","TAR_ImporteUnitario":"100","TAR_PrioductoD365":"ASESORIA_FISCAL_SSCC","TAR_ItemNumberD365":"SER003","TAR_Activo":"TRUE", "TAR_Accion":"&lsqb;DEL&rsqb; &lsqb;MOD&rsqb;"}]
+};
+        document.addEventListener("DOMContentLoaded", function() {
+
+            new DataTable("#pruebas", {
+                data: tableData.data, // Asegúrate de que el JSON tenga una clave "data"
+                columns: [
+                    { data: "TAR_Id" },
+                    { data: "TAR_Nombre" },
+                    { data: "TAR_Seccion" },
+                    { data: "TAR_Tipo" },
+                    { data: "TAR_ImporteUnitario" },
+                    { data: "TAR_PrioductoD365" },
+                    { data: "TAR_ItemNumberD365" },
+                    { data: "TAR_Activo" },
+                    { data: "TAR_Accion" }
+                ],
+                responsive: true,
+                layout: {
+                    topStart: {
+                        buttons: ['copyHtml5', 'excelHtml5', 'csvHtml5', 'pdfHtml5']
+                    },
+                    top1: {
+                        // buttons: [
+                        //     {
+                        //         extend: 'searchPanes',
+                        //         config: {
+                        //             cascadePanes: true
+                        //         }
+                        //     }
+                        // ]
+                    },
+                },
+            });
+
+            new DataTable("#pruebasSelect", {
+                data: tableData.data, // Asegúrate de que el JSON tenga una clave "data"
+                columns: [
+                    { data: "" },
+                    { data: "TAR_Id" },
+                    { data: "TAR_Nombre" },
+                    { data: "TAR_Seccion" },
+                    { data: "TAR_Tipo" },
+                    { data: "TAR_ImporteUnitario" },
+                    { data: "TAR_PrioductoD365" },
+                    { data: "TAR_ItemNumberD365" },
+                    { data: "TAR_Activo" },
+                    { data: "TAR_Accion" },
+                    { data: "" }
+                ],
+                columnDefs: [
+                    {
+                        orderable: false,
+                        render: DataTable.render.select(),
+                        targets: 0
+                    },
+                    {
+                        // className: 'dtr-control arrow-right',
+                        className: 'dtr-control',
+                        orderable: false,
+                        render: function (data, type) {
+                            return '<button class="more">V</button>';
+                        },
+                        target: -1
+                    }
+                ],
+                order: [[1, 'asc']],
+                select: {
+                    style: 'multi',
+                    selector: 'td:first-child'
+                },
+                responsive: {
+                    details: {
+                        type: 'column',
+                        target: 'td .more'
+                    }
+                },
+                layout: {
+                    topStart: {
+                        buttons: [
+                            // 'selected',
+                            // 'selectedSingle',
+                            'selectAll',
+                            'selectNone',
+                            // 'selectRows',
+                            // 'selectColumns',
+                            // 'selectCells'
+                        ]
+                    }
+                },
+            });
+
+        });
+    </script>
+}
+

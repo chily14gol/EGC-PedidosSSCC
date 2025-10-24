@@ -1,0 +1,54 @@
+﻿ERROR | 05/05/2025 19:49:44 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 05/05/2025 19:49:44 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 05/05/2025 19:52:39 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 05/05/2025 19:52:39 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 05/05/2025 19:54:41 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 05/05/2025 19:54:41 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 05/05/2025 19:55:04 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 05/05/2025 19:55:04 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 05/05/2025 19:55:20 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 05/05/2025 19:55:20 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 05/05/2025 19:59:30 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 05/05/2025 19:59:30 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 05/05/2025 20:03:38 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Licencias_TiposEnte)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.DeleteAllOnSubmit[TSubEntity](IEnumerable`1 entities)
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 50
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ERROR | 05/05/2025 20:03:38 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Licencias_TiposEnte)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.DeleteAllOnSubmit[TSubEntity](IEnumerable`1 entities)
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 50
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ERROR | 05/05/2025 20:03:38 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 05/05/2025 20:03:38 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 05/05/2025 20:08:02 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Licencias_TiposEnte)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.DeleteAllOnSubmit[TSubEntity](IEnumerable`1 entities)
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 50
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ERROR | 05/05/2025 20:08:02 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Licencias_TiposEnte)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.DeleteAllOnSubmit[TSubEntity](IEnumerable`1 entities)
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 50
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ERROR | 05/05/2025 20:08:02 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 05/05/2025 20:08:02 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 05/05/2025 20:08:42 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Licencias_TiposEnte)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.DeleteAllOnSubmit[TSubEntity](IEnumerable`1 entities)
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 50
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ERROR | 05/05/2025 20:08:42 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Licencias_TiposEnte)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.DeleteAllOnSubmit[TSubEntity](IEnumerable`1 entities)
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 50
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ERROR | 05/05/2025 20:08:42 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 05/05/2025 20:08:42 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.

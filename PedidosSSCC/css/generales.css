@@ -1,0 +1,2046 @@
+@import url(rtsPopup.css?v=20241001);
+@import url(mediaQueries.css);
+
+/* Hemos sustituido todos los selectores del tipo
+[style="width: 160px;"]
+
+Por
+[style*="160px;"]
+
+Ya que si no el iPad no pillaba esas definiciones
+Y el chrome quita el espacio tras los dos puntos en el c�digo
+Adolfo 2014-09-15
+*/
+
+
+*, *:after, *:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*div.RadDropDownList.combo {
+	width: 255px !important;
+}*/
+
+/* body {
+	/*font-family: "Segoe UI", Arial, Helvetica, sans-serif;*/
+	font-size: 1em;	
+	margin: 0px;
+	padding: 0px;
+	
+	overflow: hidden;
+	position: relative;
+} */
+
+.cabecera {
+	/*background: #fff url(../Images/fcabecera1.png) repeat-x top left;	*/
+}
+
+#cabeceraLogo {
+	display: block;
+	height: 52px; /*75px;*/
+	/*background: #45A17C url(../Images/fcabecera.png) no-repeat bottom right;*/
+}
+
+#cabeceraLogo .logo {
+	padding: 1px 7px 0px 7px; /*7px;*/
+}
+
+.separador {
+	clear: both;
+}
+
+.dch {
+	text-align: right !important;
+	padding-right: 4px;
+}
+
+.cajaEnLinea {
+	display: inline-block;
+}
+
+.salir {
+	position: absolute;
+	right: 7px;
+	top: 7px;
+}
+
+.salir a img {
+	border: 0;
+}
+
+.usuario {
+	position: absolute;
+	right: 1px;
+	top: 30px; /*49px;*/
+	width: auto;
+	height: 22px;
+	line-height: 22px;
+	background: #333 url(../Images/icoUsuario.png) no-repeat 15px 3px;
+	border-top-left-radius: 10px;
+	margin: 0px;
+	padding-left: 40px;
+	padding-right: 30px;
+	color: #fff;
+	font-size: 0.72em;
+	font-weight: bolder;
+}
+
+.ruta {
+	font-size: 0.75em;
+    margin: 2px 2px 2px 0px; /*5px 2px 2px 0px;*/
+    padding: 0;
+	 background-color: #fff;
+}
+
+.ruta li {
+    display: inline;
+    list-style: none outside none;
+    margin: 0 1px;
+    padding: 2px 5px 2px 2px;
+	text-decoration: none;
+	color: #333;
+	font-weight: bold;
+}
+
+.ruta li a {
+	text-decoration: none !important;
+	color: #666;	
+	font-weight: normal;
+}
+
+.ruta li a:hover {
+	text-decoration: none;
+}
+
+.ruta li a:after {
+	content: "»";
+	padding-left: 5px;
+	text-decoration: none !important;
+	border-bottom: none
+}
+
+.listaTabs {
+	font-size: 0.75em;
+}
+
+.listaTabs li {
+	display: inline-block;
+	list-style: circle;
+	float: none;
+}
+
+form {
+	height: 100%;
+	display: block;	
+}
+
+.pie {
+	clear: both;	
+	display: block;
+	width: 100%;
+	text-align: right;
+	
+	position: fixed;
+	bottom: 0px;
+	right: 0px;
+	
+	height: 48px; /*39px;*/
+	/*
+	background-color: #ccc;
+	border-top: 1px solid #b5b5b5;
+	border-bottom: 1px solid #b5b5b5;*/
+	background-color: #fff;
+	padding: 0px;
+}
+
+.pie .textoPie {
+	color: #fff; /*#444;*/
+	background: rgb(63,63,63);
+	background: -moz-linear-gradient(top, rgba(63,63,63,1) 0%, rgba(98,98,98,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(63,63,63,1)), color-stop(100%,rgba(98,98,98,1)));
+	background: -webkit-linear-gradient(top, rgba(63,63,63,1) 0%,rgba(98,98,98,1) 100%);
+	background: -o-linear-gradient(top, rgba(63,63,63,1) 0%,rgba(98,98,98,1) 100%);
+	background: -ms-linear-gradient(top, rgba(63,63,63,1) 0%,rgba(98,98,98,1) 100%);
+	background: linear-gradient(to bottom, rgba(63,63,63,1) 0%,rgba(98,98,98,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3f3f3f', endColorstr='#626262',GradientType=0 );
+	
+	height: 48px; /*39px;*/
+}
+
+.pie .textoPie p {
+	font-size: 0.75em;
+	margin: 0;
+	/*padding-top: 5px;*/
+	padding: 9px 4px;
+}
+
+.pie .logoSerikat {
+	float: right;
+	width: 160px;
+	text-align: center;	
+	background-color: #f8f8f8;
+	margin-left: 15px;
+	/*
+	padding-top: 5px;*/
+	height: 48px; /*34px;*/
+	padding: 10px 4px;
+	border-right: 11px solid #000;
+}
+
+
+/*.RadRibbonBar .rrbLargeButton .rrbImagePlaceholder {
+    height: 35px !important;
+    width: 37px !important;
+}*/
+
+.RadRibbonBar .rrbLargeButton .rrbButtonImage{
+	clip: rect(0px, 100px, 100px, 0px) !important; 
+    margin-top: 0 !important;
+}
+
+/* Deshabilitamos el resize del Ribbon */
+.RadRibbonBar .rrbResizeHandle {
+    display: none;
+}
+
+.ancho100 {
+	width: 99% !important;
+}
+.ancho40 {
+	width: 39%;
+	float: left;
+}
+.ancho20 {
+	width: 19.5%;
+	float: left;
+}
+.titColumna {
+	font-size: 110%;
+	font-weight: bolder;
+	color: #335e91;
+}
+.labelCorto {
+	width: auto !important;
+	min-width: 6em;
+}
+.indentado {
+	padding-left: 20px;
+}
+.ancho40 .titColumna,
+.ancho20 .titColumna {
+	padding-left: 20px;
+	margin-bottom: 4px;
+}
+
+html body input[maxlength="2"] {
+	width: 30px !important;
+}
+html body input[maxlength="4"] {
+	width: 40px !important;
+}
+html body input[maxlength="5"] {
+	width: 55px !important;
+}
+html body input[maxlength="10"] {
+	width: 100px !important;
+}
+
+.conScrollHor {
+	width: 1px;
+	min-width: 100%;
+}
+
+
+
+/* ------------------------------------------------------------------------------------------------- P�gina Login*/
+.login {
+	margin: 0px auto;
+	padding: 0px;
+	/*border: 1px solid #b5b5b5;
+	border-bottom: none;*/
+	width: 100%;
+	max-width: 980px;
+	height: 590px;
+}
+
+.formularioCentrado {
+	margin: 0px auto;
+	padding: 0px;
+	width: 100%;
+	height: 450px;
+	text-align: center;
+}
+
+#loginContenedor {
+	width: 364px;
+	height: 390px; /*260px. aumentamos el tama�o por el Captcha */
+	margin: 100px auto auto auto;
+	/*-moz-border-radius: 12px;*/
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	-webkit-box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.15);
+	/*-moz-box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.15);*/
+	box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.15);
+	
+	background: transparent url(../images/fLogin.png) no-repeat right bottom;
+	position: relative;
+}
+#loginContenedor .veloLogin {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 50%;
+	height: 50%;
+	-webkit-border-top-left-radius: 12px;
+	border-top-left-radius: 12px;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c0e2fc', endColorstr='#00c0e2fc',GradientType=1 );
+}
+
+#loginContenedor #panelLogin {
+	/*background: -moz-linear-gradient(top,  rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 50%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0.8)), color-stop(50%,rgba(255,255,255,0)));
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0) 50%);
+	background: -o-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0) 50%);
+	background: -ms-linear-gradient(top,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0) 50%);
+	background: linear-gradient(to bottom,  rgba(255,255,255,0.8) 0%,rgba(255,255,255,0) 50%);
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=0 );*/
+}
+
+#loginContenedor .titLogin {
+	padding-right: 0.5em;
+	padding-top: 0.5em;
+	margin: 0.2em 0.2em 0.8em 0.2em;
+	min-height: 70px;
+	font: Arial Rounded MT Bold;
+	font-size: 200%;
+	font-weight: bolder;
+	color: #fff;
+	text-align: right;
+	text-shadow: 2px 2px 0px rgba(93, 107, 122, 0.75);
+	
+	background: transparent url(../images/logo_Login.png) no-repeat left center;
+}
+#loginContenedor .separadorLogin {
+	clear: both;
+	line-height: 1em;
+}
+#loginContenedor label {
+	/* font-family: Verdana, Geneva, Arial, Helvetica, sans-serif; */
+	display: inline-block;
+	width: 8rem; /*6em;*/
+	text-align: right;
+	font-size: 90%;
+	margin-right: 0.5em;
+	
+	font-weight: bolder;
+	color: #fff; /*#333;*/
+	
+	margin-left: -1rem;
+}
+
+#loginContenedor input[type="text"] {
+	border: 1px solid #81aed7;
+	font-size: 110%;
+	font-weight: lighter;
+}
+#loginContenedor input[type="password"] {
+	border: 1px solid #b8b6cb;
+	font-size: 110%;
+	font-weight: lighter;
+}
+
+#loginContenedor .botonesLogin {
+	padding: 1px;
+	border: 1px solid #888;
+	-webkit-border-radius: 4px;
+	/*-moz-border-radius: 4px;*/
+	border-radius: 4px;
+	background-color: #fff;
+	width: auto;
+	display: inline-block;
+	margin: 2em auto auto auto;
+	margin-left: 120PX;
+}
+#loginContenedor .botonesLogin input {
+	border: none;
+	color: #fff;
+	font-weight: bolder;
+	padding: 0.6em 12px;
+	-webkit-border-radius: 4px;
+	/*-moz-border-radius: 4px;*/
+	border-radius: 4px;
+	
+	/*background: #5f6d7c url(../images/fInputPopup.png) repeat-x left top;*/
+	background: rgb(137,146,172);
+	background: -moz-linear-gradient(top,  rgba(137,146,172,1) 0%, rgba(0,0,0,1) 51%, rgba(33,33,33,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(137,146,172,1)), color-stop(51%,rgba(0,0,0,1)), color-stop(100%,rgba(33,33,33,1)));
+	background: -webkit-linear-gradient(top,  rgba(137,146,172,1) 0%,rgba(0,0,0,1) 51%,rgba(33,33,33,1) 100%);
+	background: -o-linear-gradient(top,  rgba(137,146,172,1) 0%,rgba(0,0,0,1) 51%,rgba(33,33,33,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(137,146,172,1) 0%,rgba(0,0,0,1) 51%,rgba(33,33,33,1) 100%);
+	background: linear-gradient(to bottom,  rgba(137,146,172,1) 0%,rgba(0,0,0,1) 51%,rgba(33,33,33,1) 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#8992ac', endColorstr='#212121',GradientType=0 );
+
+}
+
+
+/* Captcha */
+.RadCaptcha_Default div {
+	text-align: center;
+	margin-bottom: 12px
+}
+.RadCaptcha_Default div img {
+	margin: 0 auto 0 9.5rem;
+}
+.RadCaptcha_Default span {
+	display: none;
+}
+.RadCaptcha_Default span[style*="visibility:hidden"] {
+	display: none;
+}
+
+
+/* ------------------------------------------------------------------------------------------------- Cajas de Alerta */
+
+.cajaError, .cajaAviso {
+	width: 580px;
+	margin: 20px auto;
+	background: #d0d0d0 url(../images/fCajasAvisos.png) repeat-x left top;
+	border: 1px solid #e0e0e0;
+	-webkit-border-radius: 12px;
+	/*-moz-border-radius: 12px;*/
+	border-radius: 12px;
+}
+
+div.logoCajasAvisos {
+	width: 70px;
+	float: left;
+	height: 99%;
+	min-height: 60px;
+}
+
+.cajaError .logoCajasAvisos {
+	background: transparent url(../images/icoTxarto.png) no-repeat 50% 50%;
+}
+
+.cajaAviso .logoCajasAvisos {
+	background: transparent url(../images/icoAviso.png) no-repeat 50% 50%;
+}
+
+.icoAlertaOk {
+	background-image: url(../images/icoOndo.png) !important;
+}
+.icoAlertaError {
+	background-image: url(../images/icoTxarto.png) !important;
+}
+.icoAlertaAviso {
+	background-image: url(../images/icoAviso.png) !important;
+}
+
+.titError,
+.titAviso {
+	background: #fff;
+	border: 1px solid #fff;
+	margin:  10px 10px 0px 70px;
+	padding: 0px 0px 0px 20px;
+	font-size: 140%;
+	text-align: left;
+	font-weight: bolder;
+	text-transform: uppercase;
+	/*-moz-border-radius-topleft: 12px;*/
+	-webkit-border-top-left-radius: 12px;
+	border-top-left-radius: 12px;
+	/*-moz-border-radius-topright: 12px;*/
+	-webkit-border-top-right-radius: 12px;
+	border-top-right-radius: 12px;
+}
+
+.titError {
+	color: #dd3a1a; /*#a31010;*/
+}
+.titAviso {
+	color: #ee7811; /*#a31010;*/
+}
+
+
+.cajaError ul, .cajaAviso ul {
+	background: #fff;
+	border: 1px solid #fff;
+	margin: 0px 10px 10px 70px;
+	padding: 0px;
+	/*-moz-border-radius-bottomleft: 12px;*/
+	-webkit-border-bottom-left-radius: 12px;
+	border-bottom-left-radius: 12px;
+	/*-moz-border-radius-bottomright: 12px;*/
+	-webkit-border-bottom-right-radius: 12px;
+	border-bottom-right-radius: 12px;
+}
+
+.cajaError ul li,
+.cajaAviso ul li {
+	color: #333;
+	list-style: none;
+	/*font-size: 80%;*/
+	text-align: left;
+	padding: 5px 20px;
+}
+.cajaAviso .textoAviso {
+	background: #fff;
+	border: 1px solid #fff;
+	margin: 0px 10px 10px 70px;
+	-webkit-border-bottom-left-radius: 12px;
+	border-bottom-left-radius: 12px;
+	-webkit-border-bottom-right-radius: 12px;
+	border-bottom-right-radius: 12px;
+	padding: 5px 20px;
+}
+
+/*caja sesion caducada*/
+
+.cabecera h1 {
+	margin:0px !important;
+	padding:0px !important;
+	top:0px !important;
+	left:0px !important;
+	font-size:0;	
+}
+
+.cajaSesion {
+	width: 580px;
+	margin: 10% auto 10% auto;
+	background-color: #fff;
+	border: 1px solid #06C;
+	-webkit-border-radius: 8px;
+	/*-moz-border-radius: 12px;*/
+	border-radius: 8px;
+}
+
+
+.cajaSesion p {
+	background-color: #f1f1f1;
+	width:96%;
+	margin:2% auto;
+	padding:3%;
+}
+
+.titSesion {
+	background: #fff;
+	color:#06C;
+	border: 1px solid #fff;
+	margin:  1px;
+	padding: 0px 0px 0px 20px;
+	font-size: 140%;
+	text-align: left;
+	font-weight: bolder;
+	text-transform: uppercase;
+	-webkit-border-top-left-radius: 8px;
+	border-top-left-radius: 8px;
+	-webkit-border-top-right-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.cajaSesion input {
+	margin:0 3%;	
+}
+
+
+/*------------------------------------------------------------------------------------------------------ P�gina de Inicio*/
+.grupoInicio {
+	border: none;
+	margin: 10px;
+}
+.grupoInicio legend {
+	color: #335E91;
+	font-weight: bolder;
+	font-size: 1.2em;
+}
+
+
+
+/*------------------------------------------------------------------------------------------------------
+*/
+
+#ctl00_splitterContenido {
+	/*position: absolute;
+	top: 72px;
+	right: 0px;
+	bottom: 49px;
+	left: 0px;*/
+}
+
+.rtsPrincipal {
+	/*width: 100%;*/
+	
+	position: relative;
+}
+
+.rtsPrincipal .RadRibbonBar_Default {
+	/*position: fixed;*/
+	z-index: 1000;
+}
+
+.rtsContenidoCentral {
+	background-color: #f6f8fa;
+} 
+
+
+/**/.rtsPrincipal .rtsPopupContenidoPestanas,
+.rtsPrincipal .rtsContenidoCentral {
+	/*padding-top: 88px;*/ /*130px;*/
+	/*height: 650px;
+   position: absolute;
+   top: 90px;*/
+	
+    /*overflow: auto;*/
+	 overflow-y: scroll;
+	-webkit-overflow-scrolling: touch; /*auto;*/
+}
+
+.rtsPrincipal .rtsPopupContenidoPestanas,
+.rtsPrincipal .rtsContenidoCentralSinRibbon 
+{
+    /*overflow: auto;*/
+	 overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+
+
+/*-------------------------------------------------------------------------------------------------- Formularios y Grids */
+.rtsFormularioGeneral {
+	/*background-color: #f6f8fa;*/
+	overflow: auto;
+	clear: both;
+	/*padding-right: 18px;
+	width: 99.9%;*/
+}
+
+.rtsFormularioGeneral fieldset {
+	margin: 6px 0px;
+	clear: both;
+	border: none;
+}
+
+.rtsFormularioGeneral legend {
+	color: #335E91; /*#1261e1;*/
+	font-weight: bold; /*normal;*/
+	font-size: 14px;
+	padding-left: 16px;
+	background: transparent url(../images/flechaAbierto.png) no-repeat left center;
+	cursor: pointer;
+}
+
+.rtsFormularioGeneral .cerrado {
+	background: transparent url(../images/flechaCerrado.png) no-repeat left center;
+}
+.rtsFormularioGeneral legend.headerBloqueNivel2 {
+	padding-left: 16px;
+	background: transparent url(../images/flechaAbierto_2nivel.png) no-repeat left center;
+}
+.rtsFormularioGeneral legend.headerBloqueNivel2.cerrado {
+	background: transparent url(../images/flechaCerrado_2nivel.png) no-repeat left center;
+}
+
+.rtsFormularioGeneral fieldset fieldset {
+	padding: 6px 0px 6px 20px; /*6px 20px;*/
+}
+.rtsFormularioGeneral fieldset fieldset legend,
+fieldset legend.leyenda2Nivel {
+	color: #333 !important; /*#666;*/
+	border-bottom: 1px solid #c0c0c0;
+	font-size: 12px;
+	font-weight: bolder;
+	background: none;
+	width: 99%;
+	padding-left: 0px;
+	margin-left: -6px;
+}
+*[class^="bloqueCampos"] {
+	width: 49.5%;
+	float: left;
+	margin: 4px auto;
+}
+
+.bloqueCampos24em + *[class^="bloqueCampos"] {
+	width: 40%;
+}
+
+.bloqueCampos75 {
+	width: 75%;
+}
+.bloqueCampos100 {
+	width: 99.9%;
+}
+.bloqueCampos33 {
+	width: 33%;
+}
+.bloqueCampos25 {
+	width: 24.75%;
+}
+*[class^="bloqueCampos"] *[class^="bloqueCampos"] {
+	margin: 0px auto !important;
+}
+/*
+*[class^="bloqueCampos"]:nth-of-type(odd) {
+    background-color: #FDF5E6; !important;
+	 clear: both;
+}*/
+
+.rtsFormularioGeneral label {
+	display: inline-block;
+	padding-right: 8px;
+	text-align: left;
+}
+
+
+.rtsFormularioGeneral  span.areaTexto {
+	vertical-align: top;
+}
+
+	.rtsFormularioGeneral .conBoton span.RadInput[style*="160px;"] input,
+	.rtsFormularioGeneral .conTexto span.RadInput[style*="160px;"] input,
+	.rtsFormularioGeneral .conDobleBoton span.RadInput[style*="160px;"] input,
+	.rtsFormularioGeneral .conTripleBoton span.RadInput[style*="160px;"] input {
+		 padding-right: 0px;
+	}
+
+.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"],
+.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"] input {
+	margin-right: 4px;
+}
+	
+.rtsFormularioEdicionTablas span.RadInput[style*="160px;"],
+.rtsFormularioEdicionTablas .RadComboBox {
+	width: 60px !important;
+}
+	
+.rtsFormularioGeneral  .radiobuttonlist {
+	display: inline-block;
+	vertical-align: middle;
+}
+.rtsFormularioGeneral  .radiobuttonlist label {
+	text-align: left;
+}
+.rtsFormularioGeneral  label.rtsSubirArchivolabel {
+	display: inline-block;
+	padding-right: 8px;
+	text-align: left;
+}
+.rtsSubirArchivo {
+	display: inline-block;
+	vertical-align: middle;
+}
+.rddlSlide .rddlPopup_Default,
+.RadComboBox_Default .rcbInput {
+    font: 12px/12px "Segoe UI",Arial,Helvetica,sans-serif !important;
+}
+div.RadDropDownList_Default span.rddlInner,
+.RadDropDownTree_Default .rddtInner {
+    border-radius: 0px !important;
+	 border-top: 1px solid #848284 !important;
+	 border-right: 1px solid #d6d3ce !important;	 
+	 border-bottom: 1px solid #d6d3ce !important;
+	 border-left: 1px solid #848284 !important;
+	 padding: 2px 22px 1px 5px !important;
+}
+div.RadDropDownList_Default span.rddlInner.rddlDisabled {
+	color: #8a8a8a;
+}
+div.RadDropDownTree_Default .rddtInner {
+	background-image: none !important;
+	background-color: #fff;
+    border-radius: 0px !important;
+	 padding-top: 1px !important;
+	 padding-bottom: 0px !important;
+}
+
+html body .RadInput_Default .riTextBox,
+html body .RadInputMgr_Default {
+    /*font-family: "Segoe UI", Arial, Helvetica, sans-serif; /*arial, verdana, sans-serif !important;*/
+}
+
+
+.RadDropDownList_Default .rddlIcon,
+.RadComboBox_Default .rcbReadOnly .rcbArrowCellRight,
+.RadDropDownTree_Default .rddtIcon {
+    background-image: url("../images/fDesplegable.png") !important;
+	 background-position: 0px 0px !important;
+	 width: 17px !important;
+	 height: 17px !important;
+}
+
+.RadComboBox_Default .rcbDisabled .rcbReadOnly .rcbArrowCellRight {
+	background-image: none !important;
+}
+
+.rtsFormularioGeneral  .RadPicker_Default .rcCalPopup,
+.rtsFormularioGeneral  .RadPicker_Default .rcTimePopup {
+    /*background-image: url("../images/btn_on_Cal.png");
+	 background-position: 0px 0px;*/
+	 width: 24px; /*38px;*/
+}
+
+.rtsFormularioGeneral  .riSingle .riTextBox,
+.rtsFormularioGeneral  .RadForm.rfdTextbox .riSingle input.rfdDecorated[type="text"] {
+    height: 18px;
+	 line-height: 18px;
+}
+.areaTexto {
+	display: inline-block;
+}
+.areaTexto textarea {
+	height: auto !important;
+	width: 99% !important;
+	/*height: 80px !important;*/
+}
+
+.rgMasterTable caption {	
+	/*border-bottom: 1px solid #333;*/
+	padding: 4px 4px 4px 0px; /*6px 4px 6px 2em;*/
+	font-weight: bolder;
+	text-align: left;
+}
+.rgMasterTable > tbody td:first-child, 
+.rgMasterTable > thead th,
+.rgMasterTable > thead td {
+	border-left: 1px solid #828282 !important;
+}
+.rgMasterTable table > tbody td:first-child, 
+.rgMasterTable > thead table th,
+.rgMasterTable > thead table td {
+	border-left: none !important;
+}
+
+.rgMasterTable > thead th {
+	border-top: 1px solid #828282 !important;
+	border-bottom: none !important;
+	padding-top: 0px !important;
+	padding-bottom: 0px !important;
+}
+
+.rgMasterTable > tbody tr:first-child td {
+	border-top: 1px solid #828282 !important;
+}
+
+.rgMasterTable > thead tr:last-child td {
+	border-bottom: none !important;
+}
+.rgMasterTable > tbody td:last-child,
+.rgMasterTable > thead th:last-child,
+.rgMasterTable > thead td:last-child {
+	border-right: 1px solid #828282 !important;
+}
+.rgMasterTable table > tbody td:last-child,
+.rgMasterTable table > thead th:last-child,
+.rgMasterTable table > thead td:last-child {
+	border-right: none !important;
+}
+/*.rgMasterTable .rgHeader:first-child,
+.rgMasterTable .rgFilterRow td:first-child {
+	border-left: none !important;
+}*/
+
+.rgFilterRow td {
+	border-left: 1px solid #828282 !important;
+	vertical-align: top;
+}
+
+.rgMasterTable .rgPager td.rgPagerCell {
+    padding: 1px 0px 0px 0px;
+}
+.rgWrap,
+.rcbList {
+	font-size: 12px !important;
+}
+.RadGrid_Default td.rgPagerCell {
+	border-top: none !important;
+}
+.rgCommandTable {
+	border-collapse: collapse;
+}
+.rgCommandTable td {
+	border-bottom: 1px solid #828282 !important;
+}
+.rgMasterTable .rgPagerCell input,
+.rgMasterTable .rgPagerCell input:hover {
+    background-position: center center;
+}
+.rgMasterTable .rgPagerCell .rgPageFirst {
+	 background-image: url(../images/fOrriLehena.png);
+}
+.rgMasterTable .rgPagerCell .rgPagePrev {
+	 background-image: url(../images/fOrriAurrekoa.png);
+}
+.rgMasterTable .rgPagerCell .rgPageNext {
+	 background-image: url(../images/fOrriHurrengoa.png);
+}
+.rgMasterTable .rgPagerCell .rgPageLast {
+	 background-image: url(../images/fOrriAzkena.png);
+}
+
+/*.rgMasterTable .rcbReadOnly,*/
+.RadComboBox_Default .rcbReadOnly {
+	 border-top: 1px solid #848284 !important;
+	 border-right: 1px solid #d6d3ce !important;	 
+	 border-bottom: 1px solid #d6d3ce !important;
+	 border-left: 1px solid #848284 !important;
+    background-image: none !important;
+	 background-color: #fff !important;
+	 height: 17px !important;
+	 color: #8a8a8a !important;
+}
+.RadComboBox_Default .rcbDisabled .rcbReadOnly {
+	border-color: #d0d0d0 !important;
+}
+
+.RadComboBox_Default .rcbReadOnly .rcbInputCellLeft {
+    background: none !important;
+	 border-bottom: none !important;
+	 height: 17px !important;
+}
+.RadComboBox_Default .rcbReadOnly .rcbInputCellLeft input {	
+	 padding-top: 0px !important;
+	 padding-bottom: 0px !important;
+}
+.RadComboBox .rcbArrowCell a {
+	width: 17px !important;
+	height: 17px !important;
+}
+
+.rgAdvPart .RadComboBox_Default {
+	 margin-top: 2px !important;
+}
+
+.RadGrid_Default {
+	border: none !important;
+}
+
+.RadGrid_Default .rgCommandRow {
+	background: none !important;
+}
+
+.RadGrid_Default table.rgMasterTable {
+	width: 99.5% !important; /*98%*/
+	margin: 6px auto;
+}
+
+/*
+.RadGrid_Default table.rgMasterTable thead tr {
+	border: 1px solid #335e91;
+	border-bottom: none;
+}
+
+.RadGrid_Default table.rgMasterTable > tbody tr td:last-of-type,
+.RadGrid_Default table.rgMasterTable > thead tr th:last-of-type,
+.RadGrid_Default table.rgMasterTable > thead tr td:last-of-type {
+	border-right: 1px solid #335e91;
+}*/
+
+.RadGrid_Default .rgRow td,
+.RadGrid_Default .rgAltRow td,
+.RadGrid_Default .rgEditRow td,
+.RadGrid_Default .rgFooter td {
+	padding: 6px !important; /*3px*/
+}
+.RadGrid_Default .rgHoveredRow td {
+	cursor: pointer;
+}
+
+.colorFacturacionReal {
+	color: red;
+}
+
+.tablaModosCompra {
+	/*width: 90%;*/
+	margin-bottom: 12px;
+	table-layout: fixed;
+}
+.tablaModosCompra td {
+	width: 10em;
+}
+
+label.campoObligatorio {
+	font-style: italic;;
+}
+
+label.campoObligatorio:after {
+	content: " *";
+}
+
+/*------------- Tablas con scroll */
+.RadGrid_TablaScroll table {
+	margin: 0px !important;
+}
+.RadGrid_TablaScroll thead th:not(:first-of-type),
+.RadGrid_TablaScroll tbody td:not(:first-of-type) {
+	min-width: 80px;
+	width: 80px;
+}
+.RadGrid_TablaScroll table thead th.celdaLarga,
+.RadGrid_TablaScroll table tbody td.celdaLarga {
+	min-width: 100px;
+	width: 100px;
+}
+
+.RadGrid_TablaScroll thead th:first-of-type,
+.RadGrid_TablaScroll tbody td:first-of-type {
+	-webkit-box-shadow: 2px 0px 2px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         2px 0px 2px 0px rgba(50, 50, 50, 0.75);
+	min-width: 250px;
+	width: 250px;
+}
+
+.RadGrid_TablaScroll thead tr th {
+	-webkit-box-shadow: 0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+	box-shadow:         0px 2px 2px 0px rgba(50, 50, 50, 0.75);
+}
+
+/*-------------------------------------------------------------------------------------------------- Area opciones panel izquierdo encima menu*/
+
+.areaOpcionesSupMenu {
+	margin: 6px;
+	padding: 6px;
+	/*-moz-border-radius-bottomleft: 6px;*/
+	-webkit-border-bottom-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+	/*-moz-border-radius-topleft: 6px;*/
+	-webkit-border-top-left-radius: 6px;
+	border-top-left-radius: 6px;
+	/*-moz-border-radius-bottomright: 6px;*/
+	-webkit-border-bottom-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+	/*-moz-border-radius-topright: 6px;*/
+	-webkit-border-top-right-radius: 6px;
+	border-top-right-radius: 6px;
+	background: #e6f3ff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e6f3ff 0%, #c2dbe7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e6f3ff), color-stop(100%,#c2dbe7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #e6f3ff 0%,#c2dbe7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #e6f3ff 0%,#c2dbe7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #e6f3ff 0%,#c2dbe7 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #e6f3ff 0%,#c2dbe7 100%); /* W3C */
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#e6f3ff', endColorstr='#c2dbe7',GradientType=0 ); /* IE6-8 */
+}
+
+.areaOpcionesSupMenu .RadTabStrip .rtsUL:after, 
+.areaOpcionesSupMenu .RadTabStripVertical .rtsUL:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+}
+
+.areaOpcionesSupMenu .RadTabStrip .rtsUL, 
+.areaOpcionesSupMenu  RadTabStripVertical .rtsUL {
+    display: block !important;
+    float: left;
+	 width: 97%;
+    list-style: none outside none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.areaOpcionesSupMenu .rtsUL {
+	padding-left: 10px;
+	margin: 0px auto;
+}
+
+.areaOpcionesSupMenu .rtsUL li {
+	list-style: none;
+	background: transparent url(../images/icoArbol1.png) no-repeat left -4px;
+	padding: 2px 0px 3px 12px;
+	cursor: pointer;
+}
+.areaOpcionesSupMenu .rtsUL li:last-child {
+	background: transparent url(../images/icoArbol2.png) no-repeat left -4px;
+}
+.areaOpcionesSupMenu .rtsUL li:hover {
+	background-color: #c2dbe7;
+	/*-moz-border-radius: 6px;*/
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+}
+
+.areaOpcionesSupMenu .RadTabStrip .rtsCenter .rtsUL {
+    display: block !important;
+    float: left;
+	padding: 0px !important;
+}
+
+.areaOpcionesSupMenu .RadTabStripTop_Default .rtsLevel .rtsLink, 
+.areaOpcionesSupMenu .RadTabStripTop_Default .rtsLevel .rtsOut, 
+.areaOpcionesSupMenu .RadTabStripBottom_Default .rtsLevel .rtsLink, 
+.areaOpcionesSupMenu .RadTabStripBottom_Default .rtsLevel .rtsOut, 
+.areaOpcionesSupMenu .RadTabStripTop_Default_Baseline .rtsLevel, 
+.areaOpcionesSupMenu .RadTabStripBottom_Default_Baseline .rtsLevel {
+	background-image: none !important;	
+}
+
+.RadTabStripTop_Default .rtsLI .rtsSelected {
+    font-weight: bold;
+}
+
+.areaOpcionesSupMenu .RadTabStrip .rtsLI {
+    display: block !important;
+    float: left;
+	width: 99%;
+	padding: 0px !important;
+	background: transparent url(../images/icoArbol1.png) no-repeat 8px 0px !important;
+}
+
+.areaOpcionesSupMenu .RadTabStrip .rtsLI.rtsLast {
+    display: block !important;
+    float: left;
+	width: 99%;
+	padding: 0px !important;
+	background: transparent url(../images/icoArbol2.png) no-repeat 8px 0px !important;
+}
+.areaOpcionesSupMenu .RadTabStrip .rtsLink {
+    text-align: left !important;
+}
+
+.RadPanelBar_Default .rpRootGroup {
+    border-right: none !important;
+}
+
+.RadPanelBar .rpItem {
+    margin: 0px auto !important;
+}
+.RadPanelBar .rpLevel2 .rpTemplate,
+.RadPanelBar .rpLevel2 .rpOut {
+    padding-left: 0px !important;
+	 margin-left: 15px;
+}
+.RadPanelBar_Default .rpGroup a.rpLink .rpOut {
+	border: 1px solid #fff;
+	padding: 3px !important;
+}
+.RadPanelBar .rpGroup .rpLink,
+.RadPanelBar .rpGroup .rpTemplate {
+    line-height: 14px !important;
+}
+.RadPanelBar_Default .rpGroup a.rpLink:hover .rpOut,
+.RadPanelBar_Default ul.rpGroup .rpFocused {
+	background: #e1e1e1;
+	background: -moz-linear-gradient(top,  #e1e1e1 0%, #c5c5c5 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e1e1e1), color-stop(100%,#c5c5c5));
+	background: -webkit-linear-gradient(top,  #e1e1e1 0%,#c5c5c5 100%);
+	background: -o-linear-gradient(top,  #e1e1e1 0%,#c5c5c5 100%);
+	background: -ms-linear-gradient(top,  #e1e1e1 0%,#c5c5c5 100%);
+	background: linear-gradient(to bottom,  #e1e1e1 0%,#c5c5c5 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#e1e1e1', endColorstr='#c5c5c5',GradientType=0 );
+	
+	-webkit-border-radius: 3px;
+	/*-moz-border-radius: 3px;*/
+	border-radius: 3px;
+	
+	border-top: 1px solid #c4c4c4;
+	border-left: 1px solid #c4c4c4;
+	border-right: 1px solid #9e9e9e;
+	border-bottom: 1px solid #9e9e9e;
+	
+	/*padding: 3px !important;*/
+}
+.RadPanelBar_Default .rpGroup a.rpLink:hover,
+.RadPanelBar_Default .rpGroup a.rpLink:active,
+.RadPanelBar_Default .rpGroup a.rpFocused,
+.RadPanelBar_Default .rpGroup a.rpSelected {
+    background: none !important;
+}
+.RadPanelBar_Default .rpGroup a.rpClicked,
+.RadPanelBar_Default .rpGroup a.rpFocused,
+.RadPanelBar_Default .rpGroup a.rpSelected,
+.RadPanelBar_Default .rpGroup .rpClicked span,
+.RadPanelBar_Default .rpGroup .rpFocused span,
+.RadPanelBar_Default .rpGroup .rpSelected span {
+	color: #000 !important;
+	border: none !important;
+	/*background-position: 100% 0px !important;*/
+	background-image: none !important;
+}
+.RadPanelBar_Default .rpGroup .rpClicked span span,
+.RadPanelBar_Default .rpGroup .rpFocused span span,
+.RadPanelBar_Default .rpGroup .rpSelected span span {
+	background-image: none !important;
+   /*border-bottom: 1px solid #335E91 !important;
+   border-top: 1px solid #335E91 !important;*/
+   color: #335E91 !important;
+   font-weight: bold;
+   padding-bottom: 4px !important;
+   padding-top: 4px !important;
+}
+
+
+.RadPanelBar .rpText {
+	padding-top: 3px !important;
+	padding-bottom: 3px !important;
+}
+
+.RadPanelBar_Default .rpItem *[style^=font-weight] span span,
+.rmItem .rmFocused span {
+	background-image: none !important;
+	color: #335e91 !important;
+	font-weight: bold;
+	border-top: 1px solid #335e91 !important;
+	border-bottom: 1px solid #335e91 !important;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.rmItem .rmFocused {
+	background-image: none !important;
+}
+
+
+/*-------------------------------------------------------------------------------------------------- Rangos en los filtros */
+
+html body .rgFilterRow label {
+	width: 40px;
+	display: inline-block;
+}
+
+/*-------------------------------------------------------------------------------------------------- Tama�o m�ximo de los desplegables */
+.rddlPopup .rddlList {
+    max-height: 300px;
+}
+
+/*-------------------------------------------------------------------------------------------------- Cabecera de botones */
+.RadRibbonBar {
+	height: 90px !important;
+}
+.RadRibbonBar .rrbContentWrapIn {
+	border-left: none !important;
+}
+.rrbTabs {
+	display: none;
+}
+.RadRibbonBar .rrbButtonArea {
+	height: 87px !important;
+}
+.RadRibbonBar .rrbControlGroup,
+.RadRibbonBar .rrbButtonGroupIn {
+	height: 60px !important;
+	min-width: 60px;
+	text-align: center;
+}
+.RadRibbonBar .rrbAbox .rrbLargeButton {
+	margin: 0px auto;
+	/*min-width: 60px;*/
+}
+.RadRibbonBar .rrbLargeButton .rrbButtonText {
+	height: 15px !important;
+}
+.RadRibbonBar .RadBotonUnico .rrbLargeButton {
+	float: none !important;
+}
+
+
+/* INICIO: 
+    Fix para permitir reordenar la columna pinchando en cualquier parte de la cabecera, no solo el texto (incluye cambios en codigo y css)
+    http: //www.telerik.com/community/forums/aspnet-ajax/grid/make-entire-grid-heading-clickable-sortable.aspx
+*/
+div.RadGrid thead th.rgHeader
+{
+    /*padding: 0 !important;*/
+}
+div.RadGrid thead th.rgHeader a
+{
+    display: block;
+    /* Produce resultados no deseados en Firefox: height: 100%; */
+    padding: 4px 7px;
+}
+div.RadGrid thead th.rgHeader:hover
+{
+    /*background-color: #FFCA5E;
+    background-position: 0 -2600px;
+    border-bottom-color: #FF9B35;*/
+	 
+	 background: rgb(225,225,223);
+	background: -moz-linear-gradient(top,  rgba(225,225,223,1) 0%, rgba(197,197,197,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(225,225,223,1)), color-stop(100%,rgba(197,197,197,1)));
+	background: -webkit-linear-gradient(top,  rgba(225,225,223,1) 0%,rgba(197,197,197,1) 100%);
+	background: -o-linear-gradient(top,  rgba(225,225,223,1) 0%,rgba(197,197,197,1) 100%);
+	background: -ms-linear-gradient(top,  rgba(225,225,223,1) 0%,rgba(197,197,197,1) 100%);
+	background: linear-gradient(to bottom,  rgba(225,225,223,1) 0%,rgba(197,197,197,1) 100%);
+	filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#e1e1df', endColorstr='#c5c5c5',GradientType=0 );
+
+}
+         
+div.RadGrid thead th.rgHeader.rgSorted input.rgSortAsc,
+div.RadGrid thead th.rgHeader.rgSorted input.rgSortDesc
+{
+    float: right;
+}
+/* FIN: Fix*/
+
+
+html body .riSingle .riTextBox {
+	 padding-top: 0px !important;
+	 padding-bottom: 0px !important;
+}
+
+
+
+/*-------------------------------------------------------------------------------------------------- Calendario currela */
+.leyendaCalendario .bloqueCampos {
+	width: 19% !important; /*25%;*/
+	height: 15px;
+}
+.diaFestivo,
+.FestivosCssClass {
+	background-color: #a00;
+}
+.diaVacaciones {
+	background-color: #81b3d4;
+}
+.diaNoLaborable,
+.rcWeekend {
+	background-color: #ececec;
+}
+.diaLibreDisposicion {
+	background-color: #c9d49a;
+}
+.diaAjusteJornada
+{
+	background-color: #0099FF;
+}.diaAusencia {
+	background-color: #ffa700;
+}
+.diaBajaParental {
+	background-color: #f969f9;
+}
+.diaBajaMedica {
+	background-color: #32aaaa;
+}
+.diaCompensacion {
+	background-color: #e0e728;
+}
+.diaFuncionesSindicales {
+	background-color: #949e01;
+}
+.diaLactancia {
+	background-color: #b88de1;
+}
+.diaMatrimonio {
+	background-color: #a0e8e7;
+}
+.dia25Aniversario {
+	background-color: #ab776b;
+}
+.diaGratificacion {
+	background-color: #39854f;
+}
+.diaPermisoNoRetribuido {
+	background-color: #9AE491;
+}
+.diaSolicitado {
+	background-color: #6c8ea4;
+}
+/* leyendas de horas imputadas en PIAs */
+.horasSinHoras {
+	background-color: #DCDCE5;
+}
+.horasSinSolicitar {
+	background-color: #f2f5a9;
+}
+.horasPendienteAprobacion {
+	background-color: #f6c9a9;
+}
+.horasAprobado {
+	background-color: #bcF5a9;
+}
+
+td.rcOtherMonth.FestivosCssClass,
+td.rcOtherMonth.rcWeekend,
+td[class~="rcOtherMonth"]
+/*td.rcOtherMonth.diaFestivo,
+td.rcOtherMonth.diaVacaciones,
+td.rcOtherMonth.diaNoLaborable,
+td.rcOtherMonth.diaLibreDisposicion,
+td.rcOtherMonth.diaAusencia*/
+ {
+	background-color: #fff;
+}
+
+td.diaGratificacion a,
+td.diaFestivo a,
+td.FestivosCssClass a {
+	color: #fff !important;
+}
+td.rcOtherMonth.diaFestivo a,
+td.rcOtherMonth.FestivosCssClass a {
+	color: #898989 !important;
+}
+.leyendaCalendario .bloqueCampos label {
+	width: 10em !important;
+	line-height: 15px;
+	vertical-align: top;
+}
+.leyendaCalendario .bloqueCampos div {
+	display: inline-block;
+	width: 30px;
+	height: 13px;
+	border: 1px solid #000;
+}
+
+
+/*
+Prueba de filtro de fecha */
+.filtroFecha {
+	padding-right: 1px !important;
+	padding-left: 1px !important;
+}
+
+.filtroFecha br {
+	display: none;
+	width: 20px;
+	background: transparent url(../images/fDesdeHasta.png) no-repeat 0% 50%;
+}
+.filtroFecha div:first-of-type {
+	background: transparent url(../images/fDesdeHasta.png) no-repeat right center;
+	padding-right: 16px;
+}
+.filtroFecha label {
+	display: none !important;
+}
+.filtroFecha div.RadPicker {
+	display: inline-block;
+}
+tr.rgFilterRow td.filtroFecha [style*="width:160px;"],
+tr.rgFilterRow td.filtroFecha [style*="width: 160px;"] {
+    width: 82px !important;
+}
+tr.rgFilterRow td.filtroFecha .riTextBox[type="text"] {
+	padding-left: 0px;
+	padding-right: 0px;
+	font-size: 90%;
+}
+
+tr.rgFilterRow td.filtroFecha .rcCalPopup,
+tr.rgFilterRow td.filtroFecha .rcCalPopup:hover,
+tr.rgFilterRow td.filtroFecha .rcCalPopup:active {
+	width: 16px;
+	height: 15px;
+	background-position: -3px -4px;
+}
+
+th.rgHeader {
+	width: 100% inherit
+}
+
+#divCargando {
+	position: fixed !important; /* Asegura que cubra toda la pantalla */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+	z-index: 10000 !important; /* Asegura que est� en la parte superior */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+
+.TelerikModalOverlay {
+	background-color: rgba(170, 170, 170, 0.5);
+   position: absolute;
+   top: 0px;
+   left: 0px;
+	right: 0px;
+	bottom: 0px;
+   /*width: 100%;
+	height: 100%;*/
+   z-index: 3000;
+}
+.contenidoCargando {
+	position: absolute;
+	left: 36%;
+	top: 250px;
+	width: 400px;
+	height: 160px;
+	text-align: center;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	background-color: #eaedf2; /*#eee;*/
+	border: 1px solid #637ea1; /*#828282;*/
+}
+	.contenidoCargando strong {
+		display: block;
+		width: 388px;
+		height: 148px;
+		margin: 5px;
+		padding-top: 20px;
+		color: #335E91;
+		background: #fff url(../images/icons8-hilandero.gif) no-repeat 50% 80px;
+		border: 1px solid #637ea1; /*#828282;*/
+	}
+
+.comboFiltro {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	clear: both;
+	width: 99.5%; /*98%;*/
+	margin: 12px auto -6px auto;
+	padding: 6px 1%;
+	background-color: #eee;
+	min-height: 20px;
+	border: 1px solid #828282;
+	border-bottom: none;
+	/*font-size: 110%;*/
+}
+.comboFiltro label {
+	display: inline-block;
+	width: 8em;
+	padding-right: 8px;
+	text-align: left;
+}
+.comboFiltro label.labelsLargos {
+	width: 12em !important;
+}
+.comboFiltro label.labelDch {
+	text-align: right !important;
+}
+
+.comboFiltro .RadDropDownList,
+.comboFiltro .rddlPopup {
+	width: 300px !important;
+}
+.comboFiltro .RadDropDownList .rddlIcon {
+	background-image: url(../images/fDesplegableFiltro.png) !important;
+}
+.comboFiltro .RadDropDownList .rddlPopup {
+    width: 180px !important;
+}
+
+.RadWindow_Default .rwTopLeft, .RadWindow_Default .rwTopRight, .RadWindow_Default .rwTitlebar, .RadWindow_Default .rwFooterLeft, .RadWindow_Default .rwFooterRight, .RadWindow_Default .rwFooterCenter, .RadWindow_Default .rwTopResize, .RadWindow_Default .rwStatusbar div, .RadWindow_Default .rwStatusbar, .RadWindow_Default .rwPopupButton, .RadWindow_Default .rwPopupButton span, .RadWindow_Default.rwMinimizedWindow .rwCorner {
+    background-image: url(../images/pruebaAzul.png) !important;
+}
+.RadWindow_Default .rwBodyLeft, .RadWindow_Default .rwBodyRight, .RadWindow_Default .rwStatusbarRow .rwCorner {
+    background-image: url(../images/pruebaAzul_2.png) !important;
+}
+.RadWindow .rwControlButtons a {
+    cursor: pointer !important;
+}
+
+.RadInput textarea { white-space: pre !important; } /* FIX - Enter key acting as a space in RadTextBox with MultiLine=True*/
+
+.rddlPopup {
+	/*width: 300px !important;*/
+}
+/*
+.pruebaCombo {
+	border: 1px solid #f00 !important;
+}
+*/
+
+
+/* Tooltips */
+
+.cajaToolTip {
+	position: absolute;
+	top: 1px;
+	left: 456px; /* El par�metro "left" para otras pantallas se define en mediaQueries */
+	cursor: help;
+}
+
+.RadPicker~.cajaToolTip {
+	left: auto !important;
+	right: 88px !important;
+	top: 6px;
+}
+.contenidoToolTip 
+{
+    padding-left: 10px;
+	display: none;
+}
+
+.cajaToolTip:hover .contenidoToolTip {
+	display: block;
+	position: absolute;
+	right: 10px;
+	border: 2px solid #637ea1;
+	background-color: rgba(170, 170, 170, 0.5);
+	min-width: 200px;
+	z-index: 1000;
+}
+
+.cajaToolEstrategia {
+	position: absolute;
+	top: 1px;
+	left: 476px; /* El par�metro "left" para otras pantallas se define en mediaQueries */
+	cursor: help;
+}
+
+.RadPicker~.cajaToolEstrategia {
+	left: auto !important;
+	right: 88px !important;
+	top: 6px;
+}
+.cajaToolEstrategia:hover .contenidoToolTip {
+	display: block;
+	position: absolute;
+	right: 10px;
+	border: 2px solid #637ea1;
+	background-color: rgba(170, 170, 170, 1);
+	min-width: 400px;
+	z-index: 1000;
+}
+.cajaToolEstrategia label {
+    width: 38em !important;
+}
+
+.fondoInicio {
+	background: transparent url("../images/fondoInicio.png") no-repeat 50% 50%;
+	background-size: contain;
+}
+
+.cajaBlanca {
+	border: 1px solid #d0d0d0;
+	background-color: #fff;
+	padding: 0.2em;
+	margin: 4px;
+	min-height: 100px;
+}
+.RadEditor.cajaBlanca {
+	margin: 0px;
+	padding: 0px;
+	min-height: 180px;
+}
+
+/* Para poner en el input para poder "ver" el detalle
+element.style {
+    background-image: url("../images/RadGrid_ver.gif");
+    background-position: 2px center;
+    background-repeat: no-repeat;
+    padding-left: 26px;
+}
+*/
+
+.noPointer { cursor: default !important; }
+.textCenter { text-align: center; }
+
+
+/* ------------------------------------------------------------------------------------------- Diagrama de Gantt*/
+
+#workSpace {
+	/*max-width: 99.7% !important;*/ /* Si ponemos el ancho en %, tanto Chrome com ie no dibujan bien el diagrama de Gantt. 2014-10-01 */
+	margin: 0 2px !important;
+}
+/*
+.splitElement.splitBox1 {
+	width: 60% !important;
+}
+.splitElement.splitBox2 {
+	width: 40% !important;
+}*/
+
+  /*  Buttons  */
+
+.button {
+  /*display:inline-block;*/
+  font-size: 100%;
+  /* font-family: "Segoe UI", Arial, Helvetica, sans-serif; */
+  color: #000 !important;
+  /*cursor:pointer;*/
+  /*background-color:#808080;*/
+  background: #faf9f9;
+  background: -moz-linear-gradient(top,  #faf9f9 0%, #e8e8e8 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#faf9f9), color-stop(100%,#e8e8e8));
+  background: -webkit-linear-gradient(top,  #faf9f9 0%,#e8e8e8 100%);
+  background: -o-linear-gradient(top,  #faf9f9 0%,#e8e8e8 100%);
+  background: -ms-linear-gradient(top,  #faf9f9 0%,#e8e8e8 100%);
+  background: linear-gradient(to bottom,  #faf9f9 0%,#e8e8e8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#faf9f9', endColorstr='#e8e8e8',GradientType=0 );
+
+   -moz-box-shadow: none !important;
+   -webkit-box-shadow: none !important;
+   -o-box-shadow: none !important;
+   box-shadow: none !important;
+   -moz-border-radius: 2px;
+   -webkit-border-radius: 2px;
+   -o-border-radius: 2px;
+   border-radius: 2px;
+   border: 1px solid #bebebe !important;
+   padding: 4px 10px !important;
+   margin-bottom: 6px !important;
+   /*margin-right: 10px;*/
+  	text-align: center
+}
+
+.button.first {
+    background-color:#808080;
+    font-weight: bold;
+}
+.button.first:hover {
+    background-color:#D98E2A;
+}
+
+.button[disabled] {
+  cursor: default;
+  opacity:0.4
+}
+
+.button:hover[disabled] {
+  background-color:#BABABA
+}
+
+.button.textual, .button.buttonImg {
+  border: none !important;
+  background: none !important;
+  background-color: transparent;
+  color:#68979B;
+  -moz-box-shadow:0 0 0 #999;
+   -webkit-box-shadow:0 0 0 #999;
+   -o-box-shadow:0 0 0 #999;
+   box-shadow:0 0 0 #999;
+  -moz-border-radius:0;
+   -webkit-border-radius:0;
+   -o-border-radius:0;
+   border-radius:0;
+  padding: 0px !important;
+  margin:0;
+  text-align: left
+}
+
+.button.edit {
+  color:#009E94;
+  padding:0;
+  margin:0
+}
+
+.button.delete {
+  color:#B61E2D;
+  padding:0;
+  margin:0
+}
+
+.button:hover {
+  background-color: #4C4C4C;
+}
+.button.textual:hover, .button.buttonImg:hover {
+  background-color: transparent;
+}
+
+span.separator {
+  display: inline-block;
+}
+
+.button.add {
+  color:#009E94;
+}
+
+.button.add .teamworkIcon {
+  color:#009E94;
+}
+
+.ganttBotCerrar {
+	background-image: url(../images/WebResource.gif);
+}
+
+
+/*---------------------------------------------------------------------*/
+
+
+/*---------------------------------------------------------------------- Bloques editor html */
+.bloqueEditor {
+	padding: 6px 20px;
+}
+.bloqueEditor label {
+	width: 99.5% !important;
+	border-bottom: 1px solid #c0c0c0;
+	color: #333 !important;
+	font-weight: bolder;
+	font-size: 1.1em;
+	padding-bottom: 4px;
+}
+.bloqueEditor .cajaBlanca {
+	width: 99% !important;
+}
+
+
+/*---------------------------------------------------------------------- Detalle de Planificaci�n */
+.planMesAnteriorEditable {
+	background-color: #fae7a5;
+}
+.planMesAnterior {
+	background-color: #f0f0f0;
+}
+.planMesActual {
+	background-color: #e7f1f7;
+}
+.produccionSemanal {
+	background-color: #b3ffcc;
+}
+
+tfoot .planMesActual {
+	background-color: #d6dfe5;
+}
+
+
+/*---------------------------------------------------------------------- Interior Rad Tree View */
+.RadTreeView_Default .rtIn {
+	display: inline-block;
+	width: 99%;
+}
+.RadTreeView_Default .rtHover .rtIn,
+.RadTreeView_Default .rtSelected.rtHover .rtIn {
+    background-color: #dfdfdf !important;
+    background-image: none !important;
+	 border-color: #fff !important;
+    color: #000;
+	 cursor: pointer;
+}
+/*--------------------------------------------------------------------- Copiados desde el Chrome los estilos calculados de un textbox de un grid de Telerik. Creo que seria mejorable */
+.TextBoxComoTelerik {
+	-webkit-appearance: none;
+	-webkit-background-clip: border-box;
+	-webkit-background-origin: padding-box;
+	-webkit-background-size: auto;
+	-webkit-rtl-ordering: logical;
+	-webkit-user-select: text;
+	-webkit-writing-mode: horizontal-tb;
+	background-attachment: scroll;
+	background-clip: border-box;
+	background-color: rgb(255, 255, 255);
+	background-image: none;
+	background-origin: padding-box;
+	background-size: auto;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-collapse: separate;
+	border-color: #d0d0d0;
+	border-image-outset: 0px;
+	border-image-repeat: stretch;
+	border-image-slice: 100%;
+	border-image-source: none;
+	border-image-width: 1;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-style: solid;
+	border-top-style: solid;
+	border-top-width: 1px;
+	box-sizing: border-box;
+	color: rgb(51, 51, 51);
+	cursor: auto;
+	display: inline-block;
+	empty-cells: show;
+	/* font-family: 'segoe ui', arial, sans-serif; */
+	font-size: 12px;
+	font-stretch: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	height: 18px;
+	letter-spacing: normal;
+	line-height: 18px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-top: 0px;
+	min-height: 18px;
+	padding-bottom: 0px;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 0px;
+	text-indent: 0px;
+	text-shadow: none;
+	text-transform: none;
+	vertical-align: middle;
+	/*white-space: nowrap;*/
+	word-spacing: 0px;
+	writing-mode: lr-tb;
+}
+
+div[id$="_Frozen"] {
+	border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.ProyectoHijo {
+	background-color: #f4f8e1 !important;
+}
+.buttonSelMasiva{
+	background: transparent url(../Images/selMasiva.svg) no-repeat 0px 0px;
+	border:none;
+	color:transparent;
+	cursor:pointer;
+	width:25px;
+	height:auto;
+	}
+
+/* Para quitar la linea superior a los campos "DateTime" de los grid batch */
+.rcTable > tbody tr:first-child td {
+	border-top: none !important;
+}
+
+.ContenidoCVModificado {
+	background-color: #f8e1f4 !important;
+}
+
+.SinScroll
+{
+    overflow: hidden !important;
+}
+
+.dataTable.dtr-column .dtr-control:has(.more):before {
+	content: none;
+}
+
+body {
+	background-color: #f0f0f0;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.content-container {
+	width: 100%;
+	width: 1700px; /* Evitar que se haga demasiado grande */
+	background-color: white; /* Fondo blanco */
+	border-radius: 15px; /* Bordes redondeados */
+	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+	padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* LAYOUT */
+.content-wrapper {
+	flex-grow: 1;
+	overflow-y: auto;
+	margin: 10px;
+	height: calc(100vh - 210px); /* Ajusta la altura disponible restando la cabecera */
+	overflow-x: hidden;
+}
+
+.menu-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	gap: 20px;
+	padding: 5px;
+	width: 100%;
+	position: relative;
+}
+
+.menu-item {
+	cursor: pointer;
+	font-weight: bold;
+	padding: 8px 12px;
+	background: #BE010D;
+	color: white;
+	border-radius: 5px;
+	transition: background 0.3s ease-in-out;
+	position: relative;
+}
+
+	.menu-item:hover {
+		background: #0056b3;
+	}
+
+.submenu {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 90%;
+	background: white;
+	border: 1px solid #ccc;
+	padding: 10px;
+	box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+	width: 200px;
+	z-index: 1000;
+}
+
+	.menu-item:hover + .submenu, .submenu:hover {
+		display: block;
+	}
+
+	.submenu a {
+		display: block;
+		padding: 6px 8px;
+		text-decoration: none;
+		color: #333;
+		font-size: 14px;
+		transition: background 0.3s, color 0.3s;
+		font-weight: bold;
+	}
+
+		.submenu a:hover {
+			background: #BE010D;
+			color: white !important;
+		}
+
+#divCabecera {
+	margin: auto;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 5px;
+	border-bottom: 3px solid #BE010D;
+}
+
+/* Men� gris con hover rojo */
+.menu-container .menu-item {
+	color: #666; /* Gris */
+	font-weight: bold;
+	cursor: pointer;
+	background-color: lightgrey;
+}
+
+.menu-container .submenu a {
+	color: #777; /* M�s gris */
+	text-decoration: none;
+	padding: 5px 10px;
+	display: block;
+	transition: color 0.3s ease-in-out;
+}
+
+	.menu-container .submenu a:hover {
+		color: #BE010D; /* Rojo en hover */
+	}
+
+/* Usuario con icono moderno */
+.usuario-container {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 16px;
+	color: #333;
+}
+
+	.usuario-container i {
+		font-size: 24px; /* Icono m�s grande */
+		color: #666;
+	}
+
+#lblNombreUsuario {
+	font-weight: bold;
+}

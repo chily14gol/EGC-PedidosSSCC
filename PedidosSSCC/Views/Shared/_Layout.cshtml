@@ -1,0 +1,1078 @@
+﻿@using PedidosSSCC.Properties;
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pedidos SSCC</title>
+
+    @* FAVICON *@
+    <link rel="icon" type="image/png" href="~/images/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="~/images/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="~/images/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="~/images/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Pedidos SSCC" />
+    <link rel="manifest" href="~/Content/site.webmanifest" />
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <telerik:RadStyleSheetManager ID="RadStyleSheetManager1" runat="server" />
+
+    <!-- jQuery (debe ir antes de Bootstrap JS) -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Bootstrap Table JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-table@1.21.3/dist/bootstrap-table.min.js"></script>
+
+    <!-- Popper.js (Requerido por Bootstrap 5) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.bootstrap5.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.4/js/dataTables.responsive.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.4/js/responsive.bootstrap5.js"></script>
+    <script src="https://cdn.datatables.net/select/3.0.0/js/dataTables.select.js"></script>
+    <script src="https://cdn.datatables.net/select/3.0.0/js/select.bootstrap5.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.2/js/dataTables.buttons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/3.2.2/js/buttons.html5.min.js"></script>
+
+    <script src="~/js/Comun.js?v=20190812" type="text/javascript"></script>
+    <script src="~/js/Serikat.js?v=20241001" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+
+    <link media="all" type="text/css" rel="stylesheet" href="~/css/proyectoGeneral.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+
+    @*select2*@
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <style>
+        .inactividad-backdrop {
+            --bs-backdrop-bg: black !important;
+            --bs-backdrop-opacity: 1 !important;
+        }
+
+        #contenidoPagina {
+            display: none;
+        }
+
+        /* General: Configuración básica del menú */
+        .menu, .submenu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+            /* Estilo para los elementos principales del menú */
+            .menu > .menu-item {
+                position: relative;
+                display: block; /* Hacer que los items del menú se apilen verticalmente */
+            }
+
+            /* Enlaces dentro del menú */
+            .menu-item > a,
+            .submenu a {
+                display: block;
+                padding: 10px 15px;
+                text-decoration: none;
+                color: #000;
+                background-color: #fff;
+                font-weight: 600;
+                font-size: 0.875rem;
+            }
+
+                /* Efecto hover en los enlaces */
+                .menu-item > a:hover,
+                .submenu a:hover {
+                    background-color: #f5f5f5;
+                    border-bottom: 2px solid #c00;
+                }
+
+        /* Ocultar todos los submenús por defecto */
+        .submenu,
+        .submenu-second-level {
+            visibility: hidden; /* Los submenús no son visibles */
+            opacity: 0; /* Los submenús están completamente transparentes */
+            position: absolute;
+            top: 0;
+            left: 100%; /* Asegura que el submenú se muestre a la derecha del padre */
+            min-width: 200px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            z-index: 1000;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            transition: visibility 0s, opacity 0.3s ease; /* Asegura la transición suave */
+        }
+
+        /* Mostrar submenú de primer nivel cuando se pasa por encima del item de menú */
+        .menu-item:hover > .submenu {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.3s ease; /* Transición suave */
+        }
+
+        /* Mostrar submenú de segundo nivel cuando se pasa por encima del submenú de primer nivel */
+        .submenu .menu-item:hover > .submenu-second-level {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.3s ease; /* Transición suave */
+        }
+
+        /* Submenú de segundo nivel: posición correcta */
+        .submenu-second-level {
+            left: 100%; /* Muestra los submenús de segundo nivel a la derecha del submenú principal */
+            top: 0;
+        }
+
+        /* Mostrar los sub-submenús (nietos) al pasar el ratón por encima de un submenú de primer nivel */
+        .submenu > .menu-item:hover > .submenu-second-level {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.3s ease; /* Transición suave */
+        }
+
+        /* Submenú de primer nivel */
+        .submenu .menu-item {
+            position: relative;
+        }
+
+        /* Mostrar submenú de segundo nivel solo al pasar el ratón por encima del submenú de primer nivel */
+        .submenu-second-level .menu-item:hover > .submenu {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+    <script>
+        function mostrarDivCargando() {
+            $('#divCargando').show();
+        }
+
+        function ocultarDivCargando() {
+            $('#divCargando').hide();
+        }
+
+        function preventEvent(e) {
+            var evt = e ? e : window.event;
+            if (evt.stopPropagation) evt.stopPropagation();
+            if (evt.preventDefault) evt.preventDefault();
+            if (evt.cancelBubble != null) evt.cancelBubble = true;
+            if (evt.stopImmediatePropagation) evt.stopImmediatePropagation();
+            evt.returnValue = false;
+        }
+
+        document.addEventListener("DOMContentLoaded", async function () {
+            if (!sessionStorage.getItem("loadedOnce")) {
+                // Eliminar claves específicas de filtros almacenadas en localStorage
+                const keysToRemove = [Filtros.Tareas, Filtros.Conceptos, Filtros.Pedidos, Filtros.Usuarios, Filtros.Empresas];
+
+                keysToRemove.forEach(key => localStorage.removeItem(key));
+
+                Object.keys(localStorage).forEach(key => {
+                    if (key.includes("DataTables")) {
+                        localStorage.removeItem(key);
+                    }
+                });
+
+                //Limpiamos para que carge los permisos
+                await limpiarSesionPermisos();
+
+                // Marcar que la aplicación ya se cargó
+                sessionStorage.setItem("loadedOnce", "true");
+            }
+        });
+
+        async function limpiarSesionPermisos() {
+            sessionStorage.removeItem("permisos")
+        }
+
+        /* Por cada vista se verifica la sesión, se obtienen los permisos del menú y por útlimo se comprueba si tiene permiso para ver la vista */
+
+        function VerificarSesionActiva(idVista) {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    url: '@Url.Action("VerificarSesionActiva", "Mantenimiento")',
+                    type: 'GET',
+                    success: async function (data) {
+                        if (data.success) {
+                            if (sessionStorage.getItem("nombreUsuario") && sessionStorage.getItem("permisos")) {
+                                TienePermisoVerVista(idVista);
+                                $('#lblNombreUsuario').text(sessionStorage.getItem("nombreUsuario"));
+                                aplicarPermisosMenu(JSON.parse(sessionStorage.getItem("permisos")));
+                            }
+                            else {
+                                await ObtenerCabeceraPermisos(idVista);
+                                TienePermisoVerVista(idVista);
+                                $('#lblNombreUsuario').text(sessionStorage.getItem("nombreUsuario"));
+                                aplicarPermisosMenu(JSON.parse(sessionStorage.getItem("permisos")));
+                            }
+
+                            $('#contenidoPagina').fadeIn();
+                        }
+                        else {
+                            window.location.href = '@Url.Action("UsuarioNoLogin", "Home")';
+                        }
+
+                        resolve();
+                    },
+                    error: function (xhr, status, error) {
+                        let responseJson = JSON.parse(xhr.responseText);
+                        registrarErrorjQuery(status, error);
+                        reject();
+                    }
+                });
+            });
+        }
+
+        function ObtenerCabeceraPermisos(idVista) {
+            return $.ajax({
+                url: '@Url.Action("ObtenerCabeceraPermisos", "Mantenimiento")',
+                type: 'GET',
+                success: function (data) {
+                    if (data.success) {
+                        limpiarSesionPermisos();
+                        sessionStorage.setItem("nombreUsuario", data.NombreUsuario);
+                        sessionStorage.setItem("permisos", JSON.stringify(data.Menu));
+                    }
+                    else {
+                        window.location.href = '@Url.Action("SesionExpirada", "Home")';
+                    }
+                },
+                error: function (xhr, status, error) {
+                    let responseJson = JSON.parse(xhr.responseText);
+                    registrarErrorjQuery(status, error);
+                    reject();
+                }
+            });
+        }
+
+        function TienePermisoVerVista(idVista) {
+            if (idVista !== OpcionMenu.Inicio) {
+                let permisos = sessionStorage.getItem("permisos");
+
+                if (!permisos || permisos === "null") {
+                    window.location.href = '@Url.Action("SinPermiso", "Home")';
+                    return;
+                }
+
+                let listaPermisos = JSON.parse(permisos);
+                let permisoDenegado = listaPermisos.find(permiso => permiso.SPO_SOP_Id === idVista && permiso.SPO_SPE_Id === 0);
+
+                if (permisoDenegado) {
+                    window.location.href = '@Url.Action("SinPermiso", "Home")';
+                }
+            }
+        }
+
+        function aplicarPermisosMenu(permisos) {
+            // Ocultar todo al principio
+            $("a[data-id]").hide();  // Ocultar todos los enlaces con data-id
+            $("ul.submenu").hide();  // Ocultar todos los submenús (incluyendo los de segundo nivel)
+            $("li.menu-item").hide();  // Ocultar todos los items del menú
+
+            // Mostrar enlaces con permisos
+            permisos.filter(p => p.SPO_SPE_Id !== 0).forEach(p => {
+                const enlace = $(`a[data-id='${p.SPO_SOP_Id}']`);  // Buscar el enlace por el data-id
+                enlace.show();  // Mostrar el enlace
+
+                // Mostrar el <li> contenedor del enlace
+                enlace.closest("li.menu-item").show();  // Mostrar el item de menú
+
+                // Solo mostrar el submenú de primer nivel (no los submenús de segundo nivel)
+                enlace.closest("li.menu-item").find("> ul.submenu").show();  // Mostrar el submenú de primer nivel
+            });
+
+            // Asegurarse de que los padres sin hijos visibles sean ocultados
+            $("li.menu-item").each(function () {
+                // Si el <li> tiene un enlace visible o un submenú visible, se muestra
+                const tieneHijosVisibles = $(this).find("a[data-id]:visible").length > 0 || $(this).find("ul.submenu:visible").length > 0;
+                $(this).toggle(tieneHijosVisibles);  // Muestra el item principal solo si tiene algo visible
+            });
+
+            // Manejo de la interacción hover para mostrar submenús de primer nivel
+            $(".menu-item").hover(
+                function () {
+                    // Mostrar el submenú de primer nivel solo si el ratón pasa por encima
+                    $(this).find("ul.submenu").stop(true, true).slideDown(200);  // Desliza hacia abajo
+                },
+                function () {
+                    // Ocultar el submenú de primer nivel cuando el ratón se va
+                    $(this).find("ul.submenu").stop(true, true).slideUp(200);  // Desliza hacia arriba
+                }
+            );
+
+            // Manejo de la interacción hover para mostrar submenús de segundo nivel
+            $(".submenu-second-level .menu-item").hover(
+                function () {
+                    // Mostrar el submenú de segundo nivel
+                    $(this).find("ul.submenu").stop(true, true).slideDown(200);  // Desliza hacia abajo
+                },
+                function () {
+                    // Ocultar el submenú de segundo nivel
+                    $(this).find("ul.submenu").stop(true, true).slideUp(200);  // Desliza hacia arriba
+                }
+            );
+        }
+
+        function inicializarDataTable(selector, opcionesEspecificas, columnasConFiltro, nombreExport) {
+            var exportSelector = selector === '#tablaConceptos' ? ':not(:first, :last-child)' : ':not(:last-child)';
+            const fechaActual = new Date().toISOString().slice(0, 10).replace(/-/g, '');
+
+            var opcionesGenerales = {
+                autoWidth: false,
+                destroy: true,
+                paging: true,
+                searching: true, // Se mantiene activo para filtros por columna
+                stateSave: true, // Guarda el estado del DataTable (filtros, paginación, etc.)
+                stateLoadParams: function (settings, data) {
+                    // Limpiamos el search global al cargar el estado
+                    data.search.search = '';
+                },
+                lengthMenu: [5, 10, 25, 50, 100],
+                pageLength: 50,
+                layout: {
+                    topStart: 'info',
+                    topEnd: {
+                        buttons: [
+                            {
+                                extend: 'excelHtml5',
+                                text: 'Excel',
+                                className: 'btn btn-outline-secondary',
+                                title: (nombreExport != null ? nombreExport.replace(/^export_/, '').toUpperCase() : 'file_export'),
+                                filename: (nombreExport != null ? nombreExport.replace(/^export_/, '').toLowerCase() : 'file_export') + '_' + fechaActual,
+                                exportOptions: {
+                                    columns: exportSelector
+                                }
+                            }
+                        ]
+                    },
+                    bottomStart: 'pageLength',
+                    bottomEnd: {
+                        paging: {
+                            buttons: 10
+                        }
+                    }
+                },
+                pagingType: "simple_numbers",
+                responsive: true,
+                language: {
+                    lengthMenu: "_MENU_ entradas por página",
+                    info: "Mostrando registros del _START_ al _END_ de un total de _TOTAL_",
+                    infoEmpty: "No hay registros disponibles",
+                    infoFiltered: "",
+                    loadingRecords: "Cargando...",
+                    zeroRecords: "No se encontraron registros",
+                    emptyTable: "No hay datos disponibles en la tabla",
+                    buttons: {
+                        copy: "Copiar",
+                        colvis: "Visibilidad"
+                    }
+                },
+                initComplete: function () {
+                    var api = this.api();
+
+                    // Asegurar que no se repitan filtros en cada recarga
+                    //$('#filtroRow').remove();
+
+                    // Insertar una nueva fila al inicio del thead para los filtros
+                    var thead = $(api.table().header());
+                    //var filtroRow = $('<tr id="filtroRow">').prependTo(thead);
+
+                    api.columns().every(function (index) {
+                        //var th = $('<th>').appendTo(filtroRow); // Crear <th> en la nueva fila
+                        var th = $('<th>'); // Crear <th> en la nueva fila
+
+                        if (columnasConFiltro.includes(index)) { // Solo agregar input en columnas seleccionadas
+                            var input = $('<input type="text" class="form-control form-control-sm" placeholder="Filtrar..." />')
+                                .appendTo(th)
+                                .on('keyup change clear', function () {
+                                    if (api.column(index).search() !== this.value) {
+                                        api.column(index).search(this.value).draw();
+                                    }
+                                });
+
+                            // Recuperar el valor del filtro aplicado al recargar la tabla
+                            var savedFilter = api.column(index).search();
+                            if (savedFilter) {
+                                input.val(savedFilter); // Rellenar el input con el valor del filtro guardado
+                            }
+                        }
+                    });
+
+                    // Ocultar el buscador general
+                    $('.dt-search').hide();
+                    ocultarDivCargando();
+                }
+            };
+
+            // Combinar opciones generales con específicas
+            var configuracionFinal = $.extend(true, {}, opcionesGenerales, opcionesEspecificas);
+
+            // Inicializar DataTable sin buscador general visible y con filtros arriba
+            return $(selector).DataTable(configuracionFinal);
+        }
+
+        function actualizarBreadcrumb() {
+            var baseUrl = '@Url.Content("~/")'.replace(/\/$/, '').toLocaleLowerCase(); // Obtiene la URL base del servidor
+            var rutasBreadcrumb = {};
+
+            rutasBreadcrumb[baseUrl + "/portal/busquedatareas"] = {
+                categoria: "Facturación",
+                nombre: "Tareas",
+                link: baseUrl + "/Portal/BusquedaTareas"
+            };
+
+            rutasBreadcrumb[baseUrl + "/portal/busquedaconceptos"] = {
+                categoria: "Facturación",
+                nombre: "Conceptos de Facturación",
+                link: baseUrl + "/Portal/BusquedaConceptos"
+            };
+
+            rutasBreadcrumb[baseUrl + "/portal/busquedapedidos"] = {
+                categoria: "Facturación",
+                nombre: "Pedidos",
+                link: baseUrl + "/Portal/BusquedaPedidos"
+            };
+
+            rutasBreadcrumb[baseUrl + "/portal/busquedaenlaces"] = {
+                categoria: "Facturación",
+                nombre: "Enlaces Contables",
+                link: baseUrl + "/Portal/BusquedaEnlaces"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/perfiles"] = {
+                categoria: "Mantenimiento",
+                nombre: "Perfiles",
+                link: baseUrl + "/Mantenimiento/Perfiles"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/usuarios"] = {
+                categoria: "Mantenimiento",
+                nombre: "Usuarios",
+                link: baseUrl + "/Mantenimiento/Usuarios"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/configuracion"] = {
+                categoria: "Mantenimiento",
+                nombre: "Configuración",
+                link: baseUrl + "/Mantenimiento/Configuracion"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/productosd365"] = {
+                categoria: "Mantenimiento",
+                nombre: "Productos D365",
+                link: baseUrl + "/Mantenimiento/ProductosD365"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/itemnumbersd365"] = {
+                categoria: "Mantenimiento",
+                nombre: "Item Numbers D365",
+                link: baseUrl + "/Mantenimiento/ItemNumbersD365"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/departamentos"] = {
+                categoria: "Mantenimiento",
+                nombre: "Departamentos",
+                link: baseUrl + "/Mantenimiento/Departamentos"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/empresas"] = {
+                categoria: "Mantenimiento",
+                nombre: "Empresas",
+                link: baseUrl + "/Mantenimiento/Empresas"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/licencias"] = {
+                categoria: "Mantenimiento",
+                nombre: "Licencias",
+                link: baseUrl + "/Mantenimiento/Licencias"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/oficinas"] = {
+                categoria: "Mantenimiento",
+                nombre: "Oficinas",
+                link: baseUrl + "/Mantenimiento/Oficinas"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/tiposente"] = {
+                categoria: "Mantenimiento",
+                nombre: "TiposEnte",
+                link: baseUrl + "/Mantenimiento/TiposEnte"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/entes"] = {
+                categoria: "Mantenimiento",
+                nombre: "Entes",
+                link: baseUrl + "/Mantenimiento/Entes"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/contratoscau"] = {
+                categoria: "Mantenimiento",
+                nombre: "Contratos CAU",
+                link: baseUrl + "/Mantenimiento/ContratosCAU"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/estadosticket"] = {
+                categoria: "Mantenimiento",
+                nombre: "Estados Ticket",
+                link: baseUrl + "/Mantenimiento/EstadosTicket"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/origenesticket"] = {
+                categoria: "Mantenimiento",
+                nombre: "Orígenes Ticket",
+                link: baseUrl + "/Mantenimiento/OrigenesTicket"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/tickets"] = {
+                categoria: "Mantenimiento",
+                nombre: "Tickets",
+                link: baseUrl + "/Mantenimiento/Tickets"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/tiposticket"] = {
+                categoria: "Mantenimiento",
+                nombre: "Tipos Ticket",
+                link: baseUrl + "/Mantenimiento/TiposTicket"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/gruposguardia"] = {
+                categoria: "Mantenimiento",
+                nombre: "Grupos de Guardia",
+                link: baseUrl + "/Mantenimiento/GruposGuardia"
+            };
+
+            rutasBreadcrumb[baseUrl + "/tickets/validacionesticket"] = {
+                categoria: "Tickets",
+                nombre: "Validaciones Ticket",
+                link: baseUrl + "/Tickets/ValidacionesTicket"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/proveedores"] = {
+                categoria: "Mantenimiento",
+                nombre: "Proveedores",
+                link: baseUrl + "/Mantenimiento/Proveedores"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/proveedoresasuntos"] = {
+                categoria: "Facturación",
+                nombre: "Proveedores Asuntos",
+                link: baseUrl + "/Mantenimiento/ProveedoresAsuntos"
+            };
+
+            rutasBreadcrumb[baseUrl + "/mantenimiento/proyectos"] = {
+                categoria: "Proyectos",
+                nombre: "Proyectos",
+                link: baseUrl + "/Proyectos/Proyectos"
+            };
+
+            rutasBreadcrumb[baseUrl + "/portal/partehoras"] = {
+                categoria: "Facturación",
+                nombre: "Parte Horas",
+                link: baseUrl + "/Proyectos/ParteHoras"
+            };
+
+            rutasBreadcrumb[baseUrl + "/portal/aplicaciones"] = {
+                categoria: "Apps",
+                nombre: "Aplicaciones",
+                link: baseUrl + "/Aplicaciones/Aplicaciones"
+            };
+
+            rutasBreadcrumb[baseUrl + "/portal/licenciasanuales"] = {
+                categoria: "Licencias Anuales",
+                nombre: "Licencias Anuales",
+                link: baseUrl + "/LicenciasAnuales/LicenciasAnuales"
+            };
+
+            rutasBreadcrumb[baseUrl + "/portal/licenciasanualescontratos"] = {
+                categoria: "Licencias Anuales Contratos",
+                nombre: "Licencias Anuales Contratos",
+                link: baseUrl + "/LicenciasAnualesContratos/LicenciasAnualesContratos"
+            };
+
+            rutasBreadcrumb[baseUrl + "/portal/telefonia"] = {
+                categoria: "Portal",
+                nombre: "Telefonía",
+                link: baseUrl + "/Portal/Telefonia"
+            };
+
+            rutasBreadcrumb[baseUrl + "/portal/telefoniaglobal"] = {
+                categoria: "Portal",
+                nombre: "Telefonía Global",
+                link: baseUrl + "/Portal/TelefoniaGlobal"
+            };
+
+            rutasBreadcrumb[baseUrl + "/portal/tiposcuota"] = {
+                categoria: "Portal",
+                nombre: "Tipos Cuota",
+                link: baseUrl + "/Portal/TiposCuota"
+            };
+
+            var pathname = window.location.pathname.toLowerCase();
+            var breadcrumbText = "Inicio";
+            var breadcrumbCategoria = "";
+            var breadcrumbDetalle = "";
+            var breadcrumbLink = "";
+
+            // Manejo de detalles y nuevas entidades
+            var detalleMatch = pathname.match(/\/portal\/([a-z]+)detalle\/(\d+)/);
+            var nuevaMatch = pathname.match(/\/portal\/([a-z]+)nuev[ao]/);
+
+            if (detalleMatch) {
+                let entidad = detalleMatch[1]; // Ejemplo: "concepto" de "ConceptoDetalle"
+                breadcrumbDetalle = "Detalle " + entidad.charAt(0).toUpperCase() + entidad.slice(1);
+                pathname = baseUrl + `/portal/busqueda${entidad}s`; // Ejemplo: "/portal/busquedaconceptos"
+            } else if (nuevaMatch) {
+                let entidad = nuevaMatch[1];
+                breadcrumbDetalle = "Nuevo " + entidad.charAt(0).toUpperCase() + entidad.slice(1);
+                pathname = baseUrl + `/portal/busqueda${entidad}s`;
+            }
+
+            var matchingKey = Object.keys(rutasBreadcrumb).find(key => key.toLowerCase() === pathname);
+
+            // Ajustar si no se encuentra la ruta exacta en el diccionario
+            if (matchingKey) {
+                breadcrumbCategoria = rutasBreadcrumb[matchingKey].categoria;
+                breadcrumbText = rutasBreadcrumb[matchingKey].nombre;
+                breadcrumbLink = rutasBreadcrumb[matchingKey].link;
+            }
+
+            // Construcción del breadcrumb
+            var breadcrumbHTML = `<nav aria-label="breadcrumb"><ol class="breadcrumb">`;
+            breadcrumbHTML += `<li class="breadcrumb-item"><a href="@Url.Action("Inicio", "Portal")">Inicio</a></li>`;
+
+            if (breadcrumbCategoria) {
+                breadcrumbHTML += `<li class="breadcrumb-item">${breadcrumbCategoria}</li>`;
+            }
+
+            if (breadcrumbText !== "Inicio") {
+                breadcrumbHTML += `<li class="breadcrumb-item"><a href="${breadcrumbLink}">${breadcrumbText}</a></li>`;
+            }
+
+            if (breadcrumbDetalle) {
+                breadcrumbHTML += `<li class="breadcrumb-item active" aria-current="page">${breadcrumbDetalle}</li>`;
+            }
+
+            breadcrumbHTML += `</ol></nav>`;
+            $(".breadcrumb-container").html(breadcrumbHTML);
+        }
+
+        function mostrarAlertaConfirmacion({
+            titulo,
+            mensaje = "",
+            textoConfirmacion = "Sí, continuar",
+            textoCancelacion = "No, cancelar",
+            icono = "warning",
+            onConfirmar
+        }) {
+            Swal.fire({
+                title: titulo,
+                text: mensaje,
+                icon: icono,
+                showCancelButton: true,
+                customClass: {
+                    confirmButton: "btn btn-lg btn-primary",
+                    cancelButton: "btn btn-lg btn-outline-secondary",
+                },
+                confirmButtonText: textoConfirmacion,
+                cancelButtonText: textoCancelacion
+            }).then((result) => {
+                if (result.isConfirmed && typeof onConfirmar === "function") {
+                    onConfirmar();
+                }
+            });
+        }
+
+        function registrarErrorjQuery(status, mensaje, ruta) {
+            ocultarDivCargando();
+
+            let msgError = (mensaje != null ? mensaje : "@Resources.Toast_ErrorServicio")
+            let mensajeError = `Estado: ${status}, Error: ${msgError}`;
+
+            $.ajax({
+                url: '@Url.Action("RegistrarError", "Home")',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    mensajeError: mensajeError,
+                    url: (ruta != null ? ruta : window.location.href)
+                })
+            });
+
+            //Para que el toast no se muestre en la página de error
+            if (ruta == null || ruta == "")
+                mostrarToast('@Resources.Toast_ErrorServicio', TipoToast.Error);
+        }
+
+        function registrarErrorEmailjQuery(status, mensaje, ruta) {
+            ocultarDivCargando();
+
+            let mensajeError = `Estado: ${status}, Error: ${mensaje}`;
+
+            $.ajax({
+                url: '@Url.Action("RegistrarError", "Home")',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    mensajeError: mensajeError,
+                    url: (ruta != null ? ruta : window.location.href)
+                })
+            });
+
+            mostrarToast('@Resources.Toast_ErrorServicioEmail', TipoToast.Error);
+            mostrarDivCargando();
+        }
+
+        function ComprobarSiHayToastMostrar() {
+            let mensaje = sessionStorage.getItem("toastMensaje");
+            let tipo = sessionStorage.getItem("toastTipo");
+            let errorEmail = sessionStorage.getItem("errorEmail");
+
+            if (mensaje && tipo) {
+                if (tipo === "success")
+                    mostrarToast(mensaje, TipoToast.Success);
+                else {
+                    if (errorEmail)
+                        registrarErrorEmailjQuery(status, mensaje, null);
+                    else
+                        registrarErrorjQuery(status, mensaje, null);
+                }
+
+                // Eliminar después de mostrarlo
+                sessionStorage.removeItem("toastMensaje");
+                sessionStorage.removeItem("toastTipo");
+                sessionStorage.removeItem("errorEmail");
+            }
+        }
+
+        function resaltarMenuActivo() {
+            let currentPath = window.location.pathname;
+            $('.menu a').filter(`[href='${currentPath}']`).addClass('active');
+        }
+
+        $(document).keydown(function (event) {
+            if (event.which === 13 && !$(document.activeElement).is("textarea")) {
+                preventEvent(event);
+            }
+        });
+
+        $(document).ready(function () {
+            actualizarBreadcrumb();
+            ComprobarSiHayToastMostrar();
+
+            $('#modalEditar').modal({
+                backdrop: 'static', // Evita que se cierre al hacer clic fuera
+                keyboard: false // Evita que se cierre con la tecla "Esc"
+            });
+
+            resaltarMenuActivo();
+
+            var timeout;
+            var inactividadTiempo = @ViewBag.TiempoInactividad * 60 * 1000; // Tiempo desde web.config
+
+            function resetTimer() {
+                clearTimeout(timeout);
+                timeout = setTimeout(mostrarAlertaInactividad, inactividadTiempo);
+            }
+
+            function mostrarAlertaInactividad() {
+                var modal = new bootstrap.Modal(document.getElementById('modalInactividad'), {
+                    backdrop: 'static', // No se cierra al hacer clic fuera
+                    keyboard: false // No se cierra con ESC
+                });
+
+                modal.show();
+
+                setTimeout(() => {
+                    $('.modal-backdrop').addClass('inactividad-backdrop'); // Agrega una clase solo al backdrop de este modal
+                }, 100);
+            }
+
+            document.getElementById('modalInactividad').addEventListener('hidden.bs.modal', function () {
+                $('.modal-backdrop').removeClass('inactividad-backdrop'); // Elimina la clase cuando el modal se oculta
+            });
+
+            $(document).on('mousemove keydown scroll click', resetTimer);
+
+            $('#btnAceptarInactividad').on('click', function () {
+                VerificarSesionActiva(OpcionMenu.Inicio);
+                resetTimer();
+                $('#modalInactividad').modal('hide');
+            });
+
+            $(document).on('init.dt', function (e, settings) {
+                //Limpia los filtros en la primera carga de una vista
+                let table = new $.fn.dataTable.Api(settings);
+                let tableId = settings.nTable.id;
+
+                // Verificar si es la primera carga de esta vista
+                if (!sessionStorage.getItem(`dataTablesInitialized_${tableId}`)) {
+                    table.columns().search('').draw(); // Limpiar filtros de DataTables
+
+                    // Limpiar también los valores de los inputs de búsqueda en el footer o encabezado
+                    $(`#${tableId}_filter input, #${tableId} thead input`).val('');
+
+                    // Marcar que esta tabla ya fue inicializada en esta sesión
+                    sessionStorage.setItem(`dataTablesInitialized_${tableId}`, 'true');
+                }
+            });
+
+            resetTimer();
+
+            window.Swal = Swal.mixin({
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                showCancelButton: false
+            });
+        });
+
+        window.AppConfig = {
+            mensajes: {
+                operacionOk: '@Resources.Toast_OperacionOk',
+                conceptosAprobar: '@Resources.Toast_ConceptosAprobar',
+                conceptosAprobados: '@Resources.Etiqueta_Aprobados',
+                conceptosRechazados: '@Resources.Etiqueta_Rechazados',
+                camposObligatorios: '@Resources.Etiqueta_CamposObligatorios'
+            }
+        };
+    </script>
+    <script src="~/Scripts/Vistas/Shared/Validaciones.js?v=@DateTime.Now.Ticks"></script>
+    <script src="~/Scripts/Vistas/Shared/Enumerados.js?v=@DateTime.Now.Ticks"></script>
+    @RenderSection("Scripts", required: false)
+</head>
+<body runat="server">
+    <div id="divCargando">
+        <div class="contenidoCargando">
+            <strong id="mensajeCargando">CARGANDO...</strong>
+        </div>
+    </div>
+    <!-- Modal de inactividad -->
+    <div class="modal fade" id="modalInactividad" tabindex="-1" aria-labelledby="modalInactividadLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content text-center p-4">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title w-100" id="modalInactividadLabel">Tiempo de inactividad</h5>
+                </div>
+                <div class="modal-body d-flex flex-column align-items-center">
+                    <i class="bi bi-exclamation-triangle display-4 text-warning mb-3"></i> <!-- Icono de advertencia moderno -->
+                    <p>Has estado inactivo por un tiempo. ¿Iniciar sesión?</p>
+                </div>
+                <div class="modal-footer border-0 d-flex justify-content-center">
+                    <button type="button" class="btn btn-primary px-4" id="btnAceptarInactividad">@Resources.Boton_Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-layout">
+        <header id="divCabecera" class="header-wrapper header-desktop">
+            <div class="logo-container">
+                <a href="~/Portal/Inicio">
+                    <img src="~/Images/Erhardt.svg" alt="Grupo Erhardt" />
+                </a>
+                <p id="appTitle">Pedidos de venta SSCC</p>
+            </div>
+            <button id="menuRespBtn" class="menu-btn" aria-haspopup="true" aria-expanded="false" aria-controls="menuRespWrapper" onclick="event.preventDefault();">
+                <span class="sReader">Mostrar/ocultar menú</span>
+            </button>
+            <div id="menuRespWrapper" class="menu-wrapper" role="menu" aria-labelledby="rwd-menu">
+                <nav class="menu-container" aria-label="Menú principal">
+                    <ul class="menu" role="menubar">
+                        <li class="menu-item" role="none">
+                            <a href="#" role="menuitem" data-id="1">FACTURACIÓN</a>
+                            <ul class="submenu" role="menu">
+                                <li class="menu-item" role="none">
+                                    <a href="@Url.Action("BusquedaTareas", "Portal")" data-id="1.1">Tareas</a>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="@Url.Action("BusquedaConceptos", "Portal")" data-id="1.2">Conceptos de facturación</a>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="@Url.Action("BusquedaPedidos", "Portal")" data-id="1.3">Pedidos</a>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="@Url.Action("BusquedaEnlaces", "Portal")" data-id="1.4">Enlaces contables</a>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="#" data-id="1.5">Licencias Microsoft</a>
+                                    <ul class="submenu-second-level" role="menu">
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Entes", "Mantenimiento")" data-id="1.5.1">Entidades</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Licencias", "Mantenimiento")" data-id="1.5.2">Licencias</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="#" data-id="1.6">CAU y soporte</a>
+                                    <ul class="submenu-second-level" role="menu">
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("ContratosCAU", "Mantenimiento")" data-id="1.6.1">Contratos CAU</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Tickets", "Tickets")" data-id="1.6.2">Tickets</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="#" data-id="1.7">Soporte proveedores</a>
+                                    <ul class="submenu-second-level" role="menu">
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("ProveedoresAsuntos", "Mantenimiento")" data-id="1.7.1">Asuntos</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="@Url.Action("ParteHoras", "Proyectos")" data-id="1.8">Parte Horas</a>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="#" data-id="1.9">Licencias por módulos</a>
+                                    <ul class="submenu-second-level" role="menu">
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Aplicaciones", "Aplicaciones")" data-id="1.9.1">Aplicaciones</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="@Url.Action("LicenciasAnualesContratos", "LicenciasAnualesContratos")" data-id="1.10">Contratos Licencias Anuales</a>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="#" data-id="1.11">Telefonía</a>
+                                    <ul class="submenu-second-level" role="menu">
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Telefonia", "Telefonia")" data-id="1.11.1">Datos</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("TelefoniaGlobal", "Telefonia")" data-id="1.11.2">Global</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("TiposCuota", "Telefonia")" data-id="1.11.3">Tipos de Cuota</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="menu-item" role="none">
+                            <a href="#" role="menuitem" data-id="2">MANTENIMIENTOS</a>
+                            <ul class="submenu" role="menu">
+                                <li class="menu-item" role="none">
+                                    <a href="#" data-id="2.1">Seguridad</a>
+                                    <ul class="submenu-second-level">
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Usuarios", "Mantenimiento")" data-id="2.1.1">Usuarios</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Perfiles", "Mantenimiento")" data-id="2.1.2">Perfiles</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="#" data-id="2.2">General</a>
+                                    <ul class="submenu-second-level">
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Configuracion", "Mantenimiento")" data-id="2.2.1">Configuración</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("ProductosD365", "Mantenimiento")" data-id="2.2.2">Productos D365</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("ItemNumbersD365", "Mantenimiento")" data-id="2.2.3">Item Numbers D365</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Empresas", "Mantenimiento")" data-id="2.2.4">Empresas</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Departamentos", "Mantenimiento")" data-id="2.2.5">Departamentos</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="#" data-id="2.3">Licencias Microsoft</a>
+                                    <ul class="submenu-second-level">
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("TiposEnte", "Mantenimiento")" data-id="2.3.1">Tipos Entidad</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Oficinas", "Mantenimiento")" data-id="2.3.2">Oficinas</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="#" data-id="2.4">CAU y soporte</a>
+                                    <ul class="submenu-second-level">
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("EstadosTicket", "Tickets")" data-id="2.4.1">Estados Ticket</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("OrigenesTicket", "Tickets")" data-id="2.4.2">Orígenes Ticket</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("TiposTicket", "Tickets")" data-id="2.4.3">Tipos Ticket</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("ValidacionesTicket", "Tickets")" data-id="2.4.4">Validaciones Ticket</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("GruposGuardia", "Mantenimiento")" data-id="2.4.5">Grupos de Guardia</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="#" data-id="2.5">Soporte proveedores</a>
+                                    <ul class="submenu-second-level">
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Proveedores", "Mantenimiento")" data-id="2.5.1">Proveedores</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="#" data-id="2.6">Horas proyectos SSCC</a>
+                                    <ul class="submenu-second-level">
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Proyectos", "Proyectos")" data-id="2.6.1">Proyectos</a>
+                                        </li>
+                                        <li class="menu-item" role="none">
+                                            <a href="@Url.Action("Personas", "Proyectos")" data-id="2.6.2">Personas</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="menu-item" role="none">
+                                    <a href="@Url.Action("LicenciasAnuales", "LicenciasAnuales")" data-id="2.7">Licencias Anuales</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="user-container">
+                    <span class="user-icon" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false"></span>
+                    <p id="lblNombreUsuario" class="user-nombre"></p>
+                </div>
+            </div>
+        </header>
+        <main class="body-content" id="contenidoPagina">
+            <div class="container-fluid">
+                <div class="breadcrumb-container"></div>
+            </div>
+            @RenderBody()
+        </main>
+        <footer id="divPie" class="pie">
+            <p class="copyright">© Grupo Erhardt 2025</p>
+        </footer>
+    </div>
+    <script src="~/js/tableHeadFixer.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+    <script src="~/js/layoutScript.js" type="text/javascript"></script>
+</body>
+</html>

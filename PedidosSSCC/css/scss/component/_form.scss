@@ -1,0 +1,257 @@
+// Configuración geneal de elementos form
+
+// label
+@mixin form_label {
+    font-size: rem(16);
+    line-height: lh(24,16);
+    font-weight: 500;
+    color: $secondary900;
+    margin-block: 0 rem(1);
+}
+
+// Input generico
+@mixin form_input {
+    // font-size: rem(15);
+    // line-height: em(22.5,15);
+    // color: $b;
+    // background-color: $w;
+    // border: solid rem(1) $form_c_border;
+    // border-radius: 0;
+    // padding: em(12, 15) em(12, 15) em(12, 15);
+    // width: 100%;
+}
+// Descripción del input o texto informativo
+@mixin input_description {
+    // font-size: rem(12);
+    // font-family: $ff_verdana;
+    // margin-top: rem(-9);
+    // margin-bottom: rem(7);
+    // color: $b;
+}
+// Estilos de alerta
+@mixin input_alert {
+    @include input_description;
+    // color: $danger;
+}
+
+// Placeholder
+@mixin placeHolderConfig {
+    // color: $form_c_placeHolder;
+    // opacity: 1;
+}
+// Ignorar este mixins sobre placeholder
+@mixin placeHolder( $formcontrol: 'false' ) {
+    &::placeHolderConfig {
+        @include placeHolderConfig;
+    }
+    @if $formcontrol=='true' {
+		&.form-control::placeHolderConfig {
+            @include placeHolderConfig;
+        }
+	}
+    &::-webkit-input-placeHolderConfig { /* Chrome/Opera/Safari */
+        @include placeHolderConfig;
+    }
+    &::-moz-placeHolderConfig { /* Firefox 19+ */
+        @include placeHolderConfig;
+    }
+    &:-ms-input-placeHolderConfig { /* IE 10+ */
+        @include placeHolderConfig;
+    }
+    &:-moz-placeHolderConfig { /* Firefox 18- */
+        @include placeHolderConfig;
+    }
+}
+
+// Estado focus
+@mixin focusInput {
+    // outline: em(1,15) solid $form_c_outline;
+}
+
+// Input deshabilitado
+@mixin disabledInput {
+    // pointer-events: none;
+    // cursor: default;
+    // background-color: $w;
+    // border-color: $disabled;
+    // color: $disabled;
+}
+
+::placeHolderConfig {
+    @include placeHolderConfig;
+}
+.form-control::placeHolderConfig {
+    @include placeHolderConfig;
+}
+::-webkit-input-placeHolderConfig { /* Chrome/Opera/Safari */
+    @include placeHolderConfig;
+}
+::-moz-placeHolderConfig { /* Firefox 19+ */
+    @include placeHolderConfig;
+}
+:-ms-input-placeHolderConfig { /* IE 10+ */
+    @include placeHolderConfig;
+}
+:-moz-placeHolderConfig { /* Firefox 18- */
+    @include placeHolderConfig;
+}
+
+
+// ******************************************************** //
+
+label, 
+.form-label {
+    @include form_label;
+}
+
+//input
+select, 
+textarea, 
+input[type="text"], 
+input[type="number"], 
+input[type="email"], 
+input[type="search"]
+{
+    // @include form_input;
+    // &:focus {
+    //     @include focusInput();
+    // }
+    // + .descripcion {
+    //     margin-block: rem(-7) rem(17);
+    // }
+    // &:disabled {
+    //     @include disabledInput;
+    // }
+}
+
+.descripcion {
+    @include input_description;
+}
+
+fieldset {
+    // padding: 0;
+    // margin-left: 0;
+    // margin-right: 0;
+    // border: none;
+    // legend {
+    //     @include form_label;
+    // }
+}
+
+.form-advance,
+.form-wrapper {
+    .row {
+        row-gap: rem(21);
+        + .row {
+            margin-block-start: rem(21);
+            // margin-block-start: rem(33);
+            // @media screen and (max-width: $sm-max) {
+            //     margin-block-start: rem(21);
+            // }
+        }
+    }
+}
+.content-box {
+    h3, .h3 {
+        &:first-child {
+            margin-block-start: rem(-1);
+        }
+        &:has(+.form-wrapper) {
+            margin-block-end: rem(10);
+        }
+    }
+    .form-wrapper {
+        margin-block-end: rem(8);
+    }
+}
+
+.form-btn-group {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    gap: rem(16);
+}
+
+input[type="checkbox"]:checked {
+    background-color: $main;
+    border-color: $main;
+}
+
+select {
+    background-image: url('#{$img}ico-caret.svg') !important;
+    background-repeat: no-repeat;
+    background-position: right rem(9) center;
+}
+  
+
+.form-select-sm {
+    padding-top: rem(4);
+    padding-bottom: rem(4);
+    padding-left: rem(10);
+    padding-right: rem(23);
+    font-size: 1rem;
+}
+
+.form-group {
+    &:has(.input-action-btn){
+        display: grid;
+        grid-template: 
+            'labelInput labelInput' auto
+            'inputText botones' auto / 1fr auto;
+        gap: 0 rem(16);
+        .form-label {grid-area: labelInput;}
+        .form-control {grid-area: inputText;}
+        .input-action-btn {
+            grid-area: botones;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: flex-end;
+            gap: 0 rem(16);
+            .btn {
+                padding-inline: rem(8);
+                width: rem(34);
+            }
+        }
+    }
+}
+
+.form-check {
+    //padding-left: rem(12);
+    .form-check-label {
+        margin-block-start: rem(1);
+    }
+    &.full-col {
+        @each $name, $bkp in $grid-breakpoints {
+            $infix: breakpoint-infix($name, $grid-breakpoints);
+            @if $bkp > 0 {
+                @media screen and (max-width: ($bkp - 1)) {
+                    &#{$infix} {
+                        margin-block-start: 0;
+                    }
+                }
+            } @else {
+                &#{$infix} {
+                    margin-block-start: 0;
+                }
+            }
+        }
+    }
+}
+
+// @media (max-width: 576px) {
+//     .form-check {
+//         width: 530px;            // Establece un ancho específico
+//         margin-top: 29px;        // Establece el margen superior
+//         margin-bottom: 2px;      // Establece el margen inferior
+//     }
+// }
+
+.form-control {
+    &.input-datepciker {
+        background: url('#{$img}ico-calendar.svg') no-repeat right rem(10) top rem(8);
+        background-size: rem(16);
+        padding-inline-end: rem(34);
+    }
+}

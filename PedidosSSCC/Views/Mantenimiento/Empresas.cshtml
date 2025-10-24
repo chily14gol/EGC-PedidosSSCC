@@ -1,0 +1,322 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Empresas";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Empresas</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary btn-ico-agregar">Añadir Empresa</button>
+            <div class="dropdown">
+                <ul class="dropdown-menu">
+                    <li id="btnExportarContainer"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default">
+                <div class="buscador">
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+            </div>
+            <div class="form-advance">
+                <div class="row">
+                    <div class="col-sm-6 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterNombre">Nombre</label>
+                            <input type="text" id="filterNombre" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterNombreDA">Nombre Directorio Activo</label>
+                            <input type="text" id="filterNombreDA" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterRazonSocial">Razón Social</label>
+                            <input type="text" id="filterRazonSocial" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterCIF">CIF</label>
+                            <input type="text" id="filterCIF" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-md-5 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterDireccion">Dirección</label>
+                            <input type="text" id="filterDireccion" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterLineaNegocio">Línea de Negocio</label>
+                            <input type="text" id="filterLineaNegocio" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-btn-group">
+                <button type="button" id="btnBuscar" class="btn btn-primary">@Resources.Boton_Buscar</button>
+                <button type="button" id="btnLimpiar" class="btn btn-outline-secondary" style="display: none;">@Resources.Boton_Limpiar</button>
+                <button type="button" id="btnAvanzado" class="btn btn-link">@Resources.Boton_BusquedaAvanzada</button>
+            </div>
+        </form>
+        <table id="table" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-priority="1">Nombre</th>
+                    <th>Nombre Directorio Activo</th>
+                    <th>Razon Social</th>
+                    <th>CIF</th>
+                    <th>Dirección</th>
+                    <th>Línea Negocio</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal de Edición -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalEditarLabel">Editar Empresa</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-wrapper">
+                    <input type="hidden" id="idEmpresa">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="nombre" class="form-label">@Resources.Etiqueta_NombreObligatorio</label>
+                                <input type="text" class="form-control" id="nombre" maxlength="150" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="nombreDA" class="form-label">Nombre Directorio Activo *</label>
+                                <input type="text" class="form-control" id="nombreDA" maxlength="150" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="razonSocial" class="form-label">@Resources.Etiqueta_RazonSocialObligatorio</label>
+                                <input type="text" class="form-control" id="razonSocial" maxlength="150" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="cif" class="form-label">@Resources.Etiqueta_CifObligatorio</label>
+                                <input type="text" class="form-control" id="cif" maxlength="20" oninput="validarCIF(this)" disabled>
+                                <span id="error-cif" class="text-danger d-none">CIF incorrecto</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-8">
+                            <div class="form-group">
+                                <label for="direccion" class="form-label">@Resources.Etiqueta_Direccion</label>
+                                <textarea class="form-control" id="direccion" rows="2" maxlength="500" style="resize: vertical;" disabled></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="lineaNegocio" class="form-label">Línea Negocio *</label>
+                                <select id="lineaNegocio" class="styled-select form-control" name="lineaNegocio" disabled>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="tipoCliente" class="form-label">Tipo de cliente *</label>
+                                <select id="tipoCliente" class="styled-select form-control" name="tipoCliente" disabled>
+                                    <option value="1">Nacional</option>
+                                    <option value="2">Extranjero</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="codigoAPIKA" class="form-label">Código APIKA *</label>
+                                <input type="text" class="form-control" id="codigoAPIKA" oninput="validarNumero(this)" maxlength="50" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="formaPagoAPIKA" class="form-label">Forma de pago APIKA *</label>
+                                <input type="text" class="form-control" id="formaPagoAPIKA" oninput="validarNumero(this)" maxlength="50" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="codigoD365" class="form-label">Código D365 *</label>
+                                <input type="text" class="form-control" id="codigoD365" maxlength="50" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="formaPagoCodigoD365" class="form-label">Forma de pago  D365 *</label>
+                                <input type="text" class="form-control" id="formaPagoCodigoD365" maxlength="50" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group">
+                                <label for="grupoD365" class="form-label">Grupo D365 *</label>
+                                <input type="text" class="form-control" id="grupoD365" maxlength="50" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="empresaFacturar" class="form-label">Empresa a facturar</label>
+                                <select id="empresaFacturar" class="styled-select form-control" name="empresaFacturar">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="aprobador" class="form-label">Aprobador por defecto *</label>
+                                <select id="aprobador" class="styled-select form-control" name="aprobador" disabled>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label for="aprobadoresAdicionales" class="form-label">Aprobadores adicionales</label>
+                                <select id="aprobadoresAdicionales" class="styled-select form-control" name="aprobadoresAdicionales" multiple></select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="excluidaGuardia" class="form-label">Excluida pago guardia CAU</label>
+                                <input type="checkbox" id="excluidaGuardia" class="form-check-input" />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4">
+                            <div class="form-group">
+                                <label for="grupoGuardia" class="form-label">Grupo de guardia</label>
+                                <select id="grupoGuardia" class="styled-select form-control">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4">
+                            <div class="form-group">
+                                <label for="facturaVDF" class="form-label">Nº Factura VDF</label>
+                                <input type="text" class="form-control" id="facturaVDF" maxlength="50" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-lg btn-primary" onclick="guardarEmpresa()">@Resources.Boton_Guardar</button>
+                <button type="button" class="btn btn-lg btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Departamentos -->
+<div class="modal fade" id="modalDepartamentos" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Departamentos de <span id="dep-empresa-nombre"></span></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+
+                <!-- ▪ PANEL DE ALTA / EDICIÓN oculto por defecto -->
+                <div id="panelDeptoEdicion" style="display:none;">
+                    <div class="mb-3">
+                        <label for="txtDeptoNombre" class="form-label">Nombre del departamento</label>
+                        <input type="text" class="form-control" id="txtDeptoNombre">
+                    </div>
+                    <div class="text-end mb-3">
+                        <button type="button" class="btn btn-secondary me-2" id="btnCancelarDepto">Cancelar</button>
+                        <button type="button" class="btn btn-primary" id="btnGuardarDepto">Guardar</button>
+                    </div>
+                    <hr>
+                </div>
+
+                <!-- ▪ BOTÓN “Nuevo” siempre visible -->
+                <div class="mb-3" id="panelDeptoNuevoBtn">
+                    <button id="btnAddDepartamento" type="button" class="btn btn-sm btn-primary">
+                        <i class="bi bi-plus-lg"></i> Añadir departamento
+                    </button>
+                </div>
+
+                <!-- ▪ TABLA DE LISTADO -->
+                <table id="tblDepartamentos" class="table table-striped nowrap">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th class="text-end">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        th.th-action, td.td-btn {
+            min-width: 200px;
+            white-space: nowrap;
+        }
+
+        /* 📌 1️⃣ Estilizar la "X" para borrar todo el Select2 */
+        .select2-selection__clear {
+            font-size: 20px !important; /* 🔹 Hacerla más grande */
+            color: red !important; /* 🔹 Color rojo */
+            cursor: pointer; /* 🔹 Cursor de mano */
+        }
+
+            /* 🔹 Cambiar color al pasar el mouse */
+            .select2-selection__clear:hover {
+                color: darkred !important;
+            }
+
+        /* 📌 2️⃣ Estilizar la "X" dentro de cada item seleccionado */
+        .select2-selection__choice__remove {
+            font-size: 20px !important; /* 🔹 Hacer la "X" más grande */
+            color: red !important; /* 🔹 Color rojo */
+            margin-right: 5px; /* 🔹 Espacio a la derecha */
+            cursor: pointer; /* 🔹 Cursor de mano */
+        }
+
+            /* 🔹 Cambiar color al pasar el mouse */
+            .select2-selection__choice__remove:hover {
+                color: darkred !important;
+            }
+    </style>
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                EliminarEmpresa: '@Url.Action("EliminarEmpresa", "Mantenimiento")',
+                GuardarEmpresa: '@Url.Action("GuardarEmpresa", "Mantenimiento")',
+                ObtenerComboEmpresaAprobadores: '@Url.Action("ObtenerComboEmpresaAprobadores", "Mantenimiento")',
+                ObtenerPersonas: '@Url.Action("ObtenerPersonas", "Mantenimiento")',
+                ObtenerComboLineasNegocio: '@Url.Action("ObtenerComboLineasNegocio", "Mantenimiento")',
+                ObtenerComboEmpresas: '@Url.Action("ObtenerComboEmpresas", "Mantenimiento")',
+                ObtenerEmpresas: '@Url.Action("ObtenerEmpresas", "Mantenimiento")',
+                ObtenerComboGruposGuardia: '@Url.Action("ObtenerComboGruposGuardia", "Mantenimiento")',
+                ObtenerDepartamentosEmpresa: '@Url.Action("ObtenerDepartamentosEmpresa", "Mantenimiento")',
+                GuardarDepartamentoEmpresa: '@Url.Action("GuardarDepartamentoEmpresa", "Mantenimiento")',
+                EliminarDepartamentoEmpresa: '@Url.Action("EliminarDepartamentoEmpresa", "Mantenimiento")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Mantenimiento/Empresas.js?v=@DateTime.Now.Ticks"></script>
+}

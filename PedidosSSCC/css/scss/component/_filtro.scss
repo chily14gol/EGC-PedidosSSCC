@@ -1,0 +1,115 @@
+.table-filter {
+    display: grid;
+    margin-block-end: rem(28);
+    @media screen and (min-width: $md-min) {
+        grid-template: 'formSimple formBotones' auto / 1fr auto;
+        gap: 0 rem(56);
+    }
+    @media screen and (max-width: $md-max) {
+        grid-template: 
+            'formSimple' auto 
+            'formBotones' auto / 1fr;
+        gap: rem(24) rem(56);
+    }
+    &:has(.form-default .anoPresupuesto):not(.advance) {
+        @media screen and (max-width: $lg-max) {
+            grid-template: 
+                'formSimple' auto 
+                'formBotones' auto / 1fr;
+            gap: rem(24) rem(56);
+        }
+    }
+    
+    .form-advance {
+        grid-area: formAvanzado;
+        display: none;
+        margin-block-start: rem(21);
+        .btn-col {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: rem(24);
+            justify-content: flex-end;
+            align-items: flex-end;
+        }
+    }
+    .form-btn-group {
+        grid-area: formBotones;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: rem(25);
+        @media screen and (max-width: $sm-max)  {
+            flex-wrap: wrap;
+            .btn {
+                flex: 1 1 100%;
+            }
+            .btn-link {
+                flex: 0 0 auto;
+            }
+        }
+        #btnBuscar {
+            display: none;
+        }
+    }
+    &.advance {
+        // margin-block-end: rem(54);
+        margin-block-end: rem(36);
+        grid-template: 
+            'formSimple' auto 
+            'formAvanzado' auto 
+            'formBotones' auto / 1fr;
+        @media screen and (max-width: $md-max) {
+            gap: 0;
+        }
+        .form-advance {
+            display: block;
+        }
+        .form-btn-group {
+            margin-block-start: rem(28);
+        }
+        #btnBuscar {
+            display: inline-block;
+        }
+    }
+    
+    .form-default {
+        grid-area: formSimple;
+        display: grid;
+        gap: 0 rem(24);
+        grid-template: 'buscador' auto / 1fr;
+        &:has(.anoPresupuesto){
+            grid-template: 'buscador anoPresupuesto' auto / 1fr auto;
+            @media screen and (max-width: $sm-max) {
+                grid-template: 
+                    'buscador' auto 
+                    'anoPresupuesto' auto / 1fr;
+                gap: rem(24) rem(24);
+            }
+        }
+        .buscador {
+            grid-area: buscador;
+            [type="text"]{
+                background: url(#{$img}ico-buscar.svg) no-repeat left rem(10) top rem(8);
+                background-size: rem(16);
+                padding-inline-start: rem(34);
+            }
+        }
+        .anoPresupuesto {
+            grid-area: anoPresupuesto;
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            gap: 0 rem(13);
+            label {
+                flex: 1 0 auto;
+            }
+        }
+    }
+    &:not(:has(.form-advance)) {
+        grid-template: "formSimple" auto / 1fr;
+        .form-default {
+            grid-template: "buscador" auto / 1fr;
+        }
+    }
+}

@@ -1,0 +1,12 @@
+﻿ERROR | 22/04/2025 21:08:21 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+ERROR | 22/04/2025 21:08:21 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+ERROR | 22/04/2025 21:08:31 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+ERROR | 22/04/2025 21:08:31 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+ERROR | 22/04/2025 23:22:07 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+ERROR | 22/04/2025 23:22:07 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+WARN  | 22/04/2025 23:26:15 | Intento de modificar una entidad NO editable de tipo 'AccesoDatos.Tareas_Empresas_LineasEsfuerzo'
+WARN  | 22/04/2025 23:26:15 | Intento de modificar una entidad NO editable de tipo 'AccesoDatos.Tareas_Empresas_LineasEsfuerzo'
+WARN  | 22/04/2025 23:26:47 | Intento de modificar una entidad NO editable de tipo 'AccesoDatos.Tareas_Empresas_LineasEsfuerzo'
+WARN  | 22/04/2025 23:26:47 | Intento de modificar una entidad NO editable de tipo 'AccesoDatos.Tareas_Empresas_LineasEsfuerzo'
+WARN  | 22/04/2025 23:27:06 | Intento de modificar una entidad NO editable de tipo 'AccesoDatos.Tareas_Empresas_LineasEsfuerzo'
+WARN  | 22/04/2025 23:27:06 | Intento de modificar una entidad NO editable de tipo 'AccesoDatos.Tareas_Empresas_LineasEsfuerzo'

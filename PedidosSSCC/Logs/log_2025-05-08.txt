@@ -1,0 +1,432 @@
+﻿ERROR | 08/05/2025 12:28:52 | https://localhost:44368/Licencias/ObtenerComboLicenciasReemplazo?idLicencia=12 | El diccionario de parámetros contiene una entrada NULL para el parámetro 'idEmpresa' del tipo que no acepta valores NULL 'System.Int32' del método 'System.Web.Mvc.JsonResult ObtenerComboLicenciasReemplazo(Int32, Int32)' en 'PedidosSSCC.Controllers.LicenciasController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.
+Nombre del parámetro: parameters
+ERROR | 08/05/2025 12:28:52 | https://localhost:44368/Licencias/ObtenerComboLicenciasReemplazo?idLicencia=12 | El diccionario de parámetros contiene una entrada NULL para el parámetro 'idEmpresa' del tipo que no acepta valores NULL 'System.Int32' del método 'System.Web.Mvc.JsonResult ObtenerComboLicenciasReemplazo(Int32, Int32)' en 'PedidosSSCC.Controllers.LicenciasController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.
+Nombre del parámetro: parameters
+ERROR | 08/05/2025 12:28:52 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 08/05/2025 12:28:52 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 08/05/2025 12:29:36 | https://localhost:44368/Licencias/ObtenerComboLicenciasReemplazo?idLicencia=12 | El diccionario de parámetros contiene una entrada NULL para el parámetro 'idEmpresa' del tipo que no acepta valores NULL 'System.Int32' del método 'System.Web.Mvc.JsonResult ObtenerComboLicenciasReemplazo(Int32, Int32)' en 'PedidosSSCC.Controllers.LicenciasController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.
+Nombre del parámetro: parameters
+ERROR | 08/05/2025 12:29:36 | https://localhost:44368/Licencias/ObtenerComboLicenciasReemplazo?idLicencia=12 | El diccionario de parámetros contiene una entrada NULL para el parámetro 'idEmpresa' del tipo que no acepta valores NULL 'System.Int32' del método 'System.Web.Mvc.JsonResult ObtenerComboLicenciasReemplazo(Int32, Int32)' en 'PedidosSSCC.Controllers.LicenciasController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.
+Nombre del parámetro: parameters
+ERROR | 08/05/2025 12:29:36 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 08/05/2025 12:29:36 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 08/05/2025 12:29:47 | https://localhost:44368/Licencias/ObtenerComboLicenciasReemplazo?idLicencia=12 | El diccionario de parámetros contiene una entrada NULL para el parámetro 'idEmpresa' del tipo que no acepta valores NULL 'System.Int32' del método 'System.Web.Mvc.JsonResult ObtenerComboLicenciasReemplazo(Int32, Int32)' en 'PedidosSSCC.Controllers.LicenciasController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.
+Nombre del parámetro: parameters
+ERROR | 08/05/2025 12:29:47 | https://localhost:44368/Licencias/ObtenerComboLicenciasReemplazo?idLicencia=12 | El diccionario de parámetros contiene una entrada NULL para el parámetro 'idEmpresa' del tipo que no acepta valores NULL 'System.Int32' del método 'System.Web.Mvc.JsonResult ObtenerComboLicenciasReemplazo(Int32, Int32)' en 'PedidosSSCC.Controllers.LicenciasController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.
+Nombre del parámetro: parameters
+ERROR | 08/05/2025 12:29:47 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 08/05/2025 12:29:47 | https://localhost:44368/Mantenimiento/Licencias | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 08/05/2025 12:30:48 | https://localhost:44368/Licencias/ObtenerComboLicenciasReemplazo?idLicencia=12 | El diccionario de parámetros contiene una entrada NULL para el parámetro 'idEmpresa' del tipo que no acepta valores NULL 'System.Int32' del método 'System.Web.Mvc.JsonResult ObtenerComboLicenciasReemplazo(Int32, Int32)' en 'PedidosSSCC.Controllers.LicenciasController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.
+Nombre del parámetro: parameters
+ERROR | 08/05/2025 12:30:48 | https://localhost:44368/Licencias/ObtenerComboLicenciasReemplazo?idLicencia=12 | El diccionario de parámetros contiene una entrada NULL para el parámetro 'idEmpresa' del tipo que no acepta valores NULL 'System.Int32' del método 'System.Web.Mvc.JsonResult ObtenerComboLicenciasReemplazo(Int32, Int32)' en 'PedidosSSCC.Controllers.LicenciasController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.
+Nombre del parámetro: parameters
+ERROR | 08/05/2025 12:39:59 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Licencias_Excepciones_LicenciasReemplazo)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.DeleteAllOnSubmit[TSubEntity](IEnumerable`1 entities)
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 75
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ERROR | 08/05/2025 12:39:59 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Licencias_Excepciones_LicenciasReemplazo)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.DeleteAllOnSubmit[TSubEntity](IEnumerable`1 entities)
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 75
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ERROR | 08/05/2025 12:39:59 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 08/05/2025 12:39:59 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 08/05/2025 12:47:15 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_LicenciasReemplazo_Licencias_Excepciones". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias_Excepciones".
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 89
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:e4366db4-33e3-4a71-9847-d50427c7ffde
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 12:47:15 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_LicenciasReemplazo_Licencias_Excepciones". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias_Excepciones".
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 89
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:e4366db4-33e3-4a71-9847-d50427c7ffde
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 12:47:15 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 08/05/2025 12:47:15 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 08/05/2025 12:50:38 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_Licencias". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias", column 'LIC_Id'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias_Excepciones.Guardar(Licencias_Excepciones entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias_Excepciones.cs:línea 52
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:9d89d7f5-b2a5-4420-8375-179100593d3b
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 12:50:38 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_Licencias". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias", column 'LIC_Id'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias_Excepciones.Guardar(Licencias_Excepciones entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias_Excepciones.cs:línea 52
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:9d89d7f5-b2a5-4420-8375-179100593d3b
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 12:50:48 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_Licencias". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias", column 'LIC_Id'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias_Excepciones.Guardar(Licencias_Excepciones entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias_Excepciones.cs:línea 52
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:9d89d7f5-b2a5-4420-8375-179100593d3b
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 12:50:48 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_Licencias". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias", column 'LIC_Id'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias_Excepciones.Guardar(Licencias_Excepciones entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias_Excepciones.cs:línea 52
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:9d89d7f5-b2a5-4420-8375-179100593d3b
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 12:53:41 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_Licencias". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias", column 'LIC_Id'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias_Excepciones.Guardar(Licencias_Excepciones entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias_Excepciones.cs:línea 52
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:9d89d7f5-b2a5-4420-8375-179100593d3b
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 12:53:41 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_Licencias". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias", column 'LIC_Id'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias_Excepciones.Guardar(Licencias_Excepciones entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias_Excepciones.cs:línea 52
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:9d89d7f5-b2a5-4420-8375-179100593d3b
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 12:54:22 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_Licencias". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias", column 'LIC_Id'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias_Excepciones.Guardar(Licencias_Excepciones entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias_Excepciones.cs:línea 52
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:9d89d7f5-b2a5-4420-8375-179100593d3b
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 12:54:22 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_Licencias". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias", column 'LIC_Id'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias_Excepciones.Guardar(Licencias_Excepciones entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias_Excepciones.cs:línea 52
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:9d89d7f5-b2a5-4420-8375-179100593d3b
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 13:00:02 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_LicenciasReemplazo_Licencias_Excepciones". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias_Excepciones".
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 89
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:341f77d5-0380-4db6-ac1a-10b68865a072
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 13:00:02 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_LicenciasReemplazo_Licencias_Excepciones". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias_Excepciones".
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 89
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:341f77d5-0380-4db6-ac1a-10b68865a072
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 13:00:02 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 08/05/2025 13:00:02 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 08/05/2025 13:00:44 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_LicenciasReemplazo_Licencias_Excepciones". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias_Excepciones".
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 89
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:341f77d5-0380-4db6-ac1a-10b68865a072
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 13:00:44 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_LicenciasReemplazo_Licencias_Excepciones". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias_Excepciones".
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 89
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:341f77d5-0380-4db6-ac1a-10b68865a072
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 13:00:44 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 08/05/2025 13:00:44 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 08/05/2025 13:02:30 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_LicenciasReemplazo_Licencias_Excepciones". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias_Excepciones".
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 89
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:2cdd325d-6a17-40e1-a8ea-95cec69c403d
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 13:02:30 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Licencias_Excepciones_LicenciasReemplazo_Licencias_Excepciones". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias_Excepciones".
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Licencias.Guardar(Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Licencias.cs:línea 89
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 292
+ClientConnectionId:2cdd325d-6a17-40e1-a8ea-95cec69c403d
+Error Number:547,State:0,Class:16
+ERROR | 08/05/2025 13:02:30 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 08/05/2025 13:02:30 | https://localhost:44368/Mantenimiento/Licencias | Estado: undefined, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 08/05/2025 13:22:48 | https://localhost:44368/Mantenimiento/Licencias | Estado: 200, Error: Instrucción DELETE en conflicto con la restricción REFERENCE "FK_Licencias_Excepciones_LicenciasReemplazo_Licencias_Excepciones". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias_Excepciones_LicenciasReemplazo".
+Se terminó la instrucción.
+ERROR | 08/05/2025 13:22:48 | https://localhost:44368/Mantenimiento/Licencias | Estado: 200, Error: Instrucción DELETE en conflicto con la restricción REFERENCE "FK_Licencias_Excepciones_LicenciasReemplazo_Licencias_Excepciones". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Licencias_Excepciones_LicenciasReemplazo".
+Se terminó la instrucción.

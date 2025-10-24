@@ -1,0 +1,2 @@
+﻿ERROR | 20/05/2025 19:25:06 | https://localhost:44368/Mantenimiento/Licencias | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 20/05/2025 19:25:06 | https://localhost:44368/Mantenimiento/Licencias | Estado: 200, Error: Error desconocido del servidor.

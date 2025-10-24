@@ -1,0 +1,258 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Asuntos de Proveedores";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Asuntos de Proveedores</h1>
+        <div class="title-btn-group">
+            <button id="btnPrevisulizarConceptosAsuntos" type="button" class="btn btn-lg btn-warning">
+                <i class="bi bi-eye"></i> @Resources.Etiqueta_GenerarConceptos
+            </button>
+            <button id="btnImportarExcel" type="button" class="btn btn-lg btn-primary">
+                <i class="bi bi-upload"></i> Importar Excel
+            </button>
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-three-dots-vertical" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li id="btnExportarContainer"></li>
+                    <li>
+                        <button id="btnNuevoAsunto" type="button" class="dropdown-item">
+                            <i class="bi bi-plus-circle"></i> Añadir Asunto
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default d-flex align-items-end gap-3 flex-wrap">
+                <div class="form-group flex-grow-1 mb-0">
+                    <label class="form-label" for="formBuscarAsunto">Buscar</label>
+                    <input type="text" class="form-control" id="formBuscarAsunto" placeholder="Buscar...">
+                </div>
+            </div>
+        </form>
+        <table id="tableAsuntos" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-priority="1">Proveedor</th>
+                    <th>Año</th>
+                    <th>Mes</th>
+                    <th>Código Externo</th>
+                    <th>Fecha</th>
+                    <th>Ticket GLPI</th>
+                    <th>Entidad</th>
+                    <th>Empresa</th>
+                    <th>Tarea</th>
+                    <th>Descripción</th>
+                    <th>Horas</th>
+                    <th>Importe</th>
+                    <th>Nº Factura</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Crear/Editar Asunto -->
+<div class="modal fade" id="modalAsunto" tabindex="-1" aria-labelledby="modalAsuntoLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalAsuntoLabel">Gestión de Asunto</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formAsunto" class="form-wrapper">
+                    <input type="hidden" id="pasId" />
+                    <div class="row g-2">
+                        <div class="col-md-5">
+                            <label for="pasProveedor" class="form-label">@Resources.Etiqueta_Proveedor *</label>
+                            <select id="pasProveedor" class="styled-select form-control"></select>
+                        </div>
+                        <div class="col-md-2">
+                            <label for="pasAnyo" class="form-label">@Resources.Modal_Ano</label>
+                            <input type="number" class="form-control" id="pasAnyo" required />
+                        </div>
+                        <div class="col-md-2">
+                            <label for="pasMes" class="form-label">@Resources.Modal_Mes</label>
+                            <input type="number" class="form-control" id="pasMes" required />
+                        </div>
+                        <div class="col-md-3">
+                            <label for="pasCodigoExterno" class="form-label">Código Externo</label>
+                            <input type="text" class="form-control" id="pasCodigoExterno" maxlength="50" />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="pasFecha" class="form-label">Fecha</label>
+                            <input type="date" class="form-control" id="pasFecha" />
+                        </div>
+                        <div class="col-md-8">
+                            <label for="pasTicket" class="form-label">Ticket GLPI</label>
+                            <select id="pasTicket" style="width:100%"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="pasEntidad" class="form-label">Entidad</label>
+                            <select id="pasEntidad" class="styled-select form-control"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="pasEmpresa" class="form-label">Empresa</label>
+                            <select id="pasEmpresa" class="styled-select form-control"></select>
+                        </div>
+                        <div class="col-12">
+                            <label for="pasDescripcion" class="form-label">Descripción</label>
+                            <input type="text" class="form-control" id="pasDescripcion" maxlength="100" />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="pasHoras" class="form-label">Horas</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control form-control-sm" id="pasHoras" name="pasHoras" />
+                                <span class="input-group-text"><i class="bi bi-clock"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="pasImporte" class="form-label">Importe</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control form-control-sm" id="pasImporte" name="pasImporte" />
+                                <span class="input-group-text">€</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="pasNumFactura" class="form-label">Nº Factura</label>
+                            <input type="text" class="form-control" id="pasNumFactura" maxlength="50" />
+                        </div>
+                        <div class="col-md-6">
+                            <label for="pasTarea" class="form-label">Tarea</label>
+                            <select id="pasTarea" class="styled-select form-control"></select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-primary" id="btnGuardarAsunto">Guardar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Importar Excel -->
+<div class="modal fade" id="modalImportar" tabindex="-1" aria-labelledby="modalImportarLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalImportarLabel">Importar Asuntos desde Excel</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formImportar" enctype="multipart/form-data">
+                    <div class="row g-2">
+                        <div class="col-md-12">
+                            <label for="impProveedor" class="form-label">Proveedor *</label>
+                            <select id="impProveedor" class="form-control" required>
+                                <option value="">-</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="impAnyo" class="form-label">Año</label>
+                            <input type="number" class="form-control" id="impAnyo" disabled />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="impMes" class="form-label">Mes</label>
+                            <input type="number" class="form-control" id="impMes" disabled />
+                        </div>
+                        <div class="col-md-4">
+                            <label for="impFactura" class="form-label">Factura</label>
+                            <input type="text" class="form-control" id="impFactura" maxlength="50" />
+                        </div>
+                        <div class="col-md-12">
+                            <label for="impFile" class="form-label">Archivo Excel (.xlsx) *</label>
+                            <input type="file" id="impFile" name="impFile" accept=".xlsx" class="form-control" required />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="btnProcesarExcel" type="button" class="btn btn-primary">Procesar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+        <style>
+            /* 1) Control completo y con borde más grueso y azul */
+            .choices[data-type*="select-one"] {
+                width: 100% !important;
+            }
+
+            .choices__inner {
+                border: 2px solid #007bff !important;
+                border-radius: 0.75rem !important;
+                padding: 0.5rem 0.75rem;
+                font-weight: 600;
+                transition: border-color .2s ease, box-shadow .2s ease;
+            }
+
+                .choices__inner.is-focused {
+                    border-color: #0056b3 !important;
+                    box-shadow: 0 0 0 .25rem rgba(0, 123, 255, 0.25) !important;
+                }
+
+            /* 2) Opciones del dropdown con mismo estilo y negrita */
+            .choices__list--dropdown {
+                border: 2px solid #007bff !important;
+                border-top: none !important;
+                border-radius: 0 0 0.75rem 0.75rem !important;
+                box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .1) !important;
+                max-height: 220px;
+            }
+
+                .choices__list--dropdown .choices__item--selectable {
+                    padding: 0.6rem 0.75rem;
+                    font-weight: 600;
+                }
+
+                    .choices__list--dropdown .choices__item--selectable.is-highlighted {
+                        background-color: #e9f5ff !important;
+                        color: #004085 !important;
+                    }
+
+            /* 3) Placeholder y texto de búsqueda aún más destacados */
+            .choices__input,
+            .choices__placeholder {
+                font-weight: 600;
+                color: #0056b3 !important;
+            }
+        </style>
+
+        <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                ObtenerAsuntos:        '@Url.Action("ObtenerAsuntos", "Proveedores")',
+                GuardarAsunto:         '@Url.Action("GuardarAsunto", "Proveedores")',
+                EliminarAsunto:        '@Url.Action("EliminarAsunto", "Proveedores")',
+                ObtenerComboEntidades: '@Url.Action("ObtenerEntidadesCombo", "Mantenimiento")',
+                ObtenerComboEmpresas:  '@Url.Action("ObtenerEmpresasCombo", "Proveedores")',
+                ObtenerTicketsGLPICombo: '@Url.Action("ObtenerTicketsGLPICombo", "Proveedores")',
+                ObtenerProveedores: '@Url.Action("ObtenerProveedores", "Proveedores")',
+                ObtenerProveedoresSoporte: '@Url.Action("ObtenerProveedoresSoporte", "Proveedores")',
+                ObtenerFacturasP: '@Url.Action("ObtenerFacturasPCombo","Proveedores")',
+                ImportarAsuntosExcel: '@Url.Action("ImportarAsuntosExcel","Proveedores")',
+                ObtenerPeriodoFacturacion: '@Url.Action("ObtenerPeriodoFact", "Proveedores")',
+                previsulizarConceptosAsuntos: '@Url.Action("PrevisulizarConceptosAsuntos", "Proveedores")',
+                GenerarConceptosAsuntos: '@Url.Action("GenerarConceptosAsuntos", "Proveedores")',
+                ObtenerTareasCombo: '@Url.Action("ObtenerTareasCombo", "Proveedores")'
+            }
+        });
+        </script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+    <script src="~/Scripts/Vistas/Mantenimiento/ProveedoresAsuntos.js?v=@DateTime.Now.Ticks"></script>
+}

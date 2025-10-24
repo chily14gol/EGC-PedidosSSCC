@@ -1,0 +1,10 @@
+﻿ERROR | 07/05/2025 12:18:27 | https://localhost:44368/Tickets/Tickets | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 07/05/2025 12:18:27 | https://localhost:44368/Tickets/Tickets | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 07/05/2025 12:18:40 | https://localhost:44368/Tickets/Tickets | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 07/05/2025 12:18:40 | https://localhost:44368/Tickets/Tickets | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 07/05/2025 12:19:19 | https://localhost:44368/Tickets/Tickets | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 07/05/2025 12:19:19 | https://localhost:44368/Tickets/Tickets | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 07/05/2025 12:19:23 | https://localhost:44368/Tickets/Tickets | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 07/05/2025 12:19:23 | https://localhost:44368/Tickets/Tickets | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 07/05/2025 12:20:15 | https://localhost:44368/Tickets/Tickets | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 07/05/2025 12:20:15 | https://localhost:44368/Tickets/Tickets | Estado: 200, Error: Error desconocido del servidor.

@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Asegura que use el layout principal
+}
+
+<div class="container text-center mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-0 rounded-lg">
+                <div class="card-body">
+                    <h1 class="display-4 text-danger"><i class="bi bi-exclamation-triangle"></i></h1>
+                    <h2 class="text-dark">Acceso Denegado</h2>
+                    <p class="lead text-muted">
+                        No tienes permisos para acceder a esta página.
+                    </p>
+                    <a href="@Url.Action("Inicio", "Portal")" class="btn btn-primary mt-3">
+                        <i class="bi bi-house-door"></i> Volver a Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".breadcrumb-container").hide();
+        $('#contenidoPagina').fadeIn(); // Mostrar contenido tras verificación
+        ocultarDivCargando();
+    });
+</script>

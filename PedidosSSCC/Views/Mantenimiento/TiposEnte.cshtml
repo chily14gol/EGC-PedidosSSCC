@@ -1,0 +1,86 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Tipos de Ente";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Tipos de Entidades</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevo" class="btn btn-lg btn-primary btn-ico-agregar">Nuevo Tipo</button>
+            <div class="dropdown">
+                <ul class="dropdown-menu">
+                    <li id="btnExportarContainer"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default">
+                <div class="buscador">
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+            </div>
+            <div class="form-advance">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-xxl-4">
+                        <div class="form-group">
+                            <label class="form-label" for="filterNombre">Nombre</label>
+                            <input type="text" id="filterNombre" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-btn-group">
+                <button type="button" id="btnBuscar" class="btn btn-primary">@Resources.Boton_Buscar</button>
+                <button type="button" id="btnLimpiar" class="btn btn-outline-secondary" style="display: none;">@Resources.Boton_Limpiar</button>
+                <button type="button" id="btnAvanzado" class="btn btn-link">@Resources.Boton_BusquedaAvanzada</button>
+            </div>
+        </form>
+        <table id="table" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th class="th-action">Acciones</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalEditar" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalEditarLabel">Tipo de Entidad</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="idTipo">
+                <div class="form-group">
+                    <label for="nombre">Nombre *</label>
+                    <input type="text" class="form-control" id="nombre" maxlength="100">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="guardarTipo()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                ObtenerTiposEnte: '@Url.Action("ObtenerTiposEnte", "Mantenimiento")',
+                GuardarTipoEnte: '@Url.Action("GuardarTipoEnte", "Mantenimiento")',
+                EliminarTipoEnte: '@Url.Action("EliminarTipoEnte", "Mantenimiento")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Mantenimiento/TiposEnte.js?v=@DateTime.Now.Ticks"></script>
+}

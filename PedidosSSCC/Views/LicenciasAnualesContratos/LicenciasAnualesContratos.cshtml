@@ -1,0 +1,201 @@
+﻿@using PedidosSSCC.Properties
+@{
+    ViewBag.Title = "Contratos Licencias Anuales";
+}
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Contratos Licencias Anuales</h1>
+        <div class="title-btn-group">
+            <button id="btnPrevisulizarConceptosLicenciasAnuales" type="button" class="btn btn-lg btn-warning">
+                <i class="bi bi-eye"></i> @Resources.Etiqueta_GenerarConceptos
+            </button>
+            <button id="btnNuevoContrato" type="button" class="btn btn-lg btn-primary">
+                <i class="bi bi-plus-lg"></i> Nuevo Contrato
+            </button>
+        </div>
+    </div>
+    <div class="content-box">
+        <table id="tableContratos" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Proveedor</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Editar/Nuevo Contrato -->
+<div class="modal fade" id="modalContrato" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalContratoLabel">Nuevo Contrato</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formTarifas" class="mb-3 row g-2 align-items-end">
+                    <input type="hidden" id="claId" />
+                    <div class="col-md-12">
+                        <label for="claProv" class="form-label">Proveedor *</label>
+                        <select id="claProv" class="form-select"></select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="claInicio" class="form-label">Fecha Inicio *</label>
+                        <input type="date" id="claInicio" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="claFin" class="form-label">Fecha Fin *</label>
+                        <input type="date" id="claFin" class="form-control" />
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="guardarContrato()">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Tarifas de Contrato -->
+<div class="modal fade" id="modalTarifasContrato" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tarifas del Contrato</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formTarifaContrato" class="row g-2 align-items-end mb-3">
+                    <input type="hidden" id="cltClaId" />
+                    <div class="col-md-6">
+                        <label for="selectLicencia" class="form-label">Licencia *</label>
+                        <select id="selectLicencia" class="form-control"></select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="cltImporte" class="form-label">Importe Anual *</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control form-control-sm" id="cltImporte" name="cltImporte" />
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                </form>
+                <div class="modal-footer justify-content-end">
+                    <button id="btnNuevaTarifa" class="btn btn-sm btn-secondary" style="display:none;">Nueva tarifa</button>
+                    <button id="btnCancelarTarifa" type="button" class="btn btn-outline-secondary" style="display:none;">@Resources.Modal_Boton_Cancelar</button>
+                    <button id="btnGuardarTarifa" type="button" class="btn btn-primary" onclick="guardarTarifaContrato()">@Resources.Boton_Guardar</button>
+                </div>
+                <table id="tableTarifasContrato" class="table table-striped nowrap">
+                    <thead>
+                        <tr>
+                            <th>Licencia</th>
+                            <th>Importe Anual</th>
+                            <th class="th-action"><span class="sReader">Acción</span></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Entidades de Contrato-->
+<div class="modal fade" id="modalEntes" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Entidades por Licencia y Contrato</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formEntes" class="mb-3 row g-2 align-items-end" style="display: none;">
+                    <input type="hidden" id="contratoId" />
+                    <div class="col-md-6">
+                        <label for="elaEntId" class="form-label">Entidad *</label>
+                        <select id="elaEntId" class="form-control styled-select"></select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="elaLicencias" class="form-label">Licencia *</label>
+                        <select id="elaLicencias" class="form-control styled-select"></select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="elaFechaInicio" class="form-label">Fecha Inicio *</label>
+                        <input type="date" id="elaFechaInicio" class="form-control form-control-sm" required />
+                    </div>
+                    <div class="col-md-3">
+                        <label for="elaFechaFin" class="form-label">Fecha Fin *</label>
+                        <input type="date" id="elaFechaFin" class="form-control form-control-sm" required />
+                    </div>
+                </form>
+                <div class="modal-footer justify-content-end pb-2 pt-0">
+                    <button id="btnNuevaEnte" class="btn btn-sm btn-secondary" style="display:none;">Nueva entidad</button>
+                    <button id="btnCancelarEnte" type="button" class="btn btn-outline-secondary" style="display:none;">@Resources.Modal_Boton_Cancelar</button>
+                    <button id="btnGuardarEnte" type="button" class="btn btn-primary" onclick="guardarEnteLicencia()">@Resources.Boton_Guardar</button>
+                </div>
+
+                <!-- Contenedor scrollable solo para la tabla -->
+                <div class="table-responsive" style="max-height: 400px; overflow-y: auto;">
+                    <table id="tableEntes" class="table table-striped nowrap mb-0">
+                        <thead class="table-light" style="position: sticky; top: 0; z-index: 2;">
+                            <tr>
+                                <th>Entidad</th>
+                                <th>Licencia</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th class="th-action"><span class="sReader">Acción</span></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        th.th-action, td.td-btn {
+            min-width: 300px;
+            white-space: nowrap;
+        }
+        /* Fija la cabecera de la tabla dentro del contenedor con scroll */
+        #modalEntes .table-responsive thead th {
+            background-color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 3;
+        }
+    </style>
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+          urls: {
+            ObtenerContratos: '@Url.Action("ObtenerContratos", "LicenciasAnualesContratos")',
+            GuardarContrato:  '@Url.Action("GuardarContrato", "LicenciasAnualesContratos")',
+            EliminarContrato: '@Url.Action("EliminarContrato", "LicenciasAnualesContratos")',
+            ObtenerProveedores: '@Url.Action("ObtenerProveedores","Mantenimiento")',
+            ObtenerTarifasContrato: '@Url.Action("ObtenerTarifasContrato", "LicenciasAnualesContratos")',
+            GuardarTarifaContrato:   '@Url.Action("GuardarTarifaContrato", "LicenciasAnualesContratos")',
+            EliminarTarifaContrato: '@Url.Action("EliminarTarifaContrato", "LicenciasAnualesContratos")',
+            ObtenerLicenciasProveedor: '@Url.Action("ObtenerLicenciasProveedor", "LicenciasAnualesContratos")',
+            ObtenerEntesPorLicenciaAnual:   '@Url.Action("ObtenerEntesPorLicenciaAnual","LicenciasAnuales")',
+            GuardarEnteLicenciaAnual:            '@Url.Action("GuardarEnteLicenciaAnual", "LicenciasAnuales")',
+            EliminarEnteLicenciaAnual:           '@Url.Action("EliminarEnteLicenciaAnual", "LicenciasAnuales")',
+            ObtenerEntes: '@Url.Action("ObtenerEntes", "Mantenimiento")',
+            PrevisualizarConceptosLicenciasAnuales: '@Url.Action("PrevisualizarConceptosLicenciasAnuales", "LicenciasAnualesContratos")',
+            GenerarConceptosLicenciasAnuales: '@Url.Action("GenerarConceptosLicenciasAnuales", "LicenciasAnualesContratos")'
+        }
+    });
+    </script>
+    <script src="~/Scripts/Vistas/LicenciasAnuales/LicenciasAnualesContratos.js?v=@DateTime.Now.Ticks"></script>
+}

@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Página No Encontrada";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container text-center mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg border-warning">
+                <div class="card-body">
+                    <h1 class="text-warning"><i class="bi bi-search"></i></h1>
+                    <h2 class="text-warning">Página No Encontrada</h2>
+                    <p class="lead">Lo sentimos, la página que buscas no existe o ha sido eliminada.</p>
+                    <p>Por favor, verifica la URL o regresa a la página de inicio.</p>
+                    <a href="@Url.Action("Inicio", "Portal")" class="btn btn-primary">
+                        <i class="bi bi-house-door"></i> Volver a Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $(".breadcrumb-container").hide();
+        $('#contenidoPagina').fadeIn(); // Mostrar contenido tras verificación
+        ocultarDivCargando();
+    });
+</script>

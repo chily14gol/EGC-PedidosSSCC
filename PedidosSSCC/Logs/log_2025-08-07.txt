@@ -1,0 +1,40 @@
+﻿ERROR | 07/08/2025 11:33:47 | https://localhost:44368/Telefonia/Telefonia | No se encuentra la vista 'Telefonia' ni su vista maestra o no hay un motor de búsqueda que admita las ubicaciones de búsqueda. Se buscó en las siguientes ubicaciones: 
+~/Views/Telefonia/Telefonia.aspx
+~/Views/Telefonia/Telefonia.ascx
+~/Views/Shared/Telefonia.aspx
+~/Views/Shared/Telefonia.ascx
+~/Views/Telefonia/Telefonia.cshtml
+~/Views/Telefonia/Telefonia.vbhtml
+~/Views/Shared/Telefonia.cshtml
+~/Views/Shared/Telefonia.vbhtml
+ERROR | 07/08/2025 11:33:47 | https://localhost:44368/Telefonia/Telefonia | No se encuentra la vista 'Telefonia' ni su vista maestra o no hay un motor de búsqueda que admita las ubicaciones de búsqueda. Se buscó en las siguientes ubicaciones: 
+~/Views/Telefonia/Telefonia.aspx
+~/Views/Telefonia/Telefonia.ascx
+~/Views/Shared/Telefonia.aspx
+~/Views/Shared/Telefonia.ascx
+~/Views/Telefonia/Telefonia.cshtml
+~/Views/Telefonia/Telefonia.vbhtml
+~/Views/Shared/Telefonia.cshtml
+~/Views/Shared/Telefonia.vbhtml
+ERROR | 07/08/2025 11:33:48 | https://localhost:44368/Telefonia/Telefonia | Estado: 200, Error: No se encuentra la vista &#39;Telefonia&#39; ni su vista maestra o no hay un motor de b&#250;squeda que admita las ubicaciones de b&#250;squeda. Se busc&#243; en las siguientes ubicaciones:   ~/Views/Telefonia/Telefonia.aspx  ~/Views/Telefonia/Telefonia.ascx  ~/Views/Shared/Telefonia.aspx  ~/Views/Shared/Telefonia.ascx  ~/Views/Telefonia/Telefonia.cshtml  ~/Views/Telefonia/Telefonia.vbhtml  ~/Views/Shared/Telefonia.cshtml  ~/Views/Shared/Telefonia.vbhtml
+ERROR | 07/08/2025 11:33:48 | https://localhost:44368/Telefonia/Telefonia | Estado: 200, Error: No se encuentra la vista &#39;Telefonia&#39; ni su vista maestra o no hay un motor de b&#250;squeda que admita las ubicaciones de b&#250;squeda. Se busc&#243; en las siguientes ubicaciones:   ~/Views/Telefonia/Telefonia.aspx  ~/Views/Telefonia/Telefonia.ascx  ~/Views/Shared/Telefonia.aspx  ~/Views/Shared/Telefonia.ascx  ~/Views/Telefonia/Telefonia.cshtml  ~/Views/Telefonia/Telefonia.vbhtml  ~/Views/Shared/Telefonia.cshtml  ~/Views/Shared/Telefonia.vbhtml
+ERROR | 07/08/2025 11:34:24 | https://localhost:44368/Telefonia/Telefonia | No se encuentra la vista 'Telefonia' ni su vista maestra o no hay un motor de búsqueda que admita las ubicaciones de búsqueda. Se buscó en las siguientes ubicaciones: 
+~/Views/Telefonia/Telefonia.aspx
+~/Views/Telefonia/Telefonia.ascx
+~/Views/Shared/Telefonia.aspx
+~/Views/Shared/Telefonia.ascx
+~/Views/Telefonia/Telefonia.cshtml
+~/Views/Telefonia/Telefonia.vbhtml
+~/Views/Shared/Telefonia.cshtml
+~/Views/Shared/Telefonia.vbhtml
+ERROR | 07/08/2025 11:34:24 | https://localhost:44368/Telefonia/Telefonia | No se encuentra la vista 'Telefonia' ni su vista maestra o no hay un motor de búsqueda que admita las ubicaciones de búsqueda. Se buscó en las siguientes ubicaciones: 
+~/Views/Telefonia/Telefonia.aspx
+~/Views/Telefonia/Telefonia.ascx
+~/Views/Shared/Telefonia.aspx
+~/Views/Shared/Telefonia.ascx
+~/Views/Telefonia/Telefonia.cshtml
+~/Views/Telefonia/Telefonia.vbhtml
+~/Views/Shared/Telefonia.cshtml
+~/Views/Shared/Telefonia.vbhtml
+ERROR | 07/08/2025 11:34:25 | https://localhost:44368/Telefonia/Telefonia | Estado: 200, Error: No se encuentra la vista &#39;Telefonia&#39; ni su vista maestra o no hay un motor de b&#250;squeda que admita las ubicaciones de b&#250;squeda. Se busc&#243; en las siguientes ubicaciones:   ~/Views/Telefonia/Telefonia.aspx  ~/Views/Telefonia/Telefonia.ascx  ~/Views/Shared/Telefonia.aspx  ~/Views/Shared/Telefonia.ascx  ~/Views/Telefonia/Telefonia.cshtml  ~/Views/Telefonia/Telefonia.vbhtml  ~/Views/Shared/Telefonia.cshtml  ~/Views/Shared/Telefonia.vbhtml
+ERROR | 07/08/2025 11:34:25 | https://localhost:44368/Telefonia/Telefonia | Estado: 200, Error: No se encuentra la vista &#39;Telefonia&#39; ni su vista maestra o no hay un motor de b&#250;squeda que admita las ubicaciones de b&#250;squeda. Se busc&#243; en las siguientes ubicaciones:   ~/Views/Telefonia/Telefonia.aspx  ~/Views/Telefonia/Telefonia.ascx  ~/Views/Shared/Telefonia.aspx  ~/Views/Shared/Telefonia.ascx  ~/Views/Telefonia/Telefonia.cshtml  ~/Views/Telefonia/Telefonia.vbhtml  ~/Views/Shared/Telefonia.cshtml  ~/Views/Shared/Telefonia.vbhtml

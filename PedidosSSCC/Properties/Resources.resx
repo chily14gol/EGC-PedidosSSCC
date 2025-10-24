@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Titulo_ConceptosFacturacion" xml:space="preserve">
+    <value>Conceptos de Facturación</value>
+  </data>
+  <data name="Boton_AgregarConcepto" xml:space="preserve">
+    <value>Añadir concepto</value>
+  </data>
+  <data name="Dropdown_MenuAcciones" xml:space="preserve">
+    <value>Menú de acciones</value>
+  </data>
+  <data name="Boton_ExportarConceptos" xml:space="preserve">
+    <value>Exportar Conceptos</value>
+  </data>
+  <data name="Boton_DescargarPlantilla" xml:space="preserve">
+    <value>Descargar Plantilla</value>
+  </data>
+  <data name="Boton_ImportarExcel" xml:space="preserve">
+    <value>Importar Excel</value>
+  </data>
+  <data name="Etiqueta_Buscar" xml:space="preserve">
+    <value>Buscar palabras clave</value>
+  </data>
+  <data name="Etiqueta_AnoConcepto" xml:space="preserve">
+    <value>Año del concepto</value>
+  </data>
+  <data name="Etiqueta_Tarea" xml:space="preserve">
+    <value>Tarea</value>
+  </data>
+  <data name="Etiqueta_Empresa" xml:space="preserve">
+    <value>Empresa</value>
+  </data>
+  <data name="Etiqueta_MesConcepto" xml:space="preserve">
+    <value>Mes del concepto</value>
+  </data>
+  <data name="Etiqueta_Cantidad" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="Etiqueta_Descripcion" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Etiqueta_Estado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Etiqueta_Importe" xml:space="preserve">
+    <value>Importe</value>
+  </data>
+  <data name="Boton_Buscar" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="Boton_Limpiar" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="Boton_BusquedaAvanzada" xml:space="preserve">
+    <value>Búsqueda avanzada</value>
+  </data>
+  <data name="Tabla_Tarea" xml:space="preserve">
+    <value>Tarea</value>
+  </data>
+  <data name="Tabla_Empresa" xml:space="preserve">
+    <value>Empresa</value>
+  </data>
+  <data name="Tabla_Ano" xml:space="preserve">
+    <value>Año</value>
+  </data>
+  <data name="Tabla_Mes" xml:space="preserve">
+    <value>Mes</value>
+  </data>
+  <data name="Tabla_Cantidad" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="Tabla_Descripcion" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="Tabla_Estado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Tabla_ImporteTotal" xml:space="preserve">
+    <value>Importe total</value>
+  </data>
+  <data name="Tabla_Inversion" xml:space="preserve">
+    <value>Inversión</value>
+  </data>
+  <data name="Modal_Titulo_Exportar" xml:space="preserve">
+    <value>Exportar Conceptos a Excel</value>
+  </data>
+  <data name="Modal_Ano" xml:space="preserve">
+    <value>Año *</value>
+  </data>
+  <data name="Modal_Mes" xml:space="preserve">
+    <value>Mes *</value>
+  </data>
+  <data name="Modal_Tarea" xml:space="preserve">
+    <value>Tarea</value>
+  </data>
+  <data name="Modal_Boton_Exportar" xml:space="preserve">
+    <value>Exportar</value>
+  </data>
+  <data name="Modal_Boton_Cancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Modal_Titulo_Importar" xml:space="preserve">
+    <value>Importar Archivo Excel</value>
+  </data>
+  <data name="Modal_SeleccionarArchivo" xml:space="preserve">
+    <value>Seleccionar Archivo Excel:</value>
+  </data>
+  <data name="Modal_Boton_SubirProcesar" xml:space="preserve">
+    <value>Subir y Procesar</value>
+  </data>
+  <data name="Placeholder_Buscar" xml:space="preserve">
+    <value>Buscar...</value>
+  </data>
+  <data name="Titulo_Configuracion" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="Boton_AgregarConfiguracion" xml:space="preserve">
+    <value>Añadir configuración</value>
+  </data>
+  <data name="Boton_ExportarConfiguracion" xml:space="preserve">
+    <value>Exportar Configuración</value>
+  </data>
+  <data name="Titulo_Departamentos" xml:space="preserve">
+    <value>Departamentos</value>
+  </data>
+  <data name="Etiqueta_Nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Titulo_DatosGenerales" xml:space="preserve">
+    <value>Datos Generales</value>
+  </data>
+  <data name="Etiqueta_NombreObligatorio" xml:space="preserve">
+    <value>Nombre *</value>
+  </data>
+  <data name="Etiqueta_RazonSocialObligatorio" xml:space="preserve">
+    <value>Razón Social *</value>
+  </data>
+  <data name="Etiqueta_CifObligatorio" xml:space="preserve">
+    <value>CIF *</value>
+  </data>
+  <data name="Toast_CamposObligatorios" xml:space="preserve">
+    <value>Los siguientes campos son obligatorios:</value>
+  </data>
+  <data name="Toast_CamposObligatoriosGeneral" xml:space="preserve">
+    <value>Todos los campos obligatorios deben ser completados.</value>
+  </data>
+  <data name="Toast_ConceptosAprobar" xml:space="preserve">
+    <value>Por favor, seleccione al menos un concepto para aprobar.</value>
+  </data>
+  <data name="Toast_ErrorServicio" xml:space="preserve">
+    <value>Error en la llamada al servicio. Ver log para mas detalles.</value>
+  </data>
+  <data name="Config_Editar" xml:space="preserve">
+    <value>Editar Configuración</value>
+  </data>
+  <data name="Toast_OperacionOk" xml:space="preserve">
+    <value>Operacion realizada correctamente</value>
+  </data>
+  <data name="Boton_Guardar" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Toast_EmailNoEncontrado" xml:space="preserve">
+    <value>e-Mail: No se encontro la persona destinataria del email</value>
+  </data>
+  <data name="Toast_ErrorServicioEmail" xml:space="preserve">
+    <value>Error al enviar el email. Ver log para mas detalles.</value>
+  </data>
+  <data name="Etiqueta_Direccion" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="Etiqueta_TareaEmpresa" xml:space="preserve">
+    <value>Tarea - Empresa</value>
+  </data>
+  <data name="Etiqueta_AgregarEmpresa" xml:space="preserve">
+    <value>Agregar Empresa</value>
+  </data>
+  <data name="Titulo_Licencias" xml:space="preserve">
+    <value>Licencias</value>
+  </data>
+  <data name="Etqueta_MaximoGrupo" xml:space="preserve">
+    <value>Máximo Grupo</value>
+  </data>
+  <data name="Titulo_Contratos" xml:space="preserve">
+    <value>Editar Contrato CAU</value>
+  </data>
+  <data name="Titulo_GestionGrupo" xml:space="preserve">
+    <value>Gestión de Grupo</value>
+  </data>
+  <data name="Boton_AnadirProveedor" xml:space="preserve">
+    <value>Añadir proveedor</value>
+  </data>
+  <data name="Titulo_GestionProveedor" xml:space="preserve">
+    <value>Gestión de Proveedor</value>
+  </data>
+  <data name="Etiqueta_Activo" xml:space="preserve">
+    <value>Activo</value>
+  </data>
+  <data name="Etiqueta_TareaSoporte" xml:space="preserve">
+    <value>Tarea de Soporte</value>
+  </data>
+  <data name="Boton_Aceptar" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="Titulo_ContratosSoporte" xml:space="preserve">
+    <value>Contratos de soporte</value>
+  </data>
+  <data name="Etiqueta_NombreMS" xml:space="preserve">
+    <value>Nombre MS</value>
+  </data>
+  <data name="Etiqueta_CorrecionFacturacion" xml:space="preserve">
+    <value>Correción Facturación</value>
+  </data>
+  <data name="Etiqueta_LicenciasReemplazo" xml:space="preserve">
+    <value>Licencias Reemplazo</value>
+  </data>
+  <data name="Etiqueta_Titulo" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="Etiqueta_GrupoAsignado" xml:space="preserve">
+    <value>Grupo Asignado</value>
+  </data>
+  <data name="Etiqueta_Categoria" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="Etiqueta_Ubicacion" xml:space="preserve">
+    <value>Ubicación</value>
+  </data>
+  <data name="Etiqueta_Duracion" xml:space="preserve">
+    <value>Duración</value>
+  </data>
+  <data name="Etiqueta_FechaInicio" xml:space="preserve">
+    <value>Fecha Inicio</value>
+  </data>
+  <data name="Etiqueta_FechaFin" xml:space="preserve">
+    <value>Fecha Fin</value>
+  </data>
+  <data name="Etiqueta_CosteHoraF" xml:space="preserve">
+    <value>Coste Hora Fuera de alcance</value>
+  </data>
+  <data name="Etiqueta_Contacto" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="Etiqueta_EmpresaFacturar" xml:space="preserve">
+    <value>Empresa a facturar</value>
+  </data>
+  <data name="Etiqueta_Usuario" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Etiqueta_SeleccionarArchivoExcel" xml:space="preserve">
+    <value>Seleccionar Archivo Excel:</value>
+  </data>
+  <data name="Etiqueta_Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Etiqueta_TipoEntidad" xml:space="preserve">
+    <value>Tipo Entidad</value>
+  </data>
+  <data name="Etiqueta_Oficina" xml:space="preserve">
+    <value>Oficina</value>
+  </data>
+  <data name="Etiqueta_CategoriaCalculada" xml:space="preserve">
+    <value>Categoría Calculada</value>
+  </data>
+  <data name="Modal_ConceptosPendientes" xml:space="preserve">
+    <value>DETALLE CONCEPTO PENDIENTE DE APROBAR</value>
+  </data>
+  <data name="Etiqueta_Presupuesto" xml:space="preserve">
+    <value>Presupuesto</value>
+  </data>
+  <data name="Etiqueta_PresupuestoConsumido" xml:space="preserve">
+    <value>Presupuesto consumido</value>
+  </data>
+  <data name="Etiqueta_ImporteUnitario" xml:space="preserve">
+    <value>Importe unitario</value>
+  </data>
+  <data name="Etiqueta_Validar" xml:space="preserve">
+    <value>Validar</value>
+  </data>
+  <data name="Etiqueta_GenerarConceptos" xml:space="preserve">
+    <value>Generar Conceptos</value>
+  </data>
+  <data name="Boton_Cerrar" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="Etiqueta_CamposObligatorios" xml:space="preserve">
+    <value>Campos obligatorios: </value>
+  </data>
+  <data name="Etiqueta_Aprobados" xml:space="preserve">
+    <value>¡Conceptos Aprobados!</value>
+  </data>
+  <data name="Etiqueta_Rechazados" xml:space="preserve">
+    <value>¡Conceptos Rechazados!</value>
+  </data>
+  <data name="Etiqueta_Aplicacion" xml:space="preserve">
+    <value>Aplicación</value>
+  </data>
+  <data name="Etiqueta_EditarModulo" xml:space="preserve">
+    <value>Editar Módulo</value>
+  </data>
+  <data name="Etiqueta_TiposEnte" xml:space="preserve">
+    <value>Tipos de entidad permitidos</value>
+  </data>
+  <data name="Etiqueta_Proveedor" xml:space="preserve">
+    <value>Proveedor</value>
+  </data>
+  <data name="Etiqueta_NombreModulo" xml:space="preserve">
+    <value>Nombre Módulo</value>
+  </data>
+  <data name="AprobadoAutomatico" xml:space="preserve">
+    <value>Aprobado automático</value>
+  </data>
+</root>

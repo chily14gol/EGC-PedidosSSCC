@@ -1,0 +1,53 @@
+﻿@using PedidosSSCC.Properties
+@{
+    ViewBag.Title = "Consumo de Datos por UN y Uso";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Consumo de Datos (GB) por UN y Uso</h1>
+        <div class="title-btn-group">
+            <div class="row g-2">
+                @*<div class="col-auto">
+                        <input id="filtroAnyo" type="number" class="form-control" placeholder="Año" />
+                    </div>
+                    <div class="col-auto">
+                        <input id="filtroMes" type="number" class="form-control" placeholder="Mes (1-12)" min="1" max="12" />
+                    </div>*@
+                @*<div class="col-auto">
+                        <select id="filtroTipo" class="form-select">
+                            <option value="">Tipo (todos)</option>
+                            <option value="1">Facturación</option>
+                            <option value="2">Roaming</option>
+                        </select>
+                    </div>
+                    <div class="col-auto">
+                        <button id="btnFiltrar" class="btn btn-primary">Filtrar</button>
+                    </div>*@
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <table id="tablaConsumo" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>UN</th>
+                    <th>Uso</th>
+                    <th>Total GB</th>
+                    <th># Registros</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                ObtenerConsumoGbPorUnYUso: '@Url.Action("ObtenerConsumoGbPorUnYUso", "Telefonia")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Telefonia/TelefoniaGlobal.js?v=@DateTime.Now.Ticks"></script>
+}

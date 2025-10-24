@@ -1,0 +1,99 @@
+.section-title-wrapper {
+    display: grid;
+    grid-template: 'titulo botones' auto / 1fr auto;
+    align-items: center;
+    gap: rem(24);
+    margin-block: rem(16) rem(0);
+    
+    .page-title,
+    .section-title { 
+        grid-area: titulo; 
+        margin-block-end: 0;
+    }
+    .title-btn-group {
+        grid-area: botones;
+        display: flex;
+        flex-direction: row;
+        gap: rem(16);
+        align-items: stretch;
+    }
+    &:not(:has(.title-btn-group)){
+        margin-block: rem(19) rem(33);
+    }
+    // &:has(+.content-box){
+    //     margin-block-end: 0;
+    //     + .content-box {
+    //         margin-block-start: rem(8);
+    //     }
+    // }
+    &:has(.section-title) {
+        + .content-box {
+            margin-block-start: rem(19);
+        }
+    }
+    @media screen and (max-width: $sm-max) {
+        grid-template: 'titulo' auto 'botones' auto / 1fr;
+        .title-btn-group {
+            justify-content: flex-end;
+            > .btn {
+                flex: 1 1 auto;
+            }
+        }
+    }
+    @media screen and (max-width: $sm-max) and (orientation: portrait) {
+        .title-btn-group {
+            > .btn {
+                flex: 1 1 100%;
+            }
+        }
+    }
+}
+.content-box {
+    padding-block: rem(24);
+    background-color: $w;
+    border-radius: rem($br_container);
+    margin-block: rem(33) rem(32);
+    padding-inline: rem($gl_lateralPadding);
+    max-width: calc(100dvw - rem($gl_lateralPadding*2));
+    @media screen and (max-width: $md-max) {
+        padding-inline: rem($gl_lateralPaddingResp);
+        max-width: calc(100dvw - rem($gl_lateralPaddingResp*2));
+    }
+    &:has(+.form-btn-group) {
+        margin-block-end: rem(30);
+    }
+    &:has(> .dt-bootstrap5) {
+        margin-block-start: rem(30);
+    }
+    +.form-btn-group {
+        margin-block-end: rem(32);
+    }
+    .section-title-wrapper {
+        margin-block-end: rem(14);
+        &:first-child {
+            margin-block-start: 0;
+        }
+    }
+    + .section-title-wrapper {
+        margin-block-start: rem(37);
+    }
+
+    hr {
+        margin-inline: rem(-1 * $gl_lateralPadding);
+        border-color: $secondary400;
+        margin-block: rem(36) rem(32);
+        &:has(+.section-title-wrapper){
+            margin-block-end: rem(24);
+        }
+        @media screen and (max-width: $md-max) {
+            margin-inline: rem(-1 * $gl_lateralPaddingResp);
+        }
+    }
+}
+
+// Documento en Pedido detalle
+#documento-section {
+    p {
+        margin-block: rem(6) rem(-5);
+    }
+}

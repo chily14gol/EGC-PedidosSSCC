@@ -1,0 +1,734 @@
+﻿ERROR | 02/07/2025 09:57:05 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): No se puede insertar el valor NULL en la columna 'PVC_PrecioHora', tabla 'FacturacionInterna_NF.dbo.Proveedores_ContratosSoporte'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_ContratosSoporte.Guardar(Proveedores_ContratosSoporte entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_ContratosSoporte.cs:línea 37
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:b2a42016-733d-43b6-9890-75a781077473
+Error Number:515,State:2,Class:16
+ERROR | 02/07/2025 09:57:05 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): No se puede insertar el valor NULL en la columna 'PVC_PrecioHora', tabla 'FacturacionInterna_NF.dbo.Proveedores_ContratosSoporte'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_ContratosSoporte.Guardar(Proveedores_ContratosSoporte entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_ContratosSoporte.cs:línea 37
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:b2a42016-733d-43b6-9890-75a781077473
+Error Number:515,State:2,Class:16
+ERROR | 02/07/2025 09:57:10 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): No se puede insertar el valor NULL en la columna 'PVC_PrecioHora', tabla 'FacturacionInterna_NF.dbo.Proveedores_ContratosSoporte'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_ContratosSoporte.Guardar(Proveedores_ContratosSoporte entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_ContratosSoporte.cs:línea 37
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:b2a42016-733d-43b6-9890-75a781077473
+Error Number:515,State:2,Class:16
+ERROR | 02/07/2025 09:57:10 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): No se puede insertar el valor NULL en la columna 'PVC_PrecioHora', tabla 'FacturacionInterna_NF.dbo.Proveedores_ContratosSoporte'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_ContratosSoporte.Guardar(Proveedores_ContratosSoporte entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_ContratosSoporte.cs:línea 37
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:b2a42016-733d-43b6-9890-75a781077473
+Error Number:515,State:2,Class:16
+ERROR | 02/07/2025 09:57:35 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): No se puede insertar el valor NULL en la columna 'PVC_PrecioHora', tabla 'FacturacionInterna_NF.dbo.Proveedores_ContratosSoporte'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_ContratosSoporte.Guardar(Proveedores_ContratosSoporte entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_ContratosSoporte.cs:línea 37
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:b2a42016-733d-43b6-9890-75a781077473
+Error Number:515,State:2,Class:16
+ERROR | 02/07/2025 09:57:35 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): No se puede insertar el valor NULL en la columna 'PVC_PrecioHora', tabla 'FacturacionInterna_NF.dbo.Proveedores_ContratosSoporte'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_ContratosSoporte.Guardar(Proveedores_ContratosSoporte entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_ContratosSoporte.cs:línea 37
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:b2a42016-733d-43b6-9890-75a781077473
+Error Number:515,State:2,Class:16
+ERROR | 02/07/2025 09:57:48 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): No se puede insertar el valor NULL en la columna 'PVC_PrecioHora', tabla 'FacturacionInterna_NF.dbo.Proveedores_ContratosSoporte'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_ContratosSoporte.Guardar(Proveedores_ContratosSoporte entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_ContratosSoporte.cs:línea 37
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:b2a42016-733d-43b6-9890-75a781077473
+Error Number:515,State:2,Class:16
+ERROR | 02/07/2025 09:57:48 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): No se puede insertar el valor NULL en la columna 'PVC_PrecioHora', tabla 'FacturacionInterna_NF.dbo.Proveedores_ContratosSoporte'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_ContratosSoporte.Guardar(Proveedores_ContratosSoporte entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_ContratosSoporte.cs:línea 37
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:b2a42016-733d-43b6-9890-75a781077473
+Error Number:515,State:2,Class:16
+ERROR | 02/07/2025 09:59:42 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): No se puede insertar el valor NULL en la columna 'PVC_PrecioHora', tabla 'FacturacionInterna_NF.dbo.Proveedores_ContratosSoporte'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_ContratosSoporte.Guardar(Proveedores_ContratosSoporte entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_ContratosSoporte.cs:línea 37
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:b2a42016-733d-43b6-9890-75a781077473
+Error Number:515,State:2,Class:16
+ERROR | 02/07/2025 09:59:42 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): No se puede insertar el valor NULL en la columna 'PVC_PrecioHora', tabla 'FacturacionInterna_NF.dbo.Proveedores_ContratosSoporte'. La columna no admite valores NULL. Error de INSERT.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_ContratosSoporte.Guardar(Proveedores_ContratosSoporte entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_ContratosSoporte.cs:línea 37
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:b2a42016-733d-43b6-9890-75a781077473
+Error Number:515,State:2,Class:16
+ERROR | 02/07/2025 10:15:29 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Proveedores_Asuntos_Proveedores". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Proveedores", column 'PRV_Id'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:74b9ebf8-903b-4170-a46d-ed215f01d8e7
+Error Number:547,State:0,Class:16
+ERROR | 02/07/2025 10:15:29 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Proveedores_Asuntos_Proveedores". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Proveedores", column 'PRV_Id'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:74b9ebf8-903b-4170-a46d-ed215f01d8e7
+Error Number:547,State:0,Class:16
+ERROR | 02/07/2025 10:33:07 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:33:07 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:33:07 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FMantenimiento%2FProveedoresAsuntos&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:33:07 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FMantenimiento%2FProveedoresAsuntos&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:33:07 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252827%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FMantenimiento%252FProveedoresAsuntos%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:33:07 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252827%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FMantenimiento%252FProveedoresAsuntos%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:33:07 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252827%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252827%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FMantenimiento%25252FProveedoresAsuntos%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:33:07 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252827%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252827%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FMantenimiento%25252FProveedoresAsuntos%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:33:07 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252827%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252827%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FHome%25252FError%25253Fmessage%25253DC%2525253A%2525255Cd%2525255Cworkarea%2525255Cproyectos%2525255CPedidosSSCC-feature3%2525255CPedidosSSCC%2525255CViews%2525255CShared%2525255C_Layout.cshtml%2525252827%25252529%2525253A%25252520error%25252520CS0103%2525253A%25252520The%25252520name%25252520%25252527popperjs%25252527%25252520does%25252520not%25252520exist%25252520in%25252520the%25252520current%25252520context%252526source%25253DSystem.Web%252526path%25253Dhttps%2525253A%2525252F%2525252Flocalhost%2525253A44368%2525252FMantenimiento%2525252FProveedoresAsuntos%252526status%25253D200%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:33:07 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252827%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252827%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FHome%25252FError%25253Fmessage%25253DC%2525253A%2525255Cd%2525255Cworkarea%2525255Cproyectos%2525255CPedidosSSCC-feature3%2525255CPedidosSSCC%2525255CViews%2525255CShared%2525255C_Layout.cshtml%2525252827%25252529%2525253A%25252520error%25252520CS0103%2525253A%25252520The%25252520name%25252520%25252527popperjs%25252527%25252520does%25252520not%25252520exist%25252520in%25252520the%25252520current%25252520context%252526source%25253DSystem.Web%252526path%25253Dhttps%2525253A%2525252F%2525252Flocalhost%2525253A44368%2525252FMantenimiento%2525252FProveedoresAsuntos%252526status%25253D200%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:34:02 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:34:02 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:34:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FMantenimiento%2FProveedoresAsuntos&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:34:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FMantenimiento%2FProveedoresAsuntos&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:34:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252827%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FMantenimiento%252FProveedoresAsuntos%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:34:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252827%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FMantenimiento%252FProveedoresAsuntos%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:34:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252827%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252827%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FMantenimiento%25252FProveedoresAsuntos%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:34:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252827%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252827%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FMantenimiento%25252FProveedoresAsuntos%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:34:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252827%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252827%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FHome%25252FError%25253Fmessage%25253DC%2525253A%2525255Cd%2525255Cworkarea%2525255Cproyectos%2525255CPedidosSSCC-feature3%2525255CPedidosSSCC%2525255CViews%2525255CShared%2525255C_Layout.cshtml%2525252827%25252529%2525253A%25252520error%25252520CS0103%2525253A%25252520The%25252520name%25252520%25252527popperjs%25252527%25252520does%25252520not%25252520exist%25252520in%25252520the%25252520current%25252520context%252526source%25253DSystem.Web%252526path%25253Dhttps%2525253A%2525252F%2525252Flocalhost%2525253A44368%2525252FMantenimiento%2525252FProveedoresAsuntos%252526status%25253D200%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:34:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2827%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252827%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252827%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FHome%25252FError%25253Fmessage%25253DC%2525253A%2525255Cd%2525255Cworkarea%2525255Cproyectos%2525255CPedidosSSCC-feature3%2525255CPedidosSSCC%2525255CViews%2525255CShared%2525255C_Layout.cshtml%2525252827%25252529%2525253A%25252520error%25252520CS0103%2525253A%25252520The%25252520name%25252520%25252527popperjs%25252527%25252520does%25252520not%25252520exist%25252520in%25252520the%25252520current%25252520context%252526source%25253DSystem.Web%252526path%25253Dhttps%2525253A%2525252F%2525252Flocalhost%2525253A44368%2525252FMantenimiento%2525252FProveedoresAsuntos%252526status%25253D200%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(27): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:35:27 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:35:27 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:35:28 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FMantenimiento%2FProveedoresAsuntos&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:35:28 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FMantenimiento%2FProveedoresAsuntos&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:35:28 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252826%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FMantenimiento%252FProveedoresAsuntos%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:35:28 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252826%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FMantenimiento%252FProveedoresAsuntos%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:35:28 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252826%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252826%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FMantenimiento%25252FProveedoresAsuntos%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:35:28 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252826%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252826%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FMantenimiento%25252FProveedoresAsuntos%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:35:28 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252826%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252826%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FHome%25252FError%25253Fmessage%25253DC%2525253A%2525255Cd%2525255Cworkarea%2525255Cproyectos%2525255CPedidosSSCC-feature3%2525255CPedidosSSCC%2525255CViews%2525255CShared%2525255C_Layout.cshtml%2525252826%25252529%2525253A%25252520error%25252520CS0103%2525253A%25252520The%25252520name%25252520%25252527popperjs%25252527%25252520does%25252520not%25252520exist%25252520in%25252520the%25252520current%25252520context%252526source%25253DSystem.Web%252526path%25253Dhttps%2525253A%2525252F%2525252Flocalhost%2525253A44368%2525252FMantenimiento%2525252FProveedoresAsuntos%252526status%25253D200%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:35:28 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252826%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252826%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FHome%25252FError%25253Fmessage%25253DC%2525253A%2525255Cd%2525255Cworkarea%2525255Cproyectos%2525255CPedidosSSCC-feature3%2525255CPedidosSSCC%2525255CViews%2525255CShared%2525255C_Layout.cshtml%2525252826%25252529%2525253A%25252520error%25252520CS0103%2525253A%25252520The%25252520name%25252520%25252527popperjs%25252527%25252520does%25252520not%25252520exist%25252520in%25252520the%25252520current%25252520context%252526source%25253DSystem.Web%252526path%25253Dhttps%2525253A%2525252F%2525252Flocalhost%2525253A44368%2525252FMantenimiento%2525252FProveedoresAsuntos%252526status%25253D200%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:36:02 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:36:02 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:36:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FMantenimiento%2FProveedoresAsuntos&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:36:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FMantenimiento%2FProveedoresAsuntos&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:36:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252826%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FMantenimiento%252FProveedoresAsuntos%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:36:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252826%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FMantenimiento%252FProveedoresAsuntos%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:36:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252826%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252826%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FMantenimiento%25252FProveedoresAsuntos%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:36:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252826%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252826%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FMantenimiento%25252FProveedoresAsuntos%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:36:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252826%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252826%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FHome%25252FError%25253Fmessage%25253DC%2525253A%2525255Cd%2525255Cworkarea%2525255Cproyectos%2525255CPedidosSSCC-feature3%2525255CPedidosSSCC%2525255CViews%2525255CShared%2525255C_Layout.cshtml%2525252826%25252529%2525253A%25252520error%25252520CS0103%2525253A%25252520The%25252520name%25252520%25252527popperjs%25252527%25252520does%25252520not%25252520exist%25252520in%25252520the%25252520current%25252520context%252526source%25253DSystem.Web%252526path%25253Dhttps%2525253A%2525252F%2525252Flocalhost%2525253A44368%2525252FMantenimiento%2525252FProveedoresAsuntos%252526status%25253D200%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:36:03 | https://localhost:44368/Home/Error?message=C%3A%5Cd%5Cworkarea%5Cproyectos%5CPedidosSSCC-feature3%5CPedidosSSCC%5CViews%5CShared%5C_Layout.cshtml%2826%29%3A%20error%20CS0103%3A%20The%20name%20%27popperjs%27%20does%20not%20exist%20in%20the%20current%20context&source=System.Web&path=https%3A%2F%2Flocalhost%3A44368%2FHome%2FError%3Fmessage%3DC%253A%255Cd%255Cworkarea%255Cproyectos%255CPedidosSSCC-feature3%255CPedidosSSCC%255CViews%255CShared%255C_Layout.cshtml%252826%2529%253A%2520error%2520CS0103%253A%2520The%2520name%2520%2527popperjs%2527%2520does%2520not%2520exist%2520in%2520the%2520current%2520context%26source%3DSystem.Web%26path%3Dhttps%253A%252F%252Flocalhost%253A44368%252FHome%252FError%253Fmessage%253DC%25253A%25255Cd%25255Cworkarea%25255Cproyectos%25255CPedidosSSCC-feature3%25255CPedidosSSCC%25255CViews%25255CShared%25255C_Layout.cshtml%25252826%252529%25253A%252520error%252520CS0103%25253A%252520The%252520name%252520%252527popperjs%252527%252520does%252520not%252520exist%252520in%252520the%252520current%252520context%2526source%253DSystem.Web%2526path%253Dhttps%25253A%25252F%25252Flocalhost%25253A44368%25252FHome%25252FError%25253Fmessage%25253DC%2525253A%2525255Cd%2525255Cworkarea%2525255Cproyectos%2525255CPedidosSSCC-feature3%2525255CPedidosSSCC%2525255CViews%2525255CShared%2525255C_Layout.cshtml%2525252826%25252529%2525253A%25252520error%25252520CS0103%2525253A%25252520The%25252520name%25252520%25252527popperjs%25252527%25252520does%25252520not%25252520exist%25252520in%25252520the%25252520current%25252520context%252526source%25253DSystem.Web%252526path%25253Dhttps%2525253A%2525252F%2525252Flocalhost%2525253A44368%2525252FMantenimiento%2525252FProveedoresAsuntos%252526status%25253D200%2526status%253D200%26status%3D200&status=200 | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Shared\_Layout.cshtml(26): error CS0103: The name 'popperjs' does not exist in the current context
+ERROR | 02/07/2025 10:57:40 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Proveedores_Asuntos_Tickets". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Tickets", column 'TKC_Id_GLPI'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:e32df0f2-f306-4dc2-a237-09f6345e32c9
+Error Number:547,State:0,Class:16
+ERROR | 02/07/2025 10:57:40 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Proveedores_Asuntos_Tickets". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Tickets", column 'TKC_Id_GLPI'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:e32df0f2-f306-4dc2-a237-09f6345e32c9
+Error Number:547,State:0,Class:16
+ERROR | 02/07/2025 10:58:31 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Proveedores_Asuntos_Tickets". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Tickets", column 'TKC_Id_GLPI'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:e32df0f2-f306-4dc2-a237-09f6345e32c9
+Error Number:547,State:0,Class:16
+ERROR | 02/07/2025 10:58:31 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Proveedores_Asuntos_Tickets". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Tickets", column 'TKC_Id_GLPI'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:e32df0f2-f306-4dc2-a237-09f6345e32c9
+Error Number:547,State:0,Class:16
+ERROR | 02/07/2025 10:59:24 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Proveedores_Asuntos_Tickets". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Tickets", column 'TKC_Id_GLPI'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:e32df0f2-f306-4dc2-a237-09f6345e32c9
+Error Number:547,State:0,Class:16
+ERROR | 02/07/2025 10:59:24 | Error al guardar datos
+System.Data.SqlClient.SqlException (0x80131904): Instrucción INSERT en conflicto con la restricción FOREIGN KEY "FK_Proveedores_Asuntos_Tickets". El conflicto ha aparecido en la base de datos "FacturacionInterna_NF", tabla "dbo.Tickets", column 'TKC_Id_GLPI'.
+Se terminó la instrucción.
+   en System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   en System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   en System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   en System.Data.SqlClient.SqlDataReader.get_MetaData()
+   en System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ClientConnectionId:e32df0f2-f306-4dc2-a237-09f6345e32c9
+Error Number:547,State:0,Class:16
+ERROR | 02/07/2025 11:12:50 | Error al guardar datos
+System.Data.SqlTypes.SqlTypeException: Desbordamiento de SqlDateTime. Debe estar entre 1/1/1753 12:00:00 AM y 12/31/9999 11:59:59 PM.
+   en System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 02/07/2025 11:12:50 | Error al guardar datos
+System.Data.SqlTypes.SqlTypeException: Desbordamiento de SqlDateTime. Debe estar entre 1/1/1753 12:00:00 AM y 12/31/9999 11:59:59 PM.
+   en System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 02/07/2025 11:12:50 | Error al guardar datos
+System.Data.SqlTypes.SqlTypeException: Desbordamiento de SqlDateTime. Debe estar entre 1/1/1753 12:00:00 AM y 12/31/9999 11:59:59 PM.
+   en System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 02/07/2025 11:12:50 | Error al guardar datos
+System.Data.SqlTypes.SqlTypeException: Desbordamiento de SqlDateTime. Debe estar entre 1/1/1753 12:00:00 AM y 12/31/9999 11:59:59 PM.
+   en System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 02/07/2025 11:12:50 | Error al guardar datos
+System.Data.SqlTypes.SqlTypeException: Desbordamiento de SqlDateTime. Debe estar entre 1/1/1753 12:00:00 AM y 12/31/9999 11:59:59 PM.
+   en System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 02/07/2025 11:12:50 | Error al guardar datos
+System.Data.SqlTypes.SqlTypeException: Desbordamiento de SqlDateTime. Debe estar entre 1/1/1753 12:00:00 AM y 12/31/9999 11:59:59 PM.
+   en System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 02/07/2025 11:12:50 | Error al guardar datos
+System.Data.SqlTypes.SqlTypeException: Desbordamiento de SqlDateTime. Debe estar entre 1/1/1753 12:00:00 AM y 12/31/9999 11:59:59 PM.
+   en System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 02/07/2025 11:12:50 | Error al guardar datos
+System.Data.SqlTypes.SqlTypeException: Desbordamiento de SqlDateTime. Debe estar entre 1/1/1753 12:00:00 AM y 12/31/9999 11:59:59 PM.
+   en System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 02/07/2025 11:12:50 | Error al guardar datos
+System.Data.SqlTypes.SqlTypeException: Desbordamiento de SqlDateTime. Debe estar entre 1/1/1753 12:00:00 AM y 12/31/9999 11:59:59 PM.
+   en System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 02/07/2025 11:12:50 | Error al guardar datos
+System.Data.SqlTypes.SqlTypeException: Desbordamiento de SqlDateTime. Debe estar entre 1/1/1753 12:00:00 AM y 12/31/9999 11:59:59 PM.
+   en System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_Asuntos.Guardar(Proveedores_Asuntos entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_Asuntos.cs:línea 55
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280

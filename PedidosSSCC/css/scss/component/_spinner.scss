@@ -1,0 +1,72 @@
+#divCargando {
+    &:before {
+        position: fixed;
+        content: '';
+        width: 100dvw;
+        height: 100dvh;
+        top: 0;
+        left: 0;
+        background-color: rgba($b,.33);
+        z-index: $zindx_lock;
+    }
+    body:not(:has(&[style="display: none;"])){
+        overflow: hidden;
+    }
+}
+.contenidoCargando {
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+	min-width: rem(360);
+    width: 20dvw;
+	min-height: rem(160);
+    height: 25dvh;
+    padding: rem($gl_lateralPadding);
+    display: flex;
+    flex-direction: column;
+    gap: rem($gl_lateralPadding);
+    justify-content: center;
+    align-items: center;
+	text-align: center;
+	border-radius: rem($br_container);
+	background-color: $w; /*#eee;*/
+    z-index: $zindx_lock;
+    &:before {
+        content: '';
+        display: block;
+        width: rem(48);
+        aspect-ratio: 1/1;
+        // position: absolute;
+        // bottom: rem(48);
+        // left: 50%;
+        // margin-right: -50%;
+        // transform: translate(-50%, -50%);
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='15.12' x2='11.92' y1='7.26' y2='2.14' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-opacity='.25'/%3E%3Cstop offset='.95' stop-opacity='0'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='9.28' x2='15.09' y1='15.35' y2='9.57' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-opacity='.5'/%3E%3Cstop offset='1' stop-opacity='.25'/%3E%3C/linearGradient%3E%3ClinearGradient id='c' x1='.79' x2='6.53' y1='6.79' y2='1.02' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-opacity='.75'/%3E%3Cstop offset='1'/%3E%3C/linearGradient%3E%3ClinearGradient id='d' x1='6.64' x2='.9' y1='15.31' y2='9.51' gradientUnits='userSpaceOnUse'%3E%3Cstop offset='0' stop-opacity='.5'/%3E%3Cstop offset='1' stop-opacity='.75'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath fill='url(%23a)' d='M11.38.75a1 1 0 1 0-.85 1.8A6.03 6.03 0 0 1 14 8h2A8 8 0 0 0 11.38.75Z'/%3E%3Cpath fill='url(%23b)' d='M14 8a6 6 0 0 1-6 6v2a8 8 0 0 0 8-8h-2Z'/%3E%3Cpath fill='url(%23c)' d='M8 2a1 1 0 0 0 0-2 8 8 0 0 0-8 8h2a6 6 0 0 1 6-6Z'/%3E%3Cpath fill='url(%23d)' d='M2 8H0a8 8 0 0 0 8 8v-2a6 6 0 0 1-6-6Z'/%3E%3C/svg%3E") no-repeat center;
+        background-size: contain;
+        filter: $cf_main;
+        animation: rotation 1s linear infinite;
+    }
+    strong {
+        display: block;
+        width: 100%;
+        height: auto;
+        font-family: $ffAlt;
+        font-size: rem(18);
+        line-height: 1;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: $secondary;
+        // background: url(../images/icons8-hilandero.gif) no-repeat 50% 80px;
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 

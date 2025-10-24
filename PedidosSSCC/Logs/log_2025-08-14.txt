@@ -1,0 +1,6 @@
+﻿ERROR | 14/08/2025 08:32:27 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 14/08/2025 08:32:27 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 14/08/2025 08:32:33 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 14/08/2025 08:32:33 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 14/08/2025 08:32:56 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 14/08/2025 08:32:56 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.

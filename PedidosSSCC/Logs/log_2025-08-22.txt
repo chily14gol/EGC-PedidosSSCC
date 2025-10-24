@@ -1,0 +1,20 @@
+﻿ERROR | 22/08/2025 12:09:52 | https://localhost:44368/Telefonia/ConsumoDatos | No se encuentra la vista 'ConsumoDatos' ni su vista maestra o no hay un motor de búsqueda que admita las ubicaciones de búsqueda. Se buscó en las siguientes ubicaciones: 
+~/Views/Telefonia/ConsumoDatos.aspx
+~/Views/Telefonia/ConsumoDatos.ascx
+~/Views/Shared/ConsumoDatos.aspx
+~/Views/Shared/ConsumoDatos.ascx
+~/Views/Telefonia/ConsumoDatos.cshtml
+~/Views/Telefonia/ConsumoDatos.vbhtml
+~/Views/Shared/ConsumoDatos.cshtml
+~/Views/Shared/ConsumoDatos.vbhtml
+ERROR | 22/08/2025 12:09:52 | https://localhost:44368/Telefonia/ConsumoDatos | No se encuentra la vista 'ConsumoDatos' ni su vista maestra o no hay un motor de búsqueda que admita las ubicaciones de búsqueda. Se buscó en las siguientes ubicaciones: 
+~/Views/Telefonia/ConsumoDatos.aspx
+~/Views/Telefonia/ConsumoDatos.ascx
+~/Views/Shared/ConsumoDatos.aspx
+~/Views/Shared/ConsumoDatos.ascx
+~/Views/Telefonia/ConsumoDatos.cshtml
+~/Views/Telefonia/ConsumoDatos.vbhtml
+~/Views/Shared/ConsumoDatos.cshtml
+~/Views/Shared/ConsumoDatos.vbhtml
+ERROR | 22/08/2025 12:09:52 | https://localhost:44368/Telefonia/ConsumoDatos | Estado: 200, Error: No se encuentra la vista &#39;ConsumoDatos&#39; ni su vista maestra o no hay un motor de b&#250;squeda que admita las ubicaciones de b&#250;squeda. Se busc&#243; en las siguientes ubicaciones:   ~/Views/Telefonia/ConsumoDatos.aspx  ~/Views/Telefonia/ConsumoDatos.ascx  ~/Views/Shared/ConsumoDatos.aspx  ~/Views/Shared/ConsumoDatos.ascx  ~/Views/Telefonia/ConsumoDatos.cshtml  ~/Views/Telefonia/ConsumoDatos.vbhtml  ~/Views/Shared/ConsumoDatos.cshtml  ~/Views/Shared/ConsumoDatos.vbhtml
+ERROR | 22/08/2025 12:09:52 | https://localhost:44368/Telefonia/ConsumoDatos | Estado: 200, Error: No se encuentra la vista &#39;ConsumoDatos&#39; ni su vista maestra o no hay un motor de b&#250;squeda que admita las ubicaciones de b&#250;squeda. Se busc&#243; en las siguientes ubicaciones:   ~/Views/Telefonia/ConsumoDatos.aspx  ~/Views/Telefonia/ConsumoDatos.ascx  ~/Views/Shared/ConsumoDatos.aspx  ~/Views/Shared/ConsumoDatos.ascx  ~/Views/Telefonia/ConsumoDatos.cshtml  ~/Views/Telefonia/ConsumoDatos.vbhtml  ~/Views/Shared/ConsumoDatos.cshtml  ~/Views/Shared/ConsumoDatos.vbhtml

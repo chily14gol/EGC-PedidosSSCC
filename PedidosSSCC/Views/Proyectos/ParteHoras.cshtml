@@ -1,0 +1,339 @@
+﻿@using PedidosSSCC.Properties
+@{
+    ViewBag.Title = "ParteHoras";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    bool isResponsable = (ViewBag.IsResponsable ?? false);
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Parte de Horas</h1>
+    </div>
+
+    <div class="content-box">
+        @if (isResponsable)
+        {
+            <div class="filters mb-3 d-flex align-items-center flex-wrap">
+                <div class="me-4">
+                    <strong>Departamentos:</strong>
+                    @string.Join(", ", (List<string>)ViewBag.DepartamentosResponsableNombre)
+                </div>
+                <label class="me-4">
+                    <strong>Usuario:</strong>
+                    <select id="ddlUser" class="form-select d-inline-block">
+                        <option value="">-- Todos --</option>
+                    </select>
+                </label>
+                <button type="button" class="btn btn-primary" id="btnValidate">
+                    <i class="bi bi-check2-circle"></i> @Resources.Etiqueta_Validar
+                </button>
+                <button type="button" class="btn btn-warning" id="btnPrevisualizarConceptosHoras" style="margin-left: 15px;">
+                    <i class="bi bi-eye"></i> @Resources.Etiqueta_GenerarConceptos
+                </button>
+            </div>
+        }
+
+        <div class="filters mb-2 d-flex align-items-center flex-wrap">
+            <label class="me-3">
+                Año:
+                <select id="ddlYear" class="form-select d-inline-block w-auto"></select>
+            </label>
+            <label class="me-3">
+                Periodo:
+                <select id="ddlPeriodo" class="form-select d-inline-block w-auto"></select>
+            </label>
+            <button type="button" class="btn btn-success me-3" id="btnAddLinea">
+                <i class="bi bi-plus-square"></i> Nueva Línea
+            </button>
+        </div>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table id="tblParte" class="table table-bordered table-condensed mb-0">
+                <thead><tr></tr></thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalLineaParte" tabindex="-1" aria-labelledby="modalLineaParteLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="formLineaParte" class="form-wrapper">
+                <div class="modal-header py-2">
+                    <h2 class="modal-title h5" id="modalLineaParteLabel">Nueva Línea de Parte</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body py-2 px-3">
+                    <input type="hidden" id="PPA_Id" name="PPA_Id" value="0" />
+
+                    <div class="row g-1 mb-2">
+                        <!-- Proyecto (activos del departamento del usuario) -->
+                        <div class="col-md-6">
+                            <div class="form-group mb-1">
+                                <label for="PPA_PRY_Id" class="form-label small">Proyecto</label>
+                                <select id="PPA_PRY_Id" name="PPA_PRY_Id" class="form-select form-select-sm" required>
+                                    <option value="">-- Seleccionar --</option>
+                                    <!-- opciones cargadas en JS -->
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Descripción / Actividad -->
+                        <div class="col-md-8">
+                            <div class="form-group mb-1">
+                                <label for="PPA_Descripcion" class="form-label small">Actividad</label>
+                                <input type="text"
+                                       id="PPA_Descripcion"
+                                       name="PPA_Descripcion"
+                                       class="form-control form-control-sm"
+                                       maxlength="100"
+                                       placeholder="Descripción de la actividad"
+                                       required />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer py-2">
+                    <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Confirmación “Validar” -->
+<div class="modal fade" id="modalConfirmValidate" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar acción</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p id="modalConfirmTexto">¿Validar todas las líneas?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button id="btnConfirmValidate" type="button" class="btn btn-primary">Validar</button>
+                <button id="btnConfirmUnvalidate" type="button" class="btn btn-primary d-none">Anular</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        /* --- Anchuras fijas coherentes para las columnas sticky --- */
+        :root {
+            --w-acciones: 50px;
+            --w-proyecto: 200px; /* Proyecto */
+            --w-actividad: 250px; /* Actividad */
+        }
+
+        /* 1) Inputs de hora más grandes y legibles */
+        #tblParte .hour-input {
+            font-weight: bold;
+            font-size: 0.9rem;
+            width: 80px;
+            padding: 4px;
+            border: none;
+            text-align: center;
+            background-color: transparent;
+            transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+        }
+
+            #tblParte .hour-input.weekend {
+                background-color: #e9ecef;
+                pointer-events: none;
+            }
+
+            #tblParte .hour-input.validated {
+                background-color: #e3e4e6;
+                pointer-events: none;
+            }
+
+        /* 2) Th y Td de fin de semana también tienen fondo gris */
+        #tblParte thead th.weekend,
+        #tblParte td.weekend {
+            background-color: #f5f5f5;
+        }
+
+        /* 3) Inputs type="time": ocultar flechitas en Chrome/WebKit */
+        #tblParte .hour-input::-webkit-calendar-picker-indicator {
+            filter: invert(0.3);
+        }
+
+        #tblParte .hour-input::-webkit-inner-spin-button,
+        #tblParte .hour-input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* 4) Botones de acción (editar/eliminar) muy compactos */
+        .btn-action {
+            padding: 0.2rem 0.35rem;
+            font-size: 0.75rem;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        /* --- Sticky columns --- */
+        /* Columna 1: Acciones */
+        #tblParte thead th:first-child,
+        #tblParte tbody td:first-child {
+            position: sticky;
+            left: 0;
+            z-index: 100;
+            background: #fff !important;
+            min-width: var(--w-acciones);
+            max-width: var(--w-acciones);
+            /* Bordes fijos */
+            border-right: 1px solid;
+            border-left: 1px solid;
+        }
+
+        /* Columna 2: Proyecto */
+        #tblParte thead th:nth-child(2),
+        #tblParte tbody td:nth-child(2) {
+            position: sticky;
+            left: var(--w-acciones);
+            z-index: 100;
+            background: #fff !important;
+            min-width: var(--w-proyecto);
+            max-width: var(--w-proyecto);
+            /* Bordes fijos */
+            border-right: 1px solid;
+            border-left: 1px solid;
+        }
+
+        /* Columna 3: Actividad */
+        #tblParte thead th:nth-child(3),
+        #tblParte tbody td:nth-child(3) {
+            position: sticky;
+            left: calc(var(--w-acciones) + var(--w-proyecto));
+            z-index: 100;
+            background: #fff !important;
+            min-width: var(--w-actividad);
+            max-width: var(--w-actividad);
+            padding-left: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* Bordes fijos */
+            border-right: 1px solid;
+            border-left: 1px solid;
+            /* opcional: sombra para destacar separación */
+            box-shadow: 2px 0 4px rgba(0,0,0,0.04);
+        }
+
+        /* Sombras sutiles para separar sticky */
+        #tblParte thead th:first-child,
+        #tblParte tbody td:first-child {
+            box-shadow: 2px 0 0 #eee;
+        }
+
+        #tblParte thead th:nth-child(2),
+        #tblParte tbody td:nth-child(2) {
+            box-shadow: 2px 0 0 #eee;
+        }
+
+        #tblParte thead th:nth-child(3),
+        #tblParte tbody td:nth-child(3) {
+            box-shadow: 2px 0 0 #eee;
+        }
+
+        /* 7) Hover de fila */
+        #tblParte tbody tr:hover {
+            background-color: #f0f8ff;
+        }
+
+        /* 8) Scrollbar más ancho */
+        .table-responsive {
+            padding-bottom: 12px;
+        }
+
+            .table-responsive::-webkit-scrollbar {
+                height: 12px;
+            }
+
+            .table-responsive::-webkit-scrollbar-track {
+                background: #f8f9fa;
+                border-radius: 4px;
+            }
+
+            .table-responsive::-webkit-scrollbar-thumb {
+                background: #d2232a;
+                border-radius: 4px;
+            }
+
+                .table-responsive::-webkit-scrollbar-thumb:hover {
+                    background: #b31d25;
+                }
+
+        /* 9) Resaltar toda la fila validada */
+        #tblParte tbody tr.validated-row {
+            background-color: #e6ffe6;
+        }
+
+            #tblParte tbody tr.validated-row td:first-child {
+                vertical-align: middle;
+            }
+
+        /* --- Pie de totales sticky alineado --- */
+        #tblParte tfoot tr td:first-child {
+            position: sticky;
+            bottom: 0;
+            left: 0;
+            background: #fff;
+            z-index: 5;
+            min-width: calc(var(--w-acciones) + var(--w-proyecto) + var(--w-actividad)); /* 400px */
+            max-width: calc(var(--w-acciones) + var(--w-proyecto) + var(--w-actividad));
+            overflow: hidden;
+            white-space: nowrap;
+            text-align: right;
+            padding-right: 0.5rem;
+        }
+
+            #tblParte tfoot tr td:first-child::after {
+                content: '';
+                display: block;
+                position: absolute;
+                height: 1px;
+                width: 100%;
+                bottom: 0;
+                left: 0;
+                background-color: #dee2e6;
+            }
+
+        .btnValidateParteIndividual:hover {
+            background-color: #65A14A !important;
+            border-color: #65A14A !important;
+        }
+    </style>
+
+    <script>
+        window.isResponsable = @((ViewBag.IsResponsable) ? "true" : "false");
+        window.currentUserId = @ViewBag.IdPersona;
+        window.responsableDeps = @Html.Raw(Json.Encode(ViewBag.DepartamentosResponsable));
+
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                getPeriodos: '@Url.Action("GetPeriodosPartes", "Proyectos")',
+                getUsuariosDept: '@Url.Action("GetUsuariosPorDepartamento", "Proyectos")',
+                getProjectsDept: '@Url.Action("GetProyectosPorDepartamento", "Proyectos")',
+                getPartes: '@Url.Action("GetPartesPorPeriodo", "Proyectos")',
+                saveParte: '@Url.Action("SaveParteLinea", "Proyectos")',
+                deleteParte: '@Url.Action("DeleteParteLinea", "Proyectos")',
+                getHorasParte: '@Url.Action("GetHorasPorParte", "Proyectos")',
+                saveHoraParte: '@Url.Action("SaveHoraParte", "Proyectos")',
+                previsualizarConceptosHoras: '@Url.Action("PrevisualizarConceptosHoras", "Proyectos")',
+                generarConceptosHoras: '@Url.Action("GenerarConceptosHoras", "Proyectos")',
+                validateParte: '@Url.Action("ValidateParte", "Proyectos")',
+                unvalidateParte: '@Url.Action("UnvalidateParte","Proyectos")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Proyectos/ParteHoras.js?v=@DateTime.Now.Ticks"></script>
+} 

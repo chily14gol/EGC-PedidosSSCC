@@ -1,0 +1,98 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Pedido Nuevo";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Nuevo Pedido</h1>
+    </div>
+    <div class="content-box">
+        <form class="form-wrapper">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="empresaSelect">@Resources.Etiqueta_Empresa</label>
+                        <select id="empresaSelect" class="styled-select form-control">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="toolbar" class="btn-group-wrapper">
+        <button id="btnGuardarPedido" class="btn btn-lg btn-primary">Guardar Pedido</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            VerificarSesionActiva(OpcionMenu.Pedidos).then(() => {
+            });
+
+            Promise.all([ObtenerComboEmpresas()])
+                .then(() => {
+                    ocultarDivCargando();
+                })
+                .catch((error) => {
+                    console.error('Error al cargar los datos:', error);
+                });
+
+            function ObtenerComboEmpresas() {
+                $.ajax({
+                    url: '@Url.Action("ObtenerComboEmpresas", "Mantenimiento")',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        let $select = $('#empresaSelect');
+                        $select.empty(); 
+                        $select.append('<option value="">Seleccione empresa</option>');
+
+                        $.each(data, function (index, item) {
+                            $select.append('<option value="' + item.EMP_Id + '">' + item.EMP_Nombre + '</option>');
+                        });
+
+                        resolve(); 
+                    },
+                    error: function (xhr, status, error) {
+                        const mensaje = obtenerMensajeErrorAjax(xhr);
+                        registrarErrorjQuery(xhr.status, mensaje);
+                    }
+                });
+            }
+
+            function GuardarPedido() {
+                let empresaId = $('#empresaSelect').val();
+                if (!empresaId) {
+                    $('#empresaSelect').addClass('is-invalid');
+                    mostrarToast("Debe seleccionar una empresa.", TipoToast.Warning);
+                    return;
+                }
+
+                $.ajax({
+                    url: '@Url.Action("GuardarNuevoPedido", "Portal")',
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({ FAC_EMP_Id: empresaId }),
+                    dataType: 'json',
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.href = `PedidoDetalle/${response.pedidoId}?mode=edit`;
+                        } else {
+                            mostrarToast("@Resources.Toast_ErrorServicio", TipoToast.Error);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        const mensaje = obtenerMensajeErrorAjax(xhr);
+                        registrarErrorjQuery(xhr.status, mensaje);
+                    }
+                });
+            }
+
+            $('#btnGuardarPedido').on('click', function () {
+                GuardarPedido();
+            });
+        });
+    </script>
+}

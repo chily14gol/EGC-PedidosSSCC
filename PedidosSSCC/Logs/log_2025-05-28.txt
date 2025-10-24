@@ -1,0 +1,168 @@
+﻿ERROR | 28/05/2025 00:45:15 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 00:45:15 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 00:45:15 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 00:45:15 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 00:45:46 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 00:45:46 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 00:45:46 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 00:45:46 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 01:08:10 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 01:08:10 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 01:08:10 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 01:08:10 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 01:08:44 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 01:08:44 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 01:08:44 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 01:08:44 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 10:05:23 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 10:05:23 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 10:05:23 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 10:05:23 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 10:07:27 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 10:07:27 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 10:07:27 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 10:07:27 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 12:57:52 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 12:57:52 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 12:57:52 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 28/05/2025 12:57:52 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_Tickets)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.Guardar(Tareas_Empresas_LineasEsfuerzo_Tickets objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs:línea 31
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280

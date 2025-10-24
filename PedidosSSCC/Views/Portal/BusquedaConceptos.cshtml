@@ -1,0 +1,274 @@
+﻿@using PedidosSSCC.Properties;
+@model PedidosSSCC.Controllers.BusquedaConceptosViewModel
+@{
+    ViewBag.Title = "Conceptos de facturación";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Conceptos de facturación</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary btn-ico-agregar">Añadir concepto</button>
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="sReader">Menú de acciones</span>
+                    <i class="bi bi-three-dots-vertical" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <button id="btnExportarConceptos" type="button" class="dropdown-item btn-lg" data-toggle="modal" data-target="#modalEditar">
+                            Exportar Conceptos
+                        </button>
+                    </li>
+                    <li id="btnExportarContainer"></li>
+                    <li>
+                        <button id="btnDescargarPlantilla" type="button" class="dropdown-item">
+                            <i class="bi bi-download" aria-hiddent="true"></i>Descargar Plantilla
+                        </button>
+                    </li>
+                    <li>
+                        <button id="btnImportarExcel" type="button" class="dropdown-item" data-toggle="modal" data-target="#modalImportar">
+                            <i class="bi bi-upload" aria-hiddent="true"></i>Importar Excel
+                        </button>
+                    </li>
+                    <li>
+                        <button id="btnGenerarConceptosLicencias" type="button" class="dropdown-item">
+                            Generar Conceptos Automáticamente
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default">
+                <div class="buscador">
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+                <div class="anoPresupuesto">
+                    <label for="ddlAño" class="form-label">@Resources.Etiqueta_AnoConcepto</label>
+                    <select id="ddlAño" class="form-select" placeholder="@Resources.Etiqueta_AnoConcepto">
+                        <option value="" selected>@Resources.Etiqueta_AnoConcepto</option>
+                        @foreach (var año in Model.AniosDisponibles)
+                        {
+                            <option value="@año">@año</option>
+                        }
+                    </select>
+                    <div id="datosConceptos" data-anio="@Model.AnioSeleccionado"></div>
+                </div>
+            </div>
+            <div class="form-advance">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label class="form-label" for="filterTarea">@Resources.Etiqueta_Tarea</label>
+                            <input type="text" id="filterTarea" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterEmpresa">@Resources.Etiqueta_Empresa</label>
+                            <input type="text" id="filterEmpresa" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterMes">@Resources.Etiqueta_MesConcepto</label>
+                            <select id="filterMes" class="form-select">
+                                <option></option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                <option>11</option>
+                                <option>12</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3 col-xxl-2">
+                        <div class="form-group">
+                            <label class="form-label" for="filterCantidad">@Resources.Etiqueta_Cantidad</label>
+                            <input type="text" id="filterCantidad" class="form-control" oninput="validarImporte(this)">
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterDescripcion">@Resources.Etiqueta_Descripcion</label>
+                            <input type="text" id="filterDescripcion" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterEstado">Estado</label>
+                            <input type="text" id="filterEstado" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterImporte">Importe Total</label>
+                            <input type="text" id="filterImporte" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-btn-group">
+                <button type="button" id="btnBuscar" class="btn btn-primary">@Resources.Boton_Buscar</button>
+                <button type="button" id="btnLimpiar" class="btn btn-outline-secondary" style="display: none;">@Resources.Boton_Limpiar</button>
+                <button type="button" id="btnAvanzado" class="btn btn-link">@Resources.Boton_BusquedaAvanzada</button>
+            </div>
+        </form>
+        <table id="tablaConceptos" class="table table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-priority="1">Tarea</th>
+                    <th>@Resources.Etiqueta_Empresa</th>
+                    <th>Año</th>
+                    <th>Mes</th>
+                    <th>Cantidad</th>
+                    <th>@Resources.Etiqueta_Descripcion</th>
+                    <th>Estado</th>
+                    <th>Importe total</th>
+                    <th>Inversion</th>
+                    <th data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal para Exportar Conceptos -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalExportarLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4">Exportar Conceptos a Excel</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formExportar" enctype="multipart/form-data">
+                    <div class="form-wrapper">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="anio" class="form-label">Año *</label>
+                                    <input type="text" class="form-control" id="anio">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="mes" class="form-label">Mes *</label>
+                                    <select id="mes" class="form-select">
+                                        <option></option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                        <option>10</option>
+                                        <option>11</option>
+                                        <option>12</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <input type="hidden" id="idTarea" />
+                                <div class="form-group">
+                                    <label for="tareaEmpresa" class="form-label">Tarea</label>
+                                    <input type="text" class="form-control" id="tarea" readonly disabled>
+                                    <div class="input-action-btn">
+                                        <button class="btn btn-icon btn-primary btn-buscar" type="button" id="buscarTarea">
+                                            <i class="bi bi-search"></i>
+                                        </button>
+                                        <button class="btn btn-icon btn-outline-secondary btn-eliminar" type="button" id="limpiarTarea">
+                                            <i class="bi bi-x-circle"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="tablaTareasContainer" style="display: none; max-height: 350px; overflow-y: auto;">
+                                <table id="tablaTareas" class="table table-sm table-hover table-striped nowrap" style="width:100%; font-size: 0.85rem;">
+                                    <thead>
+                                        <tr>
+                                            <th>Tarea</th>
+                                            <th>Sección</th>
+                                            <th>Tipo</th>
+                                            <th>Importe unitario</th>
+                                            <th>Producto (D365)</th>
+                                            <th>Item number (D365)</th>
+                                            <th>Visible</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="submit" class="btn btn-primary" id="btnExportarConceptosAceptar">Exportar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para importar Excel -->
+<div class="modal fade" id="modalImportar" tabindex="-1" aria-labelledby="modalImportarLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Importar Archivo Excel</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formImportar" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="archivoExcel">@Resources.Etiqueta_SeleccionarArchivoExcel</label>
+                        <input type="file" id="archivoExcel" name="archivoExcel" class="form-control" accept=".xlsx, .xls" required />
+                    </div>
+                    <br />
+                    <div class="form-actions">
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary" id="btnSubirProcesar">Subir y Procesar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                ConceptoDetalle: '@Url.Action("ConceptoDetalle", "Portal")',
+                EliminarConcepto: '@Url.Action("EliminarConcepto", "Portal")',
+                ObtenerConceptosFacturacion: '@Url.Action("ObtenerConceptosFacturacion", "Portal")',
+                ExportarConceptos: '@Url.Action("ExportarConceptos", "Portal")',
+                ConceptoNuevo: '@Url.Action("ConceptoNuevo", "Portal")',
+                DescargarPlantillaConceptos: '@Url.Action("DescargarPlantillaConceptos", "Portal")',
+                ObtenerTareas: '@Url.Action("ObtenerTareas", "Tareas")',
+                ImportarExcelConceptos: '@Url.Action("ImportarExcelConceptos", "Portal")',
+                PrevisualizarConceptos: '@Url.Action("PrevisualizarConceptos", "Proceso")',
+                GenerarTodosConceptos: '@Url.Action("GenerarTodosConceptos", "Proceso")',
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Portal/BusquedaConceptos.js?v=@DateTime.Now.Ticks"></script>
+}

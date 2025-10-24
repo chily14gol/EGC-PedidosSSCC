@@ -1,0 +1,188 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Enlaces contables";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Enlaces contables</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary btn-ico-agregar">Añadir enlace</button>
+        </div>
+    </div>
+    <div class="content-box">
+        <table id="table" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-priority="1">Fecha enlace</th>
+                    <th>Realizado por</th>
+                    <th>Fecha de creación</</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal para nuevo registro-->
+<div id="modalNuevoEnlace" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h2" id="modalEmitirPedidoLabel">Nuevo enlace contable</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-wrapper">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label class="form-label">Fecha *</label>
+                                <input type="text" id="modalFechaEnlace" class="form-control input-datepciker">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" id="confirmarNuevoEnlace">@Resources.Boton_Aceptar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function accionesFormatter(row) {
+            return `
+                <button type="button" class="btn btn-icon btn-descargar btn-outline-secondary" data-id="${row.ECO_Id}">
+                    <i class="bi bi-download"></i>
+                </button>`;
+        }
+
+        function descargarEnlace(id) {
+            let urlDescargarEnlace = '@Url.Action("DescargarEnlace", "Portal")';
+            window.location.href = urlDescargarEnlace + '?idEnlace=' + id;
+        }
+
+        $(document).on("click", ".btn-descargar", function () {
+            const id = $(this).data("id");
+            descargarEnlace(id);
+        });
+
+        $(document).ready(async function () {
+            await VerificarSesionActiva(OpcionMenu.Enlaces);
+            await ObtenerEnlaces();
+
+            async function ObtenerEnlaces() {
+                let columnasConFiltro = [0, 1, 2];
+                inicializarDataTable('#table', {
+                    ajax: {
+                        url: '@Url.Action("ObtenerEnlaces", "Portal")',
+                        type: 'GET',
+                        dataSrc: ''
+                    },
+                    columns: [
+                        {
+                            data: 'ECO_Fecha',
+                            title: 'Fecha enlace',
+                            type: "date", // Forzar que DataTables trate esto como fecha
+                            render: function (data, type, row) {
+                                if (!data) return "";
+
+                                // Convertir "dd/MM/yyyy HH:mm:ss" a formato ISO (YYYY-MM-DD HH:mm:ss)
+                                let fechaISO = moment(data, "DD/MM/YYYY HH:mm:ss").format("YYYY-MM-DD HH:mm:ss");
+
+                                // Para la ordenación, usar `data-order`
+                                return `<span data-order="${moment(fechaISO).unix()}">${data}</span>`;
+                            }
+                        },
+                        { data: 'ECO_PER_Id', title: 'Realizado por' },
+                        {
+                            data: 'FechaAlta',
+                            title: 'Fecha de creación',
+                            type: "date",
+                            render: function (data, type, row) {
+                                if (!data) return "";
+
+                                // Convertir "dd/MM/yyyy HH:mm:ss" a formato ISO (YYYY-MM-DD HH:mm:ss)
+                                let fechaISO = moment(data, "DD/MM/YYYY HH:mm:ss").format("YYYY-MM-DD HH:mm:ss");
+
+                                // Para la ordenación, usar `data-order`
+                                return `<span data-order="${moment(fechaISO).unix()}">${data}</span>`;
+                            }
+                        },
+                        {
+                            className: 'td-btn',
+                            data: null,
+                            title: '<span class="sReader">Acción</span>',
+                            responsivePriority: 2,
+                            orderable: false,
+                            render: function (data, type, row) {
+                                return accionesFormatter(row); // 👈 aquí usas tu función
+                            }
+                        }
+                    ]
+                }, columnasConFiltro, 'export_enlaces');
+            }
+
+            $('#modalFechaEnlace').datepicker({
+                format: 'dd/mm/yyyy',
+                autoclose: true,
+                todayHighlight: true
+            }).on('show', function () {
+                $('.datepicker').addClass('datepicker-dropdown');
+            });
+
+            let today = new Date().toISOString().split('T')[0];
+            $("#modalFechaEnlace").val(formatDateToDDMMYYYY(today));
+
+            $("#btnNuevo").click(function (e) {
+                e.preventDefault();
+                $("#modalNuevoEnlace").modal("show");
+            });
+
+            $(document).on("click", "#confirmarNuevoEnlace", function () {
+                $("#modalNuevoEnlace").modal("hide");
+                mostrarDivCargando();
+
+                let fechaEnlace = $("#modalFechaEnlace").val();
+                //if (fechaEnlace) {
+                //    fechaEnlace = formatDateToDDMMYYYY(fechaEnlace);
+                //}
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("NuevoEnlace", "Portal")',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify({
+                        fechaEnlace: fechaEnlace
+                    }),
+                    success: function (response) {
+                        if (response.success) {
+                            mostrarToast("Enlace creado correctamente.", TipoToast.Success);
+                            location.reload();
+                        } else if (response.noPedidos) {
+                            ocultarDivCargando();
+                            Swal.fire({
+                                title: "Aviso",
+                                text: response.message,
+                                icon: "warning",
+                                confirmButtonText: "Cerrar"
+                            });
+                        } else {
+                            ocultarDivCargando();
+                            registrarErrorjQuery("", response.message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        ocultarDivCargando();
+                        const mensaje = obtenerMensajeErrorAjax(xhr);
+                        registrarErrorjQuery(xhr.status, mensaje);
+                    }
+                });
+            });
+        });
+    </script>
+}

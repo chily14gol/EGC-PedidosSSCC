@@ -1,0 +1,647 @@
+/* Ventanas de más de 1278 pixeles. BASE */
+@media all and (min-width: 1260px) {
+	/*body { border: 1px solid #f00; }*/
+	
+	
+	.rtsFormularioGeneral .labelsLargos label,
+	.rtsFormularioGeneral label.labelsLargos,
+	label.labelsLargos  {
+		width: 25em !important;
+	}
+	.bloqueCampos24em {
+		width: 25em !important; /*24em;*/
+	}
+	*[class^="bloqueCampos"] .bloqueCampos24em {
+		max-width: 280px !important;
+	}
+	*[class^="bloqueCampos"] .bloqueCampos24em:nth-child(2) {
+		max-width: 210px !important;
+	}
+	
+	.rtsFormularioGeneral label {
+		width: 16em !important; /*15em !important;*/
+	}
+	.bloqueCampos33 label,
+	div.rtsSubirArchivo .ruFakeInput {
+		width: 13em !important;
+	}
+	.bloqueCampos25 label {
+		width: 11.5em !important;
+	}
+	.rtsFormularioGeneral .labelsCortos label,
+	.rtsFormularioGeneral label.labelsCortos,
+	label.labelsCortos {
+		width: 8em !important;
+	}
+	.rtsFormularioGeneral  label.rtsSubirArchivolabel {
+		width: 5em;
+	}
+	.rtsFormularioGeneral .radiobuttonlist label {
+		width: 6em !important;
+	}
+	
+	/* Base = 300 px
+	
+	Antes 320
+	
+	Esto se modifica en las ventanas flotantes rtsPopup.css
+	*/
+	
+	.rtsFormularioGeneral  span.areaTexto,
+	.rtsFormularioGeneral span.RadInput[style*="160px;"],
+	.RadDropDownList,
+	.RadUpload,
+	.RadComboBox,
+	.RadDropDownTree,
+	.rddtPopup_Default {
+		width: 300px !important; /*Base*/
+	}
+	.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"] input {
+		width: 286px !important; /*Base - 14*/
+	}
+	.rtsFormularioGeneral .conBoton span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conBoton .RadComboBox,
+	.rtsFormularioGeneral .fecha span,
+	.rtsFormularioGeneral .fecha input   {
+		width: 276px !important; /*Base - 24*/
+	}
+	.rtsFormularioGeneral .contenidoTab fieldset .fecha span,
+	.rtsFormularioGeneral .contenidoTab fieldset .fecha input  {
+		width: 260px !important; /*Base - 40*/
+	}
+	.rtsFormularioGeneral .conTexto span.RadInput[style*="160px;"]  {
+		width: 260px !important; /*Base - 40*/
+	}
+	.rtsFormularioGeneral .conDobleBoton span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conDobleBoton .RadComboBox {
+		width: 252px !important; /*Base - 48*/
+	}
+	.rtsSubirArchivo span,
+	.rtsFormularioGeneral .conTripleBoton span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conTripleBoton .RadComboBox {
+		width: 228px !important; /*Base - 72*/
+	}
+	.conBoton .RadDropDownList,
+	.conBoton .rddlPopup {
+		max-width: 220px; /*Base - 80*/
+	}
+	.rtsFormularioGeneral .conBoton span.RadInput[style*="160px;"] input {
+		min-width: 220px !important; /*Base - 80*/
+	}
+	.rtsFormularioGeneral.rtsFormularioGeneral .conBoton span.RadInput[style*="160px;"] input {
+		min-width: 184px !important; /*Base - 116*/
+	}
+	.rtsSubirArchivo span span.ruUploadSuccess {
+		width: 210px !important; /*Base - 90*/ 
+	}
+	.pruebaAncho,
+	.RadComoBox_Medio {
+		width: 200px !important; /*Base - 100*/ 
+	}
+	.rtsFormularioGeneral .conDobleBoton span.RadInput[style*="160px;"] input {
+		/*min-width: 200px;*/ /* Cambiado 2014-09-18. Adaptar los anchos de los inputs con icono en las ventanas flotantes */
+	}	
+	.conDobleBoton .RadDropDownList,
+	.conDobleBoton .rddlPopup {
+		max-width: 196px !important; /*Base - 104*/
+	}
+	.rtsFormularioGeneral .conTripleBoton span.RadInput[style*="160px;"] input {
+		min-width: 180px !important; /*Base - 120*/ 
+	}
+	.conTripleBoton .RadDropDownList,
+	.conTripleBoton .rddlPopup {
+		max-width: 172px !important; /*Base - 128*/ 
+	}
+	.RadComoBoxCorto, .RadComboBoxCorto,
+	.rtsFormularioGeneral .inputsMedios span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .inputsMedios span.RadInput[style*="160px;"] input,
+	.rtsFormularioGeneral .inputsMedios .RadComboBox {
+		width: 120px !important; /*Base - 180*/ 
+	}
+	.rgFilterRow div.RadPicker,
+	.rgFilterRow [style="width:160px;"],
+	.rgFilterRow [style*="160px;"],
+	.rgFilterRow .RadPicker .rcInputCell {
+		width: 116px !important; /*Base - 184*/ 
+	}
+	.RadComboBoxLargo,
+	.rgFilterRow .RadComboBoxLargo,
+	.RadComboBoxLargo .rddlPopup,
+	.rgFilterRow .RadComboBoxLargo .rddlPopup {
+		width: 240px !important; /*Base - 60*/
+	}	
+	.RadDropDownList.RadDropDrownListCorto,
+	.RadDropDrownListCorto .rddlPopup,
+	.rgFilterRow .RadComboBoxCorto  {
+		width: 80px !important; /*Base - 220*/
+	}
+	.rtsFormularioGeneral .inputsCortos span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .inputsCortos span.RadInput[style*="160px;"] input {
+		width: 70px !important; /*Base - 230*/
+	}
+	.RadComboBoxPaginado {
+		width: 60px !important; /*Base - 240*/
+	}
+
+}
+/* Ventanas entre 1152 y 1280 pixeles. 90% del base */
+@media all and (min-width: 1136px) and (max-width: 1259px) {
+	/*body { border: 1px solid #00f; }*/
+	
+	
+	.rtsFormularioGeneral .labelsLargos label,
+	.rtsFormularioGeneral label.labelsLargos,
+	label.labelsLargos  {
+		width: 22em !important;
+	}
+	.bloqueCampos24em {
+		width: 22em !important; /*24em;*/
+	}
+	*[class^="bloqueCampos"] .bloqueCampos24em {
+		max-width: 250px !important;
+	}
+	*[class^="bloqueCampos"] .bloqueCampos24em:nth-child(2) {
+		max-width: 180px !important;
+	}
+	.rtsFormularioGeneral label {
+		width: 13em !important;
+	}
+	.bloqueCampos33 label,
+	div.rtsSubirArchivo .ruFakeInput {
+		width: 11.5em !important;
+	}
+	.bloqueCampos25 label {
+		width: 10em !important;
+	}
+	.rtsFormularioGeneral .labelsCortos label,
+	.rtsFormularioGeneral label.labelsCortos,
+	label.labelsCortos {
+		width: 7.2em !important;
+	}
+	.rtsFormularioGeneral  label.rtsSubirArchivolabel {
+		width: 4.5em;
+	}
+	.rtsFormularioGeneral .radiobuttonlist label {
+		width: 3.6em !important;
+	}
+	
+	/* Base = 270 px. 90% de 300px.
+	
+	Esto se modifica en las ventanas flotantes trsPopup.css
+	*/
+	
+	.rtsFormularioGeneral  span.areaTexto,
+	.rtsFormularioGeneral span.RadInput[style*="160px;"],
+	.RadDropDownList,
+	.RadUpload,
+	.RadComboBox,
+	.RadDropDownTree,
+	.rddtPopup_Default {
+		width: 270px !important; /*Base*/
+	}
+	.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"] input {
+		width: 256px !important; /*Base - 10*/
+	}
+	.rtsFormularioGeneral .conBoton span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conBoton .RadComboBox,
+	.rtsFormularioGeneral .fecha span,
+	.rtsFormularioGeneral .fecha input  {
+		width: 246px !important; /*Base - 24*/
+	}
+	.rtsFormularioGeneral .conTexto span.RadInput[style*="160px;"]  {
+		width: 230px !important; /*Base - 40*/
+	}
+	.rtsFormularioGeneral .conDobleBoton span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conDobleBoton .RadComboBox {
+		width: 222px !important; /*Base - 48*/
+	}
+	.rtsSubirArchivo span,
+	.rtsFormularioGeneral .conTripleBoton span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conTripleBoton .RadComboBox {
+		width: 198px !important; /*Base - 72*/
+	}
+	.conBoton .RadDropDownList,
+	.conBoton .rddlPopup {
+		max-width: 190px;
+	}
+	.rtsFormularioGeneral .conBoton span.RadInput[style*="160px;"] input,
+	.rtsFormularioGeneral .conTexto span.RadInput[style*="160px;"] input {
+		min-width: 190px !important; /*Base - 80*/
+	}
+	.rtsSubirArchivo span span.ruUploadSuccess {
+		width: 180px !important; /*Base - 90*/ 
+	}
+	.pruebaAncho,
+	.RadComoBox_Medio {
+		width: 170px !important; /*Base - 100*/ 
+	}
+	.rtsFormularioGeneral .conDobleBoton span.RadInput[style*="160px;"] input {
+		min-width: 170px;
+	}	
+	.conDobleBoton .RadDropDownList,
+	.conDobleBoton .rddlPopup {
+		max-width: 166px !important; /*Base - 104*/
+	}
+	.rtsFormularioGeneral .conTripleBoton span.RadInput[style*="160px;"] input {
+		min-width: 150px !important; /*Base - 120*/ 
+	}
+	.conTripleBoton .RadDropDownList,
+	.conTripleBoton .rddlPopup {
+		max-width: 142px !important; /*Base - 128*/ 
+	}
+	.RadComoBoxCorto, .RadComboBoxCorto,
+	.rtsFormularioGeneral .inputsMedios span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .inputsMedios span.RadInput[style*="160px;"] input,
+	.rtsFormularioGeneral .inputsMedios .RadComboBox {
+		width: 90px !important; /*Base - 180*/ 
+	}
+	.rgFilterRow div.RadPicker,
+	.rgFilterRow [style="width:160px;"],
+	.rgFilterRow [style*="160px;"],
+	.rgFilterRow .RadPicker .rcInputCell {
+		width: 86px !important; /*Base - 184*/ 
+	}
+	.RadComboBoxLargo,
+	.rgFilterRow .RadComboBoxLargo,
+	.RadComboBoxLargo .rddlPopup,
+	.rgFilterRow .RadComboBoxLargo .rddlPopup {
+		width: 210px !important; /*Base - 60*/
+	}
+	
+	/* Por el momento los dejamos al 100%. Son especiales --------------------------------------------*/
+	.RadDropDownList.RadDropDrownListCorto,
+	.RadDropDrownListCorto .rddlPopup {
+		width: 80px !important; /*Base - 220*/
+	}
+	.rtsFormularioGeneral .inputsCortos span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .inputsCortos span.RadInput[style*="160px;"] input {
+		width: 70px !important; /*Base - 230*/
+	}
+	.RadComboBoxPaginado {
+		width: 60px !important; /*Base - 240*/
+	}
+	
+	.cajaToolTip {
+		left: 394px !important;
+	}
+	
+	input.botVerDetalle {
+		left: 394px;
+	}
+	
+}
+
+
+/* Ventanas entre 1024 y 1152 pixeles. 75% del base */
+@media all and (min-width: 1006px) and (max-width: 1135px) {
+	/*body { border: 1px solid #0f0; }*/
+	
+	
+	.rtsFormularioGeneral .labelsLargos label,
+	.rtsFormularioGeneral label.labelsLargos,
+	label.labelsLargos  {
+		width: 18em !important;
+	}
+	.bloqueCampos24em {
+		width: 21em !important; /*24em;*/
+	}
+	*[class^="bloqueCampos"] .bloqueCampos24em {
+		max-width: 240px !important;
+	}
+	*[class^="bloqueCampos"] .bloqueCampos24em:nth-child(2) {
+		max-width: 150px !important;
+	}
+	.rtsFormularioGeneral label {
+		width: 12em !important;
+	}
+	.bloqueCampos33 label,
+	div.rtsSubirArchivo .ruFakeInput {
+		width: 10em !important;
+	}
+	.bloqueCampos25 label {
+		width: 9em !important;
+	}
+	.rtsFormularioGeneral .labelsCortos label,
+	.rtsFormularioGeneral label.labelsCortos,
+	label.labelsCortos {
+		width: 6.4em !important;
+	}
+	.rtsFormularioGeneral  label.rtsSubirArchivolabel {
+		width: 5em;
+	}
+	.rtsFormularioGeneral .radiobuttonlist label {
+		width: 4em !important;
+	}
+	
+	/* Base = 240 px. 80% de 300px.
+	
+	Esto se modifica en las ventanas flotantes trsPopup.css
+	*/
+	
+	.rtsFormularioGeneral span.areaTexto,
+	.rtsFormularioGeneral span.RadInput[style*="160px;"],
+	.RadDropDownList,
+	.RadUpload,
+	.RadComboBox,
+	.RadDropDownTree,
+	.rddtPopup_Default {
+		width: 225px !important; /*Base*/
+	}
+	
+	.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"] input {
+		width: 210px !important; /*Base - 10*/
+	}
+	.rtsFormularioGeneral .conBoton span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conBoton .RadComboBox,
+	.rtsFormularioGeneral .fecha span,
+	.rtsFormularioGeneral .fecha input  {
+		width: 201px !important; /*Base - 24*/
+	}
+	.rtsFormularioGeneral .conTexto span.RadInput[style*="160px;"]  {
+		width: 185px !important; /*Base - 40*/
+	}
+	.rtsFormularioGeneral .conDobleBoton span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conDobleBoton .RadComboBox {
+		width: 177px !important; /*Base - 48*/
+	}
+	.rtsSubirArchivo span,
+	.rtsFormularioGeneral .conTripleBoton span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conTripleBoton .RadComboBox {
+		width: 143px !important; /*Base - 72*/
+	}
+	.conBoton .RadDropDownList,
+	.conBoton .rddlPopup {
+		max-width: 145px; /*Base - 80*/
+	}
+	.rtsFormularioGeneral .conBoton span.RadInput[style*="160px;"] input,
+	.rtsFormularioGeneral .conTexto span.RadInput[style*="160px;"] input {
+		min-width: 145px !important; /*Base - 80*/
+	}
+	.rtsSubirArchivo span span.ruUploadSuccess {
+		width: 135px !important; /*Base - 90*/ 
+	}
+	.pruebaAncho,
+	.RadComoBox_Medio {
+		width: 125px !important; /*Base - 100*/ 
+	}
+	.rtsFormularioGeneral .conDobleBoton span.RadInput[style*="160px;"] input {
+		min-width: 125x; /*Base - 100*/ 
+	}	
+	.conDobleBoton .RadDropDownList,
+	.conDobleBoton .rddlPopup {
+		max-width: 121px !important; /*Base - 104*/
+	}
+	.rtsFormularioGeneral .conTripleBoton span.RadInput[style*="160px;"] input {
+		min-width: 105px !important; /*Base - 120*/ 
+	}
+	.conTripleBoton .RadDropDownList,
+	.conTripleBoton .rddlPopup {
+		max-width: 93px !important; /*Base - 128*/ 
+	}
+	
+	/* Por el momento los dejamos al 100%. Son especiales --------------------------------------------*/
+	.RadComoBoxCorto, .RadComboBoxCorto,
+	.rtsFormularioGeneral .inputsMedios span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .inputsMedios span.RadInput[style*="160px;"] input,
+	.rtsFormularioGeneral .inputsMedios .RadComboBox {
+		width: 86px !important; /*Base - 180*/ 
+	}
+	.rgFilterRow div.RadPicker,
+	.rgFilterRow [style="width:160px;"],
+	.rgFilterRow [style*="160px;"],
+	.rgFilterRow .RadPicker .rcInputCell {
+		width: 90px !important; /*Base - 184*/ 
+	}
+	.RadComboBoxLargo,
+	.rgFilterRow .RadComboBoxLargo,
+	.RadComboBoxLargo .rddlPopup,
+	.rgFilterRow .RadComboBoxLargo .rddlPopup {
+		width: 155px !important; /*Base - 60*/
+	}
+	.RadDropDownList.RadDropDrownListCorto,
+	.RadDropDrownListCorto .rddlPopup {
+		width: 80px !important; /*Base - 220*/
+	}
+	.rtsFormularioGeneral .inputsCortos span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .inputsCortos span.RadInput[style*="160px;"] input {
+		width: 70px !important; /*Base - 230*/
+	}
+	.RadComboBoxPaginado {
+		width: 60px !important; /*Base - 240*/
+	}
+	
+	.rtsFormularioGeneral fieldset fieldset {
+   	padding: 6px 0px !important;
+	}
+	.rtsFormularioGeneral fieldset fieldset legend {
+   	margin-left: 4px !important;
+	}
+	.cajaToolTip {
+		left: 338px !important;
+	}
+	
+	input.botVerDetalle {
+		left: 338px;
+	}
+}
+
+/* Ventanas entre 800 y 1024 pixeles. 60% de la base */
+@media all and (min-width: 798px) and (max-width: 1005px) {
+	/*body { border: 1px solid #ff0; }*/
+	
+	
+	.rtsFormularioGeneral .labelsLargos label,
+	.rtsFormularioGeneral label.labelsLargos,
+	label.labelsLargos  {
+		width: 25em !important;
+	}
+	.bloqueCampos24em {
+		width: 21.8em; /*24em;*/
+	}	
+	.rtsFormularioGeneral label {
+		width: 15em !important;
+	}
+	.bloqueCampos33 label,
+	div.rtsSubirArchivo .ruFakeInput {
+		width: 13em !important;
+	}
+	.bloqueCampos25 label {
+		width: 11.5em !important;
+	}
+	.rtsFormularioGeneral .labelsCortos label,
+	.rtsFormularioGeneral label.labelsCortos,
+	label.labelsCortos {
+		width: 8em !important;
+	}
+	.rtsFormularioGeneral  label.rtsSubirArchivolabel {
+		width: 5em;
+	}
+	.rtsFormularioGeneral .radiobuttonlist label {
+		width: 4em !important;
+	}
+	
+	/* Base = 240 px. 60% de la base, 300
+	
+	Esto se modifica en las ventanas flotantes trsPopup.css
+	*/
+	
+	.rtsFormularioGeneral  span.areaTexto,
+	.rtsFormularioGeneral span.RadInput[style*="160px;"],
+	.RadDropDownList,
+	.RadUpload,
+	.RadComboBox,
+	.RadDropDownTree,
+	.rddtPopup_Default {
+		width: 180px !important; /*Base*/
+	}
+	.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"] input {
+		width: 166px !important; /*Base - 10*/
+	}
+	.rtsFormularioGeneral .conBoton span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conBoton .RadComboBox,
+	.rtsFormularioGeneral .fecha span,
+	.rtsFormularioGeneral .fecha input  {
+		width: 156px !important; /*Base - 24*/
+	}
+	.rtsFormularioGeneral .conTexto span.RadInput[style*="160px;"]  {
+		width: 140px !important; /*Base - 40*/
+	}
+	.rtsFormularioGeneral .conDobleBoton span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conDobleBoton .RadComboBox {
+		width: 132px !important; /*Base - 48*/
+	}
+	.rtsSubirArchivo span,
+	.rtsFormularioGeneral .conTripleBoton span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .conTripleBoton .RadComboBox {
+		width: 108px !important; /*Base - 72*/
+	}
+	.conBoton .RadDropDownList,
+	.conBoton .rddlPopup {
+		max-width: 100px;
+	}
+	.rtsFormularioGeneral .conBoton span.RadInput[style*="160px;"] input,
+	.rtsFormularioGeneral .conTexto span.RadInput[style*="160px;"] input {
+		min-width: 100px !important; /*Base - 80*/
+	}
+	.rtsSubirArchivo span span.ruUploadSuccess {
+		width: 90px !important; /*Base - 90*/ 
+	}
+	.pruebaAncho,
+	.RadComoBox_Medio {
+		width: 80px !important; /*Base - 100*/ 
+	}
+	.rtsFormularioGeneral .conDobleBoton span.RadInput[style*="160px;"] input {
+		min-width: 80px;
+	}	
+	.conDobleBoton .RadDropDownList,
+	.conDobleBoton .rddlPopup {
+		max-width: 76px !important; /*Base - 104*/
+	}
+	.rtsFormularioGeneral .conTripleBoton span.RadInput[style*="160px;"] input {
+		min-width: 60px !important; /*Base - 120*/ 
+	}
+	.conTripleBoton .RadDropDownList,
+	.conTripleBoton .rddlPopup {
+		max-width: 52px !important; /*Base - 128*/ 
+	}
+	
+	
+	/* Por el momento los dejamos al 100%. Son especiales --------------------------------------------*/
+	.RadComoBoxCorto, .RadComboBoxCorto,
+	.rtsFormularioGeneral .inputsMedios span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .inputsMedios span.RadInput[style*="160px;"] input,
+	.rtsFormularioGeneral .inputsMedios .RadComboBox {
+		width: 120px !important; /*Base - 180*/ 
+	}
+	.rgFilterRow div.RadPicker,
+	.rgFilterRow [style="width:160px;"],
+	.rgFilterRow [style*="160px;"],
+	.rgFilterRow .RadPicker .rcInputCell {
+		width: 116px !important; /*Base - 184*/ 
+	}
+	.RadComboBoxLargo,
+	.rgFilterRow .RadComboBoxLargo,
+	.RadComboBoxLargo .rddlPopup,
+	.rgFilterRow .RadComboBoxLargo .rddlPopup {
+		width: 120px !important; /*Base - 60*/
+	}	
+	.RadDropDownList.RadDropDrownListCorto,
+	.RadDropDrownListCorto .rddlPopup {
+		width: 80px !important; /*Base - 220*/
+	}
+	.rtsFormularioGeneral .inputsCortos span.RadInput[style*="160px;"],
+	.rtsFormularioGeneral .inputsCortos span.RadInput[style*="160px;"] input {
+		width: 70px !important; /*Base - 230*/
+	}
+	.RadComboBoxPaginado {
+		width: 60px !important; /*Base - 240*/
+	}
+	.rtsFormularioGeneral fieldset fieldset {
+   	padding: 6px 0px !important;
+	}
+	.rtsFormularioGeneral fieldset fieldset legend {
+   	margin-left: 4px !important;
+	}
+	.cajaToolTip {
+		left: 158px !important;
+		top: 16px !important;
+	}
+	
+	input.botVerDetalle {
+		left: 158px;
+	}
+}
+
+/* anchos en porcentaje, sin influencia con los media queries*/
+.rtsFormularioGeneral .labels90 label,
+.rtsFormularioGeneral label.labels90  {
+	width: 90% !important;
+}
+.rtsFormularioGeneral span.areaTexto75,
+.rtsFormularioGeneral span.RadInput.areaTexto.areaTexto75,
+div[class^="gantt"] .areaTexto.areaTexto75 {
+	width: 79.4% !important;
+}
+.RadComboBoxEspecial,
+.rgFilterRow .RadComboBoxEspecial,
+.RadComboBoxEspecial .rddlPopup,
+.rgFilterRow .RadComboBoxEspecial .rddlPopup,
+.rtsPopupContenedor .rtsPopupContenido .RadComboBoxEspecial {
+	width: 400px !important;
+}
+
+.rtsPopupContenedorGrande .rtsPopupContenido .RadComboBoxEspecial {
+	width: 400px !important;
+}
+/* Cálculos en base al alto. Para las ventanas de gantt */
+@media all and (min-height: 800px) {
+	.ganttPopUpContenedor .resEdit {
+		max-height: 750px !important;
+	}
+	
+	.ganttPopUpContenedor .ganttConScroll {
+		max-height: 350px;
+	}
+}
+
+@media all and (min-height: 595px) and (max-height: 799px) {
+	.ganttPopUpContenedor .resEdit {
+		max-height: 475px !important;
+	}
+	.ganttPopUpContenedor .ganttConScroll {
+		max-height: 250px;
+	}
+}
+
+@media all and (max-height: 594px) {
+	.ganttPopUpContenedor .resEdit {
+		max-height: 350px !important;
+	}
+	.ganttPopUpContenedor .ganttConScroll {
+		max-height: 150px;
+	}
+}

@@ -1,0 +1,677 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="errMaxFileSizeUpload" xml:space="preserve">
+    <value>Ha superado el tamaño máximo del fichero ({0} mb)</value>
+  </data>
+  <data name="errRequerido" xml:space="preserve">
+    <value>El campo {0} es obligatorio.</value>
+  </data>
+  <data name="litSeleccionar" xml:space="preserve">
+    <value>Seleccionar</value>
+  </data>
+  <data name="litLimpiar" xml:space="preserve">
+    <value>Limpiar</value>
+  </data>
+  <data name="litNuevo" xml:space="preserve">
+    <value>Nuevo</value>
+  </data>
+  <data name="litEditar" xml:space="preserve">
+    <value>Editar</value>
+  </data>
+  <data name="litGuardar" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="litGuardarYNuevo" xml:space="preserve">
+    <value>Guardar y nuevo</value>
+  </data>
+  <data name="litEliminar" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="litFiltros" xml:space="preserve">
+    <value>Filtros</value>
+  </data>
+  <data name="litLimpiarFiltros" xml:space="preserve">
+    <value>Limpiar filtros</value>
+  </data>
+  <data name="litBusquedaAvanzada" xml:space="preserve">
+    <value>Búsqueda avanzada</value>
+  </data>
+  <data name="litRefrescar" xml:space="preserve">
+    <value>Refrescar</value>
+  </data>
+  <data name="litExportarExcel" xml:space="preserve">
+    <value>Exportar a Excel</value>
+  </data>
+  <data name="litVolver" xml:space="preserve">
+    <value>Volver</value>
+  </data>
+  <data name="msgGuardarError" xml:space="preserve">
+    <value>Ha ocurrido un error al registrar la información</value>
+  </data>
+  <data name="msgGuardarErrorTitulo" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="msgEliminarError" xml:space="preserve">
+    <value>Ha ocurrido un error al eliminar el registro</value>
+  </data>
+  <data name="msgEliminarErrorTitulo" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="confirmEliminarRegistro" xml:space="preserve">
+    <value>¿Está seguro de que desea eliminar el registro?</value>
+  </data>
+  <data name="litDesde" xml:space="preserve">
+    <value>Desde</value>
+  </data>
+  <data name="litHasta" xml:space="preserve">
+    <value>Hasta</value>
+  </data>
+  <data name="litSi" xml:space="preserve">
+    <value>Si</value>
+  </data>
+  <data name="litNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="litSinRegistros" xml:space="preserve">
+    <value>No hay registros</value>
+  </data>
+  <data name="litAprobar" xml:space="preserve">
+    <value>Aprobar</value>
+  </data>
+  <data name="litRechazar" xml:space="preserve">
+    <value>Rechazar</value>
+  </data>
+  <data name="confirmAprobarWorkflow" xml:space="preserve">
+    <value>¿Está seguro de que desea APROBAR la solicitud?</value>
+  </data>
+  <data name="confirmRechazarWorkflow" xml:space="preserve">
+    <value>¿Está seguro de que desea RECHAZAR la solicitud?</value>
+  </data>
+  <data name="errLogin" xml:space="preserve">
+    <value>Usuario o contraseña incorrectos</value>
+  </data>
+  <data name="lblPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="lblUsuario" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="litLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="lblCaptcha" xml:space="preserve">
+    <value>Texto imagen</value>
+  </data>
+  <data name="errCaptcha" xml:space="preserve">
+    <value>El texto introducido no coincide con el texto de la imagen.</value>
+  </data>
+  <data name="btnIniciarSesion" xml:space="preserve">
+    <value>Iniciar sesión</value>
+  </data>
+  <data name="litNombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="litApellido1" xml:space="preserve">
+    <value>Apellido 1</value>
+  </data>
+  <data name="litApellido2" xml:space="preserve">
+    <value>Apellido 2</value>
+  </data>
+  <data name="btnAceptar" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="btnCancelar" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="litSesionCaducada" xml:space="preserve">
+    <value>Sesión caducada</value>
+  </data>
+  <data name="litSesionCaducadaDescripcion" xml:space="preserve">
+    <value>La sesión ha caducado por inactividad.</value>
+  </data>
+  <data name="litEmpleandoNavegadorNoSoportado" xml:space="preserve">
+    <value>Esta empleando un navegador web no soportado</value>
+  </data>
+  <data name="litNavegadorNoSoportado" xml:space="preserve">
+    <value>Navegado no soportado</value>
+  </data>
+  <data name="litMenuInicio" xml:space="preserve">
+    <value>Inicio</value>
+  </data>
+  <data name="litMenuPortal" xml:space="preserve">
+    <value>Portal</value>
+  </data>
+  <data name="litMenuPersonas" xml:space="preserve">
+    <value>Personas</value>
+  </data>
+  <data name="litMenuFacturacion" xml:space="preserve">
+    <value>Facturación</value>
+  </data>
+  <data name="litMenuFacturas" xml:space="preserve">
+    <value>Facturas</value>
+  </data>
+  <data name="litMenuLineasEsfuerzo" xml:space="preserve">
+    <value>Conceptos de facturación</value>
+  </data>
+  <data name="litCantidad" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="litDescripcion" xml:space="preserve">
+    <value>Descripción</value>
+  </data>
+  <data name="litEstado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="litAprobador" xml:space="preserve">
+    <value>Aprobador</value>
+  </data>
+  <data name="litFechaAprobacion" xml:space="preserve">
+    <value>Fecha aprobación</value>
+  </data>
+  <data name="litEmpresa" xml:space="preserve">
+    <value>Empresa</value>
+  </data>
+  <data name="litTarea" xml:space="preserve">
+    <value>Tarea</value>
+  </data>
+  <data name="msgAsuntoMailSolicitudLineaEsfuerzo" xml:space="preserve">
+    <value>Pedidos de venta SSCC - Solicitud de alta de concepto de facturación</value>
+  </data>
+  <data name="litComentarios" xml:space="preserve">
+    <value>Comentarios</value>
+  </data>
+  <data name="litDatosSolicitud" xml:space="preserve">
+    <value>Datos solicitud</value>
+  </data>
+  <data name="litFechaSolicitud" xml:space="preserve">
+    <value>Fecha solicitud</value>
+  </data>
+  <data name="litSolicitante" xml:space="preserve">
+    <value>Solicitante</value>
+  </data>
+  <data name="btnSolicitar" xml:space="preserve">
+    <value>Solicitar</value>
+  </data>
+  <data name="litPresupuesto" xml:space="preserve">
+    <value>Presupuesto</value>
+  </data>
+  <data name="litPresupuestoConsumido" xml:space="preserve">
+    <value>Presupuesto consumido</value>
+  </data>
+  <data name="litPresupuestoRestante" xml:space="preserve">
+    <value>Presupuesto restante</value>
+  </data>
+  <data name="litFechaEmision" xml:space="preserve">
+    <value>Fecha emisión</value>
+  </data>
+  <data name="litImporteTotal" xml:space="preserve">
+    <value>Importe total</value>
+  </data>
+  <data name="litNumFactura" xml:space="preserve">
+    <value>Nº factura</value>
+  </data>
+  <data name="confirmEmitirFactura" xml:space="preserve">
+    <value>¿Está seguro de que desea emitir la factura? Se bloqueará la factura y se solicitará su aprobación si es requerida.</value>
+  </data>
+  <data name="confirmEmitirPedido" xml:space="preserve">
+    <value>¿Está seguro de que desea emitir el pedido? Se bloqueará el pedido y se solicitará su aprobación si es requerida.</value>
+  </data>
+  <data name="litDatosGenerales" xml:space="preserve">
+    <value>Datos generales</value>
+  </data>
+  <data name="litDetalleFactura" xml:space="preserve">
+    <value>Detalle de la factura</value>
+  </data>
+  <data name="litEmitirFactura" xml:space="preserve">
+    <value>Emitir factura</value>
+  </data>
+  <data name="litFactura" xml:space="preserve">
+    <value>Factura</value>
+  </data>
+  <data name="litPedido" xml:space="preserve">
+    <value>Pedido</value>
+  </data>
+  <data name="msgGuardarOK" xml:space="preserve">
+    <value>Se ha registrado la información correctamente</value>
+  </data>
+  <data name="msgGuardarOKTitulo" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="msgGuardarErrorNoEditable" xml:space="preserve">
+    <value>Ha ocurrido un error al registrar la información debido a que no es editable</value>
+  </data>
+  <data name="litSeleccioneLineasEsfuerzo" xml:space="preserve">
+    <value>Seleccione los conceptos de facturación a incluir:</value>
+  </data>
+  <data name="litDocumento" xml:space="preserve">
+    <value>Documento</value>
+  </data>
+  <data name="litImporteIVA" xml:space="preserve">
+    <value>Importe IVA</value>
+  </data>
+  <data name="litImporteSinIVA" xml:space="preserve">
+    <value>Importe (sin IVA)</value>
+  </data>
+  <data name="alertCantidadTareaEmpresaSuperada" xml:space="preserve">
+    <value>Se han guardado los datos, aunque se ha superado el nº de elementos definido para esta tarea-empresa.</value>
+  </data>
+  <data name="alertPresupuestoTareaEmpresaSuperado" xml:space="preserve">
+    <value>Se han guardado los datos, aunque se ha superado el presupuesto definido para esta tarea-empresa.</value>
+  </data>
+  <data name="litContacto" xml:space="preserve">
+    <value>Contacto</value>
+  </data>
+  <data name="litDireccion" xml:space="preserve">
+    <value>Dirección</value>
+  </data>
+  <data name="litExpedienteReferencia" xml:space="preserve">
+    <value>Expediente/referencia de pedido</value>
+  </data>
+  <data name="litFechaVencimiento" xml:space="preserve">
+    <value>Fecha vencimiento</value>
+  </data>
+  <data name="litLineasEsfuerzoSeleccionadas" xml:space="preserve">
+    <value>Conceptos de facturación seleccionados:</value>
+  </data>
+  <data name="litLineasEsfuerzoPendientesAprobacion" xml:space="preserve">
+    <value>Conceptos de facturación pendientes de aprobación</value>
+  </data>
+  <data name="litAcceso" xml:space="preserve">
+    <value>Acceso</value>
+  </data>
+  <data name="litApartado" xml:space="preserve">
+    <value>Apartado</value>
+  </data>
+  <data name="litEdicion" xml:space="preserve">
+    <value>Edición</value>
+  </data>
+  <data name="litEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="litMenuMantenimientos" xml:space="preserve">
+    <value>Mantenimientos</value>
+  </data>
+  <data name="litMenuPerfiles" xml:space="preserve">
+    <value>Perfiles</value>
+  </data>
+  <data name="litMenuUsuarios" xml:space="preserve">
+    <value>Usuarios</value>
+  </data>
+  <data name="litPerfil" xml:space="preserve">
+    <value>Perfil</value>
+  </data>
+  <data name="litPersona" xml:space="preserve">
+    <value>Persona</value>
+  </data>
+  <data name="litUsuario" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="litImporteUnitario" xml:space="preserve">
+    <value>Importe unitario</value>
+  </data>
+  <data name="litMenuTareas" xml:space="preserve">
+    <value>Tareas</value>
+  </data>
+  <data name="litImporte" xml:space="preserve">
+    <value>Importe</value>
+  </data>
+  <data name="litTipo" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="litCantidadFija" xml:space="preserve">
+    <value>Cantidad fija</value>
+  </data>
+  <data name="litPorHoras" xml:space="preserve">
+    <value>Por horas</value>
+  </data>
+  <data name="litPorUnidades" xml:space="preserve">
+    <value>Por unidades</value>
+  </data>
+  <data name="litIVA" xml:space="preserve">
+    <value>IVA</value>
+  </data>
+  <data name="litSeccion" xml:space="preserve">
+    <value>Sección</value>
+  </data>
+  <data name="litUnidad" xml:space="preserve">
+    <value>Unidad</value>
+  </data>
+  <data name="litDetalleTarea" xml:space="preserve">
+    <value>Detalle de la tarea</value>
+  </data>
+  <data name="litDatosEmpresa" xml:space="preserve">
+    <value>Datos empresa</value>
+  </data>
+  <data name="litElementos" xml:space="preserve">
+    <value>Elementos</value>
+  </data>
+  <data name="litEmpresas" xml:space="preserve">
+    <value>Empresas</value>
+  </data>
+  <data name="errSeleccionarLineaEsfuerzo" xml:space="preserve">
+    <value>Debe seleccionar al menos un concepto de facturación</value>
+  </data>
+  <data name="litPresupuestoUnidades" xml:space="preserve">
+    <value>Presupuesto - Unidades</value>
+  </data>
+  <data name="litUnidades" xml:space="preserve">
+    <value>Unidades</value>
+  </data>
+  <data name="errEliminarTareaExistenEmpresas" xml:space="preserve">
+    <value>No se puede eliminar la tarea ya que tiene empresas asociadas.</value>
+  </data>
+  <data name="litFacturasPendientesAprobacion" xml:space="preserve">
+    <value>Facturas pendientes de aprobación</value>
+  </data>
+  <data name="litVerDetalle" xml:space="preserve">
+    <value>Ver detalle</value>
+  </data>
+  <data name="msgAsuntoMailSolicitudFactura" xml:space="preserve">
+    <value>Pedidos de venta SSCC - Solicitud de factura</value>
+  </data>
+  <data name="litEmpresaFacturar" xml:space="preserve">
+    <value>Empresa a facturar</value>
+  </data>
+  <data name="litRequiereAprobacion" xml:space="preserve">
+    <value>Requiere aprobación</value>
+  </data>
+  <data name="litDescargar" xml:space="preserve">
+    <value>Descargar</value>
+  </data>
+  <data name="litError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="litFecha" xml:space="preserve">
+    <value>Fecha</value>
+  </data>
+  <data name="litMenuEnlaceContable" xml:space="preserve">
+    <value>Enlace contable</value>
+  </data>
+  <data name="errFacturasEnlaceContable" xml:space="preserve">
+    <value>No existen facturas que cumplan los criterios indicados para realizar el enlace contable</value>
+  </data>
+  <data name="errFechaEnlaceContable" xml:space="preserve">
+    <value>La fecha del enlace contable no puede ser posterior a la actual</value>
+  </data>
+  <data name="litConceptoFacturacion" xml:space="preserve">
+    <value>Concepto facturación</value>
+  </data>
+  <data name="litActividadFormacion" xml:space="preserve">
+    <value>Enseñanza Formacion Profesional no Superior</value>
+    <comment>NO METER ACENTOS, A TRANSKAL NO LE GUSTAN</comment>
+  </data>
+  <data name="litActividadGeneral" xml:space="preserve">
+    <value>Explotacion electronica por cta de terceros</value>
+    <comment>NO METER ACENTOS, A TRANSKAL NO LE GUSTAN</comment>
+  </data>
+  <data name="litRealizadoPor" xml:space="preserve">
+    <value>Realizado por</value>
+  </data>
+  <data name="litFechaEnlace" xml:space="preserve">
+    <value>Fecha enlace</value>
+  </data>
+  <data name="litVerTodo" xml:space="preserve">
+    <value>Ver todo</value>
+  </data>
+  <data name="litFacturado" xml:space="preserve">
+    <value>Facturado</value>
+  </data>
+  <data name="litFechaCreacion" xml:space="preserve">
+    <value>Fecha de creación</value>
+  </data>
+  <data name="msgConfirmFechaEmisionEnlace" xml:space="preserve">
+    <value>La fecha de emisión de la factura es anterior a la fecha del último enlace. ¿Desea continuar?</value>
+  </data>
+  <data name="litListadoFacturasConceptos" xml:space="preserve">
+    <value>Exportar Facturas y Conceptos</value>
+  </data>
+  <data name="litDescargarFacturas" xml:space="preserve">
+    <value>Descargar facturas</value>
+  </data>
+  <data name="litItemNumberD365" xml:space="preserve">
+    <value>Item number (D365)</value>
+  </data>
+  <data name="litProductoD365" xml:space="preserve">
+    <value>Producto (D365)</value>
+  </data>
+  <data name="litDetallePedido" xml:space="preserve">
+    <value>Detalle del pedido</value>
+  </data>
+  <data name="litEmitirPedido" xml:space="preserve">
+    <value>Emitir pedido</value>
+  </data>
+  <data name="litMenuPedidos" xml:space="preserve">
+    <value>Pedidos</value>
+  </data>
+  <data name="litNumPedido" xml:space="preserve">
+    <value>Nº pedido</value>
+  </data>
+  <data name="litListadoPedidosConceptos" xml:space="preserve">
+    <value>Exportar Pedidos y Conceptos</value>
+  </data>
+  <data name="litFechaPedido" xml:space="preserve">
+    <value>Fecha del pedido</value>
+  </data>
+  <data name="litAnyoConcepto" xml:space="preserve">
+    <value>Año del concepto</value>
+  </data>
+  <data name="litMesConcepto" xml:space="preserve">
+    <value>Mes del concepto</value>
+  </data>
+  <data name="litMenuConfiguracion" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="litID" xml:space="preserve">
+    <value>Id</value>
+  </data>
+  <data name="litValor" xml:space="preserve">
+    <value>Valor</value>
+  </data>
+  <data name="msgEscribeParaBuscar" xml:space="preserve">
+    <value>Escriba aquí el texto a buscar</value>
+  </data>
+  <data name="msgSeleccionaTareaEmpresa" xml:space="preserve">
+    <value>Seleccione tarea-empresa</value>
+  </data>
+  <data name="litExportarConceptos" xml:space="preserve">
+    <value>Exportar conceptos</value>
+  </data>
+  <data name="litImportarConceptos" xml:space="preserve">
+    <value>Importar conceptos</value>
+  </data>
+  <data name="litMenuProductosD365" xml:space="preserve">
+    <value>Productos D365</value>
+  </data>
+  <data name="litMenuItemNumbersD365" xml:space="preserve">
+    <value>Item Numbers D365</value>
+  </data>
+  <data name="litActivo" xml:space="preserve">
+    <value>Activo</value>
+  </data>
+  <data name="litAnyo" xml:space="preserve">
+    <value>Año</value>
+  </data>
+  <data name="litAnyoPresupuesto" xml:space="preserve">
+    <value>Año del presupuesto</value>
+  </data>
+  <data name="errTareaExistente" xml:space="preserve">
+    <value>Existe otra tarea con ese nombre. El nombre de la tarea debe ser único.</value>
+  </data>
+  <data name="msgImportacionErrores" xml:space="preserve">
+    <value>La importación se ha realizado con algunos errores. Consulte el fichero generado.</value>
+  </data>
+  <data name="litMenuProveedores" xml:space="preserve">
+    <value>Proveedores</value>
+  </data>
+  <data name="litProveedor" xml:space="preserve">
+    <value>Proveedor</value>
+  </data>
+  <data name="msgSeleccionaProveedor" xml:space="preserve">
+    <value>Seleccione proveedor</value>
+  </data>
+  <data name="litBaseImponible" xml:space="preserve">
+    <value>Base imponible</value>
+  </data>
+  <data name="litCerrada" xml:space="preserve">
+    <value>Cerrada</value>
+  </data>
+  <data name="litCIF" xml:space="preserve">
+    <value>CIF</value>
+  </data>
+  <data name="litMenuFacturasP" xml:space="preserve">
+    <value>Facturas proveedor</value>
+  </data>
+  <data name="litDescargarPlantilla" xml:space="preserve">
+    <value>Descargar plantilla</value>
+  </data>
+  <data name="litImportarFacturasP" xml:space="preserve">
+    <value>Importar facturas</value>
+  </data>
+  <data name="msgSeleccionaFactura" xml:space="preserve">
+    <value>Seleccione factura</value>
+  </data>
+  <data name="errPresupuestoFacturaSuperado" xml:space="preserve">
+    <value>Se ha superado el importe de la factura</value>
+  </data>
+  <data name="litImportar" xml:space="preserve">
+    <value>Importar</value>
+  </data>
+  <data name="litVisible" xml:space="preserve">
+    <value>Visible</value>
+  </data>
+  <data name="litAprobacionAutomatica" xml:space="preserve">
+    <value>Aprobación automática</value>
+  </data>
+  <data name="errProveedorCIFExistente" xml:space="preserve">
+    <value>Ya existe un proveedor con el mismo CIF</value>
+  </data>
+  <data name="errFacturaNumExistente" xml:space="preserve">
+    <value>Ya existe una factura con el nº '{0}'</value>
+  </data>
+  <data name="litErrorDescripcion" xml:space="preserve">
+    <value>Ha ocurrido un error en la aplicación. </value>
+  </data>
+  <data name="AprobadoAutomatico" xml:space="preserve">
+    <value>Aprobado automático</value>
+  </data>
+  <data name="Etiqueta_GenerarConceptos" xml:space="preserve">
+    <value>Generar Conceptos</value>
+  </data>
+</root>

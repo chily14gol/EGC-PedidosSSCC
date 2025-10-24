@@ -1,0 +1,155 @@
+@use 'sass:math';
+@use "sass:meta";
+
+// Function variables
+$base-size: 16; // 1rem = 16px
+
+//Font family 400,600,700
+$ff: 'sourceSans3', Helvetica, Arial, sans-serif; //Default font family
+$ffAlt: 'Figtree', 'sourceSans3', Helvetica, Arial, sans-serif; //Default font family
+
+// RUTAS
+$img: "../images/";
+//background-image: url(#{$img}ARCHIVO.svg);
+$font: '../fonts/';
+
+//************COLORES************
+$w: #fff; // White
+$b: #000; // Black
+$trans: rgba(0,0,0,0);
+
+//Colores principales
+
+$main: #BD2B30;
+$secondary: #3C3C3B;
+$disabled: #999;
+$focus: $b;
+
+$main100: #EFCACB;
+$main200: #DE9598;
+$main300: #CE6064;
+$main400: $main;
+$main500: #AF282C;
+$main600: #A02529;
+$main700: #922225;
+$main800: #611719;
+$main900: #310B0C;
+
+$secondary100: #F5F5F4;
+$secondary200: #E8E8E7;
+$secondary300: #CACAC9;
+$secondary400: #A2A29F;
+$secondary500: #7A7A78;
+$secondary600: #60605F;
+$secondary700: $secondary;
+$secondary800: #262625;
+$secondary900: #161616;
+
+$grey100: #F2F2F2;
+$grey200: #CCCCCC;
+$grey300: #B2B2B2;
+$grey400: #999999;
+$grey500: #808080;
+$grey600: #6E6E6E;
+$grey700: #4F4F4F;
+$grey800: #363636;
+$grey900: #1A1A1A;
+
+// Colores formularios       
+$form_c_border: $b;
+$form_c_placeHolder: #666;
+$form_c_outline: $focus;
+
+//Colores de estado
+$danger: #E84D3E;
+$warning: #EFC41E;
+$success: #65A14A;
+
+// SVG filter: Colores para los iconos: $cf_ -> Color Filter
+$cf_w: invert(100%);
+$cf_b: invert(16%) sepia(18%) saturate(11%) hue-rotate(60deg) brightness(100%) contrast(90%);
+
+$cf_main: invert(30%) sepia(16%) saturate(4600%) hue-rotate(323deg) brightness(95%) contrast(112%); // #BD2B30
+$cf_secondary: invert(21%) sepia(6%) saturate(70%) hue-rotate(21deg) brightness(96%) contrast(90%); // #3C3C3B
+$cf_secondary900: brightness(0) saturate(100%) invert(0%) sepia(6%) saturate(3451%) hue-rotate(355deg) brightness(96%) contrast(83%); // #161616
+$cf_grey500: brightness(0) saturate(100%) invert(57%) sepia(0%) saturate(0%) hue-rotate(151deg) brightness(88%) contrast(82%);
+$cf_grey600: invert(39%) sepia(6%) saturate(7%) hue-rotate(345deg) brightness(106%) contrast(84%);
+$cf_grey900: invert(0%) sepia(1%) saturate(1833%) hue-rotate(328deg) brightness(86%) contrast(83%);
+$cf_danger: invert(53%) sepia(94%) saturate(5374%) hue-rotate(343deg) brightness(100%) contrast(82%); // #E84D3E
+$cf_warning: invert(93%) sepia(19%) saturate(2479%) hue-rotate(340deg) brightness(96%) contrast(94%); // #EFC41E
+$cf_success: invert(58%) sepia(21%) saturate(1015%) hue-rotate(57deg) brightness(93%) contrast(87%); // #65A14A
+
+
+//************VIEWPORT************
+
+// cortes de media queries
+//                   max <--|--> min
+// xs   <- smartphone 575px | 576px tablet ->
+// sm                 767px | 768px
+// md       <- tablet 991px | 992px desktop ->
+// lg                1199px | 1200px
+
+$sm: 576;
+$md: 768;
+$lg: 992;
+$xl: 1200;
+$xxl: 1400;
+
+// Contenedor principal y separación de columnas:
+$col-gutter: 24;
+$container-gutter: 24; // laterales
+
+// Viewport config:
+// @media screen and (min-width: $XX-min) { ... }
+// @media screen and (max-width: $XX-max) { ... }
+//
+// Instrucciones: 
+// -Las caracteristicas del width y del nombre de la variable   
+//! min o max SIEMPRE tienen que coincidir:
+// @media screen and (min-width: $md-min){ ... } -> MIN-width: $[tamaño]-MIN
+// @media screen and (max-width: $md-max){ ... } -> MAX-width: $[tamaño]-MAX
+
+$sm-max: #{$sm - 1}px;
+$sm-min: #{$sm}px;
+$md-max: #{$md - 1}px;
+$md-min: #{$md}px;
+$lg-max: #{$lg - 1}px;
+$lg-min: #{$lg}px;
+$xl-max: #{$xl - 1}px;
+$xl-min: #{$xl}px;
+$xxl-max: #{$xxl - 1}px;
+$xxl-min: #{$xxl}px;
+
+$sm-container: 540;
+$md-container: 720;
+$lg-container: 960;
+$xl-container: 1140;
+$xxl-container: 1320;
+
+// Ancho máximo del texto para lectura
+$text_contanierMaxWidth: 68ch;// 80 caracteres aprox. para Roboto, requiere config. manual
+// 700px aprox. de ancho a font-size: 1rem (16px) 
+
+//Border-radius
+$br_sm: 4;
+$br_lg: 8;
+$br_container: 16;
+
+// z-index leves
+
+$zindx_menuItem: 10;
+$zindx_lock: 20;
+$zindx_modal: 30;
+
+//General layout
+$gl_lateralPadding: 24;
+$gl_lateralPaddingResp: 8;
+
+// Form
+// Basado en los componentes de Bootstrap
+$btn-font-size: 14;
+$btn-font-size-sm: 14;
+$btn-font-size-lg: 17;
+
+// Tables
+$t_cellInlinePadding: 16;

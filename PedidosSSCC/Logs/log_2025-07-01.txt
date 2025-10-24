@@ -1,0 +1,32 @@
+﻿ERROR | 01/07/2025 10:25:58 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:25:58 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:25:58 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:25:58 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:25:58 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:25:58 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:26:59 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:26:59 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:26:59 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:26:59 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:26:59 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:26:59 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:27:45 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:27:45 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:27:45 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:27:45 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:27:45 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:27:45 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: 200 OK
+ERROR | 01/07/2025 10:29:00 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 01/07/2025 10:29:00 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 01/07/2025 10:29:18 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 01/07/2025 10:29:18 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 01/07/2025 10:29:45 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 01/07/2025 10:29:45 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 01/07/2025 10:29:51 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 01/07/2025 10:29:51 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 01/07/2025 10:30:04 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 01/07/2025 10:30:04 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 01/07/2025 10:30:17 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 01/07/2025 10:30:17 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 01/07/2025 10:30:57 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 01/07/2025 10:30:57 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: undefined, Error: Error desconocido del servidor.

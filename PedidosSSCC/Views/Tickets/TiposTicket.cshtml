@@ -1,0 +1,72 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Tipos de Ticket";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Tipos de Ticket</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary btn-ico-agregar">Añadir tipo</button>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default d-flex align-items-end gap-3 flex-wrap">
+                <div class="form-group flex-grow-1 mb-0">
+                    <label class="form-label" for="formBuscar">@Resources.Placeholder_Buscar</label>
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+            </div>
+        </form>
+
+        <table id="table" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th data-priority="1">Nombre</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal para crear/editar tipo -->
+<div class="modal fade" id="modalTipoTicket" tabindex="-1" aria-labelledby="modalTipoLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalTipoLabel">Gestión de Tipo</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formTipoTicket" class="form-wrapper my-0">
+                    <input type="hidden" id="tipoId" />
+                    <div class="form-group">
+                        <label for="tipoNombre" class="form-label">Nombre *</label>
+                        <input type="text" class="form-control" id="tipoNombre" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" id="btnGuardarTipo">@Resources.Boton_Aceptar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                ObtenerTiposTicket: '@Url.Action("ObtenerTiposTicket", "Tickets")',
+                GuardarTipoTicket: '@Url.Action("GuardarTipoTicket", "Tickets")',
+                EliminarTipoTicket: '@Url.Action("EliminarTipoTicket", "Tickets")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Tickets/TiposTicket.js?v=@DateTime.Now.Ticks"></script>
+}

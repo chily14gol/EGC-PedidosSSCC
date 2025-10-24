@@ -1,0 +1,72 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Estados de Ticket";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Estados de Ticket</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary btn-ico-agregar">Añadir estado</button>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default d-flex align-items-end gap-3 flex-wrap">
+                <div class="form-group flex-grow-1 mb-0">
+                    <label class="form-label" for="formBuscar">@Resources.Placeholder_Buscar</label>
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+            </div>
+        </form>
+
+        <table id="tablaEstados" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th data-priority="1">Nombre</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal para crear/editar estado -->
+<div class="modal fade" id="modalEstadoTicket" tabindex="-1" aria-labelledby="modalEstadoLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalEstadoLabel">Gestión de Estado</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formEstadoTicket" class="form-wrapper my-0">
+                    <input type="hidden" id="estadoId" />
+                    <div class="form-group">
+                        <label for="estadoNombre" class="form-label">Nombre *</label>
+                        <input type="text" class="form-control" id="estadoNombre" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" id="btnGuardarEstado">@Resources.Boton_Aceptar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                ObtenerEstadosTicket: '@Url.Action("ObtenerEstadosTicket", "Tickets")',
+                GuardarEstadoTicket: '@Url.Action("GuardarEstadoTicket", "Tickets")',
+                EliminarEstadoTicket: '@Url.Action("EliminarEstadoTicket", "Tickets")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Tickets/EstadosTicket.js?v=@DateTime.Now.Ticks"></script>
+}

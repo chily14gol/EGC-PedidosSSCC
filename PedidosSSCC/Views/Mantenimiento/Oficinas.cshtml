@@ -1,0 +1,97 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Oficinas";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Oficinas</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevaOficina" type="button" class="btn btn-lg btn-primary btn-ico-agregar">Añadir Oficina</button>
+            <div class="dropdown">
+                <ul class="dropdown-menu">
+                    <li id="btnExportarContainer"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default">
+                <div class="buscador">
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+            </div>
+            <div class="form-advance">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-xxl-4">
+                        <div class="form-group">
+                            <label class="form-label" for="filterNombre">@Resources.Etiqueta_Nombre</label>
+                            <input type="text" id="filterNombre" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4 col-xxl-4">
+                        <div class="form-group">
+                            <label class="form-label" for="filterNombreDA">@Resources.Etiqueta_Nombre DA</label>
+                            <input type="text" id="filterNombreDA" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-btn-group">
+                <button type="button" id="btnBuscar" class="btn btn-primary">@Resources.Boton_Buscar</button>
+                <button type="button" id="btnLimpiar" class="btn btn-outline-secondary" style="display: none;">@Resources.Boton_Limpiar</button>
+                <button type="button" id="btnAvanzado" class="btn btn-link">@Resources.Boton_BusquedaAvanzada</button>
+            </div>
+        </form>
+        <table id="tableOficinas" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Nombre DA</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalOficina" tabindex="-1" aria-labelledby="modalOficinaLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalOficinaLabel">Editar Oficina</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="idOficina" />
+                <div class="form-group">
+                    <label for="nombre" class="form-label">@Resources.Etiqueta_Nombre *</label>
+                    <input type="text" class="form-control" id="nombre" maxlength="100" />
+                </div>
+                <div class="form-group mt-2">
+                    <label for="nombreDA" class="form-label">@Resources.Etiqueta_Nombre DA *</label>
+                    <input type="text" class="form-control" id="nombreDA" maxlength="100" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="guardarOficina()">@Resources.Boton_Guardar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                EliminarOficina: '@Url.Action("EliminarOficina", "Mantenimiento")',
+                GuardarOficina: '@Url.Action("GuardarOficina", "Mantenimiento")',
+                ObtenerOficinas: '@Url.Action("ObtenerOficinas", "Mantenimiento")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Mantenimiento/Oficinas.js?v=@DateTime.Now.Ticks"></script>
+}

@@ -1,0 +1,288 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Concepto Nuevo";
+}
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Concepto Nuevo</h1>
+        <div class="title-btn-group"></div>
+    </div>
+    <div class="content-box">
+        <form class="form-wrapper">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="tareaEmpresa">Tarea - Empresa *</label>
+                        <div class="styled-select-wrapper" style="width: 100%;">
+                            <select class="styled-select select2 form-control" id="tareaEmpresa" name="tareaEmpresa">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label for="mesConcepto">Mes del concepto *</label>
+                        <input type="number" id="mesConcepto" class="form-control" name="mesConcepto" value="" disabled />
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label for="anioConcepto">Año del concepto *</label>
+                        <input type="text" id="anioConcepto" class="form-control" name="anioConcepto" value="" disabled />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="form-group">
+                        <label for="presupuesto">@Resources.Etiqueta_Presupuesto</label>
+                        <div class="input-group">
+                            <input type="text" id="presupuesto" class="form-control" name="presupuesto" value="" disabled />
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="form-group">
+                        <label for="presupuestoConsumido">@Resources.Etiqueta_PresupuestoConsumido</label>
+                        <div class="input-group">
+                            <input type="text" id="presupuestoConsumido" class="form-control" name="presupuestoConsumido" value="" disabled />
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="form-group">
+                        <label for="importeUnitario">@Resources.Etiqueta_ImporteUnitario</label>
+                        <div class="input-group">
+                            <input type="text" id="importeUnitario" class="form-control" name="importeUnitario" value="" disabled />
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    <div class="form-group">
+                        <label for="cantidad">@Resources.Etiqueta_Cantidad *</label>
+                        <input type="text" id="cantidad" class="form-control" name="cantidad" value="" oninput="validarImporte(this)" required />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-lg-9">
+                    <div class="form-group">
+                        <label for="descripcion">@Resources.Etiqueta_Descripcion</label>
+                        <textarea id="descripcion" class="form-control" name="descripcion" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-3">
+                    <div class="form-check full-col-lg">
+                        <input type="checkbox" class="form-check-input" id="inversion" name="inversion" />
+                        <label class="form-check-label" for="inversion">Inversión</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="toolbar" class="btn-group-wrapper">
+        <button id="btnGuardar" class="btn btn-primary btn-lg">@Resources.Boton_Guardar</button>
+        <button id="btnSolicitar" class="btn btn-secondary btn-lg">Solicitar</button>
+        <button id="btnCancelar" class="btn btn-outline-secondary btn-lg">@Resources.Modal_Boton_Cancelar</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            VerificarSesionActiva(OpcionMenu.Conceptos)
+                .then(() => {
+                    return CargarComboTareaEmpresa();
+                })
+                .then(() => {
+                    return CargarConfiguracionInicial();
+                })
+                .then(() => {
+                    ocultarDivCargando();
+                })
+                .catch((error) => {
+                    console.error('Error al cargar los datos:', error);
+                    ocultarDivCargando();
+                });
+
+            function CargarComboTareaEmpresa() {
+                return new Promise((resolve, reject) => {
+                    $('#tareaEmpresa').select2({
+                        placeholder: "Seleccione Tarea - Empresa",
+                        allowClear: true, // Opción para limpiar selección
+                        width: '100%',
+                        language: {
+                            noResults: function () {
+                                return "No se encontraron resultados";
+                            }
+                        }
+                    });
+
+                    $.ajax({
+                        url: '@Url.Action("ObtenerComboTareaEmpresa", "Tareas")',
+                        type: 'GET',
+                        data: { verTodas: false },
+                        dataType: 'json',
+                        success: function (data) {
+                            let $select = $('#tareaEmpresa');
+                            $select.empty(); // Limpiar opciones previas
+                            $select.append('<option value="">Seleccione tarea empresa</option>');
+
+                            $.each(data, function (index, item) {
+                                $select.append(`<option value="${item.TEM_TAR_Id}|${item.TEM_EMP_Id}|${item.TEM_Anyo}">${item.EmpresaNombre}</option>`);
+                            });
+
+                            resolve();
+                        },
+                        error: function (xhr, status, error) {
+                            const mensaje = obtenerMensajeErrorAjax(xhr);
+                            registrarErrorjQuery(xhr.status, mensaje);
+                            reject(error);
+                        }
+                    });
+                });
+            }
+
+            function CargarConfiguracionInicial() {
+                return new Promise((resolve, reject) => {
+                    $.ajax({
+                        url: '@Url.Action("CargarConfiguracionInicial", "Portal")',
+                        type: 'GET',
+                        dataType: 'json',
+                        success: function (data) {
+                            $('#anioConcepto').val(data.AnioDefecto);
+                            $('#mesConcepto').val(data.MesDefecto);
+                            resolve();
+                        },
+                        error: function (xhr, status, error) {
+                            const mensaje = obtenerMensajeErrorAjax(xhr);
+                            registrarErrorjQuery(xhr.status, mensaje);
+                            reject();
+                        }
+                    });
+                });
+            }
+
+            function validarFormulario() {
+                let tareaEmpresa = $('#tareaEmpresa').val();
+                let anioConcepto = $('#anioConcepto').val();
+                let mesConcepto = $('#mesConcepto').val();
+                let cantidad = $('#cantidad').val();
+
+                let camposInvalidos = [];
+
+                if (!tareaEmpresa || tareaEmpresa.length === 0) {
+                    $('.select2-selection__placeholder').css("color", "red");
+                    camposInvalidos.push("tareaEmpresa");
+                } else {
+                    $('.select2-selection__placeholder').css("color", "black");
+                }
+
+                if (!cantidad) {
+                    $('#cantidad').addClass('is-invalid');
+                    camposInvalidos.push("cantidad");
+                } else {
+                    $('#cantidad').removeClass('is-invalid');
+                }
+
+                if (camposInvalidos.length > 0) {
+                    mostrarToast(`@Resources.Toast_CamposObligatoriosGeneral`, TipoToast.Warning);
+                    return false;
+                }
+
+                return true;
+            }
+
+            function guardarConcepto(estado) {
+                if (!validarFormulario()) return;
+
+                mostrarDivCargando();
+
+                // Obtener valores del select tareaEmpresa
+                let valores = $('#tareaEmpresa').val().split("|");
+                let tareaId = valores[0];
+                let empresaId = valores[1];
+                let anyo = valores[2];
+
+                let objConcepto = {
+                    TLE_TAR_Id: tareaId,
+                    TLE_EMP_Id: empresaId,
+                    TLE_Anyo: anyo,
+                    TLE_Mes: $('#mesConcepto').val(),
+                    TLE_Cantidad: $('#cantidad').val(),
+                    TLE_Descripcion: $('#descripcion').val(),
+                    TLE_Inversion: $('#inversion').prop('checked'),
+                    TLE_ESO_Id: estado
+                };
+
+                $.ajax({
+                    url: '@Url.Action("GuardarConcepto", "Portal")',
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(objConcepto),
+                    success: function (response) {
+                        if (response.success) {
+                            //mostrarToast("Datos guardados correctamente.", TipoToast.Success);
+
+                            if (!response.ok_email) {
+                                sessionStorage.setItem("toastMensaje", response.mensaje_email);
+                                sessionStorage.setItem("toastTipo", "error");
+                                sessionStorage.setItem("errorEmail", true);
+                            }
+
+                            window.location.href = '@Url.Action("BusquedaConceptos", "Portal")';
+                        } else {
+                            registrarErrorjQuery("", response.message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        const mensaje = obtenerMensajeErrorAjax(xhr);
+                        registrarErrorjQuery(xhr.status, mensaje);
+                    }
+                });
+            }
+
+            $("#tareaEmpresa").change(function () {
+                let valores = $(this).val().split("|");
+                let tareaId = valores[0];
+                let empresaId = valores[1];
+                let anyo = valores[2];
+
+                $.ajax({
+                    url: '@Url.Action("ObtenerTareaEmpresaDetalle", "Tareas")',
+                    type: 'GET',
+                    data: { tareaId: tareaId, empresaId: empresaId, anyo: anyo },
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#anioConcepto').val(data.TEM_Anyo);
+                        $('#presupuesto').val(formatNumber(data.TEM_Presupuesto));
+                        $('#presupuestoConsumido').val(formatNumber(data.TEM_PresupuestoConsumido));
+                        $('#importeUnitario').val(formatNumber(data.TAR_ImporteUnitario));
+                    },
+                    error: function (xhr, status, error) {
+                        const mensaje = obtenerMensajeErrorAjax(xhr);
+                        registrarErrorjQuery(xhr.status, mensaje);
+                    }
+                });
+            });
+
+            $('#btnGuardar').on('click', function (e) {
+                e.preventDefault();
+                guardarConcepto(EstadosSolicitud.SinSolicitar);
+            });
+
+            $('#btnCancelar').on('click', function (e) {
+                e.preventDefault();
+                window.location.href = '@Url.Action("BusquedaConceptos", "Portal")';
+            });
+
+            $('#btnSolicitar').on('click', function (e) {
+                e.preventDefault();
+                guardarConcepto(EstadosSolicitud.PendienteAprobacion);
+            });
+        });
+    </script>
+}

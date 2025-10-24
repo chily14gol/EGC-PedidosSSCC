@@ -1,0 +1,36 @@
+// RESETAR VALORES DEL NAVEGADOR (No publicar con normalize cargado)
+// // * {
+//     margin: 0;
+//     padding: 0;
+//     border: none;
+//     outline: none;
+// }
+
+html {
+    font-size: #{$base-size}px; // root rem: Significa que 1rem equivale al tamaño de texto del elemento html
+    font-family: $ff;
+}
+body {
+    font-family: $ff;
+    background-color: $grey100;
+    //font-size: rem(14); 0.874rem;
+}
+telerik:radstylesheetmanager,
+#RadStyleSheetManager1 {
+    width: 100%;
+}
+
+// pre {
+// 	white-space: normal;
+// }
+
+// img {
+//     max-width: 100%;
+//     height: auto;
+// }
+
+p, ul, ol, dl, li, a, 
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    // font-family: $ff;
+}

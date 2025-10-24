@@ -1,0 +1,55 @@
+.treeview-wrapper {
+    margin-block: rem(28) rem(0);
+    display: grid;
+    // grid-template: 'tvAcceso sep tvEdicion' auto / 1fr auto 1fr;
+    grid-template: 'tvAcceso tvEdicion' auto / 1fr 1fr;
+    gap: rem($gl_lateralPadding);
+    @media screen and (max-width: $md-max) {
+        // grid-template: 
+        //     'tvAcceso' 1fr 
+        //     'sep' auto 
+        //     'tvEdicion' 1fr / 1fr;
+        grid-template: 
+        'tvAcceso' 1fr 
+        'tvEdicion' 1fr / 1fr;
+    }
+    .treeview-container {
+        &:has(.tree-container-acceso){ grid-area: tvAcceso; }
+        &:has(.tree-container-edicion){ grid-area: tvEdicion; }
+        border: solid rem(1) $secondary900;
+        border-radius: rem($br_lg);
+        padding-inline: rem(8);
+        padding-block-end: rem(14);
+    }
+    
+    hr.treeview-separator {
+        grid-area: sep;
+        display: none;
+        @media screen and (min-width: $md-min) {
+            width: rem(1);
+            height: 100%;
+            margin: 0;
+            border-block-width: 0;
+            border-inline-end: solid rem(1) $secondary300;
+        }
+        @media screen and (max-width: $md-max) {
+            margin-inline: rem(-1 * $gl_lateralPadding);
+            width: calc(100% + rem($gl_lateralPadding * 2));
+        }
+        @media screen and (max-width: $sm-max) {
+            margin-inline: rem(-1 * $gl_lateralPaddingResp * 2);
+            width: calc(100% + rem($gl_lateralPaddingResp * 4));
+        }
+    }
+    .h5 {
+        margin-block: rem(12) rem(16);
+        padding-inline: rem(6);
+    }
+    .modal-body .form-wrapper:has(&){
+        margin-block-end: rem(12);
+    }
+ 
+    .jstree-default .jstree-icon {
+        background-image: url('#{$img}32px.svg');
+    }
+}

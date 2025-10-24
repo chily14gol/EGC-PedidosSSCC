@@ -1,0 +1,849 @@
+/* Viene de generales.css
+Se modifican los anchos de todos los controles en las ventanas emergentes
+
+Base = 240
+*/
+.rtsPopupContenedorGrande.rtsFormularioGeneral .bloqueCampos span.areaTexto {
+	vertical-align: top;
+	width: 240px !important; /*Base*/
+}
+.rtsPopupContenedorGrande.rtsFormularioGeneral .bloqueCampos span.RadInput[style*="160px;"],
+.rtsPopupContenedorGrande.rtsFormularioGeneral .RadDropDownList,
+.rtsPopupContenedorGrande.rtsFormularioGeneral .rddlPopup,
+.rtsPopupContenedorGrande.rtsFormularioGeneral .RadUpload,
+.rtsPopupContenedorGrande.rtsFormularioGeneral .RadComboBox,
+.ganttTaskEditor input[type="text"] ,
+.rtsPopupContenedorGrande.rtsFormularioGeneral .RadDropDownTree,
+.rtsPopupContenedorGrande.rtsFormularioGeneral .rddtPopup_Default,
+.rtsFormularioGeneral + .rddtSlide .rddtPopup_Default {
+	width: 240px !important; /*Base*/
+}
+@media all and (min-width: 1260px) {
+	.rtsPopupContenedorGrande.rtsFormularioGeneral .bloqueCampos span.RadInput[style*="160px;"],
+	.rtsPopupContenedorGrande.rtsFormularioGeneral .RadDropDownList,
+	.rtsPopupContenedorGrande.rtsFormularioGeneral .rddlPopup,
+	.rtsPopupContenedorGrande.rtsFormularioGeneral .RadUpload,
+	.rtsPopupContenedorGrande.rtsFormularioGeneral .RadComboBox,
+	.ganttTaskEditor input[type="text"] ,
+	.rtsPopupContenedorGrande.rtsFormularioGeneral .RadDropDownTree,
+	.rtsPopupContenedorGrande.rtsFormularioGeneral .rddtPopup_Default {
+		width: 240px !important; /*Base*/
+	}
+}
+.rtsPopupContenedorGrande.rtsFormularioGeneral .conTexto span.RadInput[style*="160px;"] {
+	width: 180px !important;
+}
+
+.rtsPopupContenedorGrande.rtsFormularioGeneral .RadDropDownList.RadComboBoxEspecial {
+	width: 400px !important; /*Base*/
+}
+.rtsPopupContenedorGrande.rtsFormularioGeneral .RadDropDownList.RadDropDrownListCorto,
+.rtsPopupContenedorGrande.rtsFormularioGeneral .RadDropDrownListCorto .rddlPopup {
+    width: 80px !important;
+}
+.rtsPopupContenedorGrande.rtsFormularioGeneral .rtsSubirArchivo span {
+	width: 200px !important; /*Base - 40*/ 
+}
+.rtsPopupContenedorGrande.rtsFormularioGeneral .rtsSubirArchivo span span.ruUploadSuccess {
+	width: 150px !important; /*Base - 90*/ 
+}
+.rtsPopupContenedorGrande.rtsFormularioGeneral .conBoton .RadDropDownList,
+.rtsPopupContenedorGrande.rtsFormularioGeneral .conBoton .rddlPopup {
+    max-width: 160px !important; /*Base - 80*/ 
+}
+.rtsPopupContenedorGrande.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"],
+.rtsPopupContenedorGrande.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"] input {
+    width: 230px !important; /*Base - 10*/
+}
+.rtsPopupContenedorGrande.rtsFormularioGeneral .bloqueCampos.conBoton span.RadInput[style*="160px;"],
+.rtsPopupContenedorGrande.rtsFormularioGeneral .bloqueCampos .fecha span,
+.rtsPopupContenedorGrande.rtsFormularioGeneral .bloqueCampos .fecha input  {
+    width: 184px !important; /*Base - 56*/
+}
+.rtsPopupContenedorGrande.rtsFormularioGeneral .bloqueCampos.conDobleBoton span.RadInput[style*="160px;"],
+.rtsPopupContenedorGrande.rtsFormularioGeneral .conBoton span.RadInput[style*="160px;"] input {
+    width: 190px !important;
+}
+.rtsPopupContenedorGrande.rtsFormularioGeneral .conDobleBoton span.RadInput[style*="160px;"] input {
+    min-width: 190px !important;
+	 padding-right: 0px;
+}
+
+.rtsPopupContenedorGrande.rtsFormularioGeneral .conTexto span.RadInput[style*="160px;"] input {
+    min-width: 160px !important; /*Base - 80*/ 
+	 padding-right: 0px;
+}
+
+.rtsPopupContenedorGrande.rtsFormularioGeneral .rgFilterRow div.RadPicker,
+.rtsPopupContenedorGrande.rtsFormularioGeneral .rgFilterRow [style="width:160px;"],
+.rtsPopupContenedorGrande.rtsFormularioGeneral .rgFilterRow [style*="160px;"],
+.rtsPopupContenedorGrande.rtsFormularioGeneral .rgFilterRow .RadPicker .rcInputCell {
+	width: 56px !important; /*Base - 180*/ 
+}
+
+.rtsPopupContenedorGrande *[class^="bloqueCampos"] label {
+	width: 12em !important; /*10em*/
+}
+
+
+
+.rtsPopupContenedor.rtsFormularioGeneral .bloqueCampos span.areaTexto {
+	vertical-align: top;
+	width: 240px !important; /*Base*/
+}
+.rtsPopupContenedor.rtsFormularioGeneral .bloqueCampos span.RadInput[style*="160px;"],
+.rtsPopupContenedor.rtsFormularioGeneral .RadDropDownList,
+.rtsPopupContenedor.rtsFormularioGeneral .rddlPopup,
+.rtsPopupContenedor.rtsFormularioGeneral .RadUpload,
+.rtsPopupContenedor.rtsFormularioGeneral .RadComboBox,
+.ganttTaskEditor input[type="text"] ,
+.rtsPopupContenedor.rtsFormularioGeneral .RadDropDownTree,
+.rtsPopupContenedor.rtsFormularioGeneral .rddtPopup_Default {
+	width: 240px !important; /*Base*/
+}
+
+.rtsPopupContenedor.rtsFormularioGeneral .conTexto span.RadInput[style*="160px;"] {
+	width: 180px !important;
+}
+
+.rtsPopupContenedor.rtsFormularioGeneral .RadDropDownList.RadComboBoxEspecial {
+	width: 400px !important; /*Base*/
+}
+.rtsPopupContenedor.rtsFormularioGeneral .RadDropDownList.RadDropDrownListCorto,
+.rtsPopupContenedor.rtsFormularioGeneral .RadDropDrownListCorto .rddlPopup {
+    width: 80px !important;
+}
+.rtsPopupContenedor.rtsFormularioGeneral .rtsSubirArchivo span {
+	width: 200px !important; /*Base - 40*/ 
+}
+.rtsPopupContenedor.rtsFormularioGeneral .rtsSubirArchivo span span.ruUploadSuccess {
+	width: 150px !important; /*Base - 90*/ 
+}
+.rtsPopupContenedor.rtsFormularioGeneral .conBoton .RadDropDownList,
+.rtsPopupContenedor.rtsFormularioGeneral .conBoton .rddlPopup {
+    max-width: 160px !important; /*Base - 80*/ 
+}
+.rtsPopupContenedor.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"],
+.rtsPopupContenedor.rtsFormularioGeneral .conEuro span.RadInput[style*="160px;"] input {
+    width: 230px !important; /*Base - 10*/
+}
+.rtsPopupContenedor.rtsFormularioGeneral .bloqueCampos.conBoton span.RadInput[style*="160px;"],
+.rtsPopupContenedor.rtsFormularioGeneral .bloqueCampos .fecha span,
+.rtsPopupContenedor.rtsFormularioGeneral .bloqueCampos .fecha input  {
+    width: 184px !important; /*Base - 56*/
+}
+.rtsPopupContenedor.rtsFormularioGeneral .bloqueCampos.conDobleBoton span.RadInput[style*="160px;"],
+.rtsPopupContenedor.rtsFormularioGeneral .conBoton span.RadInput[style*="160px;"] input {
+    width: 190px !important;
+}
+.rtsPopupContenedor.rtsFormularioGeneral .conDobleBoton span.RadInput[style*="160px;"] input {
+    min-width: 190px !important;
+	 padding-right: 0px;
+}
+
+.rtsPopupContenedor.rtsFormularioGeneral .conTexto span.RadInput[style*="160px;"] input {
+    min-width: 160px !important; /*Base - 80*/ 
+	 padding-right: 0px;
+}
+
+.rtsPopupContenedor.rtsFormularioGeneral .rgFilterRow div.RadPicker,
+.rtsPopupContenedor.rtsFormularioGeneral .rgFilterRow [style="width:160px;"],
+.rtsPopupContenedor.rtsFormularioGeneral .rgFilterRow [style*="160px;"],
+.rtsPopupContenedor.rtsFormularioGeneral .rgFilterRow .RadPicker .rcInputCell {
+	width: 56px !important; /*Base - 180*/ 
+}
+
+.rtsPopupContenedor *[class^="bloqueCampos"] label {
+	width: 12em !important; /*10em*/
+}
+/* ----------------------------------------------------------------------------------------- Div contenedor general*/
+.RadWindow_Default {
+	max-width: 90%;
+	max-height: 95% !important;
+}
+div.RadGrid div.rtsPopup,
+div.rtsPopupContenedor /*table.rwTable*/ {
+	/*font-family: Verdana, Geneva, Arial, Helvetica, sans-serif !important;*/
+	font-family: 	"Segoe UI",Arial,Helvetica,sans-serif !important;
+	
+	position: relative;
+	
+	width: auto;
+	min-width: 860px !important;
+	/*min-width: 800px;*/
+	
+	background-color: transparent; /*#ccc;*/
+	padding: 0px; /*8px;*/
+	/* El resto lo pasamos a la tabla
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-webkit-box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+	box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75); */
+	
+	height: auto !important;
+	max-height: 95% !important;
+	overflow: hidden;
+}
+
+div.rtsPopupContenedorGrande /*table.rwTable*/ {
+	/*font-family: Verdana, Geneva, Arial, Helvetica, sans-serif !important;*/
+	font-family: 	"Segoe UI",Arial,Helvetica,sans-serif !important;
+	
+	position: relative;
+	
+	width: auto;
+	min-width: 1000px !important;
+	/*min-width: 800px;*/
+	
+	background-color: transparent; /*#ccc;*/
+	padding: 0px; /*8px;*/
+	/* El resto lo pasamos a la tabla
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-webkit-box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+	box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75); */
+	
+	height: auto !important;
+	max-height: 95% !important;
+	overflow: hidden;
+}
+
+.RadWindow .rwTable {
+	/*-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;*/
+	-webkit-box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+	-moz-box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+	box-shadow: 4px 4px 5px rgba(50, 50, 50, 0.75);
+	
+	max-height: 95% !important;
+	overflow: hidden;
+}
+html:first-child .RadWindow ul {
+	float: none !important;
+}
+
+/*.RadWindow .rwTable,*/
+.rwWindowContent:not(.rwWindowAltuegi) > div, .rtsPopupContenedor > .rwTable , .rtsPopupContenedorGrande > .rwTable {
+	height: auto !important;
+}
+.rwWindowContent:not(.rwWindowAltuegi) > div {
+	max-height: 680px;
+	width: auto !important;
+}
+
+.rtsPopup400 {
+	max-width: 400px !important;
+}
+.rtsPopup600 {
+	max-width: 600px !important;
+}
+
+.RadGrid .rtsPopup .rtsPopupContenedor {
+	 height: 100% !important;
+}
+
+.RadGrid .rtsPopup .rtsPopupContenedorGrande {
+	 height: 100% !important;
+}
+
+.RadGrid .rtsPopup .rtsPopupContenido,
+.RadWindow .rtsPopupContenido {
+	background-color: #fff;
+	padding: 8px 0px; /*1% 8px;*/
+	position: relative;
+	
+	/* Lo comentamos para poder hacer pop-ups de diferentes tamaños
+    height: 232px; /*99%;*/
+	 max-height: 94%; /*antes height. Cambiamos para no forzar scroll en ventanas pequeñas. 2014-01-30*/
+	 
+	 overflow-y: auto;
+}
+
+.rtsPopupContenido600 {
+	max-height: 680px !important;
+}
+
+@media all and (max-height: 810px) {
+	.rtsPopupContenido {
+	 	max-height: 500px !important;
+	}
+}
+
+
+/* ------------------------------------------------------------------------------------------------ cabecera y botón de cierre*/
+.RadWindow .rwTitlebar {
+	font-size: 100% !important;
+}
+.RadGrid .rtsPopup .rgHeader {
+	background-color: #eee;
+	background-image: none;
+	color: #335e91;
+	padding: 5px;
+	margin: 0px;
+	height: 30px;
+	border: none;
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+.rtsPopup .rgHeader  a  img {
+    display: none;
+}
+
+.rtsPopup .rgHeader  a /*,
+.RadWindow_Default .rwTitleRow .rwControlButtons a.rwCloseButton*/ {
+    display: block;
+    width: 37px ;
+    height: 37px ;
+    background: transparent url(../images/icoCerrar.png) center center no-repeat;
+	 position: absolute;
+	 right: -10px;
+	 top: -10px;
+}
+
+.rtsPopup .rgHeader .rtsPopupTitulo,
+.RadWindow .rwTable .rwTitleRow .rwTitlebarControls em {
+	font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+	font-size: 1.2em;
+	font-weight: bolder;
+	color: #335e91;
+	line-height: 20px;
+	padding-left: 0.5em;
+}
+
+.RadWindow_Default a.rwIcon {
+	display: none;
+}
+
+/* ----------------------------------------------------------------------------------------------------- Primera fila*/
+.RadGrid .rtsPopup .rtsPopupFilaDatos {
+	padding: 4px 8px 12px 12px;
+}
+.RadGrid .rtsPopup .rtsPopupFilaDatos span {
+	display: inline-block;
+	line-height: 26px;
+}
+.RadGrid .rtsPopup .rtsPopupFilaDatos input {
+	border: 1px solid #b6b8c7;
+}
+
+.rtsPopupFilaDatos label {
+    padding-right: 8px;
+	padding-top: 2px;
+	margin-left: 12px;
+}
+
+.rtsPopupFilaDatos {
+	padding: 0;
+	margin-bottom: 12px;
+	vertical-align: top;	
+}
+
+.rtsPopupFilaDatos table.radiobuttonlist {
+	vertical-align: top;	
+}
+
+.rtsPopupFilaDatos table.radiobuttonlist label {
+	margin-top: 0px !important;
+	padding-top: 0px !important;
+	vertical-align: top;	
+}
+
+.rtsPopupFilaDatos label,
+.rtsPopupFilaDatos table.radiobuttonlist {
+	display: inline-block;
+	padding-right: 8px;
+	text-align: right;
+	vertical-align: top;	
+}
+
+.rtsPopupFilaDatos table.checkboxlist {
+	vertical-align: top;	
+}
+
+.rtsPopupFilaDatos table.checkboxlist label {
+	margin-top: 0px !important;
+	padding-top: 0px !important;
+	vertical-align: top;	
+}
+
+.rtsPopupFilaDatos label,
+.rtsPopupFilaDatos table.checkboxlist {
+	display: inline-block;
+	padding-right: 8px;
+	text-align: right;
+	vertical-align: top;	
+}
+
+/* -------------------------------------------------------------------------------------------------- Pestañas*/
+.RadGrid .rtsPopup .rtsPopupPestanas,
+.rwTable .rtsPopupPestanas {
+	margin: 0px 2px -1px 2px;
+}
+.RadGrid .rtsPopup .rtsPopupPestanas .rtsUL,
+.rwTable .rtsPopupPestanas .rtsUL {
+	margin-left: 6px;
+	margin-bottom: -2px;
+}
+.rtsPopupContenido .RadTabStripTop_Default .rtsLevel .rtsLink,
+.rtsPopupContenido .RadTabStripTop_Default .rtsLevel .rtsOut,
+.rtsPopupContenido .RadTabStripBottom_Default .rtsLevel .rtsLink,
+.rtsPopupContenido .RadTabStripBottom_Default .rtsLevel .rtsOut,
+.rtsPopupContenido .RadTabStripTop_Default_Baseline .rtsLevel,
+.rtsPopupContenido .RadTabStripBottom_Default_Baseline .rtsLevel {
+	background-image: url("../images/WebResource.png");
+	color: #666;
+}
+.rtsPopupContenido .RadTabStripTop_Default .rtsLI .rtsSelected {
+    background-position: 0px -53px;
+}
+.rtsPopupContenido .RadTabStripTop_Default .rtsLI .rtsSelected span.rtsTxt {
+	color: #000 !important;
+}
+.rtsPopupContenido .RadTabStripTop_Default .rtsFirst .rtsLink {
+	background-position: 0px 0px; /*-52px;*/
+}
+.rtsPopupContenido .RadTabStripTop_Default .rtsFirst .rtsBefore {
+	background-position: 0px -79px;
+}
+.rtsPopupContenido .RadTabStripTop_Default .rtsLI .rtsAfter {
+	background-position: 0 -79px;
+}
+.rtsPopupContenido .RadTabStripTop_Default .rtsOut {
+	background-position: 100% 0px;
+}
+
+
+/* ---------------------------------------------------------------------------------------------- Contenido Pestañas*/
+.RadGrid .rtsPopup .rtsPopupContenidoPestanas,
+.rtsPopupContenido .rtsPopupContenidoPestanas {
+	height: auto;
+	margin: 0px 2px;
+	border-top: 1px solid #b3b3b3;
+	padding: 16px 8px 8px 24px;
+}
+.RadGrid .rtsPopup .rtsPopupContenidoPestanas input,
+.rtsPopupContenido input,
+.rtsPopupContenido .riTextBox,
+.rtsPopupContenido .RadComboBox_Default .rcbReadOnly,
+.rtsBotoia button {
+	border: 1px solid #81aed7 !important;
+}
+/*.RadComboBoxDropDown_Default*/
+.rtsPopupContenido .RadComboBox_Default .rcbReadOnly .rcbInputCellLeft input {
+	border: none !important;
+}
+
+.rtsPopupContenedor .RadComboBoxDropDown_Default {
+	border: 1px solid #81aed7 !important;
+}
+
+.rtsPopupContenedorGrande .RadComboBoxDropDown_Default {
+	border: 1px solid #81aed7 !important;
+}
+
+.rtsPopupContenido fieldset.fieldset2Nivel {
+	padding-left: 10px !important;
+}
+.rtsPopupContenido fieldset legend.leyenda2Nivel {
+	margin-top: 12px;
+}
+.rtsPopupContenido fieldset:first-of-type legend.leyenda2Nivel {
+	margin-top: 0px;
+}
+
+/*----------------------------------------------------------------------------------------------------- Modificaciones en los formularios */
+.rtsFormularioGeneral {
+	font-size: 0.92em; /*11px;*/
+}
+.rtsPopupContenedor.rtsFormularioGeneral .bloqueCampos24em {
+    width: 20em;
+}
+.rtsPopupContenedorGrande.rtsFormularioGeneral .bloqueCampos24em {
+    width: 20em;
+}
+.bloqueCampos {
+	position: relative;
+}
+
+.rtsFormularioGeneral .rtsPopup .rtsPopupContenido .bloqueCampos,
+.rtsPopupContenido .bloqueCampos {
+	width: 50%;
+}
+.rtsFormularioGeneral .rtsPopup .rtsPopupContenido [class^="bloqueCampos"],
+.rtsPopupContenido [class^="bloqueCampos"] {
+	padding: 2px 4px;
+}
+
+.rtsFormularioGeneral .rtsPopup .rtsPopupContenido fieldset,
+.rwTable .rtsPopupContenido fieldset {
+	margin: 2px;
+	padding: 0px;
+}
+.rtsFormularioGeneral .rtsPopup .rtsPopupContenido .bloqueCampos label: not(.labelCorto),
+.rtsPopupContenido .bloqueCampos label: not(.labelCorto) {
+	width: 10em !important;
+}
+.rtsPopup .rtsSubirArchivo,
+.rwTable .rtsPopupContenido .rtsSubirArchivo {
+	width: 22em !important;
+}
+.rtsPopup div.rtsSubirArchivo .ruFakeInput,
+.rwTable div.rtsSubirArchivo .ruFakeInput {
+	width: 10em !important;
+}
+
+.rtsPopupContenedor.rtsFormularioGeneral .inputsCortos span.RadInput[style*="160px;"],
+.rtsPopupContenedor.rtsFormularioGeneral .inputsCortos span.RadInput[style*="160px;"] input {
+    width: 60px !important;
+}
+.rtsPopupContenedor.rtsFormularioGeneral .labelsCortos label,
+.rtsPopupContenedor.rtsFormularioGeneral label.labelsCortos,
+label.labelsCortos {
+    width: 7em !important;
+}
+
+.rtsPopupContenedorGrande.rtsFormularioGeneral .inputsCortos span.RadInput[style*="160px;"],
+.rtsPopupContenedorGrande.rtsFormularioGeneral .inputsCortos span.RadInput[style*="160px;"] input {
+    width: 60px !important;
+}
+.rtsPopupContenedorGrande.rtsFormularioGeneral .labelsCortos label,
+.rtsPopupContenedorGrande.rtsFormularioGeneral label.labelsCortos,
+label.labelsCortos {
+    width: 7em !important;
+}
+
+.RadComboBox_Default .rcbDisabled .rcbReadOnly .rcbInput,
+html body .RadInput_Default .riDisabled,
+html body .RadInput_Disabled_Default {
+    color: #615f5f !important; /*#8a8a8a !important;*/
+	 /* Especial para iPad */
+	 -webkit-text-fill-color: #8a8a8a !important;
+	 -webkit-opacity: 1; 
+}
+
+
+/* ----------------------------------------------------------------------------------------------------- Botones input finales*/
+
+.rtsPopupBotoiak,
+.RadGrid .rtsPopup .rtsPopupBotoiak,
+.RadWindow .rwTable .rtsPopupBotoiak {
+	margin: 24px 0px 12px 0px;
+	padding-top: 24px;
+	text-align: center;
+	
+	/*position: absolute;
+	width: 99%;
+	left: 0px;
+	bottom: 4px;*/
+}
+
+/*
+.RadGrid .rtsPopup .rtsPopupBotoiak .rtsBotoia,
+.RadWindow .rwTable .rtsPopupBotoiak .rtsBotoia,
+.rtsBotoia {
+	padding: 1px;
+	border: 1px solid #888;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	background-color: #fff;
+	width: auto;
+	display: inline-block;
+}
+.RadGrid .rtsPopup .rtsPopupBotoiak input,
+.RadWindow .rwTable .rtsPopupBotoiak input,
+.rtsBotoia input {
+	border: none;
+	background: #5f6d7c url(../images/fInputPopup.png) repeat-x left top;
+	color: #fff;
+	font-weight: bolder;
+	padding: 4px 12px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}*/
+.RadGrid .rtsPopup .rtsPopupBotoiak .rtsBotoia,
+.RadWindow .rwTable .rtsPopupBotoiak .rtsBotoia,
+.rtsBotoia {
+	width: auto;
+	display: inline-block;
+}
+.rtsBotoia input {
+	min-height: 20px !important;
+}
+
+.RadGrid .rtsPopup .rtsPopupBotoiak input,
+.RadWindow .rwTable .rtsPopupBotoiak input,
+.rtsBotoia input,
+.rtsBotoia button {
+	border: 1px solid #666;
+	color: #000;
+	font-size: 11px;
+	font-family: Segoe UI, Tahoma, Arial;
+	background: #fff url(../images/fBotonesInput.png) repeat-x left center;
+	background: -moz-linear-gradient(top, #ffffff 0%, #ececec 49%, #dddddd 50%, #d3d3d3 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(49%,#ececec), color-stop(50%,#dddddd), color-stop(100%,#d3d3d3));
+	background: -webkit-linear-gradient(top, #ffffff 0%,#ececec 49%,#dddddd 50%,#d3d3d3 100%);
+	background: -o-linear-gradient(top, #ffffff 0%,#ececec 49%,#dddddd 50%,#d3d3d3 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%,#ececec 49%,#dddddd 50%,#d3d3d3 100%);
+	background: linear-gradient(to bottom, #ffffff 0%,#ececec 49%,#dddddd 50%,#d3d3d3 100%);
+	
+}
+.RadGrid .rtsPopup .rtsPopupBotoiak input:hover,
+.RadWindow .rwTable .rtsPopupBotoiak input:hover,
+.rtsBotoia input:hover {
+	border: 1px solid #369;
+	color: #000;
+	font-size: 11px;
+	font-family: Segoe UI, Tahoma, Arial;
+	background: #fff url(../images/fBotonesInput.png) repeat-x left center;
+	background: -moz-linear-gradient(top, #ffffff 0%, #c4e5f6 49%, #98d1ef 50%, #70b8de 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(49%,#c4e5f6), color-stop(50%,#98d1ef), color-stop(100%,#70b8de));
+	background: -webkit-linear-gradient(top, #ffffff 0%,#ececec 49%,#98d1ef 50%,#70b8de 100%);
+	background: -o-linear-gradient(top, #ffffff 0%,#ececec 49%,#98d1ef 50%,#70b8de 100%);
+	background: -ms-linear-gradient(top, #ffffff 0%,#ececec 49%,#98d1ef 50%,#70b8de 100%);
+	background: linear-gradient(to bottom, #ffffff 0%,#ececec 49%,#98d1ef 50%,#70b8de 100%);
+	cursor: pointer;
+}
+
+input[value="Seleccionar"],
+input[value="Seleccionar"]:hover,
+input.botSeleccionar, input.botSeleccionar:hover,
+input[value="Limpiar"],
+input[value="Limpiar"]:hover, 
+input.botLimpiar, input.botLimpiar:hover,
+input[value="VerURL"],
+input[value="VerURL"]:hover, 
+input.botVerURL, input.botVerURL:hover,
+input[value="verDetalle"],
+input[value="verDetalle"]:hover, 
+input.botVerDetalle, input.botVerDetalle:hover,
+input[value="Copiar"],
+input[value="Copiar"]:hover, 
+input.botCopiar, input.botCopiar:hover,
+input.botDetalle, input.botDetalle:hover {
+	border: none !important;
+	text-indent: -5000px;
+	width: 21px;
+	padding-left: 0px;
+	padding-right: 0px;
+	/*max-width: 36px;*/
+	min-height: 18px;
+}
+input[value="Seleccionar"],
+input[value="Seleccionar"]:hover,
+input.botSeleccionar, input.botSeleccionar:hover {
+	background: transparent url(../images/icoSeleccionar.png) no-repeat 50% 50%;
+}
+input[value="Limpiar"],
+input[value="Limpiar"]:hover, 
+input.botLimpiar, input.botLimpiar:hover {
+	background: transparent url(../images/icoLimpiar.png) no-repeat 50% 50%;
+}
+input[value="VerURL"],
+input[value="VerURL"]:hover, 
+input.botVerURL, input.botVerURL:hover {
+	background: transparent url(../images/ico_Enlace.png) no-repeat 50% 50%;
+}
+input[value="verDetalle"],
+input[value="verDetalle"]:hover,
+input.botVerDetalle, input.botVerDetalle:hover,
+input.botDetalle, input.botDetalle:hover {
+	background: transparent url(../images/RadGrid_ver.png) no-repeat 50% 50%;
+}
+input.botVerDetalle {
+	position: absolute;
+	top: 1px;
+	left: 460px;
+	cursor: pointer;
+}
+input[value="verDetalleInterior"],
+input[value="verDetalleInterior"]:hover,
+input.botVerDetalleInterior, input.botVerDetalleInterior:hover {
+	background: transparent url(../images/RadGrid_ver.png) no-repeat 2px center !important;
+   padding-left: 26px !important;
+}
+input[value="Copiar"],
+input[value="Copiar"]:hover, 
+input.botCopiar, input.botCopiar:hover {
+	background: transparent url(../images/icoCopiar.png) no-repeat 50% 50%;
+}
+/* ---------------------------------------------------------------------------------------------------- Listas Desplegables*/
+.rtsPrincipal .RadDropDownList_Default .rddlInner {
+    background-color: #fff;
+    background-image: none;
+    border-color: #8A8A8A;
+    color: #333;
+}
+.rtsPrincipal .RadDropDownList .rddlFakeInput {
+    display: block;
+    height: 14px;
+    line-height: 12px;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------ Listado de horas*/
+
+.bloqueHoras {
+	float: left;
+	width: 25%;
+	margin-top: 8px;
+}
+.bloqueHoras .RadPicker RadPicker_Default {
+	display: inline-block;
+}
+.rtsPopupContenido .bloqueHoras label {
+	width: 26px !important;
+	text-align: center !important;
+	padding-right: 0px !important;
+}
+.bloqueHoras.separador label {
+	width: 60px !important;
+	text-align: left !important;
+}
+.bloqueHoras .RadPicker.RadPicker_Default,
+.bloqueHoras .rcTable {
+	width: 80px !important;
+}
+.bloqueHoras .riSingle.RadInput.RadInput_Default {
+	width: 60px !important;
+}
+
+/*------------------------------------------------------------------------------------------------------------ Diagrama de Gantt */
+
+.ganttPopUpContenedor {
+	border: 1px solid #637ea1;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	
+	padding: 5px;
+	
+	background-color: #eaedf2;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #edf0f4 30px); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(30px,#edf0f4)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#edf0f4 30px); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#edf0f4 30px); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#edf0f4 30px); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 0%,#edf0f4 30px); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edf0f4',GradientType=0 ); /* IE6-9 */
+	
+	position: relative;
+	
+	height: auto !important;
+	min-height: 50px !important;
+	max-height: 85% !important;
+	overflow: hidden;
+}
+
+.ganttPopUpContenedor .resEdit,
+.ganttPopUpContenedor .ganttConScroll {
+	overflow: auto;
+}
+
+.ganttPopUpContenedor > div:first-child {
+	background-color: #fff;	
+	border: 1px solid #637ea1;
+	padding: 4px !important;
+	
+	margin-top: 23px;
+}
+
+.ganttTaskEditor.rtsPopupContenido {
+	font-size: 0.75rem; /*0.7em;*/ /*11px;*/
+}
+
+.ganttPopUpContenedor h2 {
+	margin: 0px;
+	color: #335e91;
+	font-size: 0.9em;
+	
+	position: absolute;
+	left: 14px;
+	top: 6px;
+}
+.ganttTaskEditor.rtsPopupContenido h2 {
+	font-size: 1.2em;
+}
+.ganttBotCerrar {
+	text-indent: -5000px;
+	z-index: 1000;
+	position: absolute;
+	right: 14px;
+	top: 14px;
+	/*
+	width: 13px;
+	height: 11px;
+	display: block;
+	background: transparent url(../images/WebResource.gif) no-repeat -102px -5px;*/
+	
+	cursor: pointer !important;
+}
+.ganttBotCerrar:hover {
+	/*background-position: -102px -26px;*/
+}
+
+
+.ganttTaskEditor label {
+	text-align: right !important;
+	padding-right: 6px;
+}
+.ganttTaskEditor input[type="text"] {
+	font-size: 100%;
+}
+.rtsPopupContenido.ganttTaskEditor *[class^="bloqueCampos"] input.ganttInputCorto,
+.assigEditRow input.ganttInputCorto {
+	width: 80px !important; /*Base*/
+}
+.rtsPopupContenido.ganttTaskEditor *[class^="bloqueCampos"] input.ganttInputCortoDeshabilitado,
+.assigEditRow input.ganttInputCortoDeshabilitado {
+	width: 80px !important; /*Base*/
+	background-color : #E6E6E6;
+}
+
+.ganttTaskEditor label {
+	display: inline-block;
+	width: 12em !important; /*15em !important;*/
+	vertical-align: top;
+}
+
+
+.ganttTaskEditor .bloqueCampos33 label {
+	width: 6em !important;
+}
+
+.ganttTaskEditor .bloqueCampos.bloqueGrupo label,
+.ganttTaskEditor .bloqueCampos.bloqueGrupo input {
+	width: calc((100% - 12em - 4px) / 3) !important;
+}
+.ganttTaskEditor .bloqueCampos.bloqueGrupo label:first-child {
+	width: 12em !important;
+}
+
+/*
+.ganttTaskEditor {
+	font-size: 12px;
+}
+.ganttTaskEditor label {
+	display: inline-block;
+}
+.ganttTaskEditor input {
+	border: 1px solid #81aed7 !important;
+	font-size: 0.9em;
+}
+.ganttTaskEditor br {
+	display: inline;
+}
+*/
+
+.rtsFormularioGeneral + .rddtSlide .rddtPopup_Default.DropDown100 {
+	width: 640px !important;
+}

@@ -1,0 +1,84 @@
+/* Estilos personalizados de la aplicación */
+
+// La carga de archivos es secuencial, el orden es importante para las 
+// variables que se declaren en los archivos.
+
+// Para añadir los archivos: 
+// - Crea en la carpeta correspondiente el archivo que empieze por "_". Por ejemplo: _componenteUsuario.scss
+// - Enlaza el archivo aquí con @import y sin meter la "_" ni la extensión:          @import 'component/componenteUsuario';
+
+// BASE: resets, variables, funciones que necesitemos, recursos(fuentes, iconos,...), etc.
+// - Config. base
+@import 'base/functions';
+@import 'base/variables';
+// - Recursos: Fuentes, iconos,...
+@import 'base/font';
+@import 'bootstrap/bootstrap-icons';
+
+// Bootstap 5.5.3.
+@import 'bootstrap/bootstrap';
+// Datatables BS5
+@import 'datatables/datatables_bootstrap5.scss';
+@import 'datatables/datatables_responsive_bs5.scss';
+@import 'datatables/datatables_buttons_bs5.scss';
+
+// - Comienzo de la configuración de estilos: bases + recursos accesibilidad
+// @import 'base/normalize'; // Reset de estilos de los navegadores por defecto | OPCIONAL 
+@import 'base/global';
+@import 'base/accessibility';
+
+// - Config. del tema del proyecto
+@import 'base/theme';
+
+//COMPONENTES: Componentes que utilicemos en el proyecto
+
+// - Componentes comunes
+@import 'component/buttons';
+//@import 'base/formReset';
+@import 'component/form';
+@import 'component/tables';
+@import 'component/filtro';
+@import 'component/modals';
+@import 'component/treeview';
+@import 'component/datatables';
+
+// - Componentes especificos
+// @import 'component/breadcrumbs';
+@import 'component/spinner';
+// @import 'component/modals';
+
+//LAYOUT: Estilos relacionados con la estructura del proyecto; grid general, cabecera, footer, etc.
+@import 'layout/general-layout'; //Estructura general del proyecto (lo cimientos de la página)
+
+@import 'layout/header';
+@import 'layout/content';
+@import 'layout/sidebar';
+@import 'layout/footer';
+
+
+
+//PAGES (o VIEWS): Estilos específicos para determinadas vistas (páginas) del proyecto: página de inicio, sobre nosotros, contacto, etc.
+@import 'pages/inicio';
+
+
+
+
+// *************************************************************************************************************************************** //
+
+// - La interpretación de la línea que ejecuta SASS es la siguiente:
+//             sass --watch                                     scss/main.scss:css/proyectoGeneral.css
+// [ ejecuta SASS observando cambios ] [ Ruta relativa del archivo main.scss ]:[ Ruta relativa del archivo que queremos exportar con nuestros estilos ]
+
+// * Para generar el archivo CSS de forma continua (cada vez que se guarda un archivo .scss): --watch
+//   Ejemplo: sass --watch scss/main.scss:css/proyectoGeneral.css
+
+// * Para generar el archivo CSS sin el mapa de recursos: --no-source-map 
+//   Ejemplo: sass --no-source-map scss/main.scss:css/proyectoGeneral.css
+
+// * Para generar el archivo CSS minificado o comprimido: --style=compressed
+//   Ejemplo: sass --style=compressed scss/main.scss:css/proyectoGeneral.css
+
+// - Para terminar el proceso de SASS, selecciona el terminal y presiona Ctrl + C 
+
+// Para ejecutar SASS en el terminal, copia la siguiente línea sin las "//":
+//sass --watch scss/main.scss:proyectoGeneral.css

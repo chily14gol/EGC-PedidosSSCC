@@ -1,0 +1,143 @@
+﻿@using PedidosSSCC.Properties
+@{
+    ViewBag.Title = "Personas";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Personas</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary btn-ico-agregar">Añadir persona</button>
+            <div class="dropdown">
+                <ul class="dropdown-menu">
+                    <li id="btnExportarContainer"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default">
+                <div class="buscador">
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+            </div>
+            <div class="form-advance">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="filterNombre">Nombre</label>
+                            <input type="text" id="filterNombre" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="filterApellido">Apellidos</label>
+                            <input type="text" id="filterApellido" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="filterDepto">Departamento</label>
+                            <input type="text" id="filterDepto" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-btn-group">
+                <button type="button" id="btnBuscar" class="btn btn-primary">@Resources.Boton_Buscar</button>
+                <button type="button" id="btnLimpiar" class="btn btn-outline-secondary" style="display: none;">@Resources.Boton_Limpiar</button>
+                <button type="button" id="btnAvanzado" class="btn btn-link">@Resources.Boton_BusquedaAvanzada</button>
+            </div>
+        </form>
+
+        <table id="tablePersonas" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-priority="1">Nombre completo</th>
+                    <th>Departamento</th>
+                    <th>Email</th>
+                    <th>Activo</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal de Edición / Alta -->
+<div class="modal fade" id="modalEditarPersona" tabindex="-1" aria-labelledby="modalEditarPersonaLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalEditarPersonaLabel">Editar Persona</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-wrapper">
+                    <input type="hidden" id="personaIdOriginal">
+
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inputNombre">Nombre *</label>
+                                <input type="text" class="form-control" id="inputNombre" name="PER_Nombre">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inputApellido1">Apellido 1 *</label>
+                                <input type="text" class="form-control" id="inputApellido1" name="PER_Apellido1">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="inputApellido2">Apellido 2</label>
+                                <input type="text" class="form-control" id="inputApellido2" name="PER_Apellido2">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="selectDepartamento">Departamento *</label>
+                                <div class="styled-select-wrapper">
+                                    <select id="selectDepartamento" class="styled-select form-control" name="PER_DEP_Id"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label for="inputEmail">Email *</label>
+                                <input type="email" class="form-control" id="inputEmail" name="PER_Email">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-check full-col">
+                                <input type="checkbox" class="form-check-input" id="checkActivo" name="PER_Activo" />
+                                <label for="checkActivo" class="form-check-label">Activo</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" id="btnGuardarPersona">Guardar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                obtenerPersonas:   '@Url.Action("ObtenerPersonas", "Proyectos")',
+                guardarPersona:    '@Url.Action("GuardarPersona", "Proyectos")',
+                eliminarPersona:   '@Url.Action("EliminarPersona", "Proyectos")',
+                obtenerDepartamentos: '@Url.Action("GetDepartamentos", "Proyectos")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Proyectos/Personas.js?v=@DateTime.Now.Ticks"></script>
+}

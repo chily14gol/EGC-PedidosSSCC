@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Error del Servidor";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-lg border-danger rounded-lg">
+                    <div class="card-body">
+                        <h1 class="display-4 text-danger"><i class="bi bi-bug"></i></h1>
+                        <h2 class="text-dark">Error en el Servidor</h2>
+                        <p class="lead text-muted">
+                            Se ha producido un error inesperado al procesar tu solicitud.
+                        </p>
+                        <div class="alert alert-warning text-start">
+                            <h5>Detalles del error:</h5>
+                            <p><strong>Status:</strong> @Html.Raw(ViewBag.Status)</p>
+                            <p><strong>Mensaje:</strong> @Html.Raw(ViewBag.ErrorMessage)</p>
+                            <p><strong>Origen:</strong> @Html.Raw(ViewBag.ErrorSource)</p>
+                            <p><strong>Ruta:</strong> @Html.Raw(ViewBag.ErrorPath)</p>
+                            <p><strong>Hora:</strong> @DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")</p>
+                        </div>
+                        <a href="@Url.Action("Inicio", "Portal")" class="btn btn-primary mt-3">
+                            <i class="bi bi-house-door"></i> Volver a Inicio
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $(".breadcrumb-container").hide();
+            $('#contenidoPagina').fadeIn(); // Mostrar contenido tras verificación
+            ocultarDivCargando();
+            registrarErrorjQuery('@ViewBag.Status', '@ViewBag.ErrorMessage', '@ViewBag.ErrorPath');
+        });
+    </script>
+</body>
+</html>

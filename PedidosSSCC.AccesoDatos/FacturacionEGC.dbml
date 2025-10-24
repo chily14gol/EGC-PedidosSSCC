@@ -1,0 +1,1111 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="FacturacionInterna" Class="FacturacionInternaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=BINTS08SQLNET02;Initial Catalog=FacturacionInterna;Persist Security Info=True;User ID=sa" SettingsObjectName="AccesoDatos.Properties.Settings" SettingsPropertyName="FacturacionInternaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Departamentos" Member="Departamentos">
+    <Type Name="Departamentos">
+      <Column Name="DEP_Id" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DEP_Nombre" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="DEP_Codigo" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DEP_CodigoD365" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DEP_PER_Id_Responsable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Departamentos_Personas" Member="Personas2" ThisKey="DEP_Id" OtherKey="PER_DEP_Id" Type="Personas" />
+      <Association Name="Departamentos_Secciones" Member="Secciones" ThisKey="DEP_Id" OtherKey="SEC_DEP_Id" Type="Secciones" />
+      <Association Name="Departamentos_ConceptosFacturacion" Member="ConceptosFacturacion" ThisKey="DEP_Id" OtherKey="CFA_DEP_Id" Type="ConceptosFacturacion" />
+      <Association Name="Departamentos_Proyectos_Departamentos" Member="Proyectos_Departamentos" ThisKey="DEP_Id" OtherKey="PRD_DEP_Id" Type="Proyectos_Departamentos" />
+      <Association Name="Personas_Departamentos" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Personas_Departamentos1" Member="Personas1" ThisKey="DEP_PER_Id_Responsable" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Usuarios" Member="Usuarios">
+    <Type Name="Usuarios">
+      <Column Name="USU_Id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="USU_PER_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="USU_SPE_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="USU_VerTodo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Personas_Usuarios" Member="PersonaModificacion" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Personas_Usuarios1" Member="PersonaUsuario" ThisKey="USU_PER_Id" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Seguridad_Perfiles_Usuarios" Member="Seguridad_Perfiles" ThisKey="USU_SPE_Id" OtherKey="SPE_Id" Type="Seguridad_Perfiles" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Empresas" Member="Empresas">
+    <Type Name="Empresas">
+      <Column Name="EMP_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EMP_Nombre" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_RazonSocial" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_CIF" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_Direccion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EMP_PER_Id_AprobadorDefault" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EMP_LNE_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EMP_CodigoAPIKA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_CodigoD365" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_FPA_CodigoAPIKA" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_FPA_D365" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_TipoCliente" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_EGrupoD365" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_EmpresaFacturar" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="EMP_EmpresaFacturar_Id" Type="System.Int32" CanBeNull="true" />
+      <Column Name="EMP_ExcluidaGuardia" Type="System.Boolean" CanBeNull="false" />
+      <Column Name="EMP_GRG_Id" Type="System.Int32" CanBeNull="true" />
+      <Column Name="EMP_NombreDA" Type="System.String" CanBeNull="true" />
+      <Column Name="EMP_NumFacturaVDF" Type="System.String" CanBeNull="true" />
+      <Association Name="Empresas_Empresas_Aprobadores" Member="Empresas_Aprobadores" ThisKey="EMP_Id" OtherKey="EMA_EMP_Id" Type="Empresas_Aprobadores" />
+      <Association Name="Empresas_Tareas_Empresas" Member="Tareas_Empresas" ThisKey="EMP_Id" OtherKey="TEM_EMP_Id" Type="Tareas_Empresas" />
+      <Association Name="Empresas_Tareas_Empresas_LineasEsfuerzo" Member="Tareas_Empresas_LineasEsfuerzo" ThisKey="EMP_Id" OtherKey="TLE_EMP_Id" Type="Tareas_Empresas_LineasEsfuerzo" />
+      <Association Name="Empresas_Facturas" Member="Facturas" ThisKey="EMP_Id" OtherKey="FAC_EMP_Id" Type="Facturas" />
+      <Association Name="Empresas_Facturas1" Member="FacturasEmpreaFacturar" ThisKey="EMP_Id" OtherKey="FAC_EMP_Id_Facturar" Type="Facturas" />
+      <Association Name="Empresas_Licencias_Excepciones" Member="Licencias_Excepciones" ThisKey="EMP_Id" OtherKey="LIE_EMP_Id" Type="Licencias_Excepciones" />
+      <Association Name="Empresas_Entes" Member="Entes" ThisKey="EMP_Id" OtherKey="ENT_EMP_Id" Type="Entes" />
+      <Association Name="Empresas_Licencias_Excepciones_LicenciasReemplazo" Member="Licencias_Excepciones_LicenciasReemplazo" ThisKey="EMP_Id" OtherKey="LEL_LIE_EMP_Id" Type="Licencias_Excepciones_LicenciasReemplazo" />
+      <Association Name="Empresas_Proveedores_Asuntos" Member="Proveedores_Asuntos" ThisKey="EMP_Id" OtherKey="PAS_EMP_Id" Type="Proveedores_Asuntos" />
+      <Association Name="Empresas_Licencias_Minimos" Member="Licencias_Minimos" ThisKey="EMP_Id" OtherKey="LEM_EMP_Id" Type="Licencias_Minimos" />
+      <Association Name="Empresas_Proyectos_Empresas" Member="Proyectos_Empresas" ThisKey="EMP_Id" OtherKey="PRE_EMP_Id" Type="Proyectos_Empresas" />
+      <Association Name="Empresas_Aplicaciones_Modulos_Empresas" Member="Aplicaciones_Modulos_Empresas" ThisKey="EMP_Id" OtherKey="AME_EMP_Id" Type="Aplicaciones_Modulos_Empresas" />
+      <Association Name="Empresas_Proveedores_ContratosSoporte_Reparto" Member="Proveedores_ContratosSoporte_Reparto" ThisKey="EMP_Id" OtherKey="PVR_EMP_Id" Type="Proveedores_ContratosSoporte_Reparto" />
+      <Association Name="Empresas_Empresas_Departamentos" Member="Empresas_Departamentos" ThisKey="EMP_Id" OtherKey="EDE_EMP_Id" Type="Empresas_Departamentos" />
+      <Association Name="Empresas_Telefonia" Member="Telefonia" ThisKey="EMP_Id" OtherKey="TFN_EMP_Id" Type="Telefonia" />
+      <Association Name="Empresas_Telefonia1" Member="Telefonia1" ThisKey="EMP_Id" OtherKey="TFN_Planta_EMP_Id" Type="Telefonia" />
+      <Association Name="Empresas_ContratosCAU_ExcluidasGuardia" Member="ContratosCAU_ExcluidasGuardia" ThisKey="EMP_Id" OtherKey="CEE_EMP_Id" Type="ContratosCAU_ExcluidasGuardia" />
+      <Association Name="LineasNegocio_Empresas" Member="LineasNegocio" ThisKey="EMP_LNE_Id" OtherKey="LNE_Id" Type="LineasNegocio" IsForeignKey="true" />
+      <Association Name="Personas_Empresas" Member="Personas" ThisKey="EMP_PER_Id_AprobadorDefault" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Personas_Empresas1" Member="Personas1" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Empresas_Aprobadores" Member="Empresas_Aprobadores">
+    <Type Name="Empresas_Aprobadores">
+      <Column Name="EMA_EMP_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EMA_PER_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Empresas_Empresas_Aprobadores" Member="Empresas" ThisKey="EMA_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+      <Association Name="Personas_Empresas_Aprobadores" Member="Personas" ThisKey="EMA_PER_Id" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstadosSolicitud" Member="EstadosSolicitud">
+    <Type Name="EstadosSolicitud">
+      <Column Name="ESO_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="EstadosSolicitud_EstadosSolicitud_Idioma" Member="EstadosSolicitud_Idioma" ThisKey="ESO_Id" OtherKey="ESI_ESO_Id" Type="EstadosSolicitud_Idioma" />
+      <Association Name="EstadosSolicitud_Tareas_Empresas" Member="Tareas_Empresas" ThisKey="ESO_Id" OtherKey="TEM_ESO_Id" Type="Tareas_Empresas" />
+      <Association Name="EstadosSolicitud_Tareas_Empresas_LineasEsfuerzo" Member="Tareas_Empresas_LineasEsfuerzo" ThisKey="ESO_Id" OtherKey="TLE_ESO_Id" Type="Tareas_Empresas_LineasEsfuerzo" />
+      <Association Name="EstadosSolicitud_Facturas" Member="Facturas" ThisKey="ESO_Id" OtherKey="FAC_ESO_Id" Type="Facturas" />
+      <Association Name="Personas_EstadosSolicitud" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EstadosSolicitud_Idioma" Member="EstadosSolicitud_Idioma">
+    <Type Name="EstadosSolicitud_Idioma">
+      <Column Name="ESI_ESO_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ESI_IDI_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ESI_Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="EstadosSolicitud_EstadosSolicitud_Idioma" Member="EstadosSolicitud" ThisKey="ESI_ESO_Id" OtherKey="ESO_Id" Type="EstadosSolicitud" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Idiomas_EstadosSolicitud_Idioma" Member="Idiomas" ThisKey="ESI_IDI_Id" OtherKey="IDI_Id" Type="Idiomas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Facturas_Tareas_LineasEsfuerzo" Member="Facturas_Tareas_LineasEsfuerzo">
+    <Type Name="Facturas_Tareas_LineasEsfuerzo">
+      <Column Name="FLE_FAC_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FLE_TLE_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Facturas_Tareas_LineasEsfuerzo" Member="Tareas_Empresas_LineasEsfuerzo" ThisKey="FLE_TLE_Id" OtherKey="TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo" IsForeignKey="true" />
+      <Association Name="Facturas_Facturas_Tareas_LineasEsfuerzo" Member="Facturas" ThisKey="FLE_FAC_Id" OtherKey="FAC_Id" Type="Facturas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Idiomas" Member="Idiomas">
+    <Type Name="Idiomas">
+      <Column Name="IDI_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IDI_IDCultura" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="IDI_Descripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="Idiomas_EstadosSolicitud_Idioma" Member="EstadosSolicitud_Idioma" ThisKey="IDI_Id" OtherKey="ESI_IDI_Id" Type="EstadosSolicitud_Idioma" />
+      <Association Name="Idiomas_LineasNegocio_Idioma" Member="LineasNegocio_Idioma" ThisKey="IDI_Id" OtherKey="LNI_IDI_Id" Type="LineasNegocio_Idioma" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LineasNegocio" Member="LineasNegocio">
+    <Type Name="LineasNegocio">
+      <Column Name="LNE_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="LineasNegocio_Empresas" Member="Empresas" ThisKey="LNE_Id" OtherKey="EMP_LNE_Id" Type="Empresas" />
+      <Association Name="LineasNegocio_LineasNegocio_Idioma" Member="LineasNegocio_Idioma" ThisKey="LNE_Id" OtherKey="LNI_LNE_Id" Type="LineasNegocio_Idioma" />
+      <Association Name="Personas_LineasNegocio" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LineasNegocio_Idioma" Member="LineasNegocio_Idioma">
+    <Type Name="LineasNegocio_Idioma">
+      <Column Name="LNI_LNE_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LNI_IDI_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LNI_Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="LNI_Descripcion" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Association Name="Idiomas_LineasNegocio_Idioma" Member="Idiomas" ThisKey="LNI_IDI_Id" OtherKey="IDI_Id" Type="Idiomas" IsForeignKey="true" />
+      <Association Name="LineasNegocio_LineasNegocio_Idioma" Member="LineasNegocio" ThisKey="LNI_LNE_Id" OtherKey="LNE_Id" Type="LineasNegocio" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Personas" Member="Personas">
+    <Type Name="Personas">
+      <Column Name="PER_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PER_Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Apellido1" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Apellido2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="PER_DEP_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PER_Email" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Activo" Type="System.Boolean" CanBeNull="false" />
+      <Association Name="Personas_Departamentos" Member="Departamentos" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="Departamentos" />
+      <Association Name="Personas_Departamentos1" Member="Departamentos1" ThisKey="PER_Id" OtherKey="DEP_PER_Id_Responsable" Type="Departamentos" />
+      <Association Name="Personas_Usuarios" Member="Usuarios" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="Usuarios" />
+      <Association Name="Personas_Usuarios1" Member="Usuarios1" ThisKey="PER_Id" OtherKey="USU_PER_Id" Type="Usuarios" />
+      <Association Name="Personas_Empresas" Member="Empresas" ThisKey="PER_Id" OtherKey="EMP_PER_Id_AprobadorDefault" Type="Empresas" />
+      <Association Name="Personas_Empresas1" Member="Empresas1" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="Empresas" />
+      <Association Name="Personas_Empresas_Aprobadores" Member="Empresas_Aprobadores" ThisKey="PER_Id" OtherKey="EMA_PER_Id" Type="Empresas_Aprobadores" />
+      <Association Name="Personas_EstadosSolicitud" Member="EstadosSolicitud" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="EstadosSolicitud" />
+      <Association Name="Personas_LineasNegocio" Member="LineasNegocio" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="LineasNegocio" />
+      <Association Name="Personas_Personas" Member="Personas2" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="Personas" />
+      <Association Name="Personas_Personas_Secciones" Member="Personas_Secciones" ThisKey="PER_Id" OtherKey="PDE_PER_Id" Type="Personas_Secciones" />
+      <Association Name="Personas_Secciones" Member="Secciones" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="Secciones" />
+      <Association Name="Personas_Seguridad_Opciones" Member="Seguridad_Opciones" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="Seguridad_Opciones" />
+      <Association Name="Personas_Seguridad_Perfiles" Member="Seguridad_Perfiles" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="Seguridad_Perfiles" />
+      <Association Name="Personas_Tareas" Member="Tareas" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="Tareas" />
+      <Association Name="Personas_Tareas_Empresas" Member="Tareas_Empresas" ThisKey="PER_Id" OtherKey="TEM_PER_Id_Aprobador" Type="Tareas_Empresas" />
+      <Association Name="Personas_Tareas_Empresas1" Member="Tareas_Empresas1" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="Tareas_Empresas" />
+      <Association Name="Personas_Tareas_Empresas_LineasEsfuerzo" Member="Tareas_Empresas_LineasEsfuerzo" ThisKey="PER_Id" OtherKey="TLE_PER_Id_Aprobador" Type="Tareas_Empresas_LineasEsfuerzo" />
+      <Association Name="Personas_Tareas_Empresas_LineasEsfuerzo1" Member="Tareas_Empresas_LineasEsfuerzo1" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="Tareas_Empresas_LineasEsfuerzo" />
+      <Association Name="Personas_TiposTarea" Member="TiposTarea" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="TiposTarea" />
+      <Association Name="Personas_Facturas" Member="Facturas" ThisKey="PER_Id" OtherKey="FAC_PER_Id_Aprobador" Type="Facturas" />
+      <Association Name="Personas_Facturas1" Member="Facturas1" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="Facturas" />
+      <Association Name="Personas_EnlacesContables" Member="EnlacesContables" ThisKey="PER_Id" OtherKey="ECO_PER_Id" Type="EnlacesContables" />
+      <Association Name="Personas_ItemNumbersD365" Member="ItemNumbersD365" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="ItemNumbersD365" />
+      <Association Name="Personas_ProductosD365" Member="ProductosD365" ThisKey="PER_Id" OtherKey="PER_Id_Modificacion" Type="ProductosD365" />
+      <Association Name="Personas_Tareas_Empresas_LineasEsfuerzo_Tickets" Member="Tareas_Empresas_LineasEsfuerzo_Tickets" ThisKey="PER_Id" OtherKey="TCT_PER_Id" Type="Tareas_Empresas_LineasEsfuerzo_Tickets" />
+      <Association Name="Personas_Proyectos_Partes" Member="Proyectos_Partes" ThisKey="PER_Id" OtherKey="PPA_PER_Id" Type="Proyectos_Partes" />
+      <Association Name="Departamentos_Personas" Member="Departamentos2" ThisKey="PER_DEP_Id" OtherKey="DEP_Id" Type="Departamentos" IsForeignKey="true" />
+      <Association Name="Personas_Personas" Member="Personas1" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Personas_Secciones" Member="Personas_Secciones">
+    <Type Name="Personas_Secciones">
+      <Column Name="PDE_PER_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PDE_SEC_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Personas_Personas_Secciones" Member="Personas" ThisKey="PDE_PER_Id" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Secciones_Personas_Secciones" Member="Secciones" ThisKey="PDE_SEC_Id" OtherKey="SEC_Id" Type="Secciones" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Secciones" Member="Secciones">
+    <Type Name="Secciones">
+      <Column Name="SEC_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SEC_Codigo" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SEC_Nombre" Type="System.String" DbType="VarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="SEC_DEP_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SEC_Ficticia" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Secciones_Personas_Secciones" Member="Personas_Secciones" ThisKey="SEC_Id" OtherKey="PDE_SEC_Id" Type="Personas_Secciones" />
+      <Association Name="Secciones_Tareas" Member="Tareas" ThisKey="SEC_Id" OtherKey="TAR_SEC_Id" Type="Tareas" />
+      <Association Name="Departamentos_Secciones" Member="Departamentos" ThisKey="SEC_DEP_Id" OtherKey="DEP_Id" Type="Departamentos" IsForeignKey="true" />
+      <Association Name="Personas_Secciones" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Seguridad_Opciones" Member="Seguridad_Opciones">
+    <Type Name="Seguridad_Opciones">
+      <Column Name="SOP_Id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SOP_SOP_Id_Padre" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SOP_Nombre" Type="System.String" CanBeNull="false" />
+      <Association Name="Seguridad_Opciones_Seguridad_Opciones" Member="Seguridad_Opciones2" ThisKey="SOP_Id" OtherKey="SOP_SOP_Id_Padre" Type="Seguridad_Opciones" />
+      <Association Name="Seguridad_Opciones_Seguridad_Perfiles_Opciones" Member="Seguridad_Perfiles_Opciones" ThisKey="SOP_Id" OtherKey="SPO_SOP_Id" Type="Seguridad_Perfiles_Opciones" />
+      <Association Name="Personas_Seguridad_Opciones" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Seguridad_Opciones_Seguridad_Opciones" Member="Seguridad_Opciones1" ThisKey="SOP_SOP_Id_Padre" OtherKey="SOP_Id" Type="Seguridad_Opciones" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Seguridad_Perfiles" Member="Seguridad_Perfiles">
+    <Type Name="Seguridad_Perfiles">
+      <Column Name="SPE_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SPE_Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Seguridad_Perfiles_Usuarios" Member="Usuarios" ThisKey="SPE_Id" OtherKey="USU_SPE_Id" Type="Usuarios" />
+      <Association Name="Seguridad_Perfiles_Seguridad_Perfiles_Opciones" Member="Seguridad_Perfiles_Opciones" ThisKey="SPE_Id" OtherKey="SPO_SPE_Id" Type="Seguridad_Perfiles_Opciones" />
+      <Association Name="Personas_Seguridad_Perfiles" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Seguridad_Perfiles_Opciones" Member="Seguridad_Perfiles_Opciones">
+    <Type Name="Seguridad_Perfiles_Opciones">
+      <Column Name="SPO_SPE_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SPO_SOP_Id" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SPO_Escritura" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Seguridad_Opciones_Seguridad_Perfiles_Opciones" Member="Seguridad_Opciones" ThisKey="SPO_SOP_Id" OtherKey="SOP_Id" Type="Seguridad_Opciones" IsForeignKey="true" />
+      <Association Name="Seguridad_Perfiles_Seguridad_Perfiles_Opciones" Member="Seguridad_Perfiles" ThisKey="SPO_SPE_Id" OtherKey="SPE_Id" Type="Seguridad_Perfiles" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tareas" Member="Tareas">
+    <Type Name="Tareas">
+      <Column Name="TAR_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TAR_SEC_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TAR_Nombre" Type="System.String" DbType="VarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="TAR_TTA_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TAR_ImporteUnitario" Type="System.Decimal" DbType="Decimal(19,9)" CanBeNull="true" />
+      <Column Name="TAR_UTA_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TAR_TipoIva" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TAR_CFA_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TAR_PR3_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TAR_IN3_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TAR_Activo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tareas_Tareas_Empresas" Member="Tareas_Empresas" ThisKey="TAR_Id" OtherKey="TEM_TAR_Id" Type="Tareas_Empresas" />
+      <Association Name="Tareas_Tareas_Empresas_LineasEsfuerzo" Member="Tareas_Empresas_LineasEsfuerzo" ThisKey="TAR_Id" OtherKey="TLE_TAR_Id" Type="Tareas_Empresas_LineasEsfuerzo" />
+      <Association Name="Tareas_Proveedores" Member="Proveedores" ThisKey="TAR_Id" OtherKey="PRV_TAR_Id_Soporte" Type="Proveedores" />
+      <Association Name="Tareas_Licencias" Member="Licencias" ThisKey="TAR_Id" OtherKey="LIC_TAR_Id_SW" Type="Licencias" />
+      <Association Name="Tareas_Licencias1" Member="Licencias1" ThisKey="TAR_Id" OtherKey="LIC_TAR_Id_SW" Type="Licencias" />
+      <Association Name="Tareas_Licencias2" Member="Licencias2" ThisKey="TAR_Id" OtherKey="LIC_TAR_Id_Antivirus" Type="Licencias" />
+      <Association Name="Tareas_Licencias3" Member="Licencias3" ThisKey="TAR_Id" OtherKey="LIC_TAR_Id_Backup" Type="Licencias" />
+      <Association Name="Tareas_ContratosCAU" Member="ContratosCAU" ThisKey="TAR_Id" OtherKey="CCA_TAR_Id_F" Type="ContratosCAU" />
+      <Association Name="Tareas_ContratosCAU1" Member="ContratosCAU1" ThisKey="TAR_Id" OtherKey="CCA_TAR_Id_D" Type="ContratosCAU" />
+      <Association Name="Tareas_ContratosCAU2" Member="ContratosCAU2" ThisKey="TAR_Id" OtherKey="CCA_TAR_Id_G" Type="ContratosCAU" />
+      <Association Name="Tareas_ContratosCAU3" Member="ContratosCAU3" ThisKey="TAR_Id" OtherKey="CCA_TAR_Id_S" Type="ContratosCAU" />
+      <Association Name="Tareas_Proyectos" Member="Proyectos" ThisKey="TAR_Id" OtherKey="PRY_TAR_Id" Type="Proyectos" />
+      <Association Name="Tareas_Aplicaciones" Member="Aplicaciones" ThisKey="TAR_Id" OtherKey="APP_TAR_Id" Type="Aplicaciones" />
+      <Association Name="Tareas_Aplicaciones_Modulos" Member="Aplicaciones_Modulos" ThisKey="TAR_Id" OtherKey="APM_TAR_Id" Type="Aplicaciones_Modulos" />
+      <Association Name="Tareas_LicenciasAnuales" Member="LicenciasAnuales" ThisKey="TAR_Id" OtherKey="LAN_TAR_Id" Type="LicenciasAnuales" />
+      <Association Name="Personas_Tareas" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Secciones_Tareas" Member="Secciones" ThisKey="TAR_SEC_Id" OtherKey="SEC_Id" Type="Secciones" IsForeignKey="true" />
+      <Association Name="TiposTarea_Tareas" Member="TiposTarea" ThisKey="TAR_TTA_Id" OtherKey="TTA_Id" Type="TiposTarea" IsForeignKey="true" />
+      <Association Name="ProductosD365_Tareas" Member="ProductosD365" ThisKey="TAR_PR3_Id" OtherKey="PR3_Id" Type="ProductosD365" IsForeignKey="true" />
+      <Association Name="ItemNumbersD365_Tareas" Member="ItemNumbersD365" ThisKey="TAR_IN3_Id" OtherKey="IN3_Id" Type="ItemNumbersD365" IsForeignKey="true" />
+      <Association Name="UnidadesTarea_Tareas" Member="UnidadesTarea" ThisKey="TAR_UTA_Id" OtherKey="UTA_Id" Type="UnidadesTarea" IsForeignKey="true" />
+      <Association Name="ConceptosFacturacion_Tareas" Member="ConceptosFacturacion" ThisKey="TAR_CFA_Id" OtherKey="CFA_Id" Type="ConceptosFacturacion" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tareas_Empresas" Member="Tareas_Empresas">
+    <Type Name="Tareas_Empresas">
+      <Column Name="TEM_TAR_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TEM_EMP_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TEM_Anyo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TEM_Elementos" Type="System.Decimal" DbType="Decimal(19,9) NOT NULL" CanBeNull="false" />
+      <Column Name="TEM_Presupuesto" Type="System.Decimal" DbType="Decimal(19,9) NOT NULL" CanBeNull="false" />
+      <Column Name="TEM_Vigente" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="TEM_ESO_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TEM_PER_Id_Aprobador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TEM_FechaAprobacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TEM_ComentarioAprobacion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tareas_Empresas_Tareas_Empresas_LineasEsfuerzo" Member="Tareas_Empresas_LineasEsfuerzo" ThisKey="TEM_TAR_Id,TEM_EMP_Id,TEM_Anyo" OtherKey="TLE_TAR_Id,TLE_EMP_Id,TLE_Anyo" Type="Tareas_Empresas_LineasEsfuerzo" />
+      <Association Name="Empresas_Tareas_Empresas" Member="Empresas" ThisKey="TEM_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+      <Association Name="EstadosSolicitud_Tareas_Empresas" Member="EstadosSolicitud" ThisKey="TEM_ESO_Id" OtherKey="ESO_Id" Type="EstadosSolicitud" IsForeignKey="true" />
+      <Association Name="Personas_Tareas_Empresas" Member="Personas" ThisKey="TEM_PER_Id_Aprobador" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Personas_Tareas_Empresas1" Member="Personas1" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Tareas_Tareas_Empresas" Member="Tareas" ThisKey="TEM_TAR_Id" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tareas_Empresas_LineasEsfuerzo" Member="Tareas_Empresas_LineasEsfuerzo">
+    <Type Name="Tareas_Empresas_LineasEsfuerzo">
+      <Column Name="TLE_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TLE_TAR_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TLE_EMP_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TLE_Anyo" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TLE_Mes" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TLE_FAP_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TLE_Cantidad" Type="System.Decimal" DbType="Decimal(19,9) NOT NULL" CanBeNull="false" />
+      <Column Name="TLE_Descripcion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="TLE_ESO_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TLE_PER_Id_Aprobador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TLE_FechaAprobacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TLE_ComentarioAprobacion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TLE_Inversion" Type="System.Boolean" CanBeNull="false" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Facturas_Tareas_LineasEsfuerzo" Member="Facturas_Tareas_LineasEsfuerzo" ThisKey="TLE_Id" OtherKey="FLE_TLE_Id" Type="Facturas_Tareas_LineasEsfuerzo" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_LicenciasMS" Member="Tareas_Empresas_LineasEsfuerzo_LicenciasMS" ThisKey="TLE_Id" OtherKey="TCL_TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo_LicenciasMS" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_Tickets" Member="Tareas_Empresas_LineasEsfuerzo_Tickets" ThisKey="TLE_Id" OtherKey="TCT_TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo_Tickets" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_Partes" Member="Tareas_Empresas_LineasEsfuerzo_Partes" ThisKey="TLE_Id" OtherKey="TCP_TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo_Partes" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_Aplicaciones" Member="Tareas_Empresas_LineasEsfuerzo_Aplicaciones" ThisKey="TLE_Id" OtherKey="TCA_TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo_Aplicaciones" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_Modulos" Member="Tareas_Empresas_LineasEsfuerzo_Modulos" ThisKey="TLE_Id" OtherKey="TCM_TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo_Modulos" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_Asuntos" Member="Tareas_Empresas_LineasEsfuerzo_Asuntos" ThisKey="TLE_Id" OtherKey="TCA_TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo_Asuntos" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales" Member="Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales" ThisKey="TLE_Id" OtherKey="TCL_TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales" />
+      <Association Name="EstadosSolicitud_Tareas_Empresas_LineasEsfuerzo" Member="EstadosSolicitud" ThisKey="TLE_ESO_Id" OtherKey="ESO_Id" Type="EstadosSolicitud" IsForeignKey="true" />
+      <Association Name="Personas_Tareas_Empresas_LineasEsfuerzo" Member="PersonaAprobador" ThisKey="TLE_PER_Id_Aprobador" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Personas_Tareas_Empresas_LineasEsfuerzo1" Member="PersonaModificacion" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Tareas_Empresas_Tareas_Empresas_LineasEsfuerzo" Member="Tareas_Empresas" ThisKey="TLE_TAR_Id,TLE_EMP_Id,TLE_Anyo" OtherKey="TEM_TAR_Id,TEM_EMP_Id,TEM_Anyo" Type="Tareas_Empresas" IsForeignKey="true" />
+      <Association Name="Tareas_Tareas_Empresas_LineasEsfuerzo" Member="Tareas" ThisKey="TLE_TAR_Id" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+      <Association Name="Empresas_Tareas_Empresas_LineasEsfuerzo" Member="Empresas" ThisKey="TLE_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TiposTarea" Member="TiposTarea">
+    <Type Name="TiposTarea">
+      <Column Name="TTA_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TTA_Nombre" Type="System.String" CanBeNull="true" />
+      <Association Name="TiposTarea_Tareas" Member="Tareas" ThisKey="TTA_Id" OtherKey="TAR_TTA_Id" Type="Tareas" />
+      <Association Name="Personas_TiposTarea" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UnidadesTarea" Member="UnidadesTarea">
+    <Type Name="UnidadesTarea">
+      <Column Name="UTA_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="UnidadesTarea_Tareas" Member="Tareas" ThisKey="UTA_Id" OtherKey="TAR_UTA_Id" Type="Tareas" />
+      <Association Name="UnidadesTarea_UnidadesTarea_Idioma" Member="UnidadesTarea_Idioma" ThisKey="UTA_Id" OtherKey="UTI_UTA_Id" Type="UnidadesTarea_Idioma" />
+      <Association Name="Personas_UnidadesTarea" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UnidadesTarea_Idioma" Member="UnidadesTarea_Idioma">
+    <Type Name="UnidadesTarea_Idioma">
+      <Column Name="UTI_UTA_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UTI_IDI_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="UTI_Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Idiomas_UnidadesTarea_Idioma" Member="Idiomas" ThisKey="UTI_IDI_Id" OtherKey="IDI_Id" Type="Idiomas" IsForeignKey="true" />
+      <Association Name="UnidadesTarea_UnidadesTarea_Idioma" Member="UnidadesTarea" ThisKey="UTI_UTA_Id" OtherKey="UTA_Id" Type="UnidadesTarea" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Facturas" Member="Facturas">
+    <Type Name="Facturas">
+      <Column Name="FAC_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FAC_EMP_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FAC_EMP_Id_Facturar" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FAC_CFA_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FAC_NumFactura" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FAC_Contacto" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FAC_Direccion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FAC_FechaEmision" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FAC_FechaVencimiento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FAC_Expediente" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="FAC_Documento" Type="System.String" DbType="VarChar(260)" CanBeNull="true" />
+      <Column Name="FAC_DocumentoBytes" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FAC_IVATotal" Type="System.Decimal" DbType="Decimal(19,9)" CanBeNull="true" />
+      <Column Name="FAC_ImporteTotal" Type="System.Decimal" DbType="Decimal(19,9)" CanBeNull="true" />
+      <Column Name="FAC_ESO_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="FAC_RequiereAprobacion" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FAC_PER_Id_Aprobador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FAC_FechaAprobacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FAC_ComentarioAprobacion" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FAC_ECO_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FAC_Pedido" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Facturas_Facturas_Tareas_LineasEsfuerzo" Member="Facturas_Tareas_LineasEsfuerzo" ThisKey="FAC_Id" OtherKey="FLE_FAC_Id" Type="Facturas_Tareas_LineasEsfuerzo" />
+      <Association Name="Empresas_Facturas" Member="Empresas" ThisKey="FAC_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+      <Association Name="Empresas_Facturas1" Member="EmpresaFacturar" ThisKey="FAC_EMP_Id_Facturar" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+      <Association Name="ConceptosFacturacion_Facturas" Member="ConceptosFacturacion" ThisKey="FAC_CFA_Id" OtherKey="CFA_Id" Type="ConceptosFacturacion" IsForeignKey="true" />
+      <Association Name="EstadosSolicitud_Facturas" Member="EstadosSolicitud" ThisKey="FAC_ESO_Id" OtherKey="ESO_Id" Type="EstadosSolicitud" IsForeignKey="true" />
+      <Association Name="EnlacesContables_Facturas" Member="EnlacesContables" ThisKey="FAC_ECO_Id" OtherKey="ECO_Id" Type="EnlacesContables" IsForeignKey="true" />
+      <Association Name="Personas_Facturas" Member="PersonaAprobador" ThisKey="FAC_PER_Id_Aprobador" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Personas_Facturas1" Member="PersonaModificacion" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.EnlacesContables" Member="EnlacesContables">
+    <Type Name="EnlacesContables">
+      <Column Name="ECO_Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ECO_Fecha" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ECO_PER_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ECO_Documento" Type="System.String" DbType="VarChar(260)" CanBeNull="true" />
+      <Column Name="ECO_DocumentoBytes" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="EnlacesContables_Facturas" Member="Facturas" ThisKey="ECO_Id" OtherKey="FAC_ECO_Id" Type="Facturas" />
+      <Association Name="Personas_EnlacesContables" Member="Personas" ThisKey="ECO_PER_Id" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ConceptosFacturacion" Member="ConceptosFacturacion">
+    <Type Name="ConceptosFacturacion">
+      <Column Name="CFA_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CFA_DEP_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CFA_CodigoTK" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CFA_PorHoras" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CFA_PorUnidades" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CFA_CantidadFija" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ConceptosFacturacion_Tareas" Member="Tareas" ThisKey="CFA_Id" OtherKey="TAR_CFA_Id" Type="Tareas" />
+      <Association Name="ConceptosFacturacion_Facturas" Member="Facturas" ThisKey="CFA_Id" OtherKey="FAC_CFA_Id" Type="Facturas" />
+      <Association Name="ConceptosFacturacion_ConceptosFacturacion_Idioma" Member="ConceptosFacturacion_Idioma" ThisKey="CFA_Id" OtherKey="CFI_CFA_Id" Type="ConceptosFacturacion_Idioma" />
+      <Association Name="Personas_ConceptosFacturacion" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Departamentos_ConceptosFacturacion" Member="Departamentos" ThisKey="CFA_DEP_Id" OtherKey="DEP_Id" Type="Departamentos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ConceptosFacturacion_Idioma" Member="ConceptosFacturacion_Idioma">
+    <Type Name="ConceptosFacturacion_Idioma">
+      <Column Name="CFI_CFA_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CFI_IDI_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CFI_Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="Idiomas_ConceptosFacturacion_Idioma" Member="Idiomas" ThisKey="CFI_IDI_Id" OtherKey="IDI_Id" Type="Idiomas" IsForeignKey="true" />
+      <Association Name="ConceptosFacturacion_ConceptosFacturacion_Idioma" Member="ConceptosFacturacion" ThisKey="CFI_CFA_Id" OtherKey="CFA_Id" Type="ConceptosFacturacion" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Configuraciones" Member="Configuraciones">
+    <Type Name="Configuraciones">
+      <Column Name="CFG_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CFG_Descripcion" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CFG_Valor" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Personas_Configuraciones" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ItemNumbersD365" Member="ItemNumbersD365">
+    <Type Name="ItemNumbersD365">
+      <Column Name="IN3_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IN3_Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="IN3_Activo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ItemNumbersD365_Tareas" Member="Tareas" ThisKey="IN3_Id" OtherKey="TAR_IN3_Id" Type="Tareas" />
+      <Association Name="Personas_ItemNumbersD365" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductosD365" Member="ProductosD365">
+    <Type Name="ProductosD365">
+      <Column Name="PR3_Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PR3_Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PR3_Activo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="ProductosD365_Tareas" Member="Tareas" ThisKey="PR3_Id" OtherKey="TAR_PR3_Id" Type="Tareas" />
+      <Association Name="Personas_ProductosD365" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Proveedores" Member="Proveedores">
+    <Type Name="Proveedores">
+      <Column Name="PRV_Id" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PRV_CIF" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="PRV_Nombre" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PRV_Activo" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PRV_TAR_Id_Soporte" Type="System.Int32" CanBeNull="true" />
+      <Column Name="PRV_PlantillaExcel" Type="System.Int32" CanBeNull="true" />
+      <Association Name="Proveedores_Proveedores_ContratosSoporte" Member="Proveedores_ContratosSoporte" ThisKey="PRV_Id" OtherKey="PVC_PRV_Id" Type="Proveedores_ContratosSoporte" />
+      <Association Name="Proveedores_Proveedores_Asuntos" Member="Proveedores_Asuntos" ThisKey="PRV_Id" OtherKey="PAS_PRV_Id" Type="Proveedores_Asuntos" />
+      <Association Name="Proveedores_FacturasP" Member="FacturasP" ThisKey="PRV_Id" OtherKey="FAP_PRV_Id" Type="FacturasP" />
+      <Association Name="Proveedores_LicenciasAnuales" Member="LicenciasAnuales" ThisKey="PRV_Id" OtherKey="LAN_PRV_Id" Type="LicenciasAnuales" />
+      <Association Name="Proveedores_ContratosLicenciasAnuales" Member="ContratosLicenciasAnuales" ThisKey="PRV_Id" OtherKey="CLA_PRV_Id" Type="ContratosLicenciasAnuales" />
+      <Association Name="Personas_Proveedores" Member="Personas" ThisKey="PER_Id_Modificacion" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+      <Association Name="Tareas_Proveedores" Member="Tareas" ThisKey="PRV_TAR_Id_Soporte" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Licencias">
+    <Type Name="Licencias">
+      <Column Name="LIC_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LIC_Nombre" Type="System.String" CanBeNull="false" />
+      <Column Name="LIC_MaximoGrupo" Type="System.Int32" CanBeNull="true" />
+      <Column Name="LIC_LIC_Id_Padre" Type="System.Int32" CanBeNull="true" />
+      <Column Name="LIC_TAR_Id_SW" Storage="_LIC_TAR_Id" Type="System.Int32" CanBeNull="true" />
+      <Column Name="LIC_NombreMS" Type="System.String" CanBeNull="true" />
+      <Column Name="LIC_Gestionado" Type="System.Boolean" CanBeNull="true" />
+      <Column Name="LIC_TAR_Id_Antivirus" Type="System.Int32" CanBeNull="true" />
+      <Column Name="LIC_TAR_Id_Backup" Type="System.Int32" CanBeNull="true" />
+      <Association Name="Licencias_Licencias_Excepciones" Member="Licencias_Excepciones" ThisKey="LIC_Id" OtherKey="LIE_LIC_Id" Type="Licencias_Excepciones" />
+      <Association Name="Licencias_Tareas_Empresas_LineasEsfuerzo_LicenciasMS" Member="Tareas_Empresas_LineasEsfuerzo_LicenciasMS" ThisKey="LIC_Id" OtherKey="TCL_LIC_Id" Type="Tareas_Empresas_LineasEsfuerzo_LicenciasMS" />
+      <Association Name="Licencias_Licencias_Excepciones_LicenciasReemplazo" Member="Licencias_Excepciones_LicenciasReemplazo" ThisKey="LIC_Id" OtherKey="LEL_LIC_Id_Reemplazo" Type="Licencias_Excepciones_LicenciasReemplazo" />
+      <Association Name="Licencias_Licencias_Incompatibles" Member="Licencias_Incompatibles" ThisKey="LIC_Id" OtherKey="LIL_LIC_Id1" Type="Licencias_Incompatibles" />
+      <Association Name="Licencias_Licencias_Incompatibles1" Member="Licencias_Incompatibles1" ThisKey="LIC_Id" OtherKey="LIL_LIC_Id2" Type="Licencias_Incompatibles" />
+      <Association Name="Licencias_Licencias_Minimos" Member="Licencias_Minimos" ThisKey="LIC_Id" OtherKey="LEM_LIC_Id" Type="Licencias_Minimos" />
+      <Association Name="Tareas_Licencias" Member="Tareas" ThisKey="LIC_TAR_Id_SW" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+      <Association Name="Tareas_Licencias1" Member="Tareas1" ThisKey="LIC_TAR_Id_SW" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+      <Association Name="Tareas_Licencias2" Member="Tareas2" ThisKey="LIC_TAR_Id_Antivirus" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+      <Association Name="Tareas_Licencias3" Member="Tareas3" ThisKey="LIC_TAR_Id_Backup" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Licencias_Excepciones">
+    <Type Name="Licencias_Excepciones">
+      <Column Name="LIE_LIC_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LIE_EMP_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LIE_CorreccionFacturacion" Type="System.Int32" CanBeNull="false" />
+      <Association Name="Licencias_Excepciones_Licencias_Excepciones_LicenciasReemplazo" Member="Licencias_Excepciones_LicenciasReemplazo" ThisKey="LIE_LIC_Id" OtherKey="LEL_LIE_LIC_Id" Type="Licencias_Excepciones_LicenciasReemplazo" />
+      <Association Name="Licencias_Licencias_Excepciones" Member="Licencias" ThisKey="LIE_LIC_Id" OtherKey="LIC_Id" Type="Licencias" IsForeignKey="true" />
+      <Association Name="Empresas_Licencias_Excepciones" Member="Empresas" ThisKey="LIE_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="TiposEnte">
+    <Type Name="TiposEnte">
+      <Column Name="TEN_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TEN_Nombre" Type="System.String" CanBeNull="false" />
+      <Association Name="TiposEnte_Entes" Member="Entes" ThisKey="TEN_Id" OtherKey="ENT_TEN_Id" Type="Entes" />
+      <Association Name="TiposEnte_Aplicaciones_TiposEnte" Member="Aplicaciones_TiposEnte" ThisKey="TEN_Id" OtherKey="ATE_TEN_Id" Type="Aplicaciones_TiposEnte" />
+      <Association Name="TiposEnte_LicenciasAnuales_TiposEnte" Member="LicenciasAnuales_TiposEnte" ThisKey="TEN_Id" OtherKey="LAT_TEN_Id" Type="LicenciasAnuales_TiposEnte" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Oficinas">
+    <Type Name="Oficinas">
+      <Column Name="OFI_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OFI_Nombre" Type="System.String" CanBeNull="false" />
+      <Column Name="OFI_NombreDA" Type="System.String" CanBeNull="false" />
+      <Association Name="Oficinas_Entes" Member="Entes" ThisKey="OFI_Id" OtherKey="ENT_OFI_Id" Type="Entes" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Licencias_Tarifas">
+    <Type Name="Licencias_Tarifas">
+      <Column Name="LIT_LIC_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LIT_FechaInicio" Type="System.DateTime" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LIT_FechaFin" Type="System.DateTime" CanBeNull="true" />
+      <Column Name="LIT_PrecioUnitarioSW" Storage="_LIT_PrecioUnitario" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="LIT_PrecioUnitarioAntivirus" Type="System.Decimal" CanBeNull="true" />
+      <Column Name="LIT_PrecioUnitarioBackup" Type="System.Decimal" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Entes">
+    <Type Name="Entes">
+      <Column Name="ENT_Id" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ENT_TEN_Id" Type="System.Int32" CanBeNull="true" />
+      <Column Name="ENT_Nombre" Type="System.String" CanBeNull="false" />
+      <Column Name="ENT_Email" Type="System.String" CanBeNull="false" />
+      <Column Name="ENT_EMP_Id" Type="System.Int32" CanBeNull="true" />
+      <Column Name="ENT_OFI_Id" Type="System.Int32" CanBeNull="true" />
+      <Column Name="ENT_EDE_Id" Type="System.Int32" CanBeNull="true" />
+      <Association Name="Entes_Tareas_Empresas_LineasEsfuerzo_LicenciasMS" Member="Tareas_Empresas_LineasEsfuerzo_LicenciasMS" ThisKey="ENT_Id" OtherKey="TCL_ENT_Id" Type="Tareas_Empresas_LineasEsfuerzo_LicenciasMS" />
+      <Association Name="Entes_Tickets" Member="Tickets" ThisKey="ENT_Id" OtherKey="TKC_ENT_Id_Solicitante" Type="Tickets" />
+      <Association Name="Entes_Proveedores_Asuntos" Member="Proveedores_Asuntos" ThisKey="ENT_Id" OtherKey="PAS_ENT_Id" Type="Proveedores_Asuntos" />
+      <Association Name="Entes_Entes_Aplicaciones" Member="Entes_Aplicaciones" ThisKey="ENT_Id" OtherKey="ENL_ENT_Id" Type="Entes_Aplicaciones" />
+      <Association Name="Entes_Entes_LicenciasAnuales" Member="Entes_LicenciasAnuales" ThisKey="ENT_Id" OtherKey="ELA_ENT_Id" Type="Entes_LicenciasAnuales" />
+      <Association Name="Entes_Tareas_Empresas_LineasEsfuerzo_Aplicaciones" Member="Tareas_Empresas_LineasEsfuerzo_Aplicaciones" ThisKey="ENT_Id" OtherKey="TCA_ENT_Id" Type="Tareas_Empresas_LineasEsfuerzo_Aplicaciones" />
+      <Association Name="Entes_Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales" Member="Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales" ThisKey="ENT_Id" OtherKey="TCL_ENT_Id" Type="Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales" />
+      <Association Name="TiposEnte_Entes" Member="TiposEnte" ThisKey="ENT_TEN_Id" OtherKey="TEN_Id" Type="TiposEnte" IsForeignKey="true" />
+      <Association Name="Empresas_Entes" Member="Empresas" ThisKey="ENT_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+      <Association Name="Oficinas_Entes" Member="Oficinas" ThisKey="ENT_OFI_Id" OtherKey="OFI_Id" Type="Oficinas" IsForeignKey="true" />
+      <Association Name="Empresas_Departamentos_Entes" Member="Empresas_Departamentos" ThisKey="ENT_EDE_Id" OtherKey="EDE_Id" Type="Empresas_Departamentos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Entes_Licencias">
+    <Type Name="Entes_Licencias">
+      <Column Name="ENL_ENT_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ENL_LIC_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ENL_FechaInicio" Type="System.DateTime" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ENL_FechaFin" Type="System.DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="EstadosTicket">
+    <Type Name="EstadosTicket">
+      <Column Name="ETK_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ETK_Nombre" Type="System.String" CanBeNull="false" />
+      <Association Name="EstadosTicket_Tickets" Member="Tickets" ThisKey="ETK_Id" OtherKey="TKC_ETK_Id" Type="Tickets" />
+    </Type>
+  </Table>
+  <Table Name="" Member="GruposGuardia">
+    <Type Name="GruposGuardia">
+      <Column Name="GRG_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GRG_Nombre" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="OrigenesTicket">
+    <Type Name="OrigenesTicket">
+      <Column Name="OTK_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OTK_Nombre" Type="System.String" CanBeNull="false" />
+      <Association Name="OrigenesTicket_Tickets" Member="Tickets" ThisKey="OTK_Id" OtherKey="TKC_OTK_Id" Type="Tickets" />
+    </Type>
+  </Table>
+  <Table Name="" Member="TiposTicket">
+    <Type Name="TiposTicket">
+      <Column Name="TTK_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TTK_Nombre" Type="System.String" CanBeNull="false" />
+      <Association Name="TiposTicket_Tickets" Member="Tickets" ThisKey="TTK_Id" OtherKey="TKC_TTK_Id" Type="Tickets" />
+    </Type>
+  </Table>
+  <Table Name="" Member="ValidacionesTicket">
+    <Type Name="ValidacionesTicket">
+      <Column Name="VTK_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VTK_Nombre" Type="System.String" CanBeNull="false" />
+      <Association Name="ValidacionesTicket_Tickets" Member="Tickets" ThisKey="VTK_Id" OtherKey="TKC_VTK_Id" Type="Tickets" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Tareas_Empresas_LineasEsfuerzo_LicenciasMS">
+    <Type Name="Tareas_Empresas_LineasEsfuerzo_LicenciasMS">
+      <Column Name="TCL_TLE_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCL_LIC_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCL_ENT_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCL_Importe" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="Licencias_Tareas_Empresas_LineasEsfuerzo_LicenciasMS" Member="Licencias" ThisKey="TCL_LIC_Id" OtherKey="LIC_Id" Type="Licencias" IsForeignKey="true" />
+      <Association Name="Entes_Tareas_Empresas_LineasEsfuerzo_LicenciasMS" Member="Entes" ThisKey="TCL_ENT_Id" OtherKey="ENT_Id" Type="Entes" IsForeignKey="true" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_LicenciasMS" Member="Tareas_Empresas_LineasEsfuerzo" ThisKey="TCL_TLE_Id" OtherKey="TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Licencias_TiposEnte">
+    <Type Name="Licencias_TiposEnte">
+      <Column Name="LTE_LIC_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LTE_TEN_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Licencias_Excepciones_LicenciasReemplazo">
+    <Type Name="Licencias_Excepciones_LicenciasReemplazo">
+      <Column Name="LEL_LIE_LIC_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LEL_LIE_EMP_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LEL_LIC_Id_Reemplazo" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Licencias_Excepciones_Licencias_Excepciones_LicenciasReemplazo" Member="Licencias_Excepciones" ThisKey="LEL_LIE_LIC_Id" OtherKey="LIE_LIC_Id" Type="Licencias_Excepciones" IsForeignKey="true" />
+      <Association Name="Empresas_Licencias_Excepciones_LicenciasReemplazo" Member="Empresas" ThisKey="LEL_LIE_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+      <Association Name="Licencias_Licencias_Excepciones_LicenciasReemplazo" Member="Licencias" ThisKey="LEL_LIC_Id_Reemplazo" OtherKey="LIC_Id" Type="Licencias" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="ContratosCAU">
+    <Type Name="ContratosCAU">
+      <Column Name="CCA_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CCA_FechaInicio" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="CCA_FechaFin" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="CCA_CosteHoraF" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="CCA_CosteHoraD" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="CCA_CosteHoraG" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="CCA_PrecioGuardia" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="CCA_TAR_Id_F" Type="System.Int32" CanBeNull="false" />
+      <Column Name="CCA_TAR_Id_D" Type="System.Int32" CanBeNull="false" />
+      <Column Name="CCA_TAR_Id_G" Type="System.Int32" CanBeNull="false" />
+      <Column Name="CCA_TAR_Id_S" Type="System.Int32" CanBeNull="false" />
+      <Column Name="CCA_CosteHoraS" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="ContratosCAU_ContratosCAU_ExcluidasGuardia" Member="ContratosCAU_ExcluidasGuardia" ThisKey="CCA_Id" OtherKey="CEE_CCA_Id" Type="ContratosCAU_ExcluidasGuardia" />
+      <Association Name="Tareas_ContratosCAU" Member="Tareas" ThisKey="CCA_TAR_Id_F" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+      <Association Name="Tareas_ContratosCAU1" Member="Tareas1" ThisKey="CCA_TAR_Id_D" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+      <Association Name="Tareas_ContratosCAU2" Member="Tareas2" ThisKey="CCA_TAR_Id_G" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+      <Association Name="Tareas_ContratosCAU3" Member="Tareas3" ThisKey="CCA_TAR_Id_S" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Tickets">
+    <Type Name="Tickets">
+      <Column Name="TKC_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TKC_Titulo" Type="System.String" CanBeNull="false" />
+      <Column Name="TKC_ETK_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="TKC_TTK_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="TKC_FechaApertura" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="TKC_ENT_Id_Solicitante" Type="System.Int32" CanBeNull="false" />
+      <Column Name="TKC_GrupoAsignado" Type="System.String" CanBeNull="false" />
+      <Column Name="TKC_Categoria" Type="System.String" CanBeNull="true" />
+      <Column Name="TKC_Descripcion" Type="System.String" CanBeNull="true" />
+      <Column Name="TKC_VTK_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="TKC_Duracion" Type="System.Int32" CanBeNull="false" />
+      <Column Name="TKC_Ubicacion" Type="System.String" CanBeNull="true" />
+      <Column Name="TKC_ProveedorAsignado" Type="System.String" CanBeNull="true" />
+      <Column Name="TKC_GrupoCargo" Type="System.String" CanBeNull="true" />
+      <Column Name="TKC_OTK_Id" Type="System.Int32" CanBeNull="true" />
+      <Column Name="TKC_FechaResolucion" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="TKC_CTK_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="TKC_Id_GLPI" Type="System.Int32" CanBeNull="true" />
+      <Association Name="Tickets_Tareas_Empresas_LineasEsfuerzo_Tickets" Member="Tareas_Empresas_LineasEsfuerzo_Tickets" ThisKey="TKC_Id" OtherKey="TCT_TKC_Id" Type="Tareas_Empresas_LineasEsfuerzo_Tickets" />
+      <Association Name="EstadosTicket_Tickets" Member="EstadosTicket" ThisKey="TKC_ETK_Id" OtherKey="ETK_Id" Type="EstadosTicket" IsForeignKey="true" />
+      <Association Name="TiposTicket_Tickets" Member="TiposTicket" ThisKey="TKC_TTK_Id" OtherKey="TTK_Id" Type="TiposTicket" IsForeignKey="true" />
+      <Association Name="ValidacionesTicket_Tickets" Member="ValidacionesTicket" ThisKey="TKC_VTK_Id" OtherKey="VTK_Id" Type="ValidacionesTicket" IsForeignKey="true" />
+      <Association Name="OrigenesTicket_Tickets" Member="OrigenesTicket" ThisKey="TKC_OTK_Id" OtherKey="OTK_Id" Type="OrigenesTicket" IsForeignKey="true" />
+      <Association Name="CategoriasTicket_Tickets" Member="CategoriasTicket" ThisKey="TKC_CTK_Id" OtherKey="CTK_Id" Type="CategoriasTicket" IsForeignKey="true" />
+      <Association Name="Entes_Tickets" Member="Entes" ThisKey="TKC_ENT_Id_Solicitante" OtherKey="ENT_Id" Type="Entes" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Proveedores_ContratosSoporte">
+    <Type Name="Proveedores_ContratosSoporte">
+      <Column Name="PVC_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PVC_PRV_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="PVC_FechaInicio" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="PVC_FechaFin" Type="System.DateTime" CanBeNull="true" />
+      <Column Name="PVC_PrecioHora" Type="System.Decimal" CanBeNull="true" />
+      <Column Name="PVC_HorasContratadas" Type="System.Decimal" CanBeNull="true" />
+      <Association Name="Proveedores_ContratosSoporte_Proveedores_ContratosSoporte_Reparto" Member="Proveedores_ContratosSoporte_Reparto" ThisKey="PVC_Id" OtherKey="PVR_PVC_Id" Type="Proveedores_ContratosSoporte_Reparto" />
+      <Association Name="Proveedores_ContratosSoporte_Tareas_Empresas_LineasEsfuerzo_Asuntos" Member="Tareas_Empresas_LineasEsfuerzo_Asuntos" ThisKey="PVC_Id" OtherKey="TCA_PVC_Id" Type="Tareas_Empresas_LineasEsfuerzo_Asuntos" />
+      <Association Name="Proveedores_Proveedores_ContratosSoporte" Member="Proveedores" ThisKey="PVC_PRV_Id" OtherKey="PRV_Id" Type="Proveedores" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Proveedores_Asuntos">
+    <Type Name="Proveedores_Asuntos">
+      <Column Name="PAS_Id" AutoSync="Never" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PAS_PRV_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="PAS_Anyo" Type="System.Int32" CanBeNull="false" />
+      <Column Name="PAS_Mes" Type="System.Int32" CanBeNull="false" />
+      <Column Name="PAS_Fecha" Type="System.DateTime" CanBeNull="true" />
+      <Column Name="PAS_ENT_Id" Type="System.Int32" CanBeNull="true" />
+      <Column Name="PAS_EMP_Id" Type="System.Int32" CanBeNull="true" />
+      <Column Name="PAS_Descripcion" Type="System.String" CanBeNull="true" />
+      <Column Name="PAS_Horas" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="PAS_NumFacturaP" Type="System.String" CanBeNull="true" />
+      <Column Name="PAS_CodigoExterno" Type="System.String" CanBeNull="true" />
+      <Column Name="PAS_TKC_Id_GLPI" Type="System.Int32" CanBeNull="true" />
+      <Column Name="PAS_Importe" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="PAS_TAR_Id" Type="System.Int32" CanBeNull="true" />
+      <Association Name="Proveedores_Asuntos_Tareas_Empresas_LineasEsfuerzo_Asuntos" Member="Tareas_Empresas_LineasEsfuerzo_Asuntos" ThisKey="PAS_Id" OtherKey="TCA_PAS_Id" Type="Tareas_Empresas_LineasEsfuerzo_Asuntos" />
+      <Association Name="Proveedores_Proveedores_Asuntos" Member="Proveedores" ThisKey="PAS_PRV_Id" OtherKey="PRV_Id" Type="Proveedores" IsForeignKey="true" />
+      <Association Name="Entes_Proveedores_Asuntos" Member="Entes" ThisKey="PAS_ENT_Id" OtherKey="ENT_Id" Type="Entes" IsForeignKey="true" />
+      <Association Name="Empresas_Proveedores_Asuntos" Member="Empresas" ThisKey="PAS_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Licencias_Incompatibles">
+    <Type Name="Licencias_Incompatibles">
+      <Column Name="LIL_LIC_Id1" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LIL_LIC_Id2" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Licencias_Licencias_Incompatibles" Member="Licencias" ThisKey="LIL_LIC_Id1" OtherKey="LIC_Id" Type="Licencias" IsForeignKey="true" />
+      <Association Name="Licencias_Licencias_Incompatibles1" Member="Licencias1" ThisKey="LIL_LIC_Id2" OtherKey="LIC_Id" Type="Licencias" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Tareas_Empresas_LineasEsfuerzo_Tickets">
+    <Type Name="Tareas_Empresas_LineasEsfuerzo_Tickets">
+      <Column Name="TCT_TLE_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCT_TKC_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCT_Importe" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="TCT_PER_Id" Type="System.Int32" CanBeNull="true" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_Tickets" Member="Tareas_Empresas_LineasEsfuerzo" ThisKey="TCT_TLE_Id" OtherKey="TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo" IsForeignKey="true" />
+      <Association Name="Tickets_Tareas_Empresas_LineasEsfuerzo_Tickets" Member="Tickets" ThisKey="TCT_TKC_Id" OtherKey="TKC_Id" Type="Tickets" IsForeignKey="true" />
+      <Association Name="Personas_Tareas_Empresas_LineasEsfuerzo_Tickets" Member="Personas" ThisKey="TCT_PER_Id" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Proyectos">
+    <Type Name="Proyectos">
+      <Column Name="PRY_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PRY_Nombre" Type="System.String" CanBeNull="false" />
+      <Column Name="PRY_Activo" Type="System.Boolean" CanBeNull="false" />
+      <Column Name="PRY_TAR_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="PRY_Imputable" Type="System.Boolean" CanBeNull="false" />
+      <Association Name="Proyectos_Proyectos_Departamentos" Member="Proyectos_Departamentos" ThisKey="PRY_Id" OtherKey="PRD_PRY_Id" Type="Proyectos_Departamentos" />
+      <Association Name="Proyectos_Proyectos_Empresas" Member="Proyectos_Empresas" ThisKey="PRY_Id" OtherKey="PRE_PRY_Id" Type="Proyectos_Empresas" />
+      <Association Name="Proyectos_Proyectos_Partes" Member="Proyectos_Partes" ThisKey="PRY_Id" OtherKey="PPA_PRY_Id" Type="Proyectos_Partes" />
+      <Association Name="Tareas_Proyectos" Member="Tareas" ThisKey="PRY_TAR_Id" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Licencias_Minimos">
+    <Type Name="Licencias_Minimos">
+      <Column Name="LEM_LIC_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LEM_EMP_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LEM_MinimoFacturar" Type="System.Int32" CanBeNull="false" />
+      <Association Name="Licencias_Licencias_Minimos" Member="Licencias" ThisKey="LEM_LIC_Id" OtherKey="LIC_Id" Type="Licencias" IsForeignKey="true" />
+      <Association Name="Empresas_Licencias_Minimos" Member="Empresas" ThisKey="LEM_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="CategoriasTicket">
+    <Type Name="CategoriasTicket">
+      <Column Name="CTK_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CTK_Nombre" Type="System.String" CanBeNull="false" />
+      <Association Name="CategoriasTicket_Tickets" Member="Tickets" ThisKey="CTK_Id" OtherKey="TKC_CTK_Id" Type="Tickets" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Proyectos_Departamentos">
+    <Type Name="Proyectos_Departamentos">
+      <Column Name="PRD_PRY_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PRD_DEP_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Proyectos_Proyectos_Departamentos" Member="Proyectos" ThisKey="PRD_PRY_Id" OtherKey="PRY_Id" Type="Proyectos" IsForeignKey="true" />
+      <Association Name="Departamentos_Proyectos_Departamentos" Member="Departamentos" ThisKey="PRD_DEP_Id" OtherKey="DEP_Id" Type="Departamentos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Proyectos_Empresas">
+    <Type Name="Proyectos_Empresas">
+      <Column Name="PRE_PRY_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PRE_EMP_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PRE_Porcentaje" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="Proyectos_Proyectos_Empresas" Member="Proyectos" ThisKey="PRE_PRY_Id" OtherKey="PRY_Id" Type="Proyectos" IsForeignKey="true" />
+      <Association Name="Empresas_Proyectos_Empresas" Member="Empresas" ThisKey="PRE_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Proyectos_Partes">
+    <Type Name="Proyectos_Partes">
+      <Column Name="PPA_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PPA_PEP_Anyo" Type="System.Int32" CanBeNull="false" />
+      <Column Name="PPA_PEP_Mes" Type="System.Int32" CanBeNull="false" />
+      <Column Name="PPA_PRY_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="PPA_PER_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="PPA_Descripcion" Type="System.String" CanBeNull="true" />
+      <Column Name="PPA_Validado" Type="System.Boolean" CanBeNull="false" />
+      <Association Name="Proyectos_Partes_Proyectos_Partes_Horas" Member="Proyectos_Partes_Horas" ThisKey="PPA_Id" OtherKey="PPH_PPA_Id" Type="Proyectos_Partes_Horas" />
+      <Association Name="Proyectos_Partes_Tareas_Empresas_LineasEsfuerzo_Partes" Member="Tareas_Empresas_LineasEsfuerzo_Partes" ThisKey="PPA_Id" OtherKey="TCP_PPA_Id" Type="Tareas_Empresas_LineasEsfuerzo_Partes" />
+      <Association Name="Proyectos_Proyectos_Partes" Member="Proyectos" ThisKey="PPA_PRY_Id" OtherKey="PRY_Id" Type="Proyectos" IsForeignKey="true" />
+      <Association Name="Personas_Proyectos_Partes" Member="Personas" ThisKey="PPA_PER_Id" OtherKey="PER_Id" Type="Personas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Proyectos_Partes_Horas">
+    <Type Name="Proyectos_Partes_Horas">
+      <Column Name="PPH_PPA_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PPH_Fecha" Type="System.DateTime" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PPH_Horas" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="Proyectos_Partes_Proyectos_Partes_Horas" Member="Proyectos_Partes" ThisKey="PPH_PPA_Id" OtherKey="PPA_Id" Type="Proyectos_Partes" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="PeriodosPartes">
+    <Type Name="PeriodosPartes">
+      <Column Name="PEP_Anyo" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PEP_Mes" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PEP_FechaInicio" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="PEP_FechaFin" Type="System.DateTime" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Tareas_Empresas_LineasEsfuerzo_Partes">
+    <Type Name="Tareas_Empresas_LineasEsfuerzo_Partes">
+      <Column Name="TCP_TLE_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCP_PPA_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCP_Fecha" Type="System.DateTime" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCP_Horas" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="Proyectos_Partes_Tareas_Empresas_LineasEsfuerzo_Partes" Member="Proyectos_Partes" ThisKey="TCP_PPA_Id" OtherKey="PPA_Id" Type="Proyectos_Partes" IsForeignKey="true" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_Partes" Member="Tareas_Empresas_LineasEsfuerzo" ThisKey="TCP_TLE_Id" OtherKey="TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="FacturasP">
+    <Type Name="FacturasP">
+      <Column Name="FAP_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="FAP_NumFactura" Type="System.String" CanBeNull="false" />
+      <Column Name="FAP_PRV_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="FAP_Fecha" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="FAP_BaseImponible" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="FAP_Cerrada" Type="System.Boolean" CanBeNull="false" />
+      <Column Name="FechaAlta" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="FechaModificacion" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="PER_Id_Modificacion" Type="System.Int32" CanBeNull="false" />
+      <Association Name="Proveedores_FacturasP" Member="Proveedores" ThisKey="FAP_PRV_Id" OtherKey="PRV_Id" Type="Proveedores" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Aplicaciones">
+    <Type Name="Aplicaciones">
+      <Column Name="APP_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="APP_Nombre" Type="System.String" CanBeNull="false" />
+      <Column Name="APP_TAR_Id" Type="System.Int32" CanBeNull="true" />
+      <Association Name="Aplicaciones_Aplicaciones_Modulos" Member="Aplicaciones_Modulos" ThisKey="APP_Id" OtherKey="APM_APP_Id" Type="Aplicaciones_Modulos" />
+      <Association Name="Aplicaciones_Aplicaciones_Tarifas" Member="Aplicaciones_Tarifas" ThisKey="APP_Id" OtherKey="APT_APP_Id" Type="Aplicaciones_Tarifas" />
+      <Association Name="Aplicaciones_Aplicaciones_TiposEnte" Member="Aplicaciones_TiposEnte" ThisKey="APP_Id" OtherKey="ATE_APP_Id" Type="Aplicaciones_TiposEnte" />
+      <Association Name="Aplicaciones_Entes_Aplicaciones" Member="Entes_Aplicaciones" ThisKey="APP_Id" OtherKey="ENL_APP_Id" Type="Entes_Aplicaciones" />
+      <Association Name="Aplicaciones_Tareas_Empresas_LineasEsfuerzo_Aplicaciones" Member="Tareas_Empresas_LineasEsfuerzo_Aplicaciones" ThisKey="APP_Id" OtherKey="TCA_APP_Id" Type="Tareas_Empresas_LineasEsfuerzo_Aplicaciones" />
+      <Association Name="Tareas_Aplicaciones" Member="Tareas" ThisKey="APP_TAR_Id" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Aplicaciones_Modulos">
+    <Type Name="Aplicaciones_Modulos">
+      <Column Name="APM_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="APM_APP_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="APM_Nombre" Type="System.String" CanBeNull="false" />
+      <Column Name="APM_TAR_Id" Type="System.Int32" CanBeNull="false" />
+      <Association Name="Aplicaciones_Modulos_Aplicaciones_Modulos_Empresas" Member="Aplicaciones_Modulos_Empresas" ThisKey="APM_Id" OtherKey="AME_APM_Id" Type="Aplicaciones_Modulos_Empresas" />
+      <Association Name="Aplicaciones_Modulos_Aplicaciones_Modulos_Tarifas" Member="Aplicaciones_Modulos_Tarifas" ThisKey="APM_Id" OtherKey="AMT_APM_Id" Type="Aplicaciones_Modulos_Tarifas" />
+      <Association Name="Aplicaciones_Aplicaciones_Modulos" Member="Aplicaciones" ThisKey="APM_APP_Id" OtherKey="APP_Id" Type="Aplicaciones" IsForeignKey="true" />
+      <Association Name="Tareas_Aplicaciones_Modulos" Member="Tareas" ThisKey="APM_TAR_Id" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Aplicaciones_Modulos_Empresas">
+    <Type Name="Aplicaciones_Modulos_Empresas">
+      <Column Name="AME_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AME_APM_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="AME_EMP_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="AME_FechaInicio" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="AME_FechaFin" Type="System.DateTime" CanBeNull="true" />
+      <Column Name="AME_ImporteMensual" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="AME_DescripcionConcepto" Type="System.String" CanBeNull="true" />
+      <Column Name="AME_PorcentajeReparto" Type="System.Decimal" CanBeNull="true" />
+      <Association Name="Aplicaciones_Modulos_Empresas_Tareas_Empresas_LineasEsfuerzo_Modulos" Member="Tareas_Empresas_LineasEsfuerzo_Modulos" ThisKey="AME_Id" OtherKey="TCM_AME_Id" Type="Tareas_Empresas_LineasEsfuerzo_Modulos" />
+      <Association Name="Aplicaciones_Modulos_Aplicaciones_Modulos_Empresas" Member="Aplicaciones_Modulos" ThisKey="AME_APM_Id" OtherKey="APM_Id" Type="Aplicaciones_Modulos" IsForeignKey="true" />
+      <Association Name="Empresas_Aplicaciones_Modulos_Empresas" Member="Empresas" ThisKey="AME_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Aplicaciones_Modulos_Tarifas">
+    <Type Name="Aplicaciones_Modulos_Tarifas">
+      <Column Name="AMT_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="AMT_APM_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="AMT_FechaInicio" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="AMT_FechaFin" Type="System.DateTime" CanBeNull="true" />
+      <Column Name="AMT_ImporteMensualReparto" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="AMT_ImporteMensualRepartoPorcentajes" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="Aplicaciones_Modulos_Tarifas_Tareas_Empresas_LineasEsfuerzo_ModulosReparto" Member="Tareas_Empresas_LineasEsfuerzo_ModulosReparto" ThisKey="AMT_Id" OtherKey="TCR_AMT_Id" Type="Tareas_Empresas_LineasEsfuerzo_ModulosReparto" />
+      <Association Name="Aplicaciones_Modulos_Aplicaciones_Modulos_Tarifas" Member="Aplicaciones_Modulos" ThisKey="AMT_APM_Id" OtherKey="APM_Id" Type="Aplicaciones_Modulos" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Aplicaciones_Tarifas">
+    <Type Name="Aplicaciones_Tarifas">
+      <Column Name="APT_APP_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="APT_FechaInicio" Type="System.DateTime" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="APT_FechaFin" Type="System.DateTime" CanBeNull="true" />
+      <Column Name="APT_PrecioUnitario" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="Aplicaciones_Aplicaciones_Tarifas" Member="Aplicaciones" ThisKey="APT_APP_Id" OtherKey="APP_Id" Type="Aplicaciones" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Aplicaciones_TiposEnte">
+    <Type Name="Aplicaciones_TiposEnte">
+      <Column Name="ATE_APP_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ATE_TEN_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Aplicaciones_Aplicaciones_TiposEnte" Member="Aplicaciones" ThisKey="ATE_APP_Id" OtherKey="APP_Id" Type="Aplicaciones" IsForeignKey="true" />
+      <Association Name="TiposEnte_Aplicaciones_TiposEnte" Member="TiposEnte" ThisKey="ATE_TEN_Id" OtherKey="TEN_Id" Type="TiposEnte" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Entes_Aplicaciones">
+    <Type Name="Entes_Aplicaciones">
+      <Column Name="ENL_ENT_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ENL_APP_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ENL_FechaInicio" Type="System.DateTime" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ENL_FechaFin" Type="System.DateTime" CanBeNull="true" />
+      <Association Name="Entes_Entes_Aplicaciones" Member="Entes" ThisKey="ENL_ENT_Id" OtherKey="ENT_Id" Type="Entes" IsForeignKey="true" />
+      <Association Name="Aplicaciones_Entes_Aplicaciones" Member="Aplicaciones" ThisKey="ENL_APP_Id" OtherKey="APP_Id" Type="Aplicaciones" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="LicenciasAnuales">
+    <Type Name="LicenciasAnuales">
+      <Column Name="LAN_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LAN_PRV_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="LAN_Nombre" Type="System.String" CanBeNull="false" />
+      <Column Name="LAN_TAR_Id" Type="System.Int32" CanBeNull="true" />
+      <Association Name="LicenciasAnuales_LicenciasAnuales_TiposEnte" Member="LicenciasAnuales_TiposEnte" ThisKey="LAN_Id" OtherKey="LAT_LAN_Id" Type="LicenciasAnuales_TiposEnte" />
+      <Association Name="LicenciasAnuales_ContratosLicenciasAnuales_Tarifas" Member="ContratosLicenciasAnuales_Tarifas" ThisKey="LAN_Id" OtherKey="CLT_LAN_Id" Type="ContratosLicenciasAnuales_Tarifas" />
+      <Association Name="LicenciasAnuales_Entes_LicenciasAnuales" Member="Entes_LicenciasAnuales" ThisKey="LAN_Id" OtherKey="ELA_LAN_Id" Type="Entes_LicenciasAnuales" />
+      <Association Name="LicenciasAnuales_Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales" Member="Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales" ThisKey="LAN_Id" OtherKey="TCL_LAN_Id" Type="Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales" />
+      <Association Name="Proveedores_LicenciasAnuales" Member="Proveedores" ThisKey="LAN_PRV_Id" OtherKey="PRV_Id" Type="Proveedores" IsForeignKey="true" />
+      <Association Name="Tareas_LicenciasAnuales" Member="Tareas" ThisKey="LAN_TAR_Id" OtherKey="TAR_Id" Type="Tareas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="LicenciasAnuales_TiposEnte">
+    <Type Name="LicenciasAnuales_TiposEnte">
+      <Column Name="LAT_LAN_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LAT_TEN_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="LicenciasAnuales_LicenciasAnuales_TiposEnte" Member="LicenciasAnuales" ThisKey="LAT_LAN_Id" OtherKey="LAN_Id" Type="LicenciasAnuales" IsForeignKey="true" />
+      <Association Name="TiposEnte_LicenciasAnuales_TiposEnte" Member="TiposEnte" ThisKey="LAT_TEN_Id" OtherKey="TEN_Id" Type="TiposEnte" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="ContratosLicenciasAnuales">
+    <Type Name="ContratosLicenciasAnuales">
+      <Column Name="CLA_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CLA_PRV_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="CLA_FechaInicio" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="CLA_FechaFin" Type="System.DateTime" CanBeNull="false" />
+      <Association Name="ContratosLicenciasAnuales_ContratosLicenciasAnuales_Tarifas" Member="ContratosLicenciasAnuales_Tarifas" ThisKey="CLA_Id" OtherKey="CLT_CLA_Id" Type="ContratosLicenciasAnuales_Tarifas" />
+      <Association Name="Proveedores_ContratosLicenciasAnuales" Member="Proveedores" ThisKey="CLA_PRV_Id" OtherKey="PRV_Id" Type="Proveedores" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="ContratosLicenciasAnuales_Tarifas">
+    <Type Name="ContratosLicenciasAnuales_Tarifas">
+      <Column Name="CLT_CLA_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CLT_LAN_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CLT_ImporteAnual" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="ContratosLicenciasAnuales_ContratosLicenciasAnuales_Tarifas" Member="ContratosLicenciasAnuales" ThisKey="CLT_CLA_Id" OtherKey="CLA_Id" Type="ContratosLicenciasAnuales" IsForeignKey="true" />
+      <Association Name="LicenciasAnuales_ContratosLicenciasAnuales_Tarifas" Member="LicenciasAnuales" ThisKey="CLT_LAN_Id" OtherKey="LAN_Id" Type="LicenciasAnuales" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Entes_LicenciasAnuales">
+    <Type Name="Entes_LicenciasAnuales">
+      <Column Name="ELA_ENT_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ELA_LAN_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ELA_FechaInicio" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="ELA_FechaFin" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="ELA_CLA_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Entes_Entes_LicenciasAnuales" Member="Entes" ThisKey="ELA_ENT_Id" OtherKey="ENT_Id" Type="Entes" IsForeignKey="true" />
+      <Association Name="LicenciasAnuales_Entes_LicenciasAnuales" Member="LicenciasAnuales" ThisKey="ELA_LAN_Id" OtherKey="LAN_Id" Type="LicenciasAnuales" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Proveedores_ContratosSoporte_Reparto">
+    <Type Name="Proveedores_ContratosSoporte_Reparto">
+      <Column Name="PVR_PVC_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PVR_EMP_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PVR_Porcentaje" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="Proveedores_ContratosSoporte_Proveedores_ContratosSoporte_Reparto" Member="Proveedores_ContratosSoporte" ThisKey="PVR_PVC_Id" OtherKey="PVC_Id" Type="Proveedores_ContratosSoporte" IsForeignKey="true" />
+      <Association Name="Empresas_Proveedores_ContratosSoporte_Reparto" Member="Empresas" ThisKey="PVR_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Tareas_Empresas_LineasEsfuerzo_Aplicaciones">
+    <Type Name="Tareas_Empresas_LineasEsfuerzo_Aplicaciones">
+      <Column Name="TCA_TLE_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCA_APP_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCA_ENT_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCA_Importe" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_Aplicaciones" Member="Tareas_Empresas_LineasEsfuerzo" ThisKey="TCA_TLE_Id" OtherKey="TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo" IsForeignKey="true" />
+      <Association Name="Aplicaciones_Tareas_Empresas_LineasEsfuerzo_Aplicaciones" Member="Aplicaciones" ThisKey="TCA_APP_Id" OtherKey="APP_Id" Type="Aplicaciones" IsForeignKey="true" />
+      <Association Name="Entes_Tareas_Empresas_LineasEsfuerzo_Aplicaciones" Member="Entes" ThisKey="TCA_ENT_Id" OtherKey="ENT_Id" Type="Entes" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Tareas_Empresas_LineasEsfuerzo_Modulos">
+    <Type Name="Tareas_Empresas_LineasEsfuerzo_Modulos">
+      <Column Name="TCM_TLE_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCM_AME_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCM_Importe" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_Modulos" Member="Tareas_Empresas_LineasEsfuerzo" ThisKey="TCM_TLE_Id" OtherKey="TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo" IsForeignKey="true" />
+      <Association Name="Aplicaciones_Modulos_Empresas_Tareas_Empresas_LineasEsfuerzo_Modulos" Member="Aplicaciones_Modulos_Empresas" ThisKey="TCM_AME_Id" OtherKey="AME_Id" Type="Aplicaciones_Modulos_Empresas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Tareas_Empresas_LineasEsfuerzo_ModulosReparto">
+    <Type Name="Tareas_Empresas_LineasEsfuerzo_ModulosReparto">
+      <Column Name="TCR_TLE_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCR_AMT_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCR_Equitativo" Type="System.Boolean" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCR_ImporteTotal" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="TCR_Porcentaje" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="TCR_Importe" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="Aplicaciones_Modulos_Tarifas_Tareas_Empresas_LineasEsfuerzo_ModulosReparto" Member="Aplicaciones_Modulos_Tarifas" ThisKey="TCR_AMT_Id" OtherKey="AMT_Id" Type="Aplicaciones_Modulos_Tarifas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Empresas_Departamentos">
+    <Type Name="Empresas_Departamentos">
+      <Column Name="EDE_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="EDE_EMP_Id" Type="System.Int32" CanBeNull="false" />
+      <Column Name="EDE_Nombre" Type="System.String" CanBeNull="false" />
+      <Association Name="Empresas_Departamentos_Entes" Member="Entes" ThisKey="EDE_Id" OtherKey="ENT_EDE_Id" Type="Entes" />
+      <Association Name="Empresas_Empresas_Departamentos" Member="Empresas" ThisKey="EDE_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Tareas_Empresas_LineasEsfuerzo_Asuntos">
+    <Type Name="Tareas_Empresas_LineasEsfuerzo_Asuntos">
+      <Column Name="TCA_TLE_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCA_PAS_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCA_PVC_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCA_Horas" Type="System.Decimal" CanBeNull="true" />
+      <Column Name="TCA_Importe" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_Asuntos" Member="Tareas_Empresas_LineasEsfuerzo" ThisKey="TCA_TLE_Id" OtherKey="TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo" IsForeignKey="true" />
+      <Association Name="Proveedores_Asuntos_Tareas_Empresas_LineasEsfuerzo_Asuntos" Member="Proveedores_Asuntos" ThisKey="TCA_PAS_Id" OtherKey="PAS_Id" Type="Proveedores_Asuntos" IsForeignKey="true" />
+      <Association Name="Proveedores_ContratosSoporte_Tareas_Empresas_LineasEsfuerzo_Asuntos" Member="Proveedores_ContratosSoporte" ThisKey="TCA_PVC_Id" OtherKey="PVC_Id" Type="Proveedores_ContratosSoporte" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales">
+    <Type Name="Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales">
+      <Column Name="TCL_TLE_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCL_LAN_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCL_ENT_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TCL_Importe" Type="System.Decimal" CanBeNull="false" />
+      <Association Name="Tareas_Empresas_LineasEsfuerzo_Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales" Member="Tareas_Empresas_LineasEsfuerzo" ThisKey="TCL_TLE_Id" OtherKey="TLE_Id" Type="Tareas_Empresas_LineasEsfuerzo" IsForeignKey="true" />
+      <Association Name="LicenciasAnuales_Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales" Member="LicenciasAnuales" ThisKey="TCL_LAN_Id" OtherKey="LAN_Id" Type="LicenciasAnuales" IsForeignKey="true" />
+      <Association Name="Entes_Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales" Member="Entes" ThisKey="TCL_ENT_Id" OtherKey="ENT_Id" Type="Entes" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="Telefonia">
+    <Type Name="Telefonia">
+      <Column Name="TFN_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TFN_Anyo" Type="System.Int32" CanBeNull="false" />
+      <Column Name="TFN_Mes" Type="System.Int32" CanBeNull="false" />
+      <Column Name="TFN_Tipo" Type="System.Int32" CanBeNull="false" />
+      <Column Name="TFN_EMP_Id" Type="System.Int32" CanBeNull="true" />
+      <Column Name="TFN_Planta_EMP_Id" Type="System.Int32" CanBeNull="true" />
+      <Column Name="TFN_Planta_Departamento" Type="System.String" CanBeNull="true" />
+      <Column Name="TFN_Planta_Sede" Type="System.String" CanBeNull="true" />
+      <Column Name="TFN_Planta_Uso" Type="System.String" CanBeNull="true" />
+      <Column Name="TFN_Ciclo" Type="System.String" CanBeNull="true" />
+      <Column Name="TFN_NumFactura" Type="System.String" CanBeNull="true" />
+      <Column Name="TFN_NumCuenta" Type="System.String" CanBeNull="true" />
+      <Column Name="TFN_Categoria" Type="System.String" CanBeNull="true" />
+      <Column Name="TFN_Telefono" Type="System.String" CanBeNull="true" />
+      <Column Name="TFN_Extension" Type="System.String" CanBeNull="true" />
+      <Column Name="TFN_TipoCuota" Type="System.String" CanBeNull="true" />
+      <Column Name="TFN_Bytes" Type="System.Decimal" CanBeNull="true" />
+      <Column Name="TFN_Importe" Type="System.Decimal" CanBeNull="true" />
+      <Column Name="TFN_FechaInicio" Type="System.DateTime" CanBeNull="false" />
+      <Column Name="TFN_FechaFin" Type="System.DateTime" CanBeNull="false" />
+      <Association Name="Empresas_Telefonia" Member="Empresas" ThisKey="TFN_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+      <Association Name="Empresas_Telefonia1" Member="Empresas1" ThisKey="TFN_Planta_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="TiposCuota">
+    <Type Name="TiposCuota">
+      <Column Name="TCU_Id" AutoSync="Never" Type="System.Int32" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TCU_Cuota" Type="System.String" CanBeNull="false" />
+      <Column Name="TCU_Departamento" Type="System.String" CanBeNull="false" />
+      <Column Name="TCU_Sede" Type="System.String" CanBeNull="false" />
+      <Column Name="TCU_Uso" Type="System.String" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="" Member="ContratosCAU_ExcluidasGuardia">
+    <Type Name="ContratosCAU_ExcluidasGuardia">
+      <Column Name="CEE_CCA_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="true" />
+      <Column Name="CEE_EMP_Id" Type="System.Int32" IsPrimaryKey="true" CanBeNull="true" />
+      <Association Name="ContratosCAU_ContratosCAU_ExcluidasGuardia" Member="ContratosCAU" ThisKey="CEE_CCA_Id" OtherKey="CCA_Id" Type="ContratosCAU" IsForeignKey="true" />
+      <Association Name="Empresas_ContratosCAU_ExcluidasGuardia" Member="Empresas" ThisKey="CEE_EMP_Id" OtherKey="EMP_Id" Type="Empresas" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

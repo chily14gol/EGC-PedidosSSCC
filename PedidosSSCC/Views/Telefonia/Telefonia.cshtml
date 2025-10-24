@@ -1,0 +1,213 @@
+﻿@using PedidosSSCC.Properties
+@{
+    ViewBag.Title = "Gestión de Telefonía";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Telefonía Vodafone</h1>
+        <div class="title-btn-group">
+            <button id="btnImportarExcel" type="button" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-target="#modalImportar">
+                <i class="bi bi-upload"></i> Importar Excel
+            </button>
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary">
+                <i class="bi bi-plus-circle"></i> Añadir Registro
+            </button>
+        </div>
+    </div>
+    <div class="content-box">
+        <table id="tablaTelefonia" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-priority="1">Año</th>
+                    <th>Mes</th>
+                    <th>Tipo</th>
+                    <th>Empresa</th>
+                    <th>Planta EMP</th>
+                    <th>Departamento</th>
+                    <th>Sede</th>
+                    <th>Uso</th>
+                    <th>Ciclo</th>
+                    <th>Factura</th>
+                    <th>Cuenta</th>
+                    <th>Categoría</th>
+                    <th>Teléfono</th>
+                    <th>Extensión</th>
+                    <th>Cuota</th>
+                    <th>Bytes</th>
+                    <th>Importe</th>
+                    <th>Fecha Inicio</th>
+                    <th>Fecha Fin</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Telefonía -->
+<div class="modal fade" id="modalTelefonia" tabindex="-1" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalTelefoniaLabel">Gestión Telefónica</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formTelefonia">
+                    <input type="hidden" id="TFN_Id" />
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label class="form-label">@Resources.Modal_Ano</label>
+                            <input type="number" class="form-control" id="TFN_Anyo" required />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">@Resources.Modal_Mes</label>
+                            <input type="number" class="form-control" id="TFN_Mes" required />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Tipo *</label>
+                            <input type="number" class="form-control" id="TFN_Tipo" required  />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Empresa</label>
+                            <select id="TFN_EMP_Id" class="form-select"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Planta EMP</label>
+                            <select id="TFN_Planta_EMP_Id" class="form-select"></select>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Departamento</label>
+                            <input type="text" class="form-control" id="TFN_Planta_Departamento" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Sede</label>
+                            <input type="text" class="form-control" id="TFN_Planta_Sede" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Uso</label>
+                            <input type="text" class="form-control" id="TFN_Planta_Uso" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Ciclo</label>
+                            <input type="text" class="form-control" id="TFN_Ciclo" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Factura</label>
+                            <input type="text" class="form-control" id="TFN_NumFactura" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Cuenta</label>
+                            <input type="text" class="form-control" id="TFN_NumCuenta" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Categoría</label>
+                            <input type="text" class="form-control" id="TFN_Categoria" />
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Teléfono</label>
+                            <input type="text" class="form-control" id="TFN_Telefono" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Extensión</label>
+                            <input type="text" class="form-control" id="TFN_Extension" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Cuota</label>
+                            <input type="text" class="form-control" id="TFN_TipoCuota" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Bytes</label>
+                            <input type="number" step="1" class="form-control" id="TFN_Bytes" />
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Importe</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control form-control-sm" id="TFN_Importe" required />
+                                <span class="input-group-text">€</span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Fecha Inicio *</label>
+                            <input type="date" class="form-control" id="TFN_FechaInicio" required />
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Fecha Fin *</label>
+                            <input type="date" class="form-control" id="TFN_FechaFin" required />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="btnGuardarTelefonia" class="btn btn-primary">Guardar</button>
+                <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para importar Excel -->
+<div class="modal fade" id="modalImportar" tabindex="-1" aria-labelledby="modalImportarLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalImportarLabel">Importar Vodafone desde Excel</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-wrapper">
+                    <div class="form-group mb-3">
+                        <label for="archivoExcel" class="form-label">@Resources.Etiqueta_SeleccionarArchivoExcel</label>
+                        <input type="file" id="archivoExcel" name="archivoExcel" class="form-control" accept=".xlsx, .xls, .xlsm">
+                    </div>
+
+                    <!-- Nueva selección de tipo -->
+                    <div class="form-group">
+                        <label class="form-label">Tipo de importación</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tipoImportacion" id="tipoFacturacion" value="facturacion" checked>
+                            <label class="form-check-label" for="tipoFacturacion">Facturación</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tipoImportacion" id="tipoRoaming" value="roaming">
+                            <label class="form-check-label" for="tipoRoaming">Roaming</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" id="btnSubirProcesar">Subir y procesar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        div.dataTables_processing {
+            display: none !important;
+        }
+        .campo-invalido {
+            border: 2px solid #dc3545 !important;
+            background-color: #fff6f6 !important;
+        }
+    </style>
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                ObtenerTelefonias: '@Url.Action("ObtenerTelefonias","Telefonia")',
+                GuardarTelefonia : '@Url.Action("GuardarTelefonia","Telefonia")',
+                EliminarTelefonia: '@Url.Action("EliminarTelefonia","Telefonia")',
+                ImportarExcelTelefonia: '@Url.Action("ImportarExcelTelefonia", "Telefonia")',
+                ImportarExcelTelefoniaRoaming: '@Url.Action("ImportarExcelTelefoniaRoaming", "Telefonia")',
+                ImportarTelefoniaDesdeSharePoint: '@Url.Action("ImportarTelefoniaDesdeSharePoint", "Telefonia")',
+                ObtenerComboEmpresas: '@Url.Action("ObtenerComboEmpresas", "Mantenimiento")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Telefonia/Telefonia.js?v=@DateTime.Now.Ticks"></script>
+}

@@ -1,0 +1,38 @@
+﻿ERROR | 23/10/2025 10:05:27 | Error al guardar datos
+System.ApplicationException: El periodo indicado se solapa con otro existente para esta entidad y licencia.
+   en AccesoDatos.DAL_Entes_Licencias.Guardar(Entes_Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Entes_Licencias.cs:línea 62
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304
+ERROR | 23/10/2025 10:05:27 | Error al guardar datos
+System.ApplicationException: El periodo indicado se solapa con otro existente para esta entidad y licencia.
+   en AccesoDatos.DAL_Entes_Licencias.Guardar(Entes_Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Entes_Licencias.cs:línea 62
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304
+ERROR | 23/10/2025 10:05:30 | Error al guardar datos
+System.ApplicationException: El periodo indicado se solapa con otro existente para esta entidad y licencia.
+   en AccesoDatos.DAL_Entes_Licencias.Guardar(Entes_Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Entes_Licencias.cs:línea 62
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304
+ERROR | 23/10/2025 10:05:30 | Error al guardar datos
+System.ApplicationException: El periodo indicado se solapa con otro existente para esta entidad y licencia.
+   en AccesoDatos.DAL_Entes_Licencias.Guardar(Entes_Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Entes_Licencias.cs:línea 62
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304
+ERROR | 23/10/2025 10:05:32 | Error al guardar datos
+System.ApplicationException: El periodo indicado se solapa con otro existente para esta entidad y licencia.
+   en AccesoDatos.DAL_Entes_Licencias.Guardar(Entes_Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Entes_Licencias.cs:línea 62
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304
+ERROR | 23/10/2025 10:05:32 | Error al guardar datos
+System.ApplicationException: El periodo indicado se solapa con otro existente para esta entidad y licencia.
+   en AccesoDatos.DAL_Entes_Licencias.Guardar(Entes_Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Entes_Licencias.cs:línea 62
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304
+ERROR | 23/10/2025 10:05:36 | Error al guardar datos
+System.ApplicationException: El periodo indicado se solapa con otro existente para esta entidad y licencia.
+   en AccesoDatos.DAL_Entes_Licencias.Guardar(Entes_Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Entes_Licencias.cs:línea 62
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304
+ERROR | 23/10/2025 10:05:36 | Error al guardar datos
+System.ApplicationException: El periodo indicado se solapa con otro existente para esta entidad y licencia.
+   en AccesoDatos.DAL_Entes_Licencias.Guardar(Entes_Licencias entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Entes_Licencias.cs:línea 62
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304
+ERROR | 23/10/2025 10:35:28 | La columna 'TFN_Planta_EMP_Id' ya pertenece a esta DataTable.
+ERROR | 23/10/2025 10:35:28 | La columna 'TFN_Planta_EMP_Id' ya pertenece a esta DataTable.
+ERROR | 23/10/2025 10:36:00 | La columna 'TFN_Planta_EMP_Id' ya pertenece a esta DataTable.
+ERROR | 23/10/2025 10:36:00 | La columna 'TFN_Planta_EMP_Id' ya pertenece a esta DataTable.
+ERROR | 23/10/2025 10:37:24 | La columna 'TFN_Planta_EMP_Id' ya pertenece a esta DataTable.
+ERROR | 23/10/2025 10:37:24 | La columna 'TFN_Planta_EMP_Id' ya pertenece a esta DataTable.

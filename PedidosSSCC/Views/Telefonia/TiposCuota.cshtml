@@ -1,0 +1,137 @@
+﻿@using PedidosSSCC.Properties
+@{
+    ViewBag.Title = "Tipos de Cuota";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Tipos de Cuota</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary btn-ico-agregar">Añadir Tipo de Cuota</button>
+        </div>
+    </div>
+
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default">
+                <div class="buscador">
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+            </div>
+
+            <div class="form-advance">
+                <div class="row">
+                    <div class="col-sm-6 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterCuota">Cuota</label>
+                            <input type="text" id="filterCuota" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterDepartamento">Departamento</label>
+                            <input type="text" id="filterDepartamento" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterSede">Sede</label>
+                            <input type="text" id="filterSede" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterUso">Uso</label>
+                            <input type="text" id="filterUso" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-btn-group">
+                <button type="button" id="btnBuscar" class="btn btn-primary">@Resources.Boton_Buscar</button>
+                <button type="button" id="btnLimpiar" class="btn btn-outline-secondary" style="display:none;">@Resources.Boton_Limpiar</button>
+                <button type="button" id="btnAvanzado" class="btn btn-link">@Resources.Boton_BusquedaAvanzada</button>
+            </div>
+        </form>
+
+        <table id="tableTiposCuota" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Cuota</th>
+                    <th>Departamento</th>
+                    <th>Sede</th>
+                    <th>Uso</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Alta/Edición -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalEditarLabel">Editar Tipo de Cuota</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-wrapper">
+                    <input type="hidden" id="idTipoCuota" />
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="cuota" class="form-label">Cuota *</label>
+                                <input type="text" class="form-control" id="cuota" maxlength="100">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                <label for="departamento" class="form-label">Departamento *</label>
+                                <input type="text" class="form-control" id="departamento" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <div class="form-group">
+                                <label for="sede" class="form-label">Sede *</label>
+                                <input type="text" class="form-control" id="sede" maxlength="50">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label for="uso" class="form-label">Uso *</label>
+                                <input type="text" class="form-control" id="uso" maxlength="50">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-lg btn-primary" id="btnGuardar">@Resources.Boton_Guardar</button>
+                <button type="button" class="btn btn-lg btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        th.th-action, td.td-btn {
+            min-width: 160px;
+            white-space: nowrap;
+        }
+    </style>
+
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                ObtenerTiposCuota: '@Url.Action("ObtenerTiposCuota", "Telefonia")',
+                GuardarTipoCuota: '@Url.Action("GuardarTipoCuota", "Telefonia")',
+                EliminarTipoCuota: '@Url.Action("EliminarTipoCuota", "Telefonia")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Telefonia/TiposCuota.js?v=@DateTime.Now.Ticks"></script>
+}

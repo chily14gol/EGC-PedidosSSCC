@@ -1,0 +1,355 @@
+﻿@using PedidosSSCC.Properties
+@{
+    ViewBag.Title = "Concepto Detalle";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Concepto Detalle</h1>
+        <div class="title-btn-group"></div>
+    </div>
+    <div class="content-box">
+        <form class="form-wrapper">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <div class="form-group">
+                        <label for="tareaEmpresa">Tarea - Empresa *</label>
+                        <div class="styled-select-wrapper" style="width: 100%;">
+                            <select class="styled-select select2 form-control" id="tareaEmpresa" name="tareaEmpresa" disabled>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label for="mesConcepto">Mes del concepto *</label>
+                        <input type="text" id="mesConcepto" class="form-control" name="mesConcepto" value="" disabled />
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="form-group">
+                        <label for="anioConcepto">Año del concepto *</label>
+                        <input type="text" id="anioConcepto" class="form-control" name="anioConcepto" value="" disabled />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aquí colocamos Presupuesto, Presupuesto consumido, Importe unitario, Cantidad e Importe total en la misma fila -->
+            <div class="row">
+                <!-- PRESUPUESTO -->
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <div class="form-group">
+                        <label for="presupuesto">Presupuesto</label>
+                        <div class="input-group">
+                            <input type="text" id="presupuesto" class="form-control" name="presupuesto" value="" disabled />
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRESUPUESTO CONSUMIDO -->
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <div class="form-group">
+                        <label for="presupuestoConsumido">Presupuesto consumido</label>
+                        <div class="input-group">
+                            <input type="text" id="presupuestoConsumido" class="form-control" name="presupuestoConsumido" value="" disabled />
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IMPORTE UNITARIO -->
+                <div class="col-sm-6 col-md-4 col-lg-2 filaImporteYCantidad" id="colImporteUnitario">
+                    <div class="form-group">
+                        <label for="importeUnitario">Importe unitario</label>
+                        <div class="input-group">
+                            <input type="text" id="importeUnitario" class="form-control" name="importeUnitario" value="" disabled />
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CANTIDAD -->
+                <div class="col-sm-6 col-md-4 col-lg-2 filaImporteYCantidad" id="colCantidad">
+                    <div class="form-group">
+                        <label for="cantidad">Cantidad *</label>
+                        <input type="text" id="cantidad" class="form-control" name="cantidad" value="" oninput="validarImporte(this)" required />
+                    </div>
+                </div>
+
+                <!-- IMPORTE TOTAL -->
+                <div class="col-sm-6 col-md-4 col-lg-2">
+                    <div class="form-group">
+                        <label for="importeTotal">Importe total</label>
+                        <div class="input-group">
+                            <input type="text" id="importeTotal" class="form-control" name="importeTotal" value="" disabled />
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fila de Descripción e Inversión -->
+            <div class="row">
+                <div class="col-sm-12 col-lg-9">
+                    <div class="form-group">
+                        <label for="descripcion">@Resources.Etiqueta_Descripcion</label>
+                        <textarea id="descripcion" class="form-control" name="descripcion" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-lg-3">
+                    <div class="form-check full-col-lg">
+                        <input type="checkbox" class="form-check-input" id="inversion" name="inversion" />
+                        <label class="form-check-label" for="inversion">Inversión</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div id="datosSolicitud" style="display: none;">
+            <hr />
+            <div class="section-title-wrapper">
+                <h2 class="section-title h3">
+                    Datos solicitud
+                </h2>
+            </div>
+            <form class="form-wrapper">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="form-group">
+                            <label for="estado"><i>Estado</i></label>
+                            <input type="text" id="estado" class="form-control" name="estado" value="" disabled />
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="aprobador">Aprobador</label>
+                            <input type="text" id="aprobador" class="form-control" name="aprobador" value="" disabled />
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="fechaAprobacion">Fecha aprobación</label>
+                            <input type="text" id="fechaAprobacion" class="form-control" name="fechaAprobacion" value="" disabled />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="comentarios">Comentarios</label>
+                            <textarea id="comentarios" class="form-control" name="comentarios"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- Tabla de Licencias MS -->
+        <div id="divLicenciasMS" style="display:none; margin-top:1rem;">
+            <hr />
+            <div class="d-flex align-items-center justify-content-between">
+                <h2 class="h5 mb-0">Licencias MS asociadas</h2>
+                <button id="btnExportarLicenciasMS" type="button" class="btn btn-sm btn-outline-success">
+                    <i class="bi bi-file-earmark-excel"></i> Exportar a Excel
+                </button>
+            </div>
+            <table id="tableLicenciasMS" class="table table-striped nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Licencia</th>
+                        <th>Entidad</th>
+                        <th class="text-end">Importe</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+
+        <!-- Tabla de Tickets asociados -->
+        <div id="divTickets" style="display:none; margin-top:1rem;">
+            <hr />
+            <div class="d-flex align-items-center justify-content-between">
+                <h2 class="h5 mb-0">Tickets asociados</h2>
+                <button id="btnExportarTickets" type="button" class="btn btn-sm btn-outline-success">
+                    <i class="bi bi-file-earmark-excel"></i> Exportar a Excel
+                </button>
+            </div>
+            <table id="tableTickets" class="table table-striped nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Ticket GLPI</th>
+                        <th>Titulo ticket</th>
+                        <th>Entidad</th>
+                        <th class="text-end">Duración (min)</th>
+                        <th class="text-end">Importe</th>
+                        <th>Acción</th>  <!-- NUEVO -->
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- Tabla de Partes asociados -->
+        <div id="divPartes" style="display:none; margin-top:1rem;">
+            <hr />
+            <h2 class="h5">Partes asociados</h2>
+            <table id="tablePartes" class="table table-striped nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Año</th>
+                        <th>Mes</th>
+                        <th>Proyecto</th>
+                        <th>Actividad</th>
+                        <th>Persona</th>
+                        <th>Fecha</th>
+                        <th class="text-end">Importe</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- Tabla de Aplicaciones asociadas -->
+        <div id="divAplicaciones" style="display:none; margin-top:1rem;">
+            <hr />
+            <h2 class="h5">Aplicaciones asociadas</h2>
+            <table id="tableAplicaciones" class="table table-striped nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Aplicación</th>
+                        <th>Entidad</th>
+                        <th class="text-end">Importe</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- Tabla de Módulos asociados -->
+        <div id="divModulos" style="display:none; margin-top:1rem;">
+            <hr />
+            <h2 class="h5">Módulos asociados</h2>
+            <table id="tableModulos" class="table table-striped nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Módulo</th>
+                        <th class="text-end">Importe</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- Tabla de Módulos Reparto asociados -->
+        <div id="divModulosReparto" style="display:none; margin-top:1rem;">
+            <hr />
+            <h2 class="h5">Módulos Reparto asociados</h2>
+            <table id="tableModulosReparto" class="table table-striped nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Módulo</th>
+                        <th class="text-end">Importe a repartir</th>
+                        <th class="text-end">Porcentaje</th>
+                        <th class="text-end">Importe</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- Tabla de Proveedores Asuntos asociados -->
+        <div id="divProveedoresAsuntos" style="display:none; margin-top:1rem;">
+            <hr />            
+            <div class="d-flex align-items-center justify-content-between">
+                <h2 class="h5">Proveedores Asuntos asociados</h2>
+                <button id="btnExportarAsuntos" type="button" class="btn btn-sm btn-outline-success">
+                    <i class="bi bi-file-earmark-excel"></i> Exportar a Excel
+                </button>
+            </div>
+            <table id="tableProveedoresAsuntos" class="table table-striped nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Asunto</th>
+                        <th class="text-end">Contrato Proveedor</th>
+                        <th class="text-end">Entidad</th>
+                        <th class="text-end">Departamento</th>
+                        <th class="text-end">Horas</th>
+                        <th class="text-end">Importe</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <!-- Tabla de Proveedores Asuntos asociados -->
+        <div id="divLicenciasAnuales" style="display:none; margin-top:1rem;">
+            <hr />
+            <h2 class="h5">Licencias Anuales asociados</h2>
+            <table id="tableLicenciasAnuales" class="table table-striped nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Licencia Anual</th>
+                        <th>Entidad</th>
+                        <th class="text-end">Importe</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+    <div id="toolbar" class="btn-group-wrapper">
+        <button id="btnGuardar" class="btn btn-primary btn-lg">@Resources.Boton_Guardar</button>
+        <button id="btnSolicitar" class="btn btn-secondary btn-lg" style="display: none;">Solicitar</button>
+        <button id="btnCancelar" class="btn btn-outline-secondary btn-lg">@Resources.Modal_Boton_Cancelar</button>
+    </div>
+</div>
+
+<!-- Modal Ticket (solo lectura) -->
+<div class="modal fade" id="modalTicketDetalle" tabindex="-1" aria-labelledby="modalTicketDetalleLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalTicketDetalleLabel">Detalle del Ticket</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3">
+                    <div class="col-md-4"><strong>GLPI:</strong> <span id="v_TKC_Id_GLPI"></span></div>
+                    <div class="col-md-8"><strong>Título:</strong> <span id="v_TKC_Titulo"></span></div>
+                    <div class="col-md-6"><strong>Grupo Asignado:</strong> <span id="v_TKC_GrupoAsignado"></span></div>
+                    <div class="col-md-6"><strong>Categoría:</strong> <span id="v_TKC_Categoria"></span></div>
+                    <div class="col-md-6"><strong>Categoría Calculada:</strong> <span id="v_TKC_CTK_Id"></span></div>
+                    <div class="col-md-6"><strong>Ubicación:</strong> <span id="v_TKC_Ubicacion"></span></div>
+                    <div class="col-md-4"><strong>Duración (min):</strong> <span id="v_TKC_Duracion"></span></div>
+                    <div class="col-md-4"><strong>Fecha Apertura:</strong> <span id="v_TKC_FechaApertura"></span></div>
+                    <div class="col-md-4"><strong>Fecha Resolución:</strong> <span id="v_TKC_FechaResolucion"></span></div>
+                    <div class="col-md-6"><strong>Estado:</strong> <span id="v_TKC_ETK_Id"></span></div>
+                    <div class="col-md-6"><strong>Tipo:</strong> <span id="v_TKC_TTK_Id"></span></div>
+                    <div class="col-md-6"><strong>Origen:</strong> <span id="v_TKC_OTK_Id"></span></div>
+                    <div class="col-md-6"><strong>Validación:</strong> <span id="v_TKC_VTK_Id"></span></div>
+                    <div class="col-md-6"><strong>Solicitante (ENT_Id):</strong> <span id="v_TKC_ENT_Id_Solicitante"></span></div>
+                    <div class="col-md-6"><strong>Proveedor Asignado:</strong> <span id="v_TKC_ProveedorAsignado"></span></div>
+                    <div class="col-md-6"><strong>Grupo Cargo:</strong> <span id="v_TKC_GrupoCargo"></span></div>
+                    <div class="col-md-12">
+                        <strong>Descripción:</strong>
+                        <div class="border rounded p-2" id="v_TKC_Descripcion" style="white-space:pre-wrap"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.IdConcepto = @ViewBag.IdConcepto ?? 0;
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                ObtenerComboTareaEmpresa: '@Url.Action("ObtenerComboTareaEmpresa", "Tareas")',
+                ObtenerConceptoDetalle: '@Url.Action("ObtenerConceptoDetalle", "Portal")',
+                GuardarConcepto: '@Url.Action("GuardarConcepto", "Portal")',
+                BusquedaConceptos: '@Url.Action("BusquedaConceptos", "Portal")',
+                ObtenerLicenciasMs: '@Url.Action("ObtenerLicenciasMs", "Portal")',
+                ObtenerTicketsConcepto: '@Url.Action("ObtenerTicketsConcepto", "Portal")',
+                ObtenerPartesConcepto: '@Url.Action("ObtenerPartesConcepto", "Portal")',
+                ObtenerAplicacionesPorConcepto: '@Url.Action("ObtenerAplicacionesPorConcepto", "Portal")',
+                ObtenerModulosPorConcepto: '@Url.Action("ObtenerModulosPorConcepto", "Portal")',
+                ObtenerModulosRepartoPorConcepto: '@Url.Action("ObtenerModulosRepartoPorConcepto", "Portal")',
+                ObtenerProveedoresAsuntosPorConcepto: '@Url.Action("ObtenerProveedoresAsuntosPorConcepto", "Portal")',
+                ObtenerLicenciasAnualesPorConcepto: '@Url.Action("ObtenerLicenciasAnualesPorConcepto", "Portal")',
+                ExportarTicketsConcepto: '@Url.Action("ExportarTicketsConcepto", "Portal")',
+                ExportarLicenciasMS: '@Url.Action("ExportarLicenciasMS", "Portal")',
+                ExportarAsuntosConcepto: '@Url.Action("ExportarAsuntosConcepto", "Portal")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Portal/ConceptoDetalle.js?v=@DateTime.Now.Ticks"></script>
+}

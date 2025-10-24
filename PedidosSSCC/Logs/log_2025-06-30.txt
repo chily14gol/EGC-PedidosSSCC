@@ -1,0 +1,38 @@
+﻿ERROR | 30/06/2025 11:25:40 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:25:40 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:25:46 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:25:46 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:26:00 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:26:00 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:27:57 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:27:57 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:28:19 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:28:19 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:28:28 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:28:28 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:28:45 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:28:45 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:36:05 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:36:05 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:37:24 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:37:24 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:41:47 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:41:47 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 30/06/2025 11:43:22 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON (200 OK)
+ERROR | 30/06/2025 11:43:22 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON (200 OK)
+ERROR | 30/06/2025 11:43:50 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON (200 OK)
+ERROR | 30/06/2025 11:43:50 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON (200 OK)
+ERROR | 30/06/2025 11:44:35 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON (200 OK)
+ERROR | 30/06/2025 11:44:35 | https://localhost:44368/Portal/TareaNueva | Estado: 200, Error: SyntaxError: Unexpected token '<', "<!DOCTYPE "... is not valid JSON (200 OK)
+ERROR | 30/06/2025 11:46:54 | https://localhost:44368/Portal/TareaDetalle | El diccionario de parámetros contiene una entrada NULL para el parámetro 'id' del tipo que no acepta valores NULL 'System.Int32' del método 'System.Web.Mvc.ActionResult TareaDetalle(Int32)' en 'PedidosSSCC.Controllers.PortalController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.
+Nombre del parámetro: parameters
+ERROR | 30/06/2025 11:46:54 | https://localhost:44368/Portal/TareaDetalle | El diccionario de parámetros contiene una entrada NULL para el parámetro 'id' del tipo que no acepta valores NULL 'System.Int32' del método 'System.Web.Mvc.ActionResult TareaDetalle(Int32)' en 'PedidosSSCC.Controllers.PortalController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.
+Nombre del parámetro: parameters
+ERROR | 30/06/2025 11:46:55 | https://localhost:44368/Portal/TareaDetalle | Estado: 200, Error: El diccionario de par&#225;metros contiene una entrada NULL para el par&#225;metro &#39;id&#39; del tipo que no acepta valores NULL &#39;System.Int32&#39; del m&#233;todo &#39;System.Web.Mvc.ActionResult TareaDetalle(Int32)&#39; en &#39;PedidosSSCC.Controllers.PortalController&#39;. Un par&#225;metro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como par&#225;metro opcional.  Nombre del par&#225;metro: parameters
+ERROR | 30/06/2025 11:46:55 | https://localhost:44368/Portal/TareaDetalle | Estado: 200, Error: El diccionario de par&#225;metros contiene una entrada NULL para el par&#225;metro &#39;id&#39; del tipo que no acepta valores NULL &#39;System.Int32&#39; del m&#233;todo &#39;System.Web.Mvc.ActionResult TareaDetalle(Int32)&#39; en &#39;PedidosSSCC.Controllers.PortalController&#39;. Un par&#225;metro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como par&#225;metro opcional.  Nombre del par&#225;metro: parameters
+ERROR | 30/06/2025 11:49:28 | https://localhost:44368/Portal/TareaDetalle | El diccionario de parámetros contiene una entrada NULL para el parámetro 'id' del tipo que no acepta valores NULL 'System.Int32' del método 'System.Web.Mvc.ActionResult TareaDetalle(Int32)' en 'PedidosSSCC.Controllers.PortalController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.
+Nombre del parámetro: parameters
+ERROR | 30/06/2025 11:49:28 | https://localhost:44368/Portal/TareaDetalle | El diccionario de parámetros contiene una entrada NULL para el parámetro 'id' del tipo que no acepta valores NULL 'System.Int32' del método 'System.Web.Mvc.ActionResult TareaDetalle(Int32)' en 'PedidosSSCC.Controllers.PortalController'. Un parámetro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como parámetro opcional.
+Nombre del parámetro: parameters
+ERROR | 30/06/2025 11:49:29 | https://localhost:44368/Portal/TareaDetalle | Estado: 200, Error: El diccionario de par&#225;metros contiene una entrada NULL para el par&#225;metro &#39;id&#39; del tipo que no acepta valores NULL &#39;System.Int32&#39; del m&#233;todo &#39;System.Web.Mvc.ActionResult TareaDetalle(Int32)&#39; en &#39;PedidosSSCC.Controllers.PortalController&#39;. Un par&#225;metro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como par&#225;metro opcional.  Nombre del par&#225;metro: parameters
+ERROR | 30/06/2025 11:49:29 | https://localhost:44368/Portal/TareaDetalle | Estado: 200, Error: El diccionario de par&#225;metros contiene una entrada NULL para el par&#225;metro &#39;id&#39; del tipo que no acepta valores NULL &#39;System.Int32&#39; del m&#233;todo &#39;System.Web.Mvc.ActionResult TareaDetalle(Int32)&#39; en &#39;PedidosSSCC.Controllers.PortalController&#39;. Un par&#225;metro opcional debe ser un tipo de referencia, un tipo que acepte valores NULL o debe declararse como par&#225;metro opcional.  Nombre del par&#225;metro: parameters

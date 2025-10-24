@@ -1,0 +1,248 @@
+[
+  {
+    "outputFileName": "Scripts/Vistas/Portal/TareaDetalle.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Portal/TareaDetalle.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Portal/TareaNueva.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Portal/TareaNueva.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/Licencias.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/Licencias.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/LicenciasInit.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/LicenciasInit.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/Configuraciones.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/Configuraciones.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/Departamentos.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/Departamentos.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Portal/BusquedaTareas.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Portal/BusquedaTareas.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Portal/TareaDetalle.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Portal/TareaDetalle.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/Empresas.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/Empresas.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/Entes.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/Entes.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/ContratosCAU.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/ContratosCAU.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/ItemNumbersD365.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/ItemNumbersD365.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/Oficinas.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/Oficinas.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Tickets/EstadosTicket.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Tickets/EstadosTicket.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Tickets/OrigenesTicket.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Tickets/OrigenesTicket.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/Perfiles.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/Perfiles.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/Productos.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/Productos.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/TiposEnte.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/TiposEnte.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/GruposGuardia.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/GruposGuardia.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Tickets/ValidacionesTicket.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Tickets/ValidacionesTicket.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Tickets/Tickets.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Tickets/Tickets.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Tickets/TiposTicket.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Tickets/TiposTicket.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/Proveedores.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/Proveedores.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/ProveedoresAsuntos.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/ProveedoresAsuntos.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Mantenimiento/Usuarios.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Mantenimiento/Usuarios.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Portal/BusquedaConceptos.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Portal/BusquedaConceptos.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Portal/Proyectos.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Portal/Proyectos.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Shared/Enumerados.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Shared/Enumerados.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Shared/Validaciones.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Shared/Validaciones.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Proyectos/Proyectos.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Proyectos/Proyectos.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Proyectos/ParteHoras.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Proyectos/ParteHoras.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Portal/ConceptoDetalle.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Portal/ConceptoDetalle.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Portal/Inicio.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Portal/Inicio.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Proyectos/Personas.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Proyectos/Personas.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Aplicaciones/Aplicaciones.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Aplicaciones/Aplicaciones.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Aplicaciones/AplicacionesModulos.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Aplicaciones/AplicacionesModulos.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/LicenciasAnuales/LicenciasAnuales.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/LicenciasAnuales/LicenciasAnuales.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/LicenciasAnuales/LicenciasAnualesContratos.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/LicenciasAnuales/LicenciasAnualesContratos.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Telefonia/Telefonia.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Telefonia/Telefonia.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Telefonia/TelefoniaGlobal.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Telefonia/TelefoniaGlobal.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Vistas/Telefonia/TiposCuota.min.js",
+    "inputFiles": [
+      "Scripts/Vistas/Telefonia/TiposCuota.js"
+    ]
+  }
+]

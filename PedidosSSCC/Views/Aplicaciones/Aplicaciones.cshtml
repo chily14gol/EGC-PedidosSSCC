@@ -1,0 +1,568 @@
+﻿@using PedidosSSCC.Properties
+@{
+    ViewBag.Title = "Aplicaciones";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Aplicaciones</h1>
+        <div class="title-btn-group">
+            <button id="btnPrevisulizarConceptosAplicaciones" type="button" class="btn btn-lg btn-warning">
+                <i class="bi bi-eye"></i> @Resources.Etiqueta_GenerarConceptos
+            </button>
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary btn-ico-agregar">Nueva Aplicación</button>
+        </div>
+    </div>
+    <div class="content-box">
+        <table id="table" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tarea</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Editar / Nueva Aplicación -->
+<div class="modal fade" id="modalEditar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalEditarLabel">Editar Aplicación</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="idAplicacion" />
+                <div class="form-group">
+                    <label for="nombre">Nombre *</label>
+                    <input type="text" class="form-control" id="nombre" maxlength="100" />
+                </div>
+                <div class="form-group">
+                    <label for="tarea">Tarea *</label>
+                    <select id="tarea" class="form-control styled-select"></select>
+                </div>
+                <div class="form-group">
+                    <label for="tiposEnte" class="form-label">@Resources.Etiqueta_TiposEnte</label>
+                    <select id="tiposEnte" class="styled-select form-control" multiple></select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="guardarAplicacion()">@Resources.Boton_Guardar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Tarifas -->
+<div class="modal fade" id="modalTarifas" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Tarifas de la Aplicación</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formTarifas" class="mb-3 row g-2 align-items-end">
+                    <input type="hidden" id="idAplicacionTarifas" />
+                    <input type="hidden" id="fechaInicioOriginal" />
+                    <div class="col-md-4">
+                        <label for="tarifaFechaInicio" class="form-label">Fecha Inicio *</label>
+                        <input type="date" id="tarifaFechaInicio" class="form-control form-control-sm" required />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tarifaFechaFin" class="form-label">Fecha Fin</label>
+                        <input type="date" id="tarifaFechaFin" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-md-4">
+                        <label for="tarifaPrecio" class="form-label">Precio Unitario *</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control form-control-sm" id="tarifaPrecio" name="tarifaPrecio" step="0.01" required />
+                            <span class="input-group-text">€</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button id="btnNuevaTarifa" class="btn btn-sm btn-secondary" style="display:none;">Nueva tarifa</button>
+                <button id="btnCancelarTarifa" type="button" class="btn btn-outline-secondary" style="display:none;">@Resources.Modal_Boton_Cancelar</button>
+                <button id="btnGuardarTarifa" type="button" class="btn btn-primary" onclick="guardarTarifa()">@Resources.Boton_Guardar</button>
+            </div>
+            <div class="modal-body">
+                <table id="tableTarifas" class="table table-striped nowrap">
+                    <thead>
+                        <tr>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th>Precio Unitario</th>
+                            <th class="th-action"><span class="sReader">Acción</span></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">@Resources.Boton_Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Módulos -->
+<div class="modal fade" id="modalModulos" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-xxl" style="max-width: 1400px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalModulosLabel">Módulos de la Aplicación</h2>
+                <span id="lblModuloActual"
+                      class="badge bg-info text-white fw-semibold ms-3 fs-5 p-2"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-3" style="overflow-y: visible;">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" id="modulosTab" role="tablist" style="display:none;">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="tab-general" data-bs-toggle="tab" data-bs-target="#content-general" type="button" role="tab">General</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab-empresas" data-bs-toggle="tab" data-bs-target="#content-empresas" type="button" role="tab">Empresas</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="tab-tarifas" data-bs-toggle="tab" data-bs-target="#content-tarifas" type="button" role="tab">Tarifas</button>
+                    </li>
+                </ul>
+                <!-- Tab panes -->
+                <div class="tab-content pt-3">
+                    <!-- GENERAL: formulario + tabla módulos -->
+                    <div class="tab-pane fade show active" id="content-general" role="tabpanel">
+                        <form id="formModulo" class="mb-3 row g-2 align-items-end" style="display:none;">
+                            <input type="hidden" id="idModulo" />
+                            <div class="col-md-9">
+                                <label for="moduloNombre" class="form-label">@Resources.Etiqueta_NombreModulo *</label>
+                                <input type="text" id="moduloNombre" class="form-control form-control-sm" maxlength="100" />
+                            </div>
+                            <div class="col-md-9">
+                                <label for="tareaModulo">@Resources.Etiqueta_Tarea *</label>
+                                <select id="tareaModulo" class="form-control styled-select"></select>
+                            </div>
+                        </form>
+                        <div class="modal-footer justify-content-end">
+                            <button id="btnNuevoModulo" class="btn btn-sm btn-secondary">Nuevo módulo</button>
+                            <button id="btnCancelarModulo" class="btn btn-sm btn-outline-secondary" style="display:none;">Cancelar</button>
+                            <button id="btnGuardarModulo" class="btn btn-primary" onclick="guardarModulo()" style="display:none;">Guardar</button>
+                        </div>
+
+                        <!-- Contenedor con scroll solo para la tabla -->
+                        <div class="table-responsive modal-table-scroll" style="max-height:400px; overflow-y:auto; overflow-x:hidden;">
+                            <table id="tableModulos" class="table table-striped nowrap" style="width:100%">
+                                <thead class="table-light" style="position: sticky; top: 0; z-index: 2;">
+                                    <tr>
+                                        <th>Módulo</th>
+                                        <th>Tarea</th>
+                                        <th class="th-action"><span class="sReader">Acciones</span></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- EMPRESAS POR MÓDULO -->
+                    <div class="tab-pane fade" id="content-empresas" role="tabpanel">
+                        <div class="col-12 text-end mb-2">
+                            <button id="btnNuevaEmpresa" type="button" class="btn btn-sm btn-secondary">Nueva Empresa</button>
+                        </div>
+                        <div id="contenedorFormEmpresas">
+                            <form id="formModEmpresas" class="mb-3 row g-2 align-items-end">
+                                <input type="hidden" id="idModuloEmpresas" />
+                                <input type="hidden" id="idEmpresaOriginal" />
+                                <div class="col-md-6">
+                                    <label for="empresas" class="form-label">Empresa *</label>
+                                    <select id="empresas" class="form-control form-control-sm styled-select"></select>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="empresaFechaInicio" class="form-label">Fecha Inicio *</label>
+                                    <input type="date" id="empresaFechaInicio" class="form-control form-control-sm" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="empresaFechaFin" class="form-label">Fecha Fin</label>
+                                    <input type="date" id="empresaFechaFin" class="form-control form-control-sm" />
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="empresaImporte" class="form-label">Importe Mensual *</label>
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" id="empresaImporte" class="form-control" />
+                                        <span class="input-group-text">€</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="porcentajeReparto" class="form-label">Porcentaje Reparto *</label>
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" id="porcentajeReparto" class="form-control" />
+                                        <span class="input-group-text">%</span>
+                                    </div>
+                                </div>
+                                <div class="col-8"></div>
+                                <div class="col-12">
+                                    <label for="empresaDescripcion" class="form-label">Descripción Concepto</label>
+                                    <textarea id="empresaDescripcion" class="form-control form-control-sm" rows="2"></textarea>
+                                </div>
+                                <div class="col-12 text-end">
+                                    <button id="btnCancelarEmpresa" type="button" class="btn btn-sm btn-secondary" style="display:none;">Cancelar</button>
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="guardarEmpresaModulo()">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Contenedor scrollable solo para la tabla -->
+                        <div class="table-responsive modal-table-scroll" style="max-height:400px; overflow-y:auto; overflow-x:hidden;">
+                            <table id="tableEmpresas" class="table table-striped nowrap mb-0" style="width:100%;">
+                                <thead class="table-light" style="position: sticky; top: 0; z-index: 2;">
+                                    <tr>
+                                        <th data-priority="1">Empresa</th>
+                                        <th>Fecha Inicio</th>
+                                        <th>Fecha Fin</th>
+                                        <th>Imp. Mensual</th>
+                                        <th>% Reparto</th>
+                                        <th>Concepto</th>
+                                        <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- TARIFAS DEL MÓDULO -->
+                    <div class="tab-pane fade" id="content-tarifas" role="tabpanel">
+                        <div class="col-12 text-end mb-2">
+                            <button id="btnNuevaTarifaModal" type="button" class="btn btn-sm btn-secondary">Nueva Tarifa</button>
+                        </div>
+                        <div id="contenedorFormTarifas">
+                            <form id="formModTarifas" class="mb-3 row g-2 align-items-end">
+                                <input type="hidden" id="idModuloTarifas" />
+                                <input type="hidden" id="idTarifaOriginal" />
+                                <div class="col-md-6">
+                                    <label for="tarifaFechaInicioModulo" class="form-label">Fecha Inicio *</label>
+                                    <input type="date" id="tarifaFechaInicioModulo" class="form-control form-control-sm" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="tarifaFechaFinModulo" class="form-label">Fecha Fin</label>
+                                    <input type="date" id="tarifaFechaFinModulo" class="form-control form-control-sm" />
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="tarifaImporteReparto" class="form-label">Importe reparto equitativo *</label>
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" id="tarifaImporteReparto" class="form-control" />
+                                        <span class="input-group-text">€</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="tarifaImportePorc" class="form-label">Importe reparto porcentajes *</label>
+                                    <div class="input-group input-group-sm">
+                                        <input type="number" id="tarifaImportePorc" class="form-control" />
+                                        <span class="input-group-text">€</span>
+                                    </div>
+                                </div>
+                                <div class="col-12 text-end">
+                                    <button id="btnCancelarTarifaModal" type="button" class="btn btn-sm btn-secondary" style="display:none;">Cancelar</button>
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="guardarTarifaModulo()">Guardar</button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Contenedor scrollable con cabecera fija -->
+                        <div class="table-responsive modal-table-scroll" style="max-height:400px; overflow-y:auto; overflow-x:hidden;">
+                            <table id="tableTarifasModulos" class="table table-striped nowrap mb-0" style="width:100%">
+                                <thead class="table-light" style="position: sticky; top: 0; z-index: 2;">
+                                    <tr>
+                                        <th>Fecha Inicio</th>
+                                        <th>Fecha Fin</th>
+                                        <th>Importe reparto equitativo</th>
+                                        <th>Importe reparto porcentajes</th>
+                                        <th class="th-action"><span class="sReader">Acciones</span></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">@Resources.Boton_Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Aplicación ↔ Entidades -->
+<div class="modal fade" id="modalEntesAplicacion" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-xl modal-90w modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalEntesAplicacionLabel">Entidades por Aplicación</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="sticky-controls">
+                    <form id="formEntesAplicacion" class="mb-3">
+                        <input type="hidden" id="idAplicacionEntes" />
+                        <div class="row g-2 align-items-end">
+                            <div class="form-group col-md12">
+                                <input type="hidden" id="idEnteOriginal" />
+                                <label for="entidades">Entidad *</label>
+                                <select id="entidades" class="form-control styled-select"></select>
+                            </div>
+                            <div class="col-md-4">
+                                <label for="fechaInicio">Fecha Inicio *</label>
+                                <input type="date" class="form-control form-control-sm" id="fechaInicio" required />
+                            </div>
+                            <div class="col-md-4">
+                                <label for="fechaFin">Fecha Fin</label>
+                                <input type="date" class="form-control form-control-sm" id="fechaFin" />
+                            </div>
+                            <div class="col-12 text-end">
+                                <button type="button" class="btn btn-primary" onclick="guardarAplicacionEnte()">
+                                    Guardar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="table-responsive modal-table-scroll">
+                    <!-- TOOLBAR: filtro + botones -->
+                    <div id="toolbarEntes"
+                         class="d-flex align-items-center justify-content-between gap-2 flex-wrap mb-2">
+                        <div class="flex-grow-1" style="max-width:420px;">
+                            <input type="text" class="form-control form-control-sm" id="filtroTrabajador"
+                                   placeholder="Nombre del trabajador…" />
+                        </div>
+                        <div id="toolbarEntesButtons" class="d-flex"></div>
+                    </div>
+                    <table id="tableEntesAplicacion" class="table table-striped nowrap">
+                        <thead>
+                            <tr>
+                                <th>Entidad</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th class="th-action"><span class="sReader">Acción</span></th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        th.th-action, td.td-btn {
+            min-width: 300px;
+            white-space: nowrap;
+        }
+
+        #tableEmpresas th.th-action, td.td-btn {
+            min-width: 100px;
+            white-space: nowrap;
+        }
+
+        #modalModulos .modal-dialog {
+            max-width: 1200px;
+            width: 95%;
+        }
+
+        .nav-link.disabled {
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        #lblModuloActual {
+            font-size: 0.9rem;
+            padding: 0.4em 0.8em;
+            border-radius: 1rem;
+        }
+        /* Botonera/forma superior “pegada” */
+        #modalEntesAplicacion .sticky-controls {
+            position: sticky;
+            top: 0; /* pegado arriba del modal */
+            z-index: 1025; /* por encima de la tabla */
+            background: var(--bs-body-bg);
+            padding: .5rem .25rem;
+            border-bottom: 1px solid var(--bs-border-color);
+        }
+
+        .dt-search {
+            display: none !important;
+        }
+
+        #modalEntesAplicacion .modal-table-scroll #toolbarEntes {
+            position: sticky;
+            top: 0;
+            background: var(--bs-body-bg);
+            z-index: 2;
+            padding-top: .25rem;
+            padding-bottom: .25rem;
+        }
+
+        #content-general .modal-table-scroll {
+            height: 250px; /* fija, siempre quepa justo */
+            overflow-y: auto;
+        }
+
+        .modal-90w {
+            max-width: 90% !important; /* ocupa el 90% de la pantalla */
+        }
+        #tableEmpresas {
+            width: 100% !important;
+            table-layout: auto; /* evita forzar ancho fijo */
+        }
+
+        #tableEmpresas_wrapper {
+            overflow-x: hidden !important; /* oculta scroll horizontal de DataTables */
+        }
+
+        #tableEmpresas td, #tableEmpresas th {
+            white-space: normal !important; /* permite salto de línea */
+        }
+        /* Asegura que todos los contenedores con scroll interno funcionen dentro de las pestañas Bootstrap */
+        .modal-table-scroll {
+            max-height: 400px;
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+        /* Forzar el scroll también en tab-panes ocultos de Bootstrap */
+        .tab-pane {
+            display: block !important;
+            height: 0;
+            overflow: hidden;
+        }
+
+            .tab-pane.active {
+                height: auto;
+                overflow: visible;
+            }
+
+        /* Cabeceras fijas visibles sobre el contenido */
+        .table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            background-color: #f8f9fa; /* color igual al de table-light */
+        }
+        /* 🔹 Desactiva el scroll de Bootstrap en el body del modal de módulos */
+        #modalModulos .modal-body {
+            overflow-y: visible !important;
+        }
+
+        /* 🔹 Activa el scroll individual en cada tabla interna */
+        #modalModulos .modal-table-scroll {
+            max-height: 400px;
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+        /* 🔹 Cabecera fija al hacer scroll */
+        #modalModulos table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 3;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 2px rgba(0,0,0,0.05);
+        }
+        /* --- FORZAR SCROLL INTERNO EN TABLAS DE EMPRESAS Y TARIFAS --- */
+        #content-empresas .modal-table-scroll,
+        #content-tarifas .modal-table-scroll {
+            height: 350px; /* altura fija que crea scroll interno */
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+            border-top: 1px solid #dee2e6;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        /* Cabeceras fijas */
+        #content-empresas thead th,
+        #content-tarifas thead th {
+            position: sticky;
+            top: 0;
+            z-index: 5;
+            background: #f8f9fa;
+        }
+        /* --- LIMITA EL ALTO DEL MODAL Y DESACTIVA EL SCROLL GENERAL --- */
+        #modalModulos .modal-dialog {
+            max-height: 90vh; /* límite de altura del modal */
+            display: flex;
+            flex-direction: column;
+        }
+
+        #modalModulos .modal-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #modalModulos .modal-body {
+            flex: 1;
+            overflow-y: hidden !important; /* quita scroll del modal */
+        }
+
+        /* solo las tablas internas hacen scroll */
+        #modalModulos .modal-table-scroll {
+            height: 350px;
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+
+        /* cabecera fija */
+        #modalModulos table thead th {
+            position: sticky;
+            top: 0;
+            z-index: 3;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 2px rgba(0,0,0,0.05);
+        }
+    </style>
+    <script>
+    window.AppConfig = Object.assign({}, window.AppConfig, {
+        urls: {
+            ObtenerAplicaciones:    '@Url.Action("ObtenerAplicaciones","Aplicaciones")',
+            GuardarAplicacion:      '@Url.Action("GuardarAplicacion", "Aplicaciones")',
+            EliminarAplicacion:     '@Url.Action("EliminarAplicacion", "Aplicaciones")',
+            ObtenerComboTareas:     '@Url.Action("ObtenerTareasCombo", "Mantenimiento")',
+            ObtenerComboTiposEnte:  '@Url.Action("ObtenerTiposEnte", "Mantenimiento")',
+            ObtenerEntidadesComboPorTipo:  '@Url.Action("ObtenerEntidadesComboPorTipo", "Aplicaciones")',
+            ObtenerTiposEntePorAplicacion: '@Url.Action("ObtenerAplicacionesTiposEnte", "Aplicaciones")',
+            GuardarAplicacionTipoEnte:     '@Url.Action("GuardarAplicacionTipoEnte", "Aplicaciones")',
+            EliminarAplicacionTipoEnte:    '@Url.Action("EliminarAplicacionTipoEnte", "Aplicaciones")',
+            ObtenerAplicacionesModulos:    '@Url.Action("ObtenerAplicacionesModulos", "Aplicaciones")',
+            ObtenerEntesAplicaciones:      '@Url.Action("ObtenerEntesAplicaciones", "Aplicaciones")',
+            GuardarAplicacionEnte:         '@Url.Action("GuardarAplicacionEnte", "Aplicaciones")',
+            EliminarAplicacionEnte:     '@Url.Action("EliminarAplicacionEnte", "Aplicaciones")',
+            ObtenerAplicacionesTarifas: '@Url.Action("ObtenerAplicacionesTarifas","Aplicaciones")',
+            GuardarAplicacionTarifa:    '@Url.Action("GuardarAplicacionTarifa","Aplicaciones")',
+            EliminarAplicacionTarifa:   '@Url.Action("EliminarAplicacionTarifa","Aplicaciones")',
+            ObtenerDetalleModulo:       '@Url.Action("ObtenerDetalleModulo","Aplicaciones")',
+            GuardarAplicacionModulo:       '@Url.Action("GuardarModulo",             "AplicacionesModulos")',
+            EliminarAplicacionModulo:      '@Url.Action("EliminarModulo",            "AplicacionesModulos")',
+            ObtenerModulosEmpresas:        '@Url.Action("ObtenerModulosEmpresas",    "AplicacionesModulos")',
+            GuardarModuloEmpresa:          '@Url.Action("GuardarModuloEmpresa",      "AplicacionesModulos")',
+            EliminarModuloEmpresa:         '@Url.Action("EliminarModuloEmpresa",     "AplicacionesModulos")',
+            ObtenerModulosTarifas:         '@Url.Action("ObtenerModulosTarifas",     "AplicacionesModulos")',
+            GuardarModuloTarifa:           '@Url.Action("GuardarModuloTarifa",       "AplicacionesModulos")',
+            EliminarModuloTarifa:          '@Url.Action("EliminarModuloTarifa",      "AplicacionesModulos")',
+            ObtenerTarifasReparto:         '@Url.Action("ObtenerTarifasReparto",     "AplicacionesModulos")',
+            GuardarTarifaReparto:          '@Url.Action("GuardarTarifaReparto",      "AplicacionesModulos")',
+            EliminarTarifaReparto: '@Url.Action("EliminarTarifaReparto",     "AplicacionesModulos")',
+            ObtenerComboEmpresas: '@Url.Action("ObtenerComboEmpresas", "Mantenimiento")',
+            PrevisulizarConceptosAplicaciones: '@Url.Action("PrevisulizarConceptosAplicaciones", "Aplicaciones")',
+            GenerarConceptosAplicaciones: '@Url.Action("GenerarConceptosAplicaciones", "Aplicaciones")'
+        }
+    });
+    </script>
+    <script src="~/Scripts/Vistas/Aplicaciones/Aplicaciones.js?v=@DateTime.Now.Ticks"></script>
+}

@@ -1,0 +1,50 @@
+﻿ERROR | 02/10/2025 09:52:20 | https://localhost:44368/Tickets/Tickets | Estado: undefined, Error: mostrarErrorPedidos is not defined
+ERROR | 02/10/2025 09:52:20 | https://localhost:44368/Tickets/Tickets | Estado: undefined, Error: mostrarErrorPedidos is not defined
+ERROR | 02/10/2025 10:26:32 | https://localhost:44368/Mantenimiento/ContratosCAU | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 02/10/2025 10:26:32 | https://localhost:44368/Mantenimiento/ContratosCAU | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 02/10/2025 10:26:48 | https://localhost:44368/Mantenimiento/ContratosCAU | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 02/10/2025 10:26:48 | https://localhost:44368/Mantenimiento/ContratosCAU | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 02/10/2025 10:27:17 | https://localhost:44368/Mantenimiento/ContratosCAU | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 02/10/2025 10:27:17 | https://localhost:44368/Mantenimiento/ContratosCAU | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 02/10/2025 10:27:53 | https://localhost:44368/Mantenimiento/ContratosCAU | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 02/10/2025 10:27:53 | https://localhost:44368/Mantenimiento/ContratosCAU | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 02/10/2025 10:28:16 | https://localhost:44368/Mantenimiento/ContratosCAU | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 02/10/2025 10:28:16 | https://localhost:44368/Mantenimiento/ContratosCAU | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 02/10/2025 10:29:20 | https://localhost:44368/Mantenimiento/ContratosCAU | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 02/10/2025 10:29:20 | https://localhost:44368/Mantenimiento/ContratosCAU | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 02/10/2025 10:29:26 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(ContratosCAU_ExcluidasGuardia)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_ContratosCAU_ExcluidasGuardia.Guardar(ContratosCAU_ExcluidasGuardia entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_ContratosCAU_ExcluidasGuardia.cs:línea 26
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304
+ERROR | 02/10/2025 10:29:26 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(ContratosCAU_ExcluidasGuardia)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_ContratosCAU_ExcluidasGuardia.Guardar(ContratosCAU_ExcluidasGuardia entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_ContratosCAU_ExcluidasGuardia.cs:línea 26
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304
+ERROR | 02/10/2025 10:31:56 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(ContratosCAU_ExcluidasGuardia)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_ContratosCAU_ExcluidasGuardia.Guardar(ContratosCAU_ExcluidasGuardia entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_ContratosCAU_ExcluidasGuardia.cs:línea 26
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304
+ERROR | 02/10/2025 10:31:56 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(ContratosCAU_ExcluidasGuardia)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_ContratosCAU_ExcluidasGuardia.Guardar(ContratosCAU_ExcluidasGuardia entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_ContratosCAU_ExcluidasGuardia.cs:línea 26
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304
+ERROR | 02/10/2025 10:32:23 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(ContratosCAU_ExcluidasGuardia)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_ContratosCAU_ExcluidasGuardia.Guardar(ContratosCAU_ExcluidasGuardia entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_ContratosCAU_ExcluidasGuardia.cs:línea 26
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304
+ERROR | 02/10/2025 10:32:23 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(ContratosCAU_ExcluidasGuardia)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_ContratosCAU_ExcluidasGuardia.Guardar(ContratosCAU_ExcluidasGuardia entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_ContratosCAU_ExcluidasGuardia.cs:línea 26
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 304

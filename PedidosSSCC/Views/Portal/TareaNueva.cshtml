@@ -1,0 +1,117 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "TareaNueva";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Tarea Nueva</h1>
+    </div>
+    <div class="content-box">
+        <div class="section-title-wrapper">
+            <h2 class="section-title h3">
+                @Resources.Titulo_DatosGenerales
+            </h2>
+        </div>
+        <form class="form-wrapper">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6">
+                    <div class="form-group">
+                        <label for="nombre">@Resources.Etiqueta_NombreObligatorio</label>
+                        <input type="text" class="form-control" id="nombre" maxlength="150" name="nombre" />
+                    </div>
+                </div>
+                <div class="col-sm-8 col-lg-6">
+                    <div class="form-group">
+                        <label for="seccion">Sección *</label>
+                        <select class="styled-select form-control" id="seccion" name="seccion">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-3">
+                    <div class="form-group">
+                        <label for="tipo">Tipo *</label>
+                        <select class="styled-select form-control" id="tipo" name="tipo">
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-3">
+                    <div class="form-group">
+                        <label for="iva">IVA *</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="iva" name="iva" />
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-3 campo-importeUnitario">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="importeUnitario">Importe unitario *</label>
+                            <div class="input-group">
+                                <input type="number" class="form-control" id="importeUnitario" name="importeUnitario" />
+                                <span class="input-group-text">€</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-3 campo-unidad" style="display: none;">
+                    <div class="form-group">
+                        <label for="unidad">Unidad *</label>
+                        <div class="styled-select-wrapper" style="width: 100%;">
+                            <select class="styled-select form-control" id="unidad" name="unidad">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-7 col-md-5 col-lg-5">
+                    <div class="form-group">
+                        <label for="producto">Producto (D365) *</label>
+                        <div class="styled-select-wrapper" style="width: 100%;">
+                            <select class="styled-select form-control" id="producto" name="producto">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5 col-md-4 col-lg-3">
+                    <div class="form-group">
+                        <label for="itemNumber">Item number (D365) *</label>
+                        <div class="styled-select-wrapper" style="width: 100%;">
+                            <select class="styled-select form-control" id="itemNumber" name="itemNumber">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check full-col-md">
+                        <input type="checkbox" class="form-check-input" id="visible" name="visible" checked="checked" />
+                        <label class="form-check-label" for="visible">Visible</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="toolbar" class="btn-group-wrapper">
+        <button id="btnGuardar" class="btn btn-lg btn-primary">@Resources.Boton_Guardar</button>
+        <button id="btnCancelar" class="btn btn-lg btn-outline-secondary">@Resources.Modal_Boton_Cancelar</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                ObtenerComboSecciones: '@Url.Action("ObtenerComboSecciones", "Portal")',
+                CargarComboTiposTarea: '@Url.Action("ObtenerComboTipos", "Portal")',
+                ObtenerComboUnidades: '@Url.Action("ObtenerComboUnidades", "Portal")',
+                ObtenerComboProductosD365: '@Url.Action("ObtenerComboProductosD365", "Portal")',
+                ObtenerComboItemNumber: '@Url.Action("ObtenerComboItemNumber", "Portal")',
+                GuardarTarea: '@Url.Action("GuardarTarea", "Tareas")',
+                BusquedaTareas: '@Url.Action("BusquedaTareas", "Portal")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Portal/TareaNueva.js"></script>
+}

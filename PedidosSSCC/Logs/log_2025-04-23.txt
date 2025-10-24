@@ -1,0 +1,48 @@
+﻿ERROR | 23/04/2025 09:29:55 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+ERROR | 23/04/2025 09:29:55 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+ERROR | 23/04/2025 09:30:08 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+ERROR | 23/04/2025 09:30:08 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+ERROR | 23/04/2025 09:30:14 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+ERROR | 23/04/2025 09:30:14 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+ERROR | 23/04/2025 09:30:38 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+ERROR | 23/04/2025 09:30:38 | https://localhost:44368/Mantenimiento/Licencias | Estado: , Error: mostrarErrorPedidos is not defined
+ERROR | 23/04/2025 09:31:04 | gdfgfd|Error al guardar datos
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.Guardar(Tareas_Empresas_LineasEsfuerzo_LicenciasMS objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.cs:línea 53
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 263
+ERROR | 23/04/2025 09:31:04 | Error al guardar datos
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.Guardar(Tareas_Empresas_LineasEsfuerzo_LicenciasMS objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.cs:línea 53
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 263
+ERROR | 23/04/2025 09:31:11 | Error al guardar datos
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.Guardar(Tareas_Empresas_LineasEsfuerzo_LicenciasMS objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.cs:línea 53
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 263
+ERROR | 23/04/2025 09:31:11 | Error al guardar datos
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.Guardar(Tareas_Empresas_LineasEsfuerzo_LicenciasMS objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.cs:línea 53
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 263
+ERROR | 23/04/2025 09:35:31 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_LicenciasMS)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.Guardar(Tareas_Empresas_LineasEsfuerzo_LicenciasMS objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.cs:línea 46
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 263
+ERROR | 23/04/2025 09:35:31 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_LicenciasMS)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.Guardar(Tareas_Empresas_LineasEsfuerzo_LicenciasMS objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.cs:línea 46
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 263
+ERROR | 23/04/2025 09:35:33 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_LicenciasMS)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.Guardar(Tareas_Empresas_LineasEsfuerzo_LicenciasMS objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.cs:línea 46
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 263
+ERROR | 23/04/2025 09:35:33 | Error al guardar datos
+System.InvalidOperationException: No se pueden ejecutar operaciones Create, Update o Delete en 'Table(Tareas_Empresas_LineasEsfuerzo_LicenciasMS)' porque no tiene una clave principal.
+   en System.Data.Linq.Table`1.CheckReadOnly()
+   en System.Data.Linq.Table`1.InsertOnSubmit(TEntity entity)
+   en AccesoDatos.DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.Guardar(Tareas_Empresas_LineasEsfuerzo_LicenciasMS objConcepto, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.cs:línea 46
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 263

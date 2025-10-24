@@ -1,0 +1,174 @@
+﻿@using PedidosSSCC.Properties;
+@model List<int>
+@{
+    ViewBag.Title = "Busqueda Tareas";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Tareas</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary btn-ico-agregar">Añadir tarea</button>
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="sReader">Menú de acciones</span>
+                    <i class="bi bi-three-dots-vertical" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li id="btnExportarContainer"></li>
+                    <li>
+                        <button id="btnDescargarPlantilla" type="button" class="dropdown-item">
+                            <i class="bi bi-download" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false"></i>Descargar Plantilla
+                        </button>
+                    </li>
+                    <li>
+                        <button id="btnImportarExcel" type="button" class="dropdown-item" data-bs-toggle="modal" data-target="#modalImportar">
+                            <i class="bi bi-upload" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false"></i>Importar Excel
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default">
+                <div class="buscador">
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+                <div class="anoPresupuesto">
+                    <label for="ddlAño" class="form-label">Año del presupuesto</label>
+                    <select id="ddlAño" class="form-select" placeholder="Seleccionar">
+                        <option value="" selected>Seleccionar</option>
+                        @foreach (var año in Model)
+                        {
+                            <option value="@año">@año</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="form-advance">
+                <div class="row">
+                    <div class="col-sm-7 col-md-5 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterTarea">Tarea</label>
+                            <input type="text" id="filterTarea" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-md-4 col-xxl-2">
+                        <div class="form-group">
+                            <label class="form-label" for="filterSeccion">Sección</label>
+                            <input type="text" id="filterSeccion" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-3 col-md-3 col-xxl-2">
+                        <div class="form-group">
+                            <label class="form-label" for="filterTipo">Tipo</label>
+                            <input type="text" id="filterTipo" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3 col-xxl-1">
+                        <div class="form-group">
+                            <label class="form-label" for="filterImporte">Importe</label>
+                            <input type="text" id="filterImporte" class="form-control" oninput="validarImporte(this)">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterProducto">Producto</label>
+                            <input type="text" id="filterProducto" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-xxl-1">
+                        <div class="form-group">
+                            <label class="form-label" for="filterItemNumber">Item Number</label>
+                            <input type="text" id="filterItemNumber" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-btn-group">
+                <button type="button" id="btnBuscar" class="btn btn-primary">@Resources.Boton_Buscar</button>
+                <button type="button" id="btnLimpiar" class="btn btn-outline-secondary" style="display: none;">@Resources.Boton_Limpiar</button>
+                <button type="button" id="btnAvanzado" class="btn btn-link">@Resources.Boton_BusquedaAvanzada</button>
+            </div>
+        </form>
+        <table id="tablaTareas" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-priority="1">Tarea</th>
+                    <th>Sección</th>
+                    <th>Tipo</th>
+                    <th>Importe unitario</th>
+                    <th>Producto (D365)</th>
+                    <th>Item number (D365)</th>
+                    <th>Visible</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal para importar Excel -->
+<div class="modal fade" id="modalImportar" tabindex="-1" aria-labelledby="modalImportarLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalEditarLabel">Importar Archivo Excel</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-wrapper">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="archivoExcel">@Resources.Etiqueta_SeleccionarArchivoExcel</label>
+                                <input type="file" id="archivoExcel" name="archivoExcel" class="form-control" accept=".xlsx, .xls" required />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" id="btnSubirProcesar">Subir y Procesar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Errores -->
+<div class="modal fade" id="modalErrores" tabindex="-1" aria-labelledby="modalErroresLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalErroresLabel">Errores en la Importación</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p id="errorMessage"></p>
+                <a id="errorDownloadLink" href="#" class="btn btn-danger" style="display: none;" target="_blank">Descargar Errores</a>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">@Resources.Boton_Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                EliminarTarea: '@Url.Action("EliminarTarea", "Tareas")',
+                ObtenerTareas: '@Url.Action("ObtenerTareas", "Tareas")',
+                TareaNueva: '@Url.Action("TareaNueva", "Portal")',
+                DescargarPlantillaTareasEmpresas: '@Url.Action("DescargarPlantillaTareasEmpresas", "Tareas")',
+                ImportarExcelTareas: '@Url.Action("ImportarExcelTareas", "Tareas")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Portal/BusquedaTareas.js?v=@DateTime.Now.Ticks"></script>
+}

@@ -1,0 +1,83 @@
+.inbox {
+    width: 100%;
+    margin: 25px 0 15px 0;
+
+    @media screen and (max-width: $xxl-max) {
+        .col:not(:first-child) {
+            padding-inline-start: rem(7);
+        }
+        .col:not(:last-child) {
+            padding-inline-end: rem(7);
+        }
+    }
+    a {
+        text-decoration: none;
+
+        .inbox_wrapper {
+            min-height: 76px;
+            border-radius: $border-radius;
+            // padding: 18px;
+            padding: rem(9);
+            background-repeat: no-repeat;
+            // background-position: 93% center;
+            background-position: right 6px top 16px;
+            color: $c_bandejaText;
+
+            @media (min-width: 0px) and (max-width: 1285px) {
+                background-size: 22%;
+            }
+
+            &.inbox__earring {
+                background-color: $c_pendienteBg;
+                background-image: url("#{$img}inbox_earring.svg");
+            }
+
+            &.inbox__alert {
+                background-color: $c_enAlertaBg;
+                background-image: url("#{$img}inbox_alert.svg");
+            }
+
+            &.inbox__assigned {
+                background-color: $c_asignadasBg;
+                background-image: url("#{$img}inbox_assigned.svg");
+            }
+
+            &.inbox__appeared {
+                background-color: $c_comparecidasBg;
+                background-image: url("#{$img}inbox__appeared.svg");
+            }
+
+            &.inbox__rejected {
+                background-color: $c_rechazadasBg;
+                background-image: url("#{$img}inbox_rejected.svg");
+            }
+            &.inbox__extern {
+                background-color: $c_externasBg;
+                background-image: url("#{$img}inbox-extern.svg");
+            }
+            &.inbox__urgent {
+                background-color: $c_urgentesBg;
+                background-image: url("#{$img}inbox-urgent.svg");
+            }
+
+            .inbox__number {
+                display: block;
+                // font-size: rem(24);
+                font-size: rem(21);
+                font-weight: 500;
+                margin-bottom: em(5,21);
+            }
+
+            .inbox__status {
+                // font-size: rem(18);
+                font-size: rem(15);
+                letter-spacing: em(-.4,15);
+                &::first-line{
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}
+
+

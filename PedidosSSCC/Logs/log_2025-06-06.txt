@@ -1,0 +1,8 @@
+﻿ERROR | 06/06/2025 09:48:17 | https://localhost:44368/Proyectos/Proyectos | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 06/06/2025 09:48:17 | https://localhost:44368/Proyectos/Proyectos | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 06/06/2025 09:48:47 | https://localhost:44368/Proyectos/Proyectos | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 06/06/2025 09:48:47 | https://localhost:44368/Proyectos/Proyectos | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 06/06/2025 09:49:21 | https://localhost:44368/Proyectos/Proyectos | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 06/06/2025 09:49:21 | https://localhost:44368/Proyectos/Proyectos | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 06/06/2025 12:04:27 | https://localhost:44368/Proyectos/Proyectos | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON
+ERROR | 06/06/2025 12:04:27 | https://localhost:44368/Proyectos/Proyectos | Estado: fetch, Error: Unexpected token '<', "<!DOCTYPE "... is not valid JSON

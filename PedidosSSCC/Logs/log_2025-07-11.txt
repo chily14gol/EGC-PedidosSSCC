@@ -1,0 +1,6 @@
+﻿ERROR | 11/07/2025 10:54:41 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | Estado: undefined, Error: Cannot read properties of undefined (reading 'forEach')
+ERROR | 11/07/2025 10:54:41 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | Estado: undefined, Error: Cannot read properties of undefined (reading 'forEach')
+ERROR | 11/07/2025 10:54:47 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | Estado: undefined, Error: Cannot read properties of undefined (reading 'forEach')
+ERROR | 11/07/2025 10:54:47 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | Estado: undefined, Error: Cannot read properties of undefined (reading 'forEach')
+ERROR | 11/07/2025 10:55:15 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | Estado: undefined, Error: Cannot read properties of undefined (reading 'forEach')
+ERROR | 11/07/2025 10:55:15 | https://localhost:44368/Mantenimiento/ProveedoresAsuntos | Estado: undefined, Error: Cannot read properties of undefined (reading 'forEach')

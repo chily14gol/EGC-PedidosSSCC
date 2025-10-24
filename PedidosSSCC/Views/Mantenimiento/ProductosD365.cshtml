@@ -1,0 +1,95 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "ProductosD365";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Productos D365</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary btn-ico-agregar">Añadir producto</button>
+            <div class="dropdown">
+                <ul class="dropdown-menu">
+                    <li id="btnExportarContainer"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default d-flex align-items-end gap-3 flex-wrap">
+                <div class="form-group flex-grow-1 mb-0">
+                    <label class="form-label" for="formBuscar">@Resources.Placeholder_Buscar</label>
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+                <div class="form-group mb-0" style="min-width: 150px;">
+                    <label class="form-label" for="filterActivo">Activo</label>
+                    <select id="filterActivo" class="form-select w-auto">
+                        <option value="">-- Todos --</option>
+                        <option value="true">Sí</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        <table id="table" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th data-priority="1">@Resources.Etiqueta_Descripcion</th>
+                    <th>Activo</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal para editar/crear productos -->
+<div class="modal fade" id="modalProducto" tabindex="-1" aria-labelledby="modalProductoLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalProductoLabel">Gestión de Producto</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @*my-0 añadido porque el último campo es un checkbox que ocupa 12 columnas*@
+                <form id="formProducto" class="form-wrapper my-0">
+                    <input type="hidden" id="productoId" />
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="productoNombre" class="form-label">Descripción *</label>
+                                <input type="text" class="form-control" id="productoNombre" required>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-check full-col">
+                                <input class="form-check-input" type="checkbox" id="productoActivo">
+                                <label class="form-check-label" for="productoActivo">Activo</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" id="btnGuardar">@Resources.Boton_Aceptar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                EliminarProducto: '@Url.Action("EliminarProducto", "Mantenimiento")',
+                GuardarProducto: '@Url.Action("GuardarProducto", "Mantenimiento")',
+                ObtenerProductosD365: '@Url.Action("ObtenerProductosD365", "Mantenimiento")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Mantenimiento/Productos.js?v=@DateTime.Now.Ticks"></script>
+}

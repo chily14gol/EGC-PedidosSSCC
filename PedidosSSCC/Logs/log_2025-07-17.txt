@@ -1,0 +1,6 @@
+﻿ERROR | 17/07/2025 12:40:55 | https://localhost:44368/LicenciasAnualesContratos/LicenciasAnualesContratos | Estado: 200, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 17/07/2025 12:40:55 | https://localhost:44368/LicenciasAnualesContratos/LicenciasAnualesContratos | Estado: 200, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 17/07/2025 12:40:57 | https://localhost:44368/LicenciasAnualesContratos/LicenciasAnualesContratos | Estado: 200, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 17/07/2025 12:40:57 | https://localhost:44368/LicenciasAnualesContratos/LicenciasAnualesContratos | Estado: 200, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 17/07/2025 12:42:49 | https://localhost:44368/LicenciasAnualesContratos/LicenciasAnualesContratos | Estado: 200, Error: Error en la llamada al servicio. Ver log para mas detalles.
+ERROR | 17/07/2025 12:42:49 | https://localhost:44368/LicenciasAnualesContratos/LicenciasAnualesContratos | Estado: 200, Error: Error en la llamada al servicio. Ver log para mas detalles.

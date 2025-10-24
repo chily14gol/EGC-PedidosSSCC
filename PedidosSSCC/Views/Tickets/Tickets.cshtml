@@ -1,0 +1,264 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Gestión de Tickets";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Tickets</h1>
+        <div class="title-btn-group">
+            <button id="btnPrevisulizarConceptos" type="button" class="btn btn-lg btn-warning">
+                <i class="bi bi-eye"></i> @Resources.Etiqueta_GenerarConceptos
+            </button>
+            <!-- Botón principal: Importar Excel -->
+            <button id="btnImportarExcel" type="button" class="btn btn-lg btn-primary" data-bs-toggle="modal" data-target="#modalImportar">
+                <i class="bi bi-upload"></i> Importar Excel
+            </button>
+
+            <!-- Menú de opciones secundarias -->
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-three-dots-vertical" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li id="btnExportarContainer"></li>
+                    <li>
+                        <button id="btnDescargarPlantilla" type="button" class="dropdown-item">
+                            <i class="bi bi-download"></i> Descargar Plantilla
+                        </button>
+                    </li>
+                    <li>
+                        <button id="btnNuevo" type="button" class="dropdown-item">
+                            <i class="bi bi-plus-circle"></i> Añadir Ticket
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default">
+                <div class="buscador">
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+            </div>
+            <div class="form-advance">
+                <div class="row">
+                    <div class="col-md-4 col-xxl-3">
+                        <div class="form-group">
+                            <label for="filterTitulo" class="form-label">Título * </label>
+                            <input type="text" id="filterTitulo" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xxl-3">
+                        <div class="form-group">
+                            <label for="filterGrupoAsignado" class="form-label">Grupo Asignado *</label>
+                            <input type="text" id="filterGrupoAsignado" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xxl-3">
+                        <div class="form-group">
+                            <label for="filterCategoria" class="form-label">Categoría</label>
+                            <input type="text" id="filterCategoria" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xxl-3">
+                        <div class="form-group">
+                            <label for="filterUbicacion" class="form-label">Ubicación</label>
+                            <input type="text" id="filterUbicacion" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xxl-3">
+                        <div class="form-group">
+                            <label for="filterEmpresa" class="form-label">Empresa</label>
+                            <select id="filterEmpresa" class="styled-select form-control">
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xxl-3">
+                        <div class="form-group">
+                            <label for="filterFechaDesde" class="form-label">Fecha Apertura desde</label>
+                            <input type="date" id="filterFechaDesde" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xxl-3">
+                        <div class="form-group">
+                            <label for="filterFechaHasta" class="form-label">Fecha Apertura hasta</label>
+                            <input type="date" id="filterFechaHasta" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-xxl-3">
+                        <div class="form-check mt-4">
+                            <input type="checkbox" class="form-check-input" id="filterSinEmpresa">
+                            <label class="form-check-label" for="filterSinEmpresa">
+                                Sin empresa asociada
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-btn-group">
+                <button type="button" id="btnBuscar" class="btn btn-primary">@Resources.Boton_Buscar</button>
+                <button type="button" id="btnLimpiar" class="btn btn-outline-secondary" style="display: none;">@Resources.Boton_Limpiar</button>
+                <button type="button" id="btnAvanzado" class="btn btn-link">@Resources.Boton_BusquedaAvanzada</button>
+            </div>
+        </form>
+
+        <table id="tablaTickets" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-priority="1">Título</th>
+                    <th>GLPI</th>
+                    <th>Grupo Asignado</th>
+                    <th>Categoría</th>
+                    <th>Ubicación</th>
+                    <th>Duración</th>
+                    <th>Empresa</th>
+                    <th>Fecha Apertura</th>
+                    <th>Fecha Resolución</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Ticket -->
+<div class="modal fade" id="modalTicket" tabindex="-1" aria-labelledby="modalTicketLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalTicketLabel">Gestión de Ticket</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formTicket">
+                    <input type="hidden" id="TKC_Id" />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="form-label">GLPI</label>
+                            <input type="number" class="form-control" id="TKC_Id_GLPI" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">@Resources.Etiqueta_Titulo *</label>
+                            <input type="text" class="form-control" id="TKC_Titulo" required />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">@Resources.Etiqueta_GrupoAsignado *</label>
+                            <input type="text" class="form-control" id="TKC_GrupoAsignado" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">@Resources.Etiqueta_Categoria</label>
+                            <input type="text" class="form-control" id="TKC_Categoria" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">@Resources.Etiqueta_CategoriaCalculada *</label>
+                            <select class="form-select" id="TKC_CTK_Id"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">@Resources.Etiqueta_Ubicacion</label>
+                            <input type="text" class="form-control" id="TKC_Ubicacion" />
+                        </div>
+                        <div class="col-md-5">
+                            <label class="form-label">@Resources.Etiqueta_Duracion</label><strong> (minutos)</strong>
+                            <input type="number" class="form-control" id="TKC_Duracion" />
+                        </div>
+                        <div class="col-md-12">
+                            <label class="form-label">@Resources.Etiqueta_Descripcion</label>
+                            <textarea class="form-control" id="TKC_Descripcion"></textarea>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">@Resources.Etiqueta_Estado *</label>
+                            <select class="form-select" id="TKC_ETK_Id"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Tipo *</label>
+                            <select class="form-select" id="TKC_TTK_Id"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Origen *</label>
+                            <select class="form-select" id="TKC_OTK_Id"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Validación *</label>
+                            <select class="form-select" id="TKC_VTK_Id"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Solicitante</label>
+                            <select class="form-select" id="TKC_ENT_Id_Solicitante"></select>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Proveedor Asignado</label>
+                            <input type="text" class="form-control" id="TKC_ProveedorAsignado" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Grupo Cargo</label>
+                            <input type="text" class="form-control" id="TKC_GrupoCargo" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Fecha Apertura</label>
+                            <input type="date" class="form-control" id="TKC_FechaApertura" />
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Fecha Resolución</label>
+                            <input type="date" class="form-control" id="TKC_FechaResolucion" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="btnGuardarTicket">Guardar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para importar Excel -->
+<div class="modal fade" id="modalImportar" tabindex="-1" aria-labelledby="modalImportarLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalImportarLabel">Importar Tickets desde Excel</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-wrapper">
+                    <div class="form-group">
+                        <label for="archivoExcel" class="form-label">@Resources.Etiqueta_SeleccionarArchivoExcel</label>
+                        <input type="file" id="archivoExcel" name="archivoExcel" class="form-control" accept=".xlsx, .xls">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" id="btnSubirProcesar">Subir y procesar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                ObtenerTickets: '@Url.Action("ObtenerTickets", "Tickets")',
+                EliminarTicket: '@Url.Action("EliminarTicket", "Tickets")',
+                DescargarPlantillaTickets: '@Url.Action("DescargarPlantillaTickets", "Tickets")',
+                ImportarExcelTickets: '@Url.Action("ImportarExcelTickets", "Tickets")',
+                GuardarTicket: '@Url.Action("GuardarTicket", "Tickets")',
+                ObtenerEstadosTicket: '@Url.Action("ObtenerEstadosTicket", "Tickets")',
+                ObtenerTiposTicket: '@Url.Action("ObtenerTiposTicket", "Tickets")',
+                ObtenerOrigenesTicket: '@Url.Action("ObtenerOrigenesTicket", "Tickets")',
+                ObtenerValidacionesTicket: '@Url.Action("ObtenerValidacionesTicket", "Tickets")',
+                ObtenerEntes: '@Url.Action("ObtenerEntes", "Mantenimiento")',
+                ObtenerCategoriasTicket: '@Url.Action("ObtenerCategoriasTicket", "Tickets")',
+                PrevisualizarConceptos: '@Url.Action("PrevisualizarConceptos", "ContratosCAU")',
+                GenerarTodosConceptos: '@Url.Action("GenerarTodosConceptos", "ContratosCAU")',
+                ObtenerComboEmpresas: '@Url.Action("ObtenerComboEmpresas", "Mantenimiento")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Tickets/Tickets.js?v=@DateTime.Now.Ticks"></script>
+}

@@ -1,0 +1,74 @@
+﻿const Tipo = {
+    POR_HORAS: "1",
+    POR_UNIDADES: "2",
+    CANTIDAD_FIJA: "3"
+};
+
+const EstadosSolicitud = {
+    SinSolicitar: 1,
+    PendienteAprobacion: 2,
+    Aprobado: 3,
+    Rechazado: 4
+};
+
+const TipoToast = {
+    Warning: "warning",
+    Error: "error",
+    Success: "success"
+};
+
+const OpcionMenu = {
+    Inicio: "0",
+    Conceptos: "1.2",
+    Tareas: "1.1",
+    DatosGenerales: "1.1.1",
+    EdicionPresupuestos: "1.1.2",
+    Enlaces: "1.4",
+    Pedidos: "1.3",
+    ContratosCAU: "1.6.1",
+    Tickets: "1.6.2",
+    ProveedoresAsuntos: "1.7.1",
+    ParteHoras: "1.8",
+    LicenciaMódulos: "1.9",
+    Aplicaciones: "1.9.1",
+    ContratosLicenciasAnuales: "1.10",
+    Telefonia: "1.11",
+    TelefoniaDatos: "1.11.1",
+    TelefoniaGlobal: "1.11.2",
+    TiposCuota: "1.11.3",
+    Perfiles: "2.1.2",
+    Usuarios: "2.1.1",
+    Configuraciones: "2.2.1",
+    ProductosD365: "2.2.2",
+    ItemNumbersD365: "2.2.3",
+    Departamentos: "2.2.5",
+    Empresas: "2.2.4",
+    Oficinas: "2.3.2",
+    TiposEnte: "2.3.1",
+    Entidades: "1.5.1",
+    Licencias: "1.5.2",
+    EstadosTicket: "2.4.1",
+    OrigenesTicket: "2.4.2",
+    TiposTicket: "2.4.3",
+    ValidacionesTicket: "2.4.4",
+    GruposGuardia: "2.4.5",
+    SoporteProveedores: "2.5",
+    Proveedores: "2.5.1",
+    HorasProyectosSSCC: "2.6",
+    Proyectos: "2.6.1",
+    Personas: "2.6.2",
+    LicenciasAnuales: "2.7"
+};
+
+const Filtros = {
+    Inicio: "datatable_filters_Inicio",
+    Tareas: "datatable_filters_Tareas",
+    Conceptos: "datatable_filters_Conceptos",
+    Pedidos: "datatable_filters_Pedidos",
+    Usuarios: "datatable_filters_Usuarios",
+    Empresas: "datatable_filters_Empresas",
+    Empresas: "datatable_filters_Empresas",
+    Licencias: "datatable_filters_Licencias",
+    TiposEnte: "datatable_filters_TiposEnte",
+    Entidades: "datatable_filters_Entidades"
+};

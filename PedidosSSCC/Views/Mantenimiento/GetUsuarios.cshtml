@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "Obtener Entidades del DA";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h2 class="section-title h1">Obtener Entidades del Directorio Activo</h2>
+    </div>
+    <div class="content-box">
+        <button id="btnEjecutar" class="btn btn-lg btn-primary">Ejecutar proceso</button>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+    $(document).ready(function () {
+        $(".breadcrumb-container").hide();
+        $('#contenidoPagina').fadeIn();
+        ocultarDivCargando();
+
+        $('#btnEjecutar').on('click', async function () {
+            mostrarDivCargando();
+            try {
+                const response = await fetch('@Url.Action("ObtenerUsuariosDA", "Proceso")');
+                const result = await response.json();
+                if (result.success) {
+                    ocultarDivCargando();
+                    mostrarToast("Proceso ejecutado correctamente", TipoToast.Success);
+                } else {
+                    ocultarDivCargando();
+                    mostrarToast(result.message || "Error durante la ejecución", TipoToast.Error);
+                }
+            } catch (err) {
+                ocultarDivCargando();
+                mostrarToast("Error de comunicación con el servidor", TipoToast.Error);
+            }
+        });
+    });
+    </script>
+}

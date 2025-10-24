@@ -1,0 +1,643 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "PedidoDetalle";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Pedido Detalle</h1>
+    </div>
+    <div class="content-box">
+        <div class="section-title-wrapper">
+            <h2 class="section-title h3">
+                @Resources.Titulo_DatosGenerales
+            </h2>
+        </div>
+        <form class="form-wrapper">
+            <div class="row">
+                <div class="col-sm-8 col-lg-4">
+                    <div class="form-group">
+                        <label class="form-label">@Resources.Etiqueta_Empresa</label>
+                        <input type="text" class="form-control" id="empresa" disabled />
+                        <input type="hidden" id="idEmpresa" name="FAC_EMP_Id" />
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-4">
+                    <div class="form-group">
+                        <label class="form-label">@Resources.Etiqueta_Contacto</label>
+                        <input type="text" class="form-control" id="contacto" />
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="form-group">
+                        <label class="form-label">@Resources.Etiqueta_EmpresaFacturar</label>
+                        <div class="styled-select-wrapper">
+                            <select class="styled-select form-control" id="empresaFacturar" name="empresaFacturar">
+                            </select>
+                        </div>
+                        <input type="hidden" id="idEmpresaFacturar" name="FAC_EMP_Id_Facturar" />
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="form-group">
+                        <label class="form-label">Expediente/referencia de pedido</label>
+                        <input type="text" class="form-control" id="referenciaPedido" />
+                    </div>
+                </div>
+                <div class="col-sm-6  col-lg-3">
+                    <div class="form-group">
+                        <label class="form-label">N° pedido</label>
+                        <input type="text" class="form-control" id="numeroPedido" disabled />
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-3" id="fechaPedido-section">
+                    <div class="form-group">
+                        <label class="form-label">Fecha del pedido</label>
+                        <input type="text" class="form-control" id="fechaPedido" />
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-2" id="importe-section">
+                    <div class="form-group">
+                        <label class="form-label">Importe (sin IVA)</label>
+                        <input type="number" class="form-control" id="importe" />
+                    </div>
+                </div>
+                <div class="col-md-8 col-lg-9">
+                    <div class="form-group">
+                        <label class="form-label">Dirección</label>
+                        <textarea class="form-control" id="direccion" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check full-col-md">
+                        <input type="checkbox" id="requiereAprobacion" class="form-check-input" />
+                        <label class="form-check-label" for="requiereAprobacion">Requiere aprobación</label>
+                    </div>
+                </div>
+                <div class="col-12" id="documento-section" style="display: none;">
+                    <p><span class="h5">Documento:</span> <a href="#" target="_blank" id="documento" rel="noopener noreferrer"></a></p>
+                </div>
+            </div>
+            <hr />
+            <div class="section-title-wrapper">
+                <h2 class="section-title h3" id="tituloConceptos"></h2>
+                <i class="bi bi-info-circle-fill text-primary"
+                   data-bs-toggle="tooltip"
+                   data-bs-placement="right"
+                   id="iconoSel"
+                   title="Solo los conceptos Aprobados tienen el check de selección.">
+                </i>
+            </div>
+            <div class="table-filter" id="contenedor-conceptos">
+                <div class="form-default">
+                    <div class="buscador">
+                        <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                    </div>
+                </div>
+                <div class="form-advance">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label" for="filterTarea">Tarea</label>
+                                <input type="text" id="filterTarea" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label" for="filterCantidad">@Resources.Etiqueta_Cantidad</label>
+                                <input type="text" id="filterCantidad" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label" for="filterDescripcion">Descripcion</label>
+                                <input type="text" id="filterDescripcion" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label" for="filterEstado">Estado</label>
+                                <input type="text" id="filterEstado" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label class="form-label" for="filterImportetotal">Importe total</label>
+                                <input type="text" id="filterImportetotal" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-btn-group">
+                    <button type="button" id="btnBuscar" class="btn btn-primary">@Resources.Boton_Buscar</button>
+                    <button type="button" id="btnLimpiar" class="btn btn-outline-secondary" style="display: none;">@Resources.Boton_Limpiar</button>
+                    <button type="button" id="btnAvanzado" class="btn btn-link">@Resources.Boton_BusquedaAvanzada</button>
+                </div>
+            </div>
+            <table id="table" class="table table-striped nowrap" style="width:100%">
+                <thead>
+                    <tr>
+                        <th data-priority="1">Tarea</th>
+                        <th>Cantidad</th>
+                        <th>Descripcion</th>
+                        <th>Estado</th>
+                        <th>Importe total</th>
+                    </tr>
+                </thead>
+            </table>
+        </form>
+        <div id="estado-section">
+            <hr />
+            <div class="section-title-wrapper">
+                <h2 class="section-title h2">
+                    Estado
+                </h2>
+            </div>
+            <form class="form-wrapper">
+                <div class="row">
+                    <div class="col-sm-12 col-md-4">
+                        <div class="form-group">
+                            <label for="estado" class="form-label">Estado</label>
+                            <input type="text" id="estado" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="fechaAprobacion" class="form-label">Fecha aprobación</label>
+                            <input type="text" id="fechaAprobacion" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-4">
+                        <div class="form-group">
+                            <label for="aprobador" class="form-label">Aprobador</label>
+                            <input type="text" id="aprobador" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="comentarios" class="form-label">Comentarios</label>
+                            <textarea id="comentarios" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="toolbar" class="btn-group-wrapper">
+        <button id="btnGuardar" class="btn btn-lg btn-primary">@Resources.Boton_Guardar</button>
+        <button id="btnEmitir" class="btn btn-lg btn-secondary">Emitir Pedido</button>
+        <button id="btnCancelar" class="btn btn-lg btn-outline-secondary">@Resources.Modal_Boton_Cancelar</button>
+    </div>
+</div>
+
+<!-- Modal para emitir pedido -->
+<div id="modalEmitirPedido" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEmitirPedidoLabel">Emitir Pedido</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label"><strong>Fecha del pedido *</strong></label>
+                    <input type="date" class="form-control" id="modalFechaPedido" />
+                </div>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" id="confirmarEmision">@Resources.Boton_Aceptar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const mode = urlParams.get('mode');
+
+        function checkboxFormatter(value, row, index) {
+            // Si el modo es "view", no se renderiza el checkbox
+            if (mode === 'view') {
+                return ''; // Devuelve un string vacío para no mostrar nada
+            }
+
+            return `
+                <input type="checkbox" class="form-check-input"
+                       id="checkbox-${index}"
+                       data-index="${index}"
+                       data-id="${row.TLE_Id}" />`;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            if (mode === 'view') {
+                document.querySelectorAll("input, textarea, select").forEach(element => {
+                    if (!document.querySelector("#contenedor-conceptos").contains(element)) {
+                        element.setAttribute("disabled", "disabled");
+                    }
+                });
+
+                $("#btnGuardar").hide();
+                $("#btnEmitir").hide();
+                $("#tituloConceptos").text("Conceptos de facturación seleccionados");
+                $("#iconoSel").hide();
+            }
+            else {
+                $("#estado-section").hide();
+                $("#fechaPedido-section").hide();
+                $("#documento-section").hide();
+                $("#importe-section").hide();
+                $("#tituloConceptos").text("Seleccione los conceptos de facturación a incluir");
+                $("#iconoSel").show();
+            }
+        });
+
+        $(document).ready(function () {
+            let idPedido = @ViewBag.IdPedido;
+
+            VerificarSesionActiva(OpcionMenu.Pedidos).then(() => {
+                Promise.all([ObtenerPedidoDetalle(idPedido)])
+                    .then(() => {
+                        ObtenerComboEmpresas();
+                        ObtenerConceptosFacturacion(idPedido);
+                    })
+                    .catch((error) => {
+                        console.error('Error al cargar los datos:', error);
+                    });
+            });
+
+            function ObtenerComboEmpresas() {
+                $.ajax({
+                    url: '@Url.Action("ObtenerComboEmpresas", "Portal")',
+                    type: 'GET',
+                    data: { idEmpresa: $('#idEmpresa').val() },
+                    dataType: "json",
+                    success: function (data) {
+                        let $select = $('#empresaFacturar');
+                        $select.empty();
+                        $select.append('<option value="">Seleccione empresa</option>');
+
+                        $.each(data, function (index, item) {
+                            $select.append('<option value="' + item.EMP_Id + '">' + item.EMP_Nombre + '</option>');
+                        });
+
+                        $('#empresaFacturar').val($('#idEmpresaFacturar').val());
+                    },
+                    error: function (xhr, status, error) {
+                        const mensaje = obtenerMensajeErrorAjax(xhr);
+                        registrarErrorjQuery(xhr.status, mensaje);
+                    }
+                });
+            }
+
+            function ObtenerPedidoDetalle(idPedido) {
+                return new Promise((resolve, reject) => {
+                    $.ajax({
+                        async: false,
+                        type: 'GET',
+                        contentType: 'application/json; charset=utf-8',
+                        url: '@Url.Action("ObtenerPedidoDetalle", "Portal")',
+                        data: { idPedido: idPedido }, // Solo incluye el parámetro si está definido
+                        dataType: "json",
+                        success: function (data) {
+                            $('#idEmpresa').val(data[0].EMP_Id);
+                            $('#idEmpresaFacturar').val(data[0].FAC_EMP_Id_Facturar);
+                            $('#empresa').val(data[0].EmpresaNombre);
+
+                            let empresaValor = data[0].EmpresaFacturarNombre;
+                            let $selectEmpresa = $('#empresaFacturar');
+
+                            // Asegúrate de que el combo ya esté cargado antes de asignar el valor
+                            if ($selectEmpresa.find('option[value="' + empresaValor + '"]').length > 0) {
+                                $selectEmpresa.val(unidadValor);
+                            } else {
+                                console.warn('El valor de la empresa no está en el combo. Asegúrate de que esté cargado.');
+                            }
+
+                            $('#referenciaPedido').val(data[0].FAC_Expediente);
+                            $('#direccion').val(data[0].FAC_Direccion);
+                            $('#fechaPedido').val(data[0].FAC_FechaEmision);
+                            $('#numeroPedido').val(data[0].FAC_NumFactura);
+
+                            let $chkRequiereAprobacion = $('#requiereAprobacion');
+                            $chkRequiereAprobacion.prop('checked', data[0].FAC_RequiereAprobacion);
+
+                            $('#contacto').val(data[0].FAC_Contacto);
+                            $('#importe').val(data[0].FAC_ImporteTotal);
+
+                            $('#documento').text(data[0].FAC_Documento);
+                            if (data[0].FAC_DocumentoBytes) {
+                               // Decodificar Base64
+                                let byteCharacters = atob(data[0].FAC_DocumentoBytes.split(',')[1]);
+                                let byteNumbers = new Array(byteCharacters.length);
+                                for (let i = 0; i < byteCharacters.length; i++) {
+                                    byteNumbers[i] = byteCharacters.charCodeAt(i);
+                                }
+                                let byteArray = new Uint8Array(byteNumbers);
+                                let file = new Blob([byteArray], { type: 'application/pdf' });
+
+                                // Crear una URL para el Blob
+                                let fileURL = URL.createObjectURL(file);
+
+                                // Asignar el objeto URL al enlace
+                                $('#documento').attr('href', fileURL);
+                            } else {
+                                $("#documento-section").hide();
+                                //$('#documento').text('No hay documento disponible').attr('href', '#');
+                            }
+
+                            $('#estado').val(data[0].EstadoNombre);
+                            $('#fechaAprobacion').val(data[0].FAC_FechaAprobacion);
+                            $('#aprobador').val(data[0].PersonaAprobador);
+                            $('#comentarios').val(data[0].FAC_ComentarioAprobacion);
+
+                            resolve();
+                        },
+                        error: function (xhr, status, error) {
+                            const mensaje = obtenerMensajeErrorAjax(xhr);
+                            registrarErrorjQuery(xhr.status, mensaje);
+                            reject();
+                        }
+                    });
+                });
+            }
+
+            function ObtenerConceptosFacturacion(idPedido) {
+                let columnsConfig = [];
+
+                let mostrarCheckboxCabecera = false; // Variable para controlar si se debe mostrar el checkbox de cabecera
+
+                // Si NO estamos en "view", agrega la columna del checkbox
+                if (mode !== 'view') {
+                    columnsConfig.push({
+                        data: null,
+                        title: '<input type="checkbox" id="selectAll" class="form-check-input" style="display: none;">',
+                        orderable: false,
+                        render: function (data, type, row) {
+                            if (row.TLE_ESO_Id == EstadosSolicitud.Aprobado) {
+                                mostrarCheckboxCabecera = true; // Si hay al menos un checkbox, mostramos el de cabecera
+                                return `<input type="checkbox" class="row-checkbox form-check-input"
+                            value="${row.TLE_Id}" ${row.Activo ? 'checked' : ''}>`;
+                            } else {
+                                return ``; // No muestra checkbox en esta fila
+                            }
+                        }
+                    });
+                }
+
+                // Agregar siempre las demás columnas
+                columnsConfig.push(
+                    { data: 'TareaNombre', title: 'Tarea' },
+                    { data: 'CantidadNombre', title: 'Cantidad', className: 'dt-type-numeric-with-decimal' },
+                    { data: 'TLE_Descripcion', title: 'Descripcion' },
+                    { data: 'EstadoNombre', title: 'Estado' },
+                    {
+                        data: 'ImporteTotal',
+                        title: 'Importe Total',
+                        className: 'dt-type-numeric-with-decimal',
+                        render: function (data) {
+                            return formatMoney(data);
+                        }
+                    }
+                );
+
+                let columnasConFiltro = [];
+                let tablaDatos = inicializarDataTable('#table', {
+                    paging: false,
+                    ajax: {
+                        url: '@Url.Action("ObtenerConceptosPorPedido", "Portal")',
+                        type: 'GET',
+                        dataSrc: '',
+                        data: {
+                            idPedido: idPedido,
+                            idEmpresa: $('#idEmpresa').val(),
+                            verSeleccionables: mode === 'view' ? false : true
+                        },
+                        dataType: "json",
+                    },
+                    dom: 'frtip',
+                    columns: columnsConfig,
+                    ordering: false,  // Desactiva la ordenación en toda la tabla
+                    order: []        // Evita el ordenamiento inicial
+                }, columnasConFiltro);
+
+                tablaDatos.on('draw', function () {
+                    // Mostrar u ocultar el checkbox de cabecera después de que se haya renderizado la tabla
+                    if (mostrarCheckboxCabecera) {
+                        $("#selectAll").show();
+                    } else {
+                        $("#selectAll").hide();
+                    }
+                });
+
+                $(window).resize(function () {
+                    tablaDatos.columns.adjust().draw();
+                    tablaDatos.columns.adjust().responsive.recalc();
+                });
+
+                $("#formBuscar").on("keyup input", function () {
+                    tablaDatos.search(this.value, false, false).draw();
+                    tablaDatos.responsive.rebuild();
+                    tablaDatos.responsive.recalc();
+                    tablaDatos.columns.adjust();
+                    tablaDatos.draw(false);
+                    guardarFiltros();
+                });
+            }
+
+            $("#table thead").on("change", "#selectAll", function () {
+                let checked = this.checked;
+                $(".row-checkbox").prop("checked", checked);
+            });
+
+            function guardarPedido() {
+                let idsSeleccionados = [];
+
+                // Recorre todos los checkboxes seleccionados y guarda sus valores (IDs)
+                $(".row-checkbox:checked").each(function () {
+                    idsSeleccionados.push($(this).val());
+                });
+
+                let seleccion = obtenerTotalSeleccionado(); // Obtiene total y lista de IDs
+
+                let objPedido = {
+                    FAC_Id: @ViewBag.IdPedido,
+                    FAC_Pedido: true,
+                    FAC_EMP_Id: $('#idEmpresa').val(),
+                    FAC_EMP_Id_Facturar: $('#empresaFacturar').val(),
+                    FAC_Expediente: $('#referenciaPedido').val(),
+                    FAC_Contacto: $('#contacto').val(),
+                    FAC_Direccion: $('#direccion').val(),
+                    FAC_RequiereAprobacion: $('#requiereAprobacion').prop('checked'),
+                    FAC_ImporteTotal: seleccion.total
+                };
+
+                $.ajax({
+                    url: '@Url.Action("EditarPedido", "Portal")',
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    data: JSON.stringify({ objPedido: objPedido, ids: idsSeleccionados }),
+                    success: function (response) {
+                        if (response.success) {
+                            mostrarToast("Datos guardados correctamente.", TipoToast.Success);
+                            window.location.href = '@Url.Action("BusquedaPedidos", "Portal")';
+                        } else {
+                            mostrarToast("Ocurrió un error al guardar los datos.", TipoToast.Error);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        const mensaje = obtenerMensajeErrorAjax(xhr);
+                        registrarErrorjQuery(xhr.status, mensaje);
+                    }
+                });
+            }
+
+            let today = new Date().toISOString().split('T')[0];
+            $("#modalFechaPedido").val(today);
+
+            let elementosHabilitados = [];
+
+            $("#btnGuardar").click(function (e) {
+                e.preventDefault();
+                guardarPedido();
+            });
+
+            $("#btnCancelar").click(function (e) {
+                e.preventDefault();
+                window.location.href = '@Url.Action("BusquedaPedidos", "Portal")';
+            });
+
+            $("#btnEmitir").click(function (e) {
+                e.preventDefault();
+
+                // Contar solo los checkboxes de las filas seleccionados, ignorando el de la cabecera
+                let checkboxesSeleccionados = $("input.row-checkbox:checked").length;
+
+                if (checkboxesSeleccionados === 0) {
+                    mostrarToast("Debe seleccionar al menos un concepto para emitir el pedido.", TipoToast.Warning);
+                    return;
+                }
+
+                $("#modalEmitirPedido").modal("show");
+            });
+
+            $("#confirmarEmision").click(function () {
+                $("#modalEmitirPedido").modal("hide");
+
+                mostrarAlertaConfirmacion({
+                    titulo: `¿Está seguro de que desea emitir el pedido?`,
+                    onConfirmar: function () {
+                        let fechaEmision = $("#modalFechaPedido").val();
+                        if (fechaEmision) {
+                            fechaEmision = formatDateToDDMMYYYY(fechaEmision);
+                        }
+
+                        let seleccion = obtenerTotalSeleccionado(); // Obtiene total y lista de IDs
+
+                        let objPedido = {
+                            FAC_Id: @ViewBag.IdPedido,
+                            FAC_Pedido: true,
+                            FAC_EMP_Id: $('#idEmpresa').val(),
+                            FAC_EMP_Id_Facturar: $('#empresaFacturar').val(),
+                            FAC_Expediente: $('#referenciaPedido').val(),
+                            FAC_Contacto: $('#contacto').val(),
+                            FAC_Direccion: $('#direccion').val(),
+                            FAC_RequiereAprobacion: $('#requiereAprobacion').prop('checked'),
+                            FAC_ImporteTotal: seleccion.total,
+                            FAC_FechaEmision: fechaEmision,
+                            FAC_Expediente: $('#referenciaPedido').val(),
+                            FAC_ImporteTotal: seleccion.total // Solo el total va dentro del objeto
+                        };
+
+                        $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("EmitirPedido", "Portal")',
+                            contentType: 'application/json; charset=utf-8',
+                            data: JSON.stringify({
+                                objPedido: objPedido,
+                                listaIdConceptos: seleccion.selectedIds // Lista de IDs se envía por separado
+                            }),
+                            success: function (response) {
+                                if (response.success) {
+                                    Swal.fire({
+                                        title: "¡Pedido emitido!",
+                                        text: "El pedido ha sido emitido correctamente.",
+                                        icon: "success",
+                                        confirmButtonColor: "#28a745"
+                                    }).then(() => {
+                                        window.location.href = '@Url.Action("BusquedaPedidos", "Portal")';
+                                    });
+                                }
+                                else {
+                                    Swal.fire({
+                                        title: "Error",
+                                        text: "Hubo un problema al emitir el pedido.",
+                                        icon: "error",
+                                        confirmButtonColor: "#d33"
+                                    });
+                                }
+                            },
+                            error: function (xhr, status, error) {
+                                const mensaje = obtenerMensajeErrorAjax(xhr);
+                                registrarErrorjQuery(xhr.status, mensaje);
+                            }
+                        });
+                    }
+                });
+            });
+
+            function obtenerTotalSeleccionado() {
+                let total = 0;
+                let selectedIds = [];
+
+                $("input[type='checkbox']:checked").each(function () {
+                    let $row = $(this).closest("tr");
+                    let importeText = $row.find("td:eq(5)").text().trim();
+                    let importe = parseFloat(importeText.replace(/[^\d,.]/g, "").replace(",", "."));
+
+                    if (!isNaN(importe)) {
+                        total += importe;
+                    }
+                });
+
+                // Recorre todos los checkboxes seleccionados y guarda sus valores (IDs)
+                $(".row-checkbox:checked").each(function () {
+                    selectedIds.push($(this).val());
+                });
+
+                return { total, selectedIds };
+            }
+
+            $('#btnBuscar').on('click', function () {
+                let tarea = $('#filterTarea').val();
+                let cantidad = $('#filterCantidad').val();
+                let descripcion = $('#filterDescripcion').val();
+                let estado = $('#filterEstado').val();
+                let importeTotal = $('#filterImportetotal').val();
+
+                let table = $('#table').DataTable();
+
+                if (mode === 'view') {
+                    table.columns(0).search(tarea).draw();
+                    table.columns(1).search(cantidad).draw();
+                    table.columns(2).search(descripcion).draw();
+                    table.columns(3).search(estado).draw();
+                    table.columns(4).search(importeTotal).draw();
+                }
+                else {
+                    table.columns(1).search(tarea).draw();
+                    table.columns(2).search(cantidad).draw();
+                    table.columns(3).search(descripcion).draw();
+                    table.columns(4).search(estado).draw();
+                    table.columns(5).search(importeTotal).draw();
+                }
+
+                guardarFiltros();
+            });
+        });
+    </script>
+}

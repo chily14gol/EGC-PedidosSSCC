@@ -1,0 +1,115 @@
+.rtsFormularioGeneral {
+	background-color: #fff !important;
+}
+
+.cpMainContainer {
+	position: relative;
+}
+
+.migasPildoras {
+	z-index: 1000;
+	position: absolute;
+	margin: 0px;
+	padding: 0px 0px 0px 10px;
+	left: 0px;
+	top: 0px;
+	line-height: 30px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 76%;
+	
+	width: 100%;
+	
+	background: #ffffff;
+	background: -moz-linear-gradient(top,  #ffffff 0%, #bce7f0 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#bce7f0));
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#bce7f0 100%);
+	background: -o-linear-gradient(top,  #ffffff 0%,#bce7f0 100%);
+	background: -ms-linear-gradient(top,  #ffffff 0%,#bce7f0 100%);
+	background: linear-gradient(to bottom,  #ffffff 0%,#bce7f0 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#bce7f0',GradientType=0 );
+	
+}
+
+#ctl00_panelDerecho,
+#ctl00_panelDerecho > div:first-child {
+	height: 100% !important;
+}
+/*
+#divMainContent {
+	min-height: 700px;
+}
+
+.rwContentRow,
+.rwContentRow .rwWindowContent {
+	height: 600px !important;
+	max-height: 600px !important;
+}*/
+
+#contenidoPildoras {
+	margin: 0px auto;
+	padding: 0px;
+	width: 1016px;
+	height: 560px;
+	background: transparent url(../images/pildoras/fondoInicio.png) no-repeat left top;
+	position: relative;
+}
+
+h1 {
+	position: absolute;
+	left: -5000px;
+}
+
+a:link,
+a:hover,
+a:visited,
+a:active {
+	font-family: Trebuchet MS, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: lighter;
+	font-size: 100%;
+	color: #333;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+#listaOpciones  {
+	position: absolute;
+	left: 680px;
+	top: 90px;
+}
+
+
+#listaOpciones h2 {
+	font-family: Trebuchet MS, Verdana, Geneva, Arial, Helvetica, sans-serif;
+	/*position: absolute;
+	left: 686px;
+	top: 103px;*/
+	font-size: 130%;
+	color: #333;
+	
+	width: 310px;
+	border-bottom: 1px solid #ccc;
+	padding-left: 2px;
+}
+
+#listaOpciones ul {
+	margin: 0px;
+	padding: 0px;
+}
+
+#listaOpciones ul li {
+	/*list-style: none;*/
+	padding-top: 0px;
+	list-style: none;
+	max-width: 350px;
+	margin-bottom: 20px;
+}
+
+#listaOpciones ul li a {
+	background: transparent url(../images/pildoras/flecha.png) no-repeat left top;
+	margin: 0px;
+	padding: 0px 0px 0px 34px;
+	display: block;
+	line-height: 27px;
+}

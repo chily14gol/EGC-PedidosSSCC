@@ -1,0 +1,108 @@
+.dt-bootstrap5 {
+    .dt-layout-table {
+        + .row.mt-2 {
+            margin-block-start: rem(19) !important;
+        }
+    }
+    .dt-length {
+        
+    }
+    .pagination {
+        gap: rem(16);
+        .dt-paging-button {
+            .page-link {
+                margin-inline: 0;
+                border-color: $grey600;
+                font-family: $ffAlt;
+                font-size: rem(14);
+                font-weight: 700;
+                padding-block: rem(4) rem(2);
+                &:hover,
+                &:focus-visible {
+                    background-color: $grey600;
+                    border-color: $grey600;
+                    color: $w;
+                }
+                &.ellipsis {
+                    background-color: $secondary100;
+                    border-color: $secondary100;
+                    color: $secondary900;
+                }
+                &.first,
+                &.previous, 
+                &.next,
+                &.last {
+                    font-size: 0;
+                    line-height: 0;
+                    color: $trans;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding-block: rem(7);
+                    &:before {
+                        content: '';
+                        display: block;
+                        width: rem(16);
+                        height: rem(16);
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: rem(16);
+                        filter: $cf_grey600;
+                    }
+                    &:hover,
+                    &:focus-visible {
+                        &:before {
+                            filter: $cf_w;
+                        }
+                    }
+                }
+                &.first:before { background-image: url(#{$img}ico-primero.svg);}
+                &.previous:before { background-image: url(#{$img}ico-anterior.svg);}
+                &.next:before { background-image: url(#{$img}ico-siguiente.svg);}
+                &.last:before { background-image: url(#{$img}ico-ultimo.svg);}
+            }
+            &.active {
+                .page-link {
+                    border-color: $main;
+                    &:hover,
+                    &:focus-visible {
+                        background-color: $main;
+                        border-color: $main;
+                        color: $w;
+                    }
+                }
+            }
+            &.disabled {
+                opacity: .3;
+            }
+        }
+    }
+    @media screen and (max-width: $md-max) {
+        > .row:has(.dt-info) {
+            flex-direction: column-reverse;
+            .dt-info {
+                text-align: start;
+            }
+            .dt-buttons {
+                display: flex;
+                justify-content: flex-end;
+            }
+        }
+        > .row:has(.dt-paging) {
+            flex-direction: column-reverse;
+            .dt-paging {
+                margin-block: rem(-5) rem(16);
+            }
+            .dt-length {
+                text-align: start;
+            }
+        }
+    }
+    table.table.dataTable > tbody > tr.selected {
+        > *,
+        &:hover > * {
+            box-shadow: inset 0 0 0 999rem $main;
+            font-weight: 400;
+        }
+    }
+}

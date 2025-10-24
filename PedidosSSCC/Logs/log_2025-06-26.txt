@@ -1,0 +1,180 @@
+﻿ERROR | 26/06/2025 01:15:20 | Error al guardar datos
+System.Data.SqlTypes.SqlTypeException: Desbordamiento de SqlDateTime. Debe estar entre 1/1/1753 12:00:00 AM y 12/31/9999 11:59:59 PM.
+   en System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_ContratosSoporte.Guardar(Proveedores_ContratosSoporte entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_ContratosSoporte.cs:línea 37
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 26/06/2025 01:15:20 | Error al guardar datos
+System.Data.SqlTypes.SqlTypeException: Desbordamiento de SqlDateTime. Debe estar entre 1/1/1753 12:00:00 AM y 12/31/9999 11:59:59 PM.
+   en System.Data.SqlClient.TdsParser.TdsExecuteRPC(SqlCommand cmd, _SqlRPC[] rpcArray, Int32 timeout, Boolean inSchema, SqlNotificationRequest notificationRequest, TdsParserStateObject stateObj, Boolean isCommandProc, Boolean sync, TaskCompletionSource`1 completion, Int32 startRpc, Int32 startParam)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   en System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   en System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader()
+   en System.Data.Linq.SqlClient.SqlProvider.Execute(Expression query, QueryInfo queryInfo, IObjectReaderFactory factory, Object[] parentArgs, Object[] userArgs, ICompiledSubQuery[] subQueries, Object lastResult)
+   en System.Data.Linq.SqlClient.SqlProvider.ExecuteAll(Expression query, QueryInfo[] queryInfos, IObjectReaderFactory factory, Object[] userArguments, ICompiledSubQuery[] subQueries)
+   en System.Data.Linq.SqlClient.SqlProvider.System.Data.Linq.Provider.IProvider.Execute(Expression query)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.DynamicInsert(TrackedObject item)
+   en System.Data.Linq.ChangeDirector.StandardChangeDirector.Insert(TrackedObject item)
+   en System.Data.Linq.ChangeProcessor.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges(ConflictMode failureMode)
+   en System.Data.Linq.DataContext.SubmitChanges()
+   en AccesoDatos.DAL_Proveedores_ContratosSoporte.Guardar(Proveedores_ContratosSoporte entidad, Int32 idPersonaModificacion) en C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC.AccesoDatos\DAL\DAL_Proveedores_ContratosSoporte.cs:línea 37
+   en Serikat.DAL.Serikat_DAL_Base`2.G(T entidad, Int32 idPersonaModificacion, Boolean LimpiarMensajeError) en C:\d\workarea\proyectos\PedidosSSCC-feature3\Serikat\DAL\Serikat_DAL_Base.cs:línea 280
+ERROR | 26/06/2025 01:34:32 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:34:32 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:38:08 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:38:08 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:38:25 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:38:25 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:39:07 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:39:07 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:39:13 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:39:13 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:39:22 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:39:22 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:41:20 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:41:20 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:41:40 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:41:40 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:41:50 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:41:50 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:41:54 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:41:54 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:42:40 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:42:40 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:44:02 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:44:02 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:53:46 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:53:46 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:53:50 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:53:50 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:53:52 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:53:52 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:53:52 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:53:52 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:54:03 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:54:03 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:54:03 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 01:54:03 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:22:38 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:22:38 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:22:39 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:22:39 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:29:07 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:29:07 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:29:08 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:29:08 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:31:30 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:31:30 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:31:30 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:31:30 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:34:50 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:34:50 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:34:51 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:34:51 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:35:14 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:35:14 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:35:14 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:35:14 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:37:32 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:37:32 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:37:33 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:37:33 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:38:24 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:38:24 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:38:24 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:38:24 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:39:26 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:39:26 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:39:26 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:39:26 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:40:59 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:40:59 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:41:00 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:41:00 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:41:40 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:41:40 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:41:40 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:41:40 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:41:50 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:41:50 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:41:50 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:41:50 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:43:32 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 10:43:32 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 12:45:35 | https://localhost:44368/Aplicaciones/Aplicaciones | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Aplicaciones\Aplicaciones.cshtml(136): error CS0117: 'Resources' does not contain a definition for 'Boton_Cerrar'
+ERROR | 26/06/2025 12:45:35 | https://localhost:44368/Aplicaciones/Aplicaciones | C:\d\workarea\proyectos\PedidosSSCC-feature3\PedidosSSCC\Views\Aplicaciones\Aplicaciones.cshtml(136): error CS0117: 'Resources' does not contain a definition for 'Boton_Cerrar'
+ERROR | 26/06/2025 12:45:36 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: C:dworkareaproyectosPedidosSSCC-feature3PedidosSSCCViewsAplicacionesAplicaciones.cshtml(136): error CS0117: &#39;Resources&#39; does not contain a definition for &#39;Boton_Cerrar&#39;
+ERROR | 26/06/2025 12:45:36 | https://localhost:44368/Aplicaciones/Aplicaciones | Estado: 200, Error: C:dworkareaproyectosPedidosSSCC-feature3PedidosSSCCViewsAplicacionesAplicaciones.cshtml(136): error CS0117: &#39;Resources&#39; does not contain a definition for &#39;Boton_Cerrar&#39;
+ERROR | 26/06/2025 13:39:10 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | No se encuentra la vista 'AplicacionesModulos' ni su vista maestra o no hay un motor de búsqueda que admita las ubicaciones de búsqueda. Se buscó en las siguientes ubicaciones: 
+~/Views/AplicacionesModulos/AplicacionesModulos.aspx
+~/Views/AplicacionesModulos/AplicacionesModulos.ascx
+~/Views/Shared/AplicacionesModulos.aspx
+~/Views/Shared/AplicacionesModulos.ascx
+~/Views/AplicacionesModulos/AplicacionesModulos.cshtml
+~/Views/AplicacionesModulos/AplicacionesModulos.vbhtml
+~/Views/Shared/AplicacionesModulos.cshtml
+~/Views/Shared/AplicacionesModulos.vbhtml
+ERROR | 26/06/2025 13:39:10 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | No se encuentra la vista 'AplicacionesModulos' ni su vista maestra o no hay un motor de búsqueda que admita las ubicaciones de búsqueda. Se buscó en las siguientes ubicaciones: 
+~/Views/AplicacionesModulos/AplicacionesModulos.aspx
+~/Views/AplicacionesModulos/AplicacionesModulos.ascx
+~/Views/Shared/AplicacionesModulos.aspx
+~/Views/Shared/AplicacionesModulos.ascx
+~/Views/AplicacionesModulos/AplicacionesModulos.cshtml
+~/Views/AplicacionesModulos/AplicacionesModulos.vbhtml
+~/Views/Shared/AplicacionesModulos.cshtml
+~/Views/Shared/AplicacionesModulos.vbhtml
+ERROR | 26/06/2025 13:39:11 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: 200, Error: No se encuentra la vista &#39;AplicacionesModulos&#39; ni su vista maestra o no hay un motor de b&#250;squeda que admita las ubicaciones de b&#250;squeda. Se busc&#243; en las siguientes ubicaciones:   ~/Views/AplicacionesModulos/AplicacionesModulos.aspx  ~/Views/AplicacionesModulos/AplicacionesModulos.ascx  ~/Views/Shared/AplicacionesModulos.aspx  ~/Views/Shared/AplicacionesModulos.ascx  ~/Views/AplicacionesModulos/AplicacionesModulos.cshtml  ~/Views/AplicacionesModulos/AplicacionesModulos.vbhtml  ~/Views/Shared/AplicacionesModulos.cshtml  ~/Views/Shared/AplicacionesModulos.vbhtml
+ERROR | 26/06/2025 13:39:11 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: 200, Error: No se encuentra la vista &#39;AplicacionesModulos&#39; ni su vista maestra o no hay un motor de b&#250;squeda que admita las ubicaciones de b&#250;squeda. Se busc&#243; en las siguientes ubicaciones:   ~/Views/AplicacionesModulos/AplicacionesModulos.aspx  ~/Views/AplicacionesModulos/AplicacionesModulos.ascx  ~/Views/Shared/AplicacionesModulos.aspx  ~/Views/Shared/AplicacionesModulos.ascx  ~/Views/AplicacionesModulos/AplicacionesModulos.cshtml  ~/Views/AplicacionesModulos/AplicacionesModulos.vbhtml  ~/Views/Shared/AplicacionesModulos.cshtml  ~/Views/Shared/AplicacionesModulos.vbhtml
+ERROR | 26/06/2025 13:42:32 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 13:42:32 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 13:54:24 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 13:54:24 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 17:32:48 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 17:32:48 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 17:35:09 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 17:35:09 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: 200, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:55:15 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:55:15 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:56:25 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:56:25 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:56:43 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:56:43 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:56:53 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:56:53 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:56:56 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:56:56 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:56:58 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:56:58 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:58:35 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:58:35 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:07 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:07 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:10 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:10 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:10 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:10 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:11 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:11 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:35 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:35 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:47 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:47 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:47 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.
+ERROR | 26/06/2025 23:59:47 | https://localhost:44368/AplicacionesModulos/AplicacionesModulos | Estado: undefined, Error: Error desconocido del servidor.

@@ -1,0 +1,150 @@
+﻿@using PedidosSSCC.Properties
+@{
+    ViewBag.Title = "Proyectos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Proyectos</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevoProyecto" type="button" class="btn btn-lg btn-primary btn-ico-agregar">
+                Nuevo Proyecto
+            </button>
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="sReader">Menú de acciones</span>
+                    <i class="bi bi-three-dots-vertical" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    @* Opcional: acciones adicionales *@
+                    <li>
+                        <button id="btnExportarProyectos" type="button" class="dropdown-item">
+                            <i class="bi bi-file-earmark-spreadsheet" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false"></i> Exportar a Excel
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <table id="tblProyectos" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-priority="1">Id</th>
+                    <th>Nombre</th>
+                    <th>Tarea</th>
+                    <th>Imputable</th>
+                    <th>Activo</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                @* Se rellenará dinámicamente vía JavaScript *@
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="modalProyecto" tabindex="-1" aria-labelledby="modalProyectoLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="formProyecto" class="form-wrapper">
+                <div class="modal-header py-2">
+                    <h2 class="modal-title h5" id="modalProyectoLabel">Nuevo Proyecto</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body py-2 px-3">
+                    <input type="hidden" id="PRY_Id" name="PRY_Id" value="0" />
+
+                    <div class="row gx-2 gy-2">
+                        <!-- Nombre del proyecto -->
+                        <div class="col-md-6">
+                            <div class="form-group mb-2">
+                                <label for="PRY_Nombre" class="form-label small">Nombre</label>
+                                <input type="text" class="form-control form-control-sm" id="PRY_Nombre" name="PRY_Nombre" maxlength="100" required />
+                            </div>
+                        </div>
+                        <!-- Tarea asociada -->
+                        <div class="col-md-6">
+                            <div class="form-group mb-2">
+                                <label for="PRY_TAR_Id" class="form-label small">Tarea</label>
+                                <select class="form-select form-select-sm" id="PRY_TAR_Id" name="PRY_TAR_Id" required>
+                                    <option value="">-- Seleccionar --</option>
+                                    @* Se llenará dinámicamente vía JS *@
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row gx-2 gy-2" style="margin-top: 0px;">
+                        <!-- Checkbox Imputable -->
+                        <div class="col-md-3">
+                            <div class="form-check mb-2">
+                                <input type="checkbox" class="form-check-input" id="PRY_Imputable" name="PRY_Imputable" checked />
+                                <label for="PRY_Imputable" class="form-check-label small">Imputable</label>
+                            </div>
+                        </div>
+                        <!-- Checkbox Activo -->
+                        <div class="col-md-3">
+                            <div class="form-check mb-2">
+                                <input type="checkbox" class="form-check-input" id="PRY_Activo" name="PRY_Activo" checked />
+                                <label for="PRY_Activo" class="form-check-label small">Activo</label>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mt-1 mb-2" />
+                    <!-- Sección Departamentos -->
+                    <div class="mb-3">
+                        <h6 class="section-subtitle small mb-2">Departamentos</h6>
+                        <select id="PRY_Departamentos" class="styled-select form-control" multiple></select>
+                    </div>
+                    <hr class="mt-1 mb-2" />
+                    <!-- Sección Empresas + Porcentajes (tabla más estilizada y compacta) -->
+                    <div>
+                        <h6 class="section-subtitle small mb-2">Empresas y Distribución (%)</h6>
+                        <button type="button" id="btnAgregarEmpresa" class="btn btn-sm btn-success mb-2">
+                            <i class="fa fa-plus"></i> Agregar Empresa
+                        </button>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-sm align-middle mb-0" id="tblEmpresasProyecto">
+                                <thead class="table-light small">
+                                    <tr>
+                                        <th>Empresa</th>
+                                        <th width="100px">Porc. (%)</th>
+                                        <th width="40px"><span class="sReader">Eliminar</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @* Las filas se generarán dinámicamente con JS *@
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer py-2">
+                    <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-sm btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                GetProyectos: '@Url.Action("GetProyectos", "Proyectos")',
+                GetProyecto: '@Url.Action("GetProyecto", "Proyectos")',
+                SaveProyecto: '@Url.Action("SaveProyecto", "Proyectos")',
+                DeleteProyecto: '@Url.Action("DeleteProyecto", "Proyectos")',
+                ObtenerTareasCombo: '@Url.Action("ObtenerTareasCombo", "Mantenimiento")',
+                GetDepartamentos: '@Url.Action("GetDepartamentos", "Proyectos")',
+                GetEmpresas: '@Url.Action("GetEmpresas", "Proyectos")',
+                DataTablesLang: '@Url.Content("~/Scripts/DataTables/i18n/es-ES.json")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Proyectos/Proyectos.js?v=@DateTime.Now.Ticks"></script>
+}

@@ -1,0 +1,198 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Tarea Detalle";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Tarea Detalle</h1>
+    </div>
+    <div class="content-box">
+        <div class="section-title-wrapper">
+            <h2 class="section-title h3">
+                @Resources.Titulo_DatosGenerales
+            </h2>
+        </div>
+        <form class="form-wrapper">
+            <div class="row">
+                <div class="col-sm-12 col-lg-6">
+                    <div class="form-group">
+                        <label for="nombre">@Resources.Etiqueta_NombreObligatorio</label>
+                        <input type="text" class="form-control" id="nombre" maxlength="150" name="nombre" />
+                    </div>
+                </div>
+                <div class="col-sm-8 col-lg-6">
+                    <div class="form-group">
+                        <label for="seccion">Sección *</label>
+                        <select class="styled-select form-control" id="seccion" name="seccion" disabled>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-3">
+                    <div class="form-group">
+                        <label for="tipo">Tipo *</label>
+                        <select class="styled-select form-control" id="tipo" name="tipo" disabled>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-3">
+                    <div class="form-group">
+                        <label for="iva">IVA *</label>
+                        <div class="input-group">
+                            <input type="number" class="form-control" id="iva" name="iva" disabled />
+                            <span class="input-group-text">%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-3 campo-importeUnitario">
+                    <div class="form-group">
+                        <div class="form-group">
+                            <label for="importeUnitario">Importe unitario *</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="importeUnitario" name="importeUnitario" disabled />
+                                <span class="input-group-text">€</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-lg-3 campo-unidad" style="display: none;">
+                    <div class="form-group">
+                        <label for="unidad">Unidad *</label>
+                        <div class="styled-select-wrapper" style="width: 100%;">
+                            <select class="styled-select form-control" id="unidad" name="unidad">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-7 col-md-5 col-lg-5">
+                    <div class="form-group">
+                        <label for="producto">Producto (D365) *</label>
+                        <div class="styled-select-wrapper" style="width: 100%;">
+                            <select class="styled-select form-control" id="producto" name="producto">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5 col-md-4 col-lg-3">
+                    <div class="form-group">
+                        <label for="itemNumber">Item number (D365) *</label>
+                        <div class="styled-select-wrapper" style="width: 100%;">
+                            <select class="styled-select form-control" id="itemNumber" name="itemNumber">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-check full-col-md">
+                        <input type="checkbox" class="form-check-input" id="visible" name="visible" checked="checked" />
+                        <label class="form-check-label" for="visible">Visible</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="section-title-wrapper">
+        <h2 class="section-title">Empresas asociadas</h2>
+        <div id="btnExportarContainer" class="title-btn-group">
+            <button id="btnNuevaEmpresa" type="button" class="btn btn-lg btn-primary btn-ico-agregar">@Resources.Etiqueta_AgregarEmpresa</button>
+        </div>
+    </div>
+    <div class="content-box">
+        <table id="table" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-priority="1">@Resources.Etiqueta_Empresa</th>
+                    <th>Año</th>
+                    <th>Unidades</th>
+                    <th>Presupuesto</th>
+                    <th data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+    <div id="toolbar" class="btn-group-wrapper">
+        <button id="btnGuardar" class="btn btn-lg btn-primary">@Resources.Boton_Guardar</button>
+        <button id="btnCancelar" class="btn btn-lg btn-outline-secondary">@Resources.Modal_Boton_Cancelar</button>
+    </div>
+</div>
+
+<!-- Modal de Edición -->
+<div class="modal fade" id="modalEditar" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalEditarLabel">Alta de empresa</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form class="form-wrapper">
+                    <input type="hidden" id="modoEdicion" value="crear">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="empresa" class="form-label">Empresa *</label>
+                                <div class="styled-select-wrapper">
+                                    <select id="empresa" class="styled-select form-control" name="empresa">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="aprobador" class="form-label">Aprobador *</label>
+                                <div class="styled-select-wrapper">
+                                    <select id="aprobador" class="styled-select form-control" name="aprobador">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="anio" class="form-label">Año *</label>
+                                <input type="text" class="form-control" id="anio" oninput="validarNumero(this)" maxlength="4" disabled>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="presupuestoUnidades" class="form-label" id="labelPresupuesto">Presupuesto - Unidades *</label>
+                                <input type="text" class="form-control" id="presupuestoUnidades" oninput="validarImporte(this)">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" onclick="guardarEmpresa()" id="btnGuardarEmpresa">@Resources.Boton_Guardar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            IdTarea: @ViewBag.IdTarea,
+            urls: {
+                ObtenerAprobadoresEmpresas: '@Url.Action("ObtenerAprobadoresEmpresas", "Portal")',
+                ObtenerTareaEmpresa: '@Url.Action("ObtenerTareaEmpresa", "Tareas")',
+                EliminarTareaEmpresa: '@Url.Action("EliminarTareaEmpresa", "Tareas")',
+                CrearTareaEmpresa: '@Url.Action("CrearTareaEmpresa", "Tareas")',
+                ObtenerComboSecciones: '@Url.Action("ObtenerComboSecciones", "Portal")',
+                ObtenerComboTipos: '@Url.Action("ObtenerComboTipos", "Portal")',
+                ObtenerComboUnidades: '@Url.Action("ObtenerComboUnidades", "Portal")',
+                ObtenerComboProductosD365: '@Url.Action("ObtenerComboProductosD365", "Portal")',
+                ObtenerComboItemNumber: '@Url.Action("ObtenerComboItemNumber", "Portal")',
+                ObtenerComboEmpresas: '@Url.Action("ObtenerEmpresas", "Mantenimiento")',
+                CargarConfiguracionAnio: '@Url.Action("CargarConfiguracionAnio", "Mantenimiento")',
+                ObtenerTareaDetalle: '@Url.Action("ObtenerTareaDetalle", "Tareas")',
+                ObtenerTareaEmpresas: '@Url.Action("ObtenerTareaEmpresas", "Tareas")',
+                GuardarTarea: '@Url.Action("GuardarTarea", "Tareas")',
+                BusquedaTareas: '@Url.Action("BusquedaTareas", "Portal")'
+            }
+        });
+    </script>
+    <script src="~/Scripts/Vistas/Portal/TareaDetalle.js?v=@DateTime.Now.Ticks"></script>
+}

@@ -1,0 +1,237 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Proveedores";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Proveedores</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevo" type="button" class="btn btn-lg btn-primary btn-ico-agregar">@Resources.Boton_AnadirProveedor</button>
+        </div>
+    </div>
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default d-flex align-items-end gap-3 flex-wrap">
+                <div class="form-group flex-grow-1 mb-0">
+                    <label class="form-label" for="formBuscar">@Resources.Placeholder_Buscar</label>
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+            </div>
+        </form>
+
+        <table id="table" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>CIF</th>
+                    <th>Nombre</th>
+                    <th>Activo</th>
+                    <th class="th-action"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal para crear/editar proveedor -->
+<div class="modal fade" id="modalProveedor" tabindex="-1" aria-labelledby="modalProveedorLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalProveedorLabel">@Resources.Titulo_GestionProveedor</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formProveedor" class="form-wrapper my-0">
+                    <input type="hidden" id="proveedorId" />
+                    <div class="form-group">
+                        <label for="proveedorCIF" class="form-label">@Resources.Etiqueta_CifObligatorio</label>
+                        <input type="text" class="form-control" id="proveedorCIF" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="proveedorNombre" class="form-label">@Resources.Etiqueta_NombreObligatorio</label>
+                        <input type="text" class="form-control" id="proveedorNombre" required>
+                    </div>
+                    <div class="form-check mt-2">
+                        <input type="checkbox" class="form-check-input" id="proveedorActivo">
+                        <label class="form-check-label" for="proveedorActivo">@Resources.Etiqueta_Activo</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="proveedorTarea" class="form-label">@Resources.Etiqueta_TareaSoporte</label>
+                        <select id="proveedorTarea" class="form-control styled-select"></select>
+                    </div>
+                    <div class="form-group">
+                        <label for="proveedorPlantilla" class="form-label">Plantilla Excel</label>
+                        <select id="proveedorPlantilla" class="form-control styled-select">
+                            <option value=""></option>
+                            <option value="1">Adur</option>
+                            <option value="2">Prodware</option>
+                            <option value="3">Optimize</option>
+                            <option value="4">Attest</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer btn-group-modal">
+                <button type="button" class="btn btn-primary" id="btnGuardarProveedor">@Resources.Boton_Aceptar</button>
+                <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal para Contratos Soporte -->
+<div class="modal fade" id="modalContratos" tabindex="-1" aria-labelledby="modalContratosLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-xl modal-dialog-centered" style="max-width: 75%; margin-top: 30px;">
+        <!-- 🔹 XL = más ancho -->
+        <div class="modal-content" style="min-height: 95vh;">
+            <!-- 🔹 más alto -->
+            <div class="modal-header">
+                <h2 class="modal-title h4" id="modalContratosLabel">@Resources.Titulo_ContratosSoporte</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+
+            <div class="modal-body" style="max-height: 80vh; overflow-y: auto;">
+                <!-- 🔹 cuerpo más alto con scroll -->
+                <div class="d-flex justify-content-end mb-3">
+                    <button type="button" class="btn btn-sm btn-primary" id="btnNuevoContrato">
+                        <i class="bi bi-plus-circle"></i> Nuevo contrato
+                    </button>
+                </div>
+
+                <div id="zonaAltaContrato" style="display: none;">
+                    <form id="formContrato" class="mb-3">
+                        <input type="hidden" id="contratoId" />
+                        <input type="hidden" id="contratoProveedorId" />
+                        <div class="row g-2 align-items-end">
+                            <div class="col-md-3">
+                                <label for="contratoFechaInicio" class="form-label">Fecha Inicio *</label>
+                                <input type="date" id="contratoFechaInicio" class="form-control" required />
+                            </div>
+                            <div class="col-md-3">
+                                <label for="contratoFechaFin" class="form-label">Fecha Fin</label>
+                                <input type="date" id="contratoFechaFin" class="form-control" />
+                            </div>
+                            <div class="col-md-3">
+                                <label for="contratoPrecioHora" class="form-label">Precio Hora *</label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control form-control-sm" id="contratoPrecioHora" required />
+                                    <span class="input-group-text">€</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label for="contratoHoras" class="form-label">Horas Contratadas</label>
+                                <input type="text" id="contratoHoras" class="form-control" oninput="validarImporte(this)" />
+                            </div>
+                        </div>
+
+                        <div class="mb-4 mt-3">
+                            <h5>Reparto de empresas</h5>
+                            <button type="button" class="btn btn-sm btn-outline-secondary mb-2" id="btnAgregarReparto">
+                                <i class="bi bi-plus-circle"></i> Agregar empresa
+                            </button>
+
+                            <div class="table-scroll mb-3">
+                                <table id="tableReparto" class="table table-sm table-bordered table-hover align-middle">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th class="fw-semibold">Empresa</th>
+                                            <th class="text-end fw-semibold" style="width:120px">Porcentaje</th>
+                                            <th class="text-center fw-semibold" style="width:40px"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="mt-3 text-end">
+                            <button type="button" class="btn btn-secondary me-2" id="btnCancelarContrato">Cancelar</button>
+                            <button type="button" class="btn btn-primary" id="btnGuardarContrato">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+
+                <hr />
+
+                <div class="table-scroll">
+                    <table id="tableContratos" class="table table-striped nowrap" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Precio Hora</th>
+                                <th>Horas Contratadas</th>
+                                <th class="th-action"><span class="sReader">Acción</span></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        th.th-action, td.td-btn {
+            min-width: 200px;
+            white-space: nowrap;
+        }
+
+        /* Fija la zona superior */
+        #zonaAltaContrato {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            z-index: 3;
+            padding-top: 5px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        /* Scroll interno con cabecera fija */
+        .table-scroll {
+            max-height: 200px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            background: #fff;
+        }
+
+            .table-scroll table {
+                margin-bottom: 0;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            .table-scroll thead th {
+                position: sticky;
+                top: 0;
+                background: #f8f9fa;
+                z-index: 2;
+                border-bottom: 2px solid #dee2e6;
+            }
+    </style>
+
+    <script>
+        window.AppConfig = Object.assign({}, window.AppConfig, {
+            urls: {
+                ObtenerProveedores: '@Url.Action("ObtenerProveedores", "Proveedores")',
+                GuardarProveedor: '@Url.Action("GuardarProveedor", "Proveedores")',
+                EliminarProveedor: '@Url.Action("EliminarProveedor", "Proveedores")',
+                ObtenerComboTareas: '@Url.Action("ObtenerTareasCombo", "Mantenimiento")',
+                ObtenerContratoSoporte: '@Url.Action("ObtenerContratoSoporte", "Proveedores")',
+                GuardarContratoSoporte: '@Url.Action("GuardarContratoSoporte", "Proveedores")',
+                EliminarContratoSoporte: '@Url.Action("EliminarContratoSoporte", "Proveedores")',
+                ObtenerEmpresasCombo: '@Url.Action("ObtenerEmpresasCombo", "Mantenimiento")',
+                ObtenerRepartoContrato: '@Url.Action("ObtenerRepartoContrato", "Mantenimiento")'
+            }
+        });
+    </script>
+
+    <script src="~/Scripts/Vistas/Mantenimiento/Proveedores.js?v=@DateTime.Now.Ticks"></script>
+}

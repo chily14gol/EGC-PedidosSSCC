@@ -1,0 +1,17 @@
+footer {
+    background-color: $w;
+    padding-inline: rem($gl_lateralPadding);
+    padding-block: rem(11) rem(9);
+    p {
+        margin: 0;
+    }
+    .copyright {
+        font-family: $ff;
+        font-size: rem(16);
+        line-height: lh(24,16);
+        color: $secondary;
+    }
+    @media screen and (max-width: $md-max) {
+        padding-inline: rem($gl_lateralPaddingResp);
+    }
+}

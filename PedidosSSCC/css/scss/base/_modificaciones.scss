@@ -1,0 +1,320 @@
+.no-visible {
+    visibility: hidden !important;
+}
+
+.visible {
+    visibility: visible !important;
+}
+
+.display-none {
+    display: none !important;
+}
+
+.display-flex {
+    display: flex !important;
+}
+
+.pass-eye {
+    position: relative;
+    top: -57px;
+}
+
+.day {
+    width: 20px !important;
+    min-width: auto !important;
+}
+
+.selectOrganismosEmisores > .dropdown-menu {
+    width: 500px;
+    height: 220px !important;
+    max-height: 220px !important;
+    min-height: 220px !important;
+}
+
+.selectOrganismosEmisores .dropdown-menu > .inner {
+    height: 180px !important;
+    max-height: 180px !important;
+    min-height: 180px !important;
+}
+
+.selectAdministracionPublica > .dropdown-menu {
+    width: 420px;
+    height: 220px !important;
+    max-height: 220px !important;
+    min-height: 220px !important;
+}
+
+.selectAdministracionPublica .dropdown-menu > .inner {
+    height: 180px !important;
+    max-height: 180px !important;
+    min-height: 180px !important;
+}
+
+.selectAsuntos > .dropdown-menu {
+    width: 320px;
+    height: 220px !important;
+    max-height: 220px !important;
+    min-height: 220px !important;
+}
+
+.selectAsuntos .dropdown-menu > .inner {
+    height: 180px !important;
+    max-height: 180px !important;
+    min-height: 180px !important;
+}
+
+.selectEstados > .dropdown-menu {
+    width: 200px;
+    height: 220px !important;
+    max-height: 220px !important;
+    min-height: 220px !important;
+}
+
+.selectEstados .dropdown-menu > .inner {
+    height: 180px !important;
+    max-height: 180px !important;
+    min-height: 180px !important;
+}
+
+.selectGrupos > .dropdown-menu {
+    width: 320px;
+    height: 220px !important;
+    max-height: 220px !important;
+    min-height: 220px !important;
+}
+
+.selectGrupos .dropdown-menu > .inner {
+    height: 180px !important;
+    max-height: 180px !important;
+    min-height: 180px !important;
+}
+
+.selectGruposModal > .dropdown-menu {
+    width: 320px;
+    height: 420px !important;
+    max-height: 420px !important;
+    min-height: 420px !important;
+}
+
+.selectGruposModal .dropdown-menu > .inner {
+    height: 380px !important;
+    max-height: 380px !important;
+    min-height: 380px !important;
+}
+
+.ayuda {
+    margin-right: 15px;
+    margin-top: 12px;
+    cursor: pointer;
+}
+
+.input-incorrecto {
+    border-color: mediumvioletred !important;
+    border-width: 3px !important;
+}
+
+/*.input-icon .islc-icon::after {
+    margin-top: 10px;
+}*/
+
+#overlay {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background: rgba(0,0,0,0.6);
+}
+
+.cv-spinner {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px #ddd solid;
+    border-top: 4px #E20025 solid;
+    border-radius: 50%;
+    animation: sp-anime 0.8s infinite linear;
+}
+
+@keyframes sp-anime {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.is-hide {
+    display: none;
+}
+
+.timer {
+    color: white;
+    margin-top: 100px;
+    margin-left: -35px;
+}
+
+.consentimiento-no-check {
+    border: solid;
+    border-radius: 5px;
+    border-color: #E20025;
+    width: 200px;
+    padding: 5px;
+}
+
+.columna-1 {
+    width: 20%;
+}
+
+.columna-2 {
+    width: 70%;
+}
+
+.columna-3 {
+    width: 10%;
+}
+
+.columna-50 {
+    width: 50%;
+}
+
+.toast {
+    opacity: 1 !important;
+}
+
+.password_container::after {
+    content: "";
+    background-image: url("../images/eye_view.svg");
+    background-size: 20px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 33px;
+    right: 10px;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.password_container.pass_hidden::after {
+    background-image: url("../images/pass_hidden.svg");
+}
+
+.eliminar-grupo {
+    cursor: pointer;
+    margin-right: 5px;
+    color: red;
+}
+
+.page-item.active .page-link {
+    color: white !important;
+}
+
+.export {
+    float: right;
+    margin-top: 5px;
+}
+
+.btn-group {
+    display: inherit !important;
+}
+
+.filtro-excel {
+    margin-bottom: 0px !important;
+    margin-top: -12px;
+}
+
+.accordion-button:hover {
+    background-image: url("../images/filters_active.svg") !important;
+}
+
+.inbox_wrapper:hover {
+    opacity: 0.9;
+}
+
+.tabs-emails .nav-link {
+    color: #6E6E6E;
+}
+
+    .tabs-emails .nav-link.active {
+        color: #E20025;
+    }
+
+/*#contenedor-anexos {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+}*/
+
+/*    #contenedor-anexos li {
+        width: 250px;
+        float: left;
+    }*/
+
+.cantidadTotal {
+    font-size: 1.4rem;
+    color: grey;
+}
+
+.page-jump-to {
+    width: 250px;
+    float: right;
+}
+
+    .page-jump-to input {
+        width: 50px !important;
+    }
+
+    .page-jump-to button {
+        margin-left: 5px !important;
+    }
+
+.irPagina {
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.btn-subir-archivo {
+    height: 32px;
+    border-radius: 4px;
+}
+
+.btn-subir-archivo {
+    cursor: pointer;
+    height: 32px;
+    background-color: #F3F3F3;
+    color: black;
+    font-size: 0.875rem;
+    font-weight: bold;
+    border-radius: 4px;
+    line-height: 20px;
+    padding: 0.5em 0.9375em 0.5rem;
+    padding-top: 6px;
+}
+
+    .btn-subir-archivo:hover {
+        background-color: #E20025;
+        color: white;
+    }
+
+.eliminar-doc-externo {
+    float: right;
+    margin-right: 5px;
+    margin-top: -3px;
+    cursor: pointer;
+}
+
+.bootstrap-select .dropdown-menu {
+    width: 100%;
+}

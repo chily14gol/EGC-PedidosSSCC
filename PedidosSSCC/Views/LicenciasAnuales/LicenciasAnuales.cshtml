@@ -1,0 +1,134 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "Licencias Anuales";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Licencias Anuales</h1>
+        <div class="title-btn-group">
+            <button id="btnNuevo" class="btn btn-lg btn-primary btn-ico-agregar">Nueva Licencia Anual</button>
+        </div>
+    </div>
+    <div class="content-box">
+        <table id="tableLicencias" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Proveedor</th>
+                    <th>Tarea</th>
+                    <th class="th-action"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+<!-- Modal Editar/Nueva Licencia -->
+<div class="modal fade" id="modalEditar" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalLabel">Editar Licencia Anual</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="lanId" />
+                <div class="form-group mb-3">
+                    <label for="lanProv">Proveedor *</label>
+                    <select id="lanProv" class="form-control styled-select"></select>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="lanNombre">@Resources.Etiqueta_Nombre *</label>
+                    <input type="text" id="lanNombre" class="form-control" maxlength="100" />
+                </div>
+                <div class="form-group">
+                    <label for="tarea">@Resources.Etiqueta_Tarea</label>
+                    <select id="tarea" class="form-control styled-select"></select>
+                </div>
+                <div class="form-group">
+                    <label for="tiposEnte" class="form-label">@Resources.Etiqueta_TiposEnte</label>
+                    <select id="tiposEnte" class="styled-select form-control" multiple></select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" onclick="guardarLicencia()">@Resources.Boton_Guardar</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@Resources.Modal_Boton_Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Entidades ↔ Licencia Anual -->
+<div class="modal fade" id="modalEntes" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Entidades por Licencia</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="formEntes" class="mb-3 row g-2 align-items-end" style="display: none;">
+                    <input type="hidden" id="elaLanId" />
+                    <input type="hidden" id="elaEntOriginal" />
+                    <div class="col-md-6">
+                        <label for="elaEntId" class="form-label">Entidad *</label>
+                        <select id="elaEntId" class="form-control styled-select"></select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="elaFechaInicio" class="form-label">Fecha Inicio *</label>
+                        <input type="date" id="elaFechaInicio" class="form-control form-control-sm" required />
+                    </div>
+                    <div class="col-md-3">
+                        <label for="elaFechaFin" class="form-label">Fecha Fin *</label>
+                        <input type="date" id="elaFechaFin" class="form-control form-control-sm" />
+                    </div>
+                    <div class="col-md-3">
+                        <label for="chkFacturada" class="form-label">Facturada</label>
+                        <input type="checkbox" id="chkFacturada" />
+                    </div>
+                </form>
+                <div class="modal-footer justify-content-end">
+                    <button id="btnNuevaEnte" class="btn btn-sm btn-secondary" style="display:none;">Nueva entidad</button>
+                    <button id="btnCancelarEnte" type="button" class="btn btn-outline-secondary" style="display:none;">@Resources.Modal_Boton_Cancelar</button>
+                    <button id="btnGuardarEnte" type="button" class="btn btn-primary" onclick="guardarEnteLicencia()">@Resources.Boton_Guardar</button>
+                </div>
+                <table id="tableEntes" class="table table-striped nowrap">
+                    <thead>
+                        <tr>
+                            <th>Entidad</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th class="th-action"><span class="sReader">Acción</span></th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <style>
+        th.th-action, td.td-btn {
+            min-width: 200px;
+            white-space: nowrap;
+        }
+    </style>
+    <script>
+    window.AppConfig = Object.assign({}, window.AppConfig, {
+          urls: {
+                ObtenerLicenciasAnuales:    '@Url.Action("ObtenerLicenciasAnuales", "LicenciasAnuales")',
+                GuardarLicenciaAnual:       '@Url.Action("GuardarLicenciaAnual", "LicenciasAnuales")',
+                EliminarLicenciaAnual:      '@Url.Action("EliminarLicenciaAnual", "LicenciasAnuales")',
+                ObtenerTiposEntePorLicenciaAnual:   '@Url.Action("ObtenerTiposEntePorLicenciaAnual", "LicenciasAnuales")',
+                ObtenerComboProveedores: '@Url.Action("ObtenerProveedores", "Mantenimiento")',
+                ObtenerComboTareas:     '@Url.Action("ObtenerTareasCombo", "Mantenimiento")',
+          }
+    });
+    </script>
+    <script src="~/Scripts/Vistas/LicenciasAnuales/LicenciasAnuales.js?v=@DateTime.Now.Ticks"></script>
+}

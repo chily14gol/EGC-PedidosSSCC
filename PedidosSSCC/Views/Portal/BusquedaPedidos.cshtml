@@ -1,0 +1,507 @@
+﻿@using PedidosSSCC.Properties;
+@{
+    ViewBag.Title = "BusquedaPedidos";
+}
+
+<div class="container-fluid">
+    <div class="section-title-wrapper">
+        <h1 class="page-title">Pedidos</h1>
+        <div class="title-btn-group">
+            <button id="btnGenerarAuto" type="button" class="btn btn-lg btn-primary">
+                <i class="bi bi-gear-fill"></i> Generación Automática
+            </button>
+            <div class="dropdown">
+                <button class="btn btn-outline-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <span class="sReader">Menú de acciones</span>
+                    <i class="bi bi-three-dots-vertical" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false"></i>
+                </button>
+                <ul class="dropdown-menu">
+                    <li id="btnExportarContainer"></li>
+                    <li>
+                        <button id="btnNuevo" type="button" class="dropdown-item">Añadir pedido</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="content-box">
+        <form class="table-filter">
+            <div class="form-default">
+                <div class="buscador">
+                    <input type="text" class="form-control" id="formBuscar" placeholder="@Resources.Placeholder_Buscar">
+                </div>
+            </div>
+            <div class="form-advance">
+                <div class="row">
+                    <div class="col-md-5 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterEmpresa">@Resources.Etiqueta_Empresa</label>
+                            <input type="text" id="filterEmpresa" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-xxl-3">
+                        <div class="form-group">
+                            <label class="form-label" for="filterEmpresaFacturar">Empresa a facturar</label>
+                            <input type="text" id="filterEmpresaFacturar" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-2">
+                        <div class="form-group">
+                            <label class="form-label" for="filterFactura">Nº Pedido</label>
+                            <input type="text" id="filterFactura" class="form-control" maxlength="50">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3 col-xxl-2">
+                        <div class="form-group">
+                            <label class="form-label" for="filterFechaEmision">Fecha Emisión</label>
+                            <input type="text" id="filterFechaEmision" class="form-control input-datepciker">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3 col-xxl-2">
+                        <div class="form-group">
+                            <label class="form-label" for="filterImporteTotal">Importe Total</label>
+                            <input type="text" id="filterImporteTotal" class="form-control" oninput="validarImporte(this)">
+                        </div>
+                    </div>
+                    <div class="col-sm-5 col-md-3 col-xxl-2">
+                        <div class="form-group">
+                            <label class="form-label" for="filterEstado">Estado</label>
+                            <input type="text" id="filterEstado" class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-sm-4 col-md-3 col-xxl-2">
+                        <div class="form-group">
+                            <label class="form-label" for="filterFechaEnlace">Fecha Enlace</label>
+                            <input type="text" id="filterFechaEnlace" class="form-control input-datepciker">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-btn-group">
+                <button type="button" id="btnBuscar" class="btn btn-primary">@Resources.Boton_Buscar</button>
+                <button type="button" id="btnLimpiar" class="btn btn-outline-secondary" style="display: none;">@Resources.Boton_Limpiar</button>
+                <button type="button" id="btnAvanzado" class="btn btn-link">@Resources.Boton_BusquedaAvanzada</button>
+            </div>
+        </form>
+        <table id="tablePedidos" class="table table-striped nowrap" style="width:100%">
+            <thead>
+                <tr>
+                    <th data-priority="1">@Resources.Etiqueta_Empresa</th>
+                    <th>Empresa a facturar</th>
+                    <th>Nº factura</th>
+                    <th>Fecha emisión</th>
+                    <th>Importe total</th>
+                    <th>Estado</th>
+                    <th>Fecha enlace</th>
+                    <th class="th-action" data-priority="2"><span class="sReader">Acción</span></th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        function verPedido(button) {
+            let pedido = JSON.parse(button.getAttribute('data-pedido'));
+            window.location.href = `PedidoDetalle/${pedido.FAC_Id}?mode=view`;
+        }
+
+        function editarPedido(button) {
+            let pedido = JSON.parse(button.getAttribute('data-pedido'));
+            window.location.href = `PedidoDetalle/${pedido.FAC_Id}?mode=edit`;
+        }
+
+        function eliminarPedido(button) {
+            let pedido = JSON.parse(button.getAttribute('data-pedido'));
+
+            mostrarAlertaConfirmacion({
+                titulo: `¿Estás seguro de que deseas eliminar el pedido de '${pedido.EmpresaNombre}'?`,
+                onConfirmar: function () {
+                    $.ajax({
+                        url: '@Url.Action("EliminarPedido", "Portal")',
+                        type: 'POST',
+                        contentType: 'application/json; charset=utf-8',
+                        data: JSON.stringify({ idPedido: pedido.FAC_Id }),
+                        dataType: 'json'
+                    })
+                    .done(function (response) {
+                        if (response.success) {
+                            mostrarToast("Pedido eliminado correctamente.", TipoToast.Success);
+
+                            let tabla = $('#tablePedidos').DataTable();
+                            tabla.ajax.reload(null, false);
+                        } else {
+                            mostrarToast("No se puede eliminar el pedido ya que tiene empresas asociadas.", TipoToast.Warning);
+                        }
+                    })
+                    .fail(function (xhr, status, error) {
+                        const mensaje = obtenerMensajeErrorAjax(xhr);
+                        registrarErrorjQuery(xhr.status, mensaje);
+                    });
+                }
+            });
+        }
+
+        $(document).ready(async function () {
+            let storageKey = Filtros.Pedidos;
+
+            await VerificarSesionActiva(OpcionMenu.Pedidos);
+            await establecerFiltros();
+
+            async function establecerFiltros() {
+                // Recuperar filtros previos si existen
+                let savedFilters = localStorage.getItem(storageKey);
+                let hasFilters = false;
+
+                if (savedFilters) {
+                    savedFilters = JSON.parse(savedFilters);
+                    $("#formBuscar").val(savedFilters.general);
+                    $("#filterEmpresa").val(savedFilters.empresa || "");
+                    $("#filterEmpresaFacturar").val(savedFilters.empresaFacturar || "");
+                    $("#filterFactura").val(savedFilters.factura || "");
+                    $("#filterFechaEmision").val(savedFilters.fechaEmision || "");
+                    $("#filterImporteTotal").val(savedFilters.importeTotal || "");
+                    $("#filterEstado").val(savedFilters.estado || "");
+                    $("#filterFechaEnlace").val(savedFilters.fechaEnlace || "");
+
+                    // Comprobar si al menos un filtro tiene valor
+                    let { general, ...otrosFiltros } = savedFilters;
+                    hasFilters = Object.values(otrosFiltros).some(value => value !== "" && value !== null && value !== undefined);
+                }
+
+               await  ObtenerPedidos();
+
+                setTimeout(function () {
+                    let table = $('#tablePedidos').DataTable();
+                    if (savedFilters?.general) {
+                        table.search(savedFilters.general, false, false).draw();
+                    }
+                }, 200); // Ajusta el tiempo de espera si es necesario
+
+                // Si hay filtros aplicados, mostrar el div de filtros
+                if (hasFilters) {
+                    $("#btnLimpiar").show();
+                    $(".table-filter").addClass('advance');
+                    $('#btnAvanzado').html(`Ocultar Filtros`); // Cambiar icono y texto
+                }
+            }
+
+            function guardarFiltros() {
+                let general = $("#formBuscar").val();
+                let empresa = $('#filterEmpresa').val();
+                let empresaFacturar = $('#filterEmpresaFacturar').val();
+                let factura = $('#filterFactura').val();
+                let fechaEmision = $('#filterFechaEmision').val();
+                let importeTotal = $('#filterImporteTotal').val();
+                let estado = $('#filterEstado').val();
+                let fechaEnlace = $('#filterFechaEnlace').val();
+
+                let filtroActual = {
+                    general: general,
+                    empresa: empresa,
+                    empresaFacturar: empresaFacturar,
+                    factura: factura,
+                    fechaEmision: fechaEmision,
+                    importeTotal: importeTotal,
+                    estado: estado,
+                    fechaEnlace: fechaEnlace
+                };
+
+                // Guardar en localStorage
+                localStorage.setItem(storageKey, JSON.stringify(filtroActual));
+            }
+
+            function generarBotonesPedido(row, permisoEscritura) {
+                const data = `data-pedido="${JSON.stringify(row).replace(/"/g, "&quot;")}"`;
+
+                if (!permisoEscritura || row.FAC_ESO_Id === EstadosSolicitud.Aprobado) {
+                    return `
+                        <button type="button" class="btn btn-icon btn-detalle btn-outline-secondary"
+                            ${data}
+                            onclick="verPedido(this)">
+                            <i class="bi bi-eye-fill" title="Ver"></i>
+                        </button>`;
+                }
+
+                return `
+                    <button type="button" class="btn btn-icon btn-editar btn-outline-secondary"
+                        ${data}
+                        onclick="editarPedido(this)">
+                        <i class="bi bi-pencil-square" title="Editar"></i>
+                    </button>
+                    <button type="button" class="btn btn-icon btn-eliminar btn-outline-secondary"
+                        ${data}
+                        onclick="eliminarPedido(this)">
+                        <i class="bi bi-trash" title="Eliminar"></i>
+                    </button>`;
+            }
+
+            async function ObtenerPedidos() {
+                let permisoEscritura = false;
+                let permisosMenu = JSON.parse(sessionStorage.getItem("permisos")) || [];
+                let permiso = permisosMenu.find(p => p.SPO_SOP_Id === OpcionMenu.Pedidos);
+
+                if (permiso && permiso.SPO_Escritura === true) {
+                    permisoEscritura = true;
+                }
+
+                let columnasConFiltro = [];
+                let tablaDatos = inicializarDataTable('#tablePedidos', {
+                    ajax: {
+                        url: '@Url.Action("ObtenerPedidos", "Portal")',
+                        type: 'GET',
+                        dataSrc: ''
+                    },
+                    columns: [
+                        { data: 'EmpresaNombre', title: 'Empresa' },
+                        { data: 'EmpresaFacturarNombre', title: 'Empresa a facturar' },
+                        { data: 'FAC_NumFactura', title: 'Nº Pedido' },
+                        { data: 'FAC_FechaEmision', title: 'Fecha emisión' },
+                        {
+                            data: 'FAC_ImporteTotal',
+                            title: 'Importe Total',
+                            className: 'dt-type-numeric-with-decimal',
+                            render: function (data) {
+                                return formatMoney(data);
+                            }
+                        },
+                        { data: 'EstadoNombre', title: 'Estado' },
+                        { data: 'FechaEnlace', title: 'Fecha enlace' },
+                        {
+                            className: 'td-btn',
+                            data: null,
+                            title: '<span class="sReader">Acción</span>',
+                            responsivePriority: 2,
+                            orderable: false,
+                            render: function (data, type, row) {
+                                return generarBotonesPedido(row, permisoEscritura);
+                            }
+                        }
+                    ]
+                }, columnasConFiltro, 'export_pedidos');
+
+                $(window).resize(function () {
+                    tablaDatos.columns.adjust().draw();
+                });
+
+                $("#formBuscar").on("keyup input", function () {
+                    tablaDatos.search(this.value, false, false).draw();
+                    tablaDatos.responsive.rebuild();
+                    tablaDatos.responsive.recalc();
+                    tablaDatos.columns.adjust();
+                    tablaDatos.draw(false);
+                    guardarFiltros();
+                });
+            }
+
+            ['#filterFechaEmision', '#filterFechaEnlace'].forEach(selector => {
+                $(selector).datepicker({
+                    format: 'dd/mm/yyyy',
+                    autoclose: true,
+                    todayHighlight: true
+                }).on('show', function () {
+                    $('.datepicker').addClass('datepicker-dropdown');
+                });
+            });
+
+            $('#btnNuevo').on('click', function (e) {
+                window.location.href = '@Url.Action("PedidoNuevo", "Portal")';
+            });
+
+            $('#btnBuscar').on('click', function () {
+                let empresa = $('#filterEmpresa').val();
+                let empresaFacturar = $('#filterEmpresaFacturar').val();
+                let factura = $('#filterFactura').val();
+                let fechaEmision = $('#filterFechaEmision').val();
+                let importeTotal = $('#filterImporteTotal').val();
+                let estado = $('#filterEstado').val();
+                let fechaEnlace = $('#filterFechaEnlace').val();
+
+                let table = $('#tablePedidos').DataTable();
+                table.columns(0).search(empresa).draw();
+                table.columns(1).search(empresaFacturar).draw();
+                table.columns(2).search(factura).draw();
+                table.columns(3).search(fechaEmision).draw();
+                table.columns(4).search(importeTotal).draw();
+                table.columns(5).search(estado).draw();
+                table.columns(6).search(fechaEnlace).draw();
+
+                guardarFiltros();
+            });
+
+            $('#btnGenerarAuto').on('click', async function () {
+                mostrarDivCargando();
+
+                try {
+                    const responsePreview = await $.ajax({
+                        url: '@Url.Action("PrevisualizarPedidosAutomaticamente", "Portal")',
+                        type: 'POST',
+                        contentType: 'application/json; charset=utf-8'
+                    });
+
+                    ocultarDivCargando();
+
+                    if (responsePreview.success) {
+                        const empresas = responsePreview.resumen;
+
+                        if (!empresas || empresas.length === 0) {
+                            Swal.fire({
+                                title: "Sin pedidos",
+                                html: "<p>No hay conceptos pendientes para generar pedidos.</p>",
+                                icon: "info",
+                                confirmButtonText: "Cerrar"
+                            });
+                            return;
+                        }
+
+                        let mensaje = generarResumenPedidos(empresas);
+
+                        const confirmacion = await Swal.fire({
+                            title: "¿Deseas generar los pedidos?",
+                            html: mensaje,
+                            showCancelButton: true,
+                            confirmButtonText: "Sí, generar",
+                            cancelButtonText: "No, cancelar",
+                            confirmButtonColor: "#3085d6",
+                            cancelButtonColor: "#d33",
+                            width: '50%'
+                        });
+
+                        if (confirmacion.isConfirmed) {
+                            // Ejecutar el proceso real
+                            await ejecutarGeneracionPedidos();
+                        }
+
+                    } else {
+                        mostrarErrorPedidos();
+                    }
+                } catch (error) {
+                    ocultarDivCargando();
+                    registrarErrorjQuery(error.status || "", error.message || error);
+                }
+            });
+
+            function generarResumenPedidos(empresas) {
+                let mensaje = "<div class='text-start small'>";
+
+                empresas.forEach(empresa => {
+                    const grupos = [
+                        {
+                            nombre: "Conceptos con tareas de tipo Horas",
+                            descripcion: "",
+                            datos: empresa.Grupo1,
+                            empresaFacturarNombre: empresa.EmpresaFacturarNombre
+                        },
+                        {
+                            nombre: "Conceptos de inversión",
+                            descripcion: "",
+                            datos: empresa.Grupo2,
+                            empresaFacturarNombre: ""
+                        },
+                        {
+                            nombre: "Otros conceptos",
+                            descripcion: "",
+                            datos: empresa.Grupo3,
+                            empresaFacturarNombre: ""
+                        }
+                    ];
+
+                    grupos.forEach(grupo => {
+                        if (grupo.datos.length > 0) {
+                            mensaje += `
+<div style="border: 1px solid #e0e0e0; border-radius: 8px; padding: 10px 12px; margin-bottom: 16px; box-shadow: 1px 1px 4px rgba(0,0,0,0.05);">
+    <div class="fw-semibold mb-2" style="font-size: 0.95rem;">
+        🔹 <strong>${empresa.EmpresaNombre}</strong> &nbsp;|&nbsp;
+        <span class="text-muted">Facturar a: ${grupo.empresaFacturarNombre}</span> &nbsp;|&nbsp;
+        <span class="text-primary">${grupo.nombre}</span>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 60% 20% 20%; font-weight: bold; border-bottom: 1px solid #ddd; padding: 4px 0; margin-bottom: 4px;">
+        <div>Tarea</div>
+        <div>Fecha</div>
+        <div style="text-align: right;">Importe total</div>
+    </div>
+`;
+
+                            grupo.datos.forEach(item => {
+                                mensaje += `
+    <div style="display: grid; grid-template-columns: 60% 20% 20%; padding: 4px 0; border-bottom: 1px dashed #eee;">
+        <div>${item.TareaNombre}</div>
+        <div>${item.TLE_Mes}/${item.TLE_Anyo}</div>
+        <div style="text-align: right;">${parseFloat(item.Importe).toFixed(2)} €</div>
+    </div>
+`;
+                            });
+
+                            mensaje += "</div>";
+                        }
+                    });
+                });
+
+                mensaje += "</div>";
+                return mensaje;
+            }
+
+            async function ejecutarGeneracionPedidos() {
+                mostrarDivCargando();
+
+                try {
+                    const response = await $.ajax({
+                        url: '@Url.Action("GenerarPedidosAutomaticamente", "Portal")',
+                        type: 'POST',
+                        contentType: 'application/json; charset=utf-8'
+                    });
+
+                    ocultarDivCargando();
+
+                    if (response.success) {
+                        const resultado = response.resultado;
+                        const mensaje = generarResumenPedidosHTML(resultado);
+
+                        Swal.fire({
+                            title: "Proceso Completado",
+                            html: mensaje,
+                            icon: "success",
+                            confirmButtonText: "Cerrar",
+                            confirmButtonColor: "#3085d6"
+                        });
+
+                        setTimeout(() => {
+                            $('#tablePedidos').DataTable().destroy();
+                            ObtenerPedidos();
+                        }, 200);
+                    } else {
+                        mostrarErrorPedidos();
+                    }
+                } catch (error) {
+                    ocultarDivCargando();
+                    registrarErrorjQuery(error.status || "", error.message || error);
+                }
+            }
+
+            function generarResumenPedidosHTML(resultado) {
+                if (!resultado || resultado.length === 0) {
+                    return "<ul><li><strong>No se ha generado ningún pedido</strong></li></ul>";
+                }
+
+                let mensaje = "<ul style='text-align: left;'>";
+                resultado.forEach(empresa => {
+                    mensaje += `<li><strong>${empresa.EmpresaNombre}</strong>: ${empresa.PedidosGenerados} pedidos</li>`;
+                });
+                mensaje += "</ul>";
+                return mensaje;
+            }
+
+            function mostrarErrorPedidos() {
+                Swal.fire({
+                    title: "Error",
+                    text: "Error al generar los pedidos.",
+                    icon: "error",
+                    confirmButtonText: "Cerrar",
+                    confirmButtonColor: "#d33"
+                });
+            }
+        });
+    </script>
+}

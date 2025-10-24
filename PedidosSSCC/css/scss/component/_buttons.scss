@@ -1,0 +1,548 @@
+@mixin btn-Default {
+    border-radius: rem($br_sm);
+    font-family: $ffAlt;
+    font-size: rem($btn-font-size);
+    line-height: lh(20,$btn-font-size);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: em(7,$btn-font-size) em(22,$btn-font-size) em(5,$btn-font-size);
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+        text-decoration: none;
+    }
+    &:focus-visible {
+        @include focusVisible;
+    }
+}
+@mixin btn-disabled($text: $w, $bg: $disabled, $borderCol: $disabled) {
+    opacity: 1;
+    color: $text;
+    background-color: $bg;
+    border-color: $borderCol;
+    cursor: default;
+    pointer-events: none;
+    &:hover,
+    &:focus,
+    &:focus:active,
+    &:focus-visible {
+        color: $text;
+        border-color: $borderCol;
+        background-color: $bg;
+    }
+}
+@mixin btn-large {
+    border-radius: rem($br_lg);
+    font-size: rem($btn-font-size-lg);
+    line-height: lh(20,$btn-font-size-lg);
+    font-weight: 500;
+    padding: em(9,$btn-font-size-lg) em(24,$btn-font-size-lg) em(9,$btn-font-size-lg);
+}
+@mixin btn-small {
+    border-radius: rem($br_sm);
+    font-size: rem($btn-font-size-sm);
+    line-height: lh(20,$btn-font-size-sm);
+    font-weight: 700;
+    padding: em(6,$btn-font-size-sm) em(14,$btn-font-size-sm) em(8,$btn-font-size-sm);
+}
+
+@mixin btn-primary() {
+    @include btn-Default;
+    color: $w;
+    background-color: $main;
+    border-color: $main;
+
+    &:hover,
+    &:focus-visible {
+        color: $w;
+        background-color: $main700;
+        border-color: $main700;
+    }
+}
+
+@mixin btn-secondary() {
+    @include btn-Default;
+    color: $w;
+    background-color: $secondary;
+    border-color: $secondary;
+
+    &:hover,
+    &:focus-visible {
+        color: $w;
+        background-color: $secondary900;
+        border-color: $secondary900;
+    }
+}
+
+@mixin btn-outline-secondary() {
+    color: $grey600;
+    background-color: $w;
+    border-color: $grey600;
+    font-family: $ffAlt;
+    text-transform: uppercase;
+    letter-spacing: normal;
+
+    &:hover,
+    &:focus-visible {
+        color: $w;
+        background-color: $grey600;
+        border-color: $grey600;
+    }
+}
+
+
+
+.btn,
+.btn-default {
+    @include btn-Default;
+    color: $secondary;
+    background-color: $w;
+    border: solid rem(1) $secondary;
+
+    &:hover,
+    &:focus,
+    //&:focus:active,
+    &:focus-visible {
+        color: $w;
+        border-color: $secondary;
+        background-color: $secondary;
+    }
+    // &:disabled,
+    // &[disabled] {
+    //     @include btn-disabled;
+    // }
+    // &.btn-lg {
+    //     @include btn-large;
+    // }
+    // &.btn-sm {
+    //     @include btn-small;
+    // }
+}
+.btn {
+     &-primary {
+        @include btn-primary;
+    //     &:disabled,
+    //     &[disabled] {
+    //         @include btn-disabled;
+    //     }
+    }
+    &-secondary {
+        @include btn-secondary;
+    //     &:disabled,
+    //     &[disabled] {
+    //         @include btn-disabled($disabled, $w, $disabled);
+    //     }
+    }
+    &-outline-secondary {
+        @include btn-outline-secondary;
+    //     &:disabled,
+    //     &[disabled] {
+    //         @include btn-disabled($disabled, $w, $disabled);
+    //     }
+    }
+    &.btn-lg{
+        @include btn-large();
+    }
+    &.btn-sm{
+        @include btn-small();
+    }
+    &-link {
+        font-family: $ff;
+        font-size: rem(16);
+        line-height: lh(24,16);
+        font-weight: 500;
+        letter-spacing: 0;
+        padding: 0;
+        border: none;
+        background: none;
+        color: $secondary900;
+        text-transform: none;
+        text-decoration: underline;
+        &:hover,
+        &:focus,
+        &:focus:active,
+        &:focus-visible {
+            text-decoration: none;
+            color: $main;
+            background: none;
+            border: none;
+        }
+    }
+    &.btn-ico-agregar {
+        &:before {
+            content:'';
+            display: inline-block;
+            width: rem(12);
+            height: rem(12);
+            background: url(#{$img}ico-agregar.svg) no-repeat center;
+            background-size: rem(12);
+            margin-inline: rem(-1) rem(8);
+            filter: $cf_w;
+        }
+        &.btn-outline-secondary {
+            &:before {
+                filter: $cf_grey600;
+            }
+        }
+    }
+}
+
+.btn-wrapper {
+    // margin-top: rem(17);
+    // display: flex;
+
+    // @media screen and (min-width: $sm-min) {
+    //     gap: rem(24);
+    //     justify-content: space-between;
+    //     &.justify-content-end {
+    //         justify-content: flex-end;
+    //     }
+    //     .btn,
+    //     .btn-default {
+    //         width: auto;
+    //     }
+    // }
+    // @media screen and (max-width: $sm-max) {
+    //     gap: rem(12);
+    //     flex-direction: column;
+    // }
+    // .move2left {
+    //     margin-right: auto;
+    // }
+    // .move2right {
+    //     margin-left: auto;
+    // }
+}
+
+.dropdown-toggle{
+    border-color: $secondary900;
+    .bi {
+        display: none;
+    }
+    &:before {
+        content: '';
+        display: block;
+        width: rem(20);
+        height: rem(20);
+        background: url('#{$img}ico-actionmenu.svg') no-repeat center;
+        background-size: rem(20);
+        filter: $cf_secondary900;
+    }
+    &.btn-lg {
+        padding: rem(9) rem(9);
+    }
+}
+
+
+
+$color-hover: darken($main,10%);
+
+.btn-outline-secondary {
+    padding-inline: rem(22);
+    padding-block: rem(7) rem(5);    
+    background-color: $w;
+    &:focus,
+    &:focus-visible,
+    &:active,
+    &:hover{
+        background-color: #6E6E6E !important;
+        &::before {
+            filter: $cf_w;
+        }
+    }
+	
+}
+
+.btn-primary {
+   padding-inline: rem(22);
+    padding-block: rem(7) rem(5);    
+    background-color: $main;
+    border: solid rem(1) $main;
+    color: $w;
+    font-family: $ffAlt;
+    font-style: normal;
+    font-weight: bold;
+
+    &:hover {
+        color: $w;
+        border-color: $main;
+        background-color: $color-hover;
+    }
+
+    &:active {
+        border-color: $main700;
+        background-color: $main700;
+    }
+
+    &:focus {
+        background-color: $main700;
+        border-color: $main700;
+    }
+}
+
+.btn-outline-primary {
+    background-color: $w;
+    color: $main;
+    // padding-top: rem($br_sm);
+    // padding-bottom: rem($br_sm);
+    // padding-left: rem(24);
+    // padding-right: rem(24);
+    padding-inline: rem(24);
+    padding-block: rem($br_sm);
+    border: solid rem(1) $main;
+    font-family: $ffAlt;
+    font-style: normal;
+    font-weight: bold;
+
+    &:hover {
+      background-color: $main;
+      border-color: $main;
+      color: $w;
+    }
+
+    &:active {
+      border-color: $main !important;
+      background-color: $main !important;
+    }
+
+    &:focus {
+      box-shadow: rgba($main,0.5);
+    }
+}
+
+.btn-option {
+  &:hover {
+    border: rem(1) solid $main;
+  }
+  
+}
+
+.btn.btn-icon {
+    padding: rem(5);
+    min-width: rem(32);
+    .bi {
+        //display: none;
+        position: relative;
+        display: inline-block;
+        width: rem(16);
+        height: rem(16);
+        &::before {
+            font-size: rem(16);
+            width: rem(16);
+            height: rem(16);
+            display: inline-block;
+            min-width: rem(16);
+            vertical-align: middle;
+        }
+    }
+    
+    &:before {
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        filter: $cf_grey600;
+    }
+    &:hover,
+    &:focus-visible,
+    &:active,
+    &:focus {
+        background-color: $grey600;
+        border-color: $grey600;
+        &:before {
+            filter: $cf_w;
+        }
+    }
+    &.btn-primary {
+        &:before {
+            filter: $cf_w;
+        }
+        &:hover,
+        &:focus-visible,
+        &:active,
+        &:focus {
+            background-color: $main700;
+            border-color: $main700;
+        }
+    }
+    &.btn-editar,
+    &.btn-eliminar,
+    &.btn-detalle,
+    &.btn-buscar,
+    &.btn-descargar {
+        padding: rem(7);
+        //min-width: rem(32);
+        &::before {
+            content: '';
+        }
+
+        .bi {
+            display: none;
+        }
+    }
+
+    &.btn-editar:before {
+        background-image: url(#{$img}ico-editar.svg);
+        // i.bi {
+        //     &.bi-pencil-square{
+                
+        //         background-repeat: no-repeat;
+        //         width: 1rem;
+        //         height: 1rem;
+        //         filter: $cf_grey600;
+        //     }
+        // }
+    }
+
+    &.btn-eliminar:before {
+        background-image: url(#{$img}ico-eliminar.svg);
+    }
+
+    &.btn-detalle:before {
+        background-image: url(#{$img}ico-ver.svg);
+    }
+    &.btn-buscar:before {
+        background-image: url(#{$img}ico-buscar.svg);
+    }
+
+    &.btn-descargar:before {
+        background-image: url(#{$img}ico-descargar.svg);
+    }
+}
+
+.page-link {
+    padding: rem(3);
+    min-width: rem(32); 
+    border-radius: rem(4);
+    margin-right: rem(16);
+    font-size: rem(14);
+}
+  
+.btnNuevo {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+//Sección botonera
+.btn-group-wrapper,
+#toolbar.btn-group-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: rem(24);
+    margin-block: rem(32) rem(40);
+    @media screen and (max-width: $lg-max) {
+        justify-content: flex-end;
+    }
+    @media screen and (max-width: $sm-max) {
+        > .btn {
+            flex: 1 1 auto;
+        }
+    }
+    @media screen and (max-width: $sm-max) and (orientation: portrait) {
+        > .btn {
+            flex: 1 1 100%;
+        }
+    }
+}
+  
+#toolbar {
+    //margin-left: 25px;
+}
+
+.dropdown-menu {
+    .dropdown-item {
+        font-family: $ffAlt;
+        text-transform: uppercase;
+        font-size: rem(14);
+        font-weight: 600;
+        color: $secondary;
+        .bi {
+            margin-inline-end: rem(9);
+        }
+        .bi-download, 
+        .bi-upload {
+            &:before {
+                content: '';
+                display: inline-block;
+                width: rem(16);
+                height: rem(16);
+                background-repeat: no-repeat;
+                background-size: rem(16);
+                background-position: center;
+                filter: $cf_secondary;
+            }
+        }
+        &:active {
+            color: $w;
+            .bi-download, 
+            .bi-upload {
+                &:before {filter: $cf_w;}
+            }
+        }
+        .bi-download:before {background-image: url(#{$img}ico-descargar.svg);}
+        .bi-upload:before {background-image: url(#{$img}ico-importar.svg);}
+    }
+}
+
+.dt-buttons {
+    .dt-button {
+        padding-inline: rem(16);
+        padding-block: rem(7) rem(4);
+    }
+}
+.buttons-excel,
+.buttons-html5 {
+    &:before {
+        content: '';
+        display: inline-block;
+        width: rem(16);
+        height: rem(16);
+        background: url(#{$img}ico-descargar.svg) no-repeat center;
+        background-size: rem(16);
+        margin-inline: 0 rem(8);
+        vertical-align: top;
+        filter: $cf_grey600;
+    }
+    &:hover,
+    &:focus-visible {
+        &:before {
+            filter: $cf_w;
+        }
+    }
+}
+
+.selection {
+    // width: rem(34) !important;
+    .select2-selection.select2-selection--single {
+        background-color: $w;
+        border: rem(1) solid $b;
+        padding: rem(2) rem(10);
+        border-radius: rem(4);
+        height: rem(34);
+        font-size: rem(16);
+        .select2-selection__rendered {
+            font-size: rem(16);
+            padding-left: rem(0);
+            color: $b;
+            .select2-selection__placeholder {
+                height: rem(34);
+                color: $b;
+            }
+        }
+        .select2-selection__arrow {
+            height: rem(34);
+            width: rem(22);
+            background-image: url(#{$img}ico-caret.svg);
+            background-repeat: no-repeat;
+            background-position: right rem(9) center;
+            b {
+                display: none;
+            }
+        }
+    }
+}

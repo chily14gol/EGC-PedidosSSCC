@@ -1,0 +1,4 @@
+﻿ERROR | 07/04/2025 12:46:56 | https://localhost:44368/Portal/BusquedaEnlaces | Estado: , Error: Error desconocido del servidor.
+ERROR | 07/04/2025 12:46:56 | https://localhost:44368/Portal/BusquedaEnlaces | Estado: , Error: Error desconocido del servidor.
+ERROR | 07/04/2025 12:47:33 | https://localhost:44368/Portal/BusquedaEnlaces | Estado: , Error: Referencia a objeto no establecida como instancia de un objeto.
+ERROR | 07/04/2025 12:47:33 | https://localhost:44368/Portal/BusquedaEnlaces | Estado: , Error: Referencia a objeto no establecida como instancia de un objeto.

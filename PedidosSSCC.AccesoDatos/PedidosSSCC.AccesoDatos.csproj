@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{230917C0-27A5-46BC-9DF5-173B7F0E8068}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AccesoDatos</RootNamespace>
+    <AssemblyName>AccesoDatos</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugGORKA|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugGORKA\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Debug\AccesoDatos.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=7.7.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.7.7.0\lib\net462\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.Interfaces, Version=7.7.0.0, Culture=neutral, PublicKeyToken=a694d7f3b0907a61, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.Interfaces.7.7.0\lib\net462\EPPlus.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus.System.Drawing, Version=7.7.0.0, Culture=neutral, PublicKeyToken=2308d35469c9bac0, processorArchitecture=MSIL">
+      <HintPath>..\packages\EPPlus.System.Drawing.7.7.0\lib\net462\EPPlus.System.Drawing.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=3.0.4.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.3.0.4\lib\net462\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IO.RecyclableMemoryStream.3.0.1\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL\DAL_Aplicaciones.cs" />
+    <Compile Include="DAL\DAL_Aplicaciones_Modulos.cs" />
+    <Compile Include="DAL\DAL_Aplicaciones_Modulos_Empresas.cs" />
+    <Compile Include="DAL\DAL_Aplicaciones_Modulos_Tarifas.cs" />
+    <Compile Include="DAL\DAL_Aplicaciones_Tarifas.cs" />
+    <Compile Include="DAL\DAL_Aplicaciones_TiposEnte.cs" />
+    <Compile Include="DAL\DAL_CategoriasTicket.cs" />
+    <Compile Include="DAL\DAL_ConceptosFacturacion.cs" />
+    <Compile Include="DAL\DAL_ContratosCAU.cs" />
+    <Compile Include="DAL\DAL_ContratosCAU_ExcluidasGuardia.cs" />
+    <Compile Include="DAL\DAL_ContratosLicenciasAnuales.cs" />
+    <Compile Include="DAL\DAL_ContratosLicenciasAnuales_Tarifas.cs" />
+    <Compile Include="DAL\DAL_Departamentos.cs" />
+    <Compile Include="DAL\DAL_Empresas_Departamentos.cs" />
+    <Compile Include="DAL\DAL_Entes.cs" />
+    <Compile Include="DAL\DAL_Entes_Aplicaciones.cs" />
+    <Compile Include="DAL\DAL_Entes_Licencias.cs" />
+    <Compile Include="DAL\DAL_Entes_LicenciasAnuales.cs" />
+    <Compile Include="DAL\DAL_EstadosTicket.cs" />
+    <Compile Include="DAL\DAL_FacturasP.cs" />
+    <Compile Include="DAL\DAL_GruposGuardia.cs" />
+    <Compile Include="DAL\DAL_ItemNumbersD365.cs" />
+    <Compile Include="DAL\DAL_Licencias.cs" />
+    <Compile Include="DAL\DAL_LicenciasAnuales.cs" />
+    <Compile Include="DAL\DAL_LicenciasExcel.cs" />
+    <Compile Include="DAL\DAL_Licencias_Excepciones.cs" />
+    <Compile Include="DAL\DAL_Licencias_Excepciones_LicenciasReemplazo.cs" />
+    <Compile Include="DAL\DAL_Licencias_Incompatibles.cs" />
+    <Compile Include="DAL\DAL_Licencias_Minimos.cs" />
+    <Compile Include="DAL\DAL_Licencias_Tarifas.cs" />
+    <Compile Include="DAL\DAL_LineasNegocio_Idioma.cs" />
+    <Compile Include="DAL\DAL_Oficinas.cs" />
+    <Compile Include="DAL\DAL_OrigenesTicket.cs" />
+    <Compile Include="DAL\DAL_PeriodosPartes.cs" />
+    <Compile Include="DAL\DAL_ProductosD365.cs" />
+    <Compile Include="DAL\DAL_Configuraciones.cs" />
+    <Compile Include="DAL\DAL_Empresas_Aprobadores.cs" />
+    <Compile Include="DAL\DAL_EnlacesContables.cs" />
+    <Compile Include="DAL\DAL_Proveedores.cs" />
+    <Compile Include="DAL\DAL_Proveedores_Asuntos.cs" />
+    <Compile Include="DAL\DAL_Proveedores_ContratosSoporte.cs" />
+    <Compile Include="DAL\DAL_Proveedores_ContratosSoporte_Reparto.cs" />
+    <Compile Include="DAL\DAL_Proyectos.cs" />
+    <Compile Include="DAL\DAL_Proyectos_Departamentos.cs" />
+    <Compile Include="DAL\DAL_Proyectos_Empresas.cs" />
+    <Compile Include="DAL\DAL_Proyectos_Partes.cs" />
+    <Compile Include="DAL\DAL_Proyectos_Partes_Horas.cs" />
+    <Compile Include="DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Aplicaciones.cs" />
+    <Compile Include="DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Asuntos.cs" />
+    <Compile Include="DAL\DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales.cs" />
+    <Compile Include="DAL\DAL_Tareas_Empresas_LineasEsfuerzo_LicenciasMS.cs" />
+    <Compile Include="DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Modulos.cs" />
+    <Compile Include="DAL\DAL_Tareas_Empresas_LineasEsfuerzo_ModulosReparto.cs" />
+    <Compile Include="DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Partes.cs" />
+    <Compile Include="DAL\DAL_Tareas_Empresas_LineasEsfuerzo_Tickets.cs" />
+    <Compile Include="DAL\DAL_Telefonia.cs" />
+    <Compile Include="DAL\DAL_Tickets.cs" />
+    <Compile Include="DAL\DAL_TiposCuota.cs" />
+    <Compile Include="DAL\DAL_TiposEnte.cs" />
+    <Compile Include="DAL\DAL_TiposTarea.cs" />
+    <Compile Include="DAL\DAL_TiposTicket.cs" />
+    <Compile Include="DAL\DAL_UnidadesTarea_Idioma.cs" />
+    <Compile Include="DAL\DAL_Secciones.cs" />
+    <Compile Include="DAL\DAL_Facturas_Tareas_LineasEsfuerzo.cs" />
+    <Compile Include="DAL\DAL_Facturas.cs" />
+    <Compile Include="DAL\DAL_Seguridad_Opciones.cs" />
+    <Compile Include="DAL\DAL_Seguridad_Perfiles.cs" />
+    <Compile Include="DAL\DAL_Tareas_Empresas.cs" />
+    <Compile Include="DAL\DAL_Tareas.cs" />
+    <Compile Include="DAL\DAL_Tareas_Empresas_LineasEsfuerzo.cs" />
+    <Compile Include="DAL\DAL_Empresas.cs" />
+    <Compile Include="DAL\DAL_Base.cs" />
+    <Compile Include="DAL\DAL_Personas.cs" />
+    <Compile Include="DAL\DAL_Usuarios.cs" />
+    <Compile Include="DAL\DAL_ValidacionesTicket.cs" />
+    <Compile Include="DAL\DAL_Licencias_TiposEnte.cs" />
+    <Compile Include="DAL\DAL_LicenciasAnuales_TiposEnte.cs" />
+    <Compile Include="Entidades\ContratosCAU_ExcluidasGuardia.cs" />
+    <Compile Include="Entidades\Telefonia.cs" />
+    <Compile Include="Entidades\Aplicaciones.cs" />
+    <Compile Include="Entidades\Aplicaciones_Modulos.cs" />
+    <Compile Include="Entidades\Aplicaciones_Modulos_Empresas.cs" />
+    <Compile Include="Entidades\Aplicaciones_Modulos_Tarifas.cs" />
+    <Compile Include="Entidades\Aplicaciones_Tarifas.cs" />
+    <Compile Include="Entidades\Aplicaciones_TiposEnte.cs" />
+    <Compile Include="Entidades\CategoriasTicket.cs" />
+    <Compile Include="Entidades\ConceptosFacturacion.cs" />
+    <Compile Include="Entidades\ContratosCAU.cs" />
+    <Compile Include="Entidades\ContratosLicenciasAnuales.cs" />
+    <Compile Include="Entidades\ContratosLicenciasAnuales_Tarifas.cs" />
+    <Compile Include="Entidades\Departamentos.cs" />
+    <Compile Include="Entidades\Empresas_Departamentos.cs" />
+    <Compile Include="Entidades\Entes.cs" />
+    <Compile Include="Entidades\Entes_Aplicaciones.cs" />
+    <Compile Include="Entidades\Entes_Licencias.cs" />
+    <Compile Include="Entidades\Entes_LicenciasAnuales.cs" />
+    <Compile Include="Entidades\EstadosTicket.cs" />
+    <Compile Include="Entidades\FacturasP.cs" />
+    <Compile Include="Entidades\GruposGuardia.cs" />
+    <Compile Include="Entidades\ItemNumbersD365.cs" />
+    <Compile Include="Entidades\Configuraciones.cs" />
+    <Compile Include="Entidades\Empresas_Aprobadores.cs" />
+    <Compile Include="Entidades\EnlacesContables.cs" />
+    <Compile Include="Entidades\ConceptosFacturacion_Idioma.cs" />
+    <Compile Include="Entidades\Licencias.cs" />
+    <Compile Include="Entidades\LicenciasAnuales.cs" />
+    <Compile Include="Entidades\LicenciasAnuales_TiposEnte.cs" />
+    <Compile Include="Entidades\Licencias_Excepciones.cs" />
+    <Compile Include="Entidades\Licencias_Excepciones_LicenciasReemplazo.cs" />
+    <Compile Include="Entidades\Licencias_Incompatibles.cs" />
+    <Compile Include="Entidades\Licencias_Minimos.cs" />
+    <Compile Include="Entidades\Licencias_Tarifas.cs" />
+    <Compile Include="Entidades\Licencias_TiposEnte.cs" />
+    <Compile Include="Entidades\LineasNegocio.cs" />
+    <Compile Include="Entidades\LineasNegocio_Idioma.cs" />
+    <Compile Include="Entidades\Oficinas.cs" />
+    <Compile Include="Entidades\OrigenesTicket.cs" />
+    <Compile Include="Entidades\PeriodosPartes.cs" />
+    <Compile Include="Entidades\Proveedores.cs" />
+    <Compile Include="Entidades\ProductosD365.cs" />
+    <Compile Include="Entidades\Proveedores_Asuntos.cs" />
+    <Compile Include="Entidades\Proveedores_ContratosSoporte.cs" />
+    <Compile Include="Entidades\Proveedores_ContratosSoporte_Reparto.cs" />
+    <Compile Include="Entidades\Proyectos.cs" />
+    <Compile Include="Entidades\Proyectos_Departamentos.cs" />
+    <Compile Include="Entidades\Proyectos_Empresas.cs" />
+    <Compile Include="Entidades\Proyectos_Partes.cs" />
+    <Compile Include="Entidades\Proyectos_Partes_Horas.cs" />
+    <Compile Include="Entidades\Tareas_Empresas_LineasEsfuerzo_Aplicaciones.cs" />
+    <Compile Include="Entidades\Tareas_Empresas_LineasEsfuerzo_Asuntos.cs" />
+    <Compile Include="Entidades\Tareas_Empresas_LineasEsfuerzo_LicenciasAnuales.cs" />
+    <Compile Include="Entidades\Tareas_Empresas_LineasEsfuerzo_LicenciasMS.cs" />
+    <Compile Include="Entidades\Tareas_Empresas_LineasEsfuerzo_Modulos.cs" />
+    <Compile Include="Entidades\Tareas_Empresas_LineasEsfuerzo_ModulosReparto.cs" />
+    <Compile Include="Entidades\Tareas_Empresas_LineasEsfuerzo_Partes.cs" />
+    <Compile Include="Entidades\Tareas_Empresas_LineasEsfuerzo_Tickets.cs" />
+    <Compile Include="Entidades\Tickets.cs" />
+    <Compile Include="Entidades\TiposCuota.cs" />
+    <Compile Include="Entidades\TiposEnte.cs" />
+    <Compile Include="Entidades\TiposTarea.cs" />
+    <Compile Include="Entidades\TiposTicket.cs" />
+    <Compile Include="Entidades\UnidadesTarea_Idioma.cs" />
+    <Compile Include="Entidades\UnidadesTarea.cs" />
+    <Compile Include="Entidades\Secciones.cs" />
+    <Compile Include="Entidades\EstadosSolicitud.cs" />
+    <Compile Include="Entidades\EstadosSolicitud_Idioma.cs" />
+    <Compile Include="Entidades\Facturas_Tareas_LineasEsfuerzo.cs" />
+    <Compile Include="Entidades\Facturas.cs" />
+    <Compile Include="Entidades\Seguridad_Opciones.cs" />
+    <Compile Include="Entidades\Seguridad_Perfiles.cs" />
+    <Compile Include="Entidades\Tareas_Empresas_LineasEsfuerzo.cs" />
+    <Compile Include="Entidades\Tareas_Empresas.cs" />
+    <Compile Include="Entidades\Tareas.cs" />
+    <Compile Include="Entidades\Empresas.cs" />
+    <Compile Include="Entidades\Entidad_Base.cs" />
+    <Compile Include="Entidades\Personas.cs" />
+    <Compile Include="Entidades\Usuarios.cs" />
+    <Compile Include="Entidades\ValidacionesTicket.cs" />
+    <Compile Include="FacturacionEGC.cs">
+      <DependentUpon>FacturacionEGC.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="FacturacionEGC.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FacturacionEGC.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="FacturacionEGCDataContext.cs" />
+    <Compile Include="Parametros.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="FacturacionEGC.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>FacturacionEGC.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FacturacionEGC.dbml.layout">
+      <DependentUpon>FacturacionEGC.dbml</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PedidosSSCC.Comun\PedidosSSCC.Comun.csproj">
+      <Project>{8266C6EE-0AA1-460F-B115-FDCAAFBDB6F6}</Project>
+      <Name>PedidosSSCC.Comun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Serikat\Serikat.csproj">
+      <Project>{ad58ab7b-5562-413a-8eab-b9e557b2faa6}</Project>
+      <Name>Serikat</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Este proyecto hace referencia a los paquetes NuGet que faltan en este equipo. Use la restauración de paquetes NuGet para descargarlos. Para obtener más información, consulte http://go.microsoft.com/fwlink/?LinkID=322105. El archivo que falta es {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
