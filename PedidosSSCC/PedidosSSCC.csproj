@@ -310,6 +310,7 @@
     <Compile Include="Controllers\TelefoniaController.cs" />
     <Compile Include="Controllers\TicketsController.cs" />
     <Compile Include="Filters\CustomExceptionFilter.cs" />
+    <Compile Include="ViewModels\LogEntryViewModel.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
