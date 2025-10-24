@@ -1,27 +1,56 @@
-﻿@model List<string>
+@model IList<PedidosSSCC.ViewModels.LogEntryViewModel>
 
-@if (Model.Count == 0)
-{
-    <p>No hay errores registrados.</p>
+@using System
+@using System.Globalization
+
+@{
+    var fechasDisponibles = ViewBag.Fechas as List<string> ?? new List<string>();
+    string fechaSeleccionada = ViewBag.FechaSeleccionada as string;
+    string errorLectura = ViewBag.ErrorLecturaLogs as string;
+    bool sinLogs = ViewBag.SinLogs is bool flag && flag;
+    bool hayErrores = Model != null && Model.Count > 0;
 }
-else
-{
-    <div class="container text-center mt-5">
-        <h2>
-            <i class="bi bi-emoji-frown text-danger"></i> Registro de Errores
-        </h2>
-        <p class="text-muted">Parece que algunos bugs han decidido hacer de las suyas</p>
 
+<div class="container text-center mt-5">
+    <h2>
+        <i class="bi bi-emoji-frown text-danger"></i> Registro de Errores
+    </h2>
+    <p class="text-muted">Parece que algunos bugs han decidido hacer de las suyas</p>
+
+    @if (!string.IsNullOrEmpty(errorLectura))
+    {
+        <div class="alert alert-danger" role="alert">
+            @errorLectura
+        </div>
+    }
+    else if (sinLogs)
+    {
+        <div class="alert alert-info" role="alert">
+            No hay errores registrados.
+        </div>
+    }
+    else if (!hayErrores)
+    {
+        <div class="alert alert-warning" role="alert">
+            No se pudieron cargar los registros de error.
+        </div>
+    }
+    else
+    {
         <div class="container mt-4">
             <form method="get" class="form-inline mb-3">
                 <label for="fecha" class="me-2">Filtrar por fecha:</label>
                 <select name="fecha" id="fecha" class="form-select w-auto d-inline-block me-2" onchange="this.form.submit()">
                     <option value="">Todas</option>
-                    @foreach (var fecha in ViewBag.Fechas as List<string>)
+                    @foreach (var fecha in fechasDisponibles)
                     {
-                        var fechaFormateada = DateTime.Parse(fecha).ToString("dd/MM/yyyy");
+                        var fechaFormateada = fecha;
+                        if (DateTime.TryParseExact(fecha, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out var fechaConvertida))
+                        {
+                            fechaFormateada = fechaConvertida.ToString("dd/MM/yyyy");
+                        }
 
-                        <option value="@fecha" @(fecha == ViewBag.FechaSeleccionada ? "selected" : "")>
+                        <option value="@fecha" @(fecha == fechaSeleccionada ? "selected" : "")>
                             @fechaFormateada
                         </option>
                     }
@@ -40,64 +69,35 @@ else
                     </tr>
                 </thead>
                 <tbody>
-                <tbody>
-                <tbody>
-                    @foreach (var error in Model)
+                    @foreach (var log in Model)
                     {
-                        var lineas = error.Split('\n');
-                        var encabezado = lineas[0].Split('|');
-
-                        if (encabezado.Length < 2)
-                        {
-                            continue;
-                        }
-
-                        string tipo = encabezado[0].Trim().ToUpper();
-                        DateTime fecha = DateTime.Parse(encabezado[1].Trim());
-                        string url = encabezado.Length >= 4 ? encabezado[2].Trim() : "-";
-                        string mensajeCabecera = encabezado.Length > 3 ? encabezado[3].Trim() : "";
-
-                        if (encabezado.Length == 3)
-                        {
-                            url = "";
-                            mensajeCabecera = encabezado[2].Trim();
-                        }
-                        else
-                        {
-                            url = encabezado[2].Trim();
-                            mensajeCabecera = encabezado[3].Trim();
-                        }
-
-                        // Stack trace o líneas adicionales
-                        string mensajeExtendido = string.Join(" ", lineas.Skip(1).Select(l => l.Trim()));
-
-                        // Mensaje completo combinado
-                        string mensaje = (mensajeCabecera + " " + mensajeExtendido).Trim();
-                        mensaje = System.Net.WebUtility.HtmlDecode(mensaje);
-
-                        string icono = tipo switch
-                        {
-                            "ERROR" => "bi-bug-fill text-danger",
-                            "WARN" => "bi-exclamation-circle-fill text-warning",
-                            "INFO" => "bi-info-circle-fill text-primary",
-                            "DEBUG" => "bi-gear-fill text-muted",
-                            _ => "bi-question-circle text-secondary"
-                        };
+                        bool mostrarUrl = !string.IsNullOrWhiteSpace(log.Url) && log.Url != "-";
+                        Uri urlResultado;
+                        bool urlValida = mostrarUrl && Uri.TryCreate(log.Url, UriKind.Absolute, out urlResultado);
 
                         <tr>
-                            <td><i class="bi @icono"></i> @tipo</td>
-                            <td>@fecha.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                            <td><i class="bi @log.IconClass"></i> @log.Level</td>
+                            <td>@log.DisplayTimestamp</td>
                             <td>
-                                <span class="mensaje-truncado" title="@mensaje">@mensaje</span>
+                                <span class="mensaje-truncado" title="@log.FullMessage">@log.Message</span>
                             </td>
-                            <td>@url</td>
+                            <td>
+                                @if (urlValida)
+                                {
+                                    <a href="@log.Url" target="_blank" rel="noopener">@log.Url</a>
+                                }
+                                else
+                                {
+                                    @(mostrarUrl ? log.Url : "-")
+                                }
+                            </td>
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
-    </div>
-}
+    }
+</div>
 
 <style>
     .mensaje-truncado {

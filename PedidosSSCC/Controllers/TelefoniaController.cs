@@ -215,9 +215,6 @@ namespace PedidosSSCC.Controllers
                 string nombreExcel = $"Planta Vodafone {anio}-{mes}.xlsx";
                 var ficheroPlanta = await SharePointFiles.ObtenerFicherosSharepoint(siteUrl, folderPlanta, nombreExcel);
 
-                if (ficheroPlanta == null)
-                    return Json(new { success = false, message = "No se encontró el fichero de planta en SharePoint." });
-
                 var plantaPorTelefono = new Dictionary<string, PlantaRow>(); // clave: teléfono (solo dígitos)
                 var plantaPorExtension = new Dictionary<string, PlantaRow>(StringComparer.OrdinalIgnoreCase); // clave: EXT.
 
@@ -690,9 +687,24 @@ namespace PedidosSSCC.Controllers
                     return Json(new { success = true, message = $"Importación de roaming correcta. Registros: {dtTelefonia.Rows.Count}" });
                 }
             }
+            catch (FileNotFoundException ex)
+            {
+                log.Warn("Fichero de planta no encontrado en SharePoint", ex);
+                return Json(new { success = false, message = ex.Message });
+            }
+            catch (ConfigurationErrorsException ex)
+            {
+                log.Error("Configuración de SharePoint inválida", ex);
+                return Json(new { success = false, message = "Error de configuración al descargar la planta de SharePoint." });
+            }
+            catch (UriFormatException ex)
+            {
+                log.Error("URL de SharePoint mal formada", ex);
+                return Json(new { success = false, message = "La URL configurada de SharePoint no es válida." });
+            }
             catch (Exception ex)
             {
-                log.Error(ex.Message);
+                log.Error("Error inesperado importando telefonía", ex);
                 return Json(new { success = false, message = ex.Message });
             }
         }
