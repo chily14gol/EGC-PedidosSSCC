@@ -13,7 +13,7 @@ namespace PedidosSSCC.Controllers
         {
             ViewBag.ErrorMessage = (message ?? "Error desconocido.")
                             .Replace("\r", " ") // reemplaza retorno de carro
-                            .Replace("\n", " "); // reemplaza salto de líne
+                            .Replace("\n", " "); // reemplaza salto de línea
             ViewBag.ErrorSource = source ?? "No disponible.";
             ViewBag.ErrorPath = path ?? "Ruta no disponible.";
             ViewBag.Status = status ?? "Status no disponible.";
@@ -46,32 +46,56 @@ namespace PedidosSSCC.Controllers
             log4net.LogManager.Shutdown();
 
             string logPath = Server.MapPath("~/Logs/");
-            var archivos = Directory.GetFiles(logPath, "log_*.txt");
+            var errores = new List<string>();
+            var fechasDisponibles = new List<string>();
 
-            // Obtener lista de fechas disponibles desde los nombres de archivo
-            var fechasDisponibles = archivos
-                .Select(path => Path.GetFileNameWithoutExtension(path).Replace("log_", ""))
-                .OrderByDescending(f => f)
-                .ToList();
-
-            List<string> errores;
-
-            if (string.IsNullOrEmpty(fecha))
+            try
             {
-                // Si no se ha seleccionado fecha, mostrar todos
-                errores = archivos
-                    .SelectMany(path => System.IO.File.ReadAllLines(path, Encoding.UTF8))
-                    .Reverse()
+                if (!Directory.Exists(logPath))
+                {
+                    Directory.CreateDirectory(logPath);
+                }
+
+                var archivos = Directory.GetFiles(logPath, "log_*.txt");
+
+                // Obtener lista de fechas disponibles desde los nombres de archivo
+                fechasDisponibles = archivos
+                    .Select(path => Path.GetFileNameWithoutExtension(path).Replace("log_", ""))
+                    .OrderByDescending(f => f)
                     .ToList();
-            }
-            else
-            {
-                // Mostrar solo el archivo de la fecha seleccionada
-                string archivoSeleccionado = Path.Combine(logPath, $"log_{fecha}.txt");
 
-                errores = System.IO.File.Exists(archivoSeleccionado)
-                    ? System.IO.File.ReadAllLines(archivoSeleccionado, Encoding.UTF8).Reverse().ToList()
-                    : new List<string>();
+                if (string.IsNullOrEmpty(fecha))
+                {
+                    // Si no se ha seleccionado fecha, mostrar todos
+                    errores = archivos
+                        .SelectMany(path => System.IO.File.ReadAllLines(path, Encoding.UTF8))
+                        .Reverse()
+                        .ToList();
+                }
+                else
+                {
+                    // Mostrar solo el archivo de la fecha seleccionada
+                    string archivoSeleccionado = Path.Combine(logPath, $"log_{fecha}.txt");
+
+                    errores = System.IO.File.Exists(archivoSeleccionado)
+                        ? System.IO.File.ReadAllLines(archivoSeleccionado, Encoding.UTF8).Reverse().ToList()
+                        : new List<string>();
+                }
+
+                if (errores.Count == 0)
+                {
+                    ViewBag.SinLogs = true;
+                }
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                log.Error("No se pudo acceder a la carpeta de logs.", ex);
+                ViewBag.ErrorLecturaLogs = "No se pudo acceder a la carpeta de registros por permisos insuficientes.";
+            }
+            catch (IOException ex)
+            {
+                log.Error("Error al leer los archivos de log.", ex);
+                ViewBag.ErrorLecturaLogs = "Ocurrió un problema al leer los archivos de registro.";
             }
 
             ViewBag.Fechas = fechasDisponibles;
